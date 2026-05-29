@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edgarSubmission xmlns:com="http://www.sec.gov/edgar/common" xmlns="http://www.sec.gov/edgar/thirteenffiler">
+  <schemaVersion>X0202</schemaVersion>
+  <headerData>
+    <submissionType>13F-HR</submissionType>
+    <filerInfo>
+      <liveTestFlag>LIVE</liveTestFlag>
+      <filer>
+        <credentials>
+          <cik>0001767640</cik>
+          <ccc>XXXXXXXX</ccc>
+        </credentials>
+      </filer>
+      <periodOfReport>12-31-2023</periodOfReport>
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPage>
+      <reportCalendarOrQuarter>12-31-2023</reportCalendarOrQuarter>
+      <isAmendment>false</isAmendment>
+      <filingManager>
+        <name>PUBLIC INVESTMENT FUND</name>
+        <address>
+          <com:street1>THE PUBLIC INVESTMENT FUND TOWER,</com:street1>
+          <com:street2>KING ABDULLAH FINANCIAL DISTRICT (KAFD)</com:street2>
+          <com:city>AL AQIQ DISTRICT, RIYADH</com:city>
+          <com:stateOrCountry>T0</com:stateOrCountry>
+          <com:zipCode>13519</com:zipCode>
+        </address>
+      </filingManager>
+      <reportType>13F HOLDINGS REPORT</reportType>
+      <form13FFileNumber>028-19159</form13FFileNumber>
+      <provideInfoForInstruction5>N</provideInfoForInstruction5>
+    </coverPage>
+    <signatureBlock>
+      <name>His Excellency Mr. Yasir O. Al-Rumayyan</name>
+      <title>Governor</title>
+      <phone>966.11.813.5001</phone>
+      <signature>/s/ His Excellency Mr. Yasir O. Al-Rumayyan</signature>
+      <city>AL AQIQ DISTRICT, RIYADH</city>
+      <stateOrCountry>T0</stateOrCountry>
+      <signatureDate>02-14-2024</signatureDate>
+    </signatureBlock>
+    <summaryPage>
+      <otherIncludedManagersCount>0</otherIncludedManagersCount>
+      <tableEntryTotal>50</tableEntryTotal>
+      <tableValueTotal>35240699493</tableValueTotal>
+    </summaryPage>
+  </formData>
+</edgarSubmission>

@@ -1,0 +1,20 @@
+{
+  "strategy_id": "P1",
+  "strategy_name": "PIF New Positions Mirror",
+  "initial_nav": 1.0,
+  "final_nav": 0.24223506538166487,
+  "total_return": -0.7577649346183352,
+  "rebalance_count": 19,
+  "orders_count": 259,
+  "holdings_daily_rows": 10224,
+  "portfolio_daily_rows": 1581,
+  "eligible_signals": 130,
+  "excluded_signals": 10,
+  "start_date": "2019-08-07",
+  "end_date": "2025-11-17",
+  "max_drawdown": -0.947917360933,
+  "excluded_signal_reasons": {
+    "missing_trade_date_close": 1,
+    "unapproved_or_missing_symbol_mapping": 9
+  }
+}

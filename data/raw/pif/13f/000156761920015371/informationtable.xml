@@ -1,0 +1,209 @@
+<informationTable xmlns="http://www.sec.gov/edgar/document/thirteenf/informationtable">		<infoTable>
+			<nameOfIssuer>AUTOMATIC DATA PROCESSING IN</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>053015103</cusip>
+			<value>220631</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>1481837</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>1481837</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>BERKSHIRE HATHAWAY INC DEL</nameOfIssuer>
+			<titleOfClass>CL B NEW</titleOfClass>
+			<cusip>084670702</cusip>
+			<value>39054</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>218778</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>218778</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>BOOKING HOLDINGS INC</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>09857L108</cusip>
+			<value>34278</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>21527</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>21527</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>CANADIAN NAT RES LTD</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>136385101</cusip>
+			<value>298652</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>17134359</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>17134359</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>CARNIVAL CORP</nameOfIssuer>
+			<titleOfClass>UNIT 99/99/9999</titleOfClass>
+			<cusip>143658300</cusip>
+			<value>834644</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>50830926</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>50830926</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>CISCO SYS INC</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>17275R102</cusip>
+			<value>270754</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>5805199</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>5805199</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>LIVE NATION ENTERTAINMENT IN</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>538034109</cusip>
+			<value>557014</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>12565167</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>12565167</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>SELECT SECTOR SPDR TR</nameOfIssuer>
+			<titleOfClass>RL EST SEL SEC</titleOfClass>
+			<cusip>81369Y860</cusip>
+			<value>1596339</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>45858624</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>45858624</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>SELECT SECTOR SPDR TR</nameOfIssuer>
+			<titleOfClass>SBI INT-UTILS</titleOfClass>
+			<cusip>81369Y886</cusip>
+			<value>1861428</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>32986504</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>32986504</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>SELECT SECTOR SPDR TR</nameOfIssuer>
+			<titleOfClass>SBI MATERIALS</titleOfClass>
+			<cusip>81369Y860</cusip>
+			<value>1195874</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>21222246</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>21222246</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>SUNCOR ENERGY INC NEW</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>867224107</cusip>
+			<value>859444</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>50975315</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>50975315</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>UBER TECHNOLOGIES INC</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>90353T100</cusip>
+			<value>2263884</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>72840541</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>72840541</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>UNION PAC CORP</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>907818108</cusip>
+			<value>91843</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>543224</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>543224</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+</informationTable>

@@ -1,0 +1,6 @@
+strategy_key,strategy_name,portfolio_rows,holdings_rows,arithmetic_violations,gross_exposure_min,gross_exposure_max,cash_end_min,cash_end_max,weight_sum_min,weight_sum_max,entry_day_pnl_violations,position_count_mismatch_days,non_exact_price_rows,price_status_breakdown
+p1,P1 New Positions Mirror,1581,10224,0,1.000000000000,1.000000000000,0.000000000000,0.000000000000,0.999999999973,1.000000000075,0,0,1,"{""carry_forward_adjusted_close"": 1, ""exact_adjusted_close"": 10223}"
+p2,P2 Full Sleeve Equal Weight,1827,34424,0,1.000000000000,1.000000000000,0.000000000000,0.000000000000,0.999999999968,1.000000000034,0,0,28,"{""carry_forward_adjusted_close"": 28, ""exact_adjusted_close"": 34396}"
+p3,P3 Accumulation Tilt,1827,32627,0,1.000000000000,1.000000000000,0.000000000000,0.000000000000,0.999999999936,1.000000000055,0,0,20,"{""carry_forward_adjusted_close"": 20, ""exact_adjusted_close"": 32607}"
+p4,P4 Exit Avoidance,1827,32627,0,1.000000000000,1.000000000000,0.000000000000,0.000000000000,0.999999999968,1.000000000056,0,0,20,"{""carry_forward_adjusted_close"": 20, ""exact_adjusted_close"": 32607}"
+p5,P5 Cash-Aware Copy,1827,15532,0,0.002331164728,1.000000000000,0.000000000000,2.407166451010,0.002331164728,1.000000000004,0,0,22,"{""carry_forward_adjusted_close"": 22, ""exact_adjusted_close"": 15510}"

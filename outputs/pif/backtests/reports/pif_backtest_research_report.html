@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PIF Backtest Research Report</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 28px auto;
+      max-width: 1180px;
+      color: #0F172A;
+      background: #F8FAFC;
+      line-height: 1.55;
+    }
+    .card {
+      background: white;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    }
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .metric {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .sub {
+      color: #334155;
+      font-size: 13px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    h1, h2, h3 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0 0 10px 0;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      background: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    th, td {
+      border-bottom: 1px solid #E2E8F0;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #F1F5F9;
+    }
+    ul {
+      margin: 8px 0 0 18px;
+    }
+    .neg {
+      background: #FEF2F2;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>PIF 13F Mirroring Backtests</h1>
+    <div class="sub">Research report on lagged sovereign wealth fund mirroring strategies using the Public Investment Fund's disclosed US 13F sleeve.</div>
+  </div>
+
+  <div class="grid3">
+    <div class="card neg">
+      <div class="sub">Headline finding</div>
+      <div class="metric">Cash-aware copying matters</div>
+      <div class="sub">The only positive strategy is the one that copies sell signals into cash rather than forcing full reinvestment.</div>
+    </div>
+    <div class="card">
+      <div class="sub">Best result</div>
+      <div class="metric">P5: +48.9%</div>
+      <div class="sub">The cash-aware copy-trade outperforms every fully invested variant after the split-adjusted rerun.</div>
+    </div>
+    <div class="card">
+      <div class="sub">Core implication</div>
+      <div class="metric">Exposure timing matters</div>
+      <div class="sub">The useful signal appears to be in copying `PIF`'s shrinking or expanding disclosed exposure, not in forcing the disclosed names into a permanently fully invested basket.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Research Question</h2>
+    <p>We tested whether publicly disclosed `PIF` 13F holdings contain investable information once the filing lag is respected. Trades were simulated from the first tradable NYSE close after the public filing date, not from the quarter-end report date. The mark-to-market layer uses split-adjusted closes to avoid false gains from reverse splits and similar corporate actions.</p>
+  </div>
+
+  <div class="card">
+    <h2>Strategies Tested</h2>
+    <ul>
+      <li><strong>P1 New Positions Mirror:</strong> buy only newly disclosed entry names and hold until the next filing window.</li>
+      <li><strong>P2 Full Sleeve Equal Weight:</strong> hold every eligible common-equity name in the disclosed 13F sleeve with equal weights.</li>
+      <li><strong>P3 Accumulation Tilt:</strong> start with the disclosed sleeve, overweight `entry_observed` and `likely_accumulation` names, and exclude `likely_reduction` names.</li>
+      <li><strong>P4 Exit Avoidance:</strong> hold the disclosed sleeve but drop names flagged as `likely_reduction` in the same report period.</li>
+      <li><strong>P5 Cash-Aware Copy Trade:</strong> seed the first disclosed sleeve, then copy later disclosed buys and sells while keeping net sale proceeds in cash instead of forcing reinvestment.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Executive Summary</h2>
+    <ul>
+      <li>The backtests now support a more specific thesis: a naive fully invested mirror does not work, but a cash-aware copy-trade that preserves sale proceeds does generate positive return in this sample.</li>
+      <li>`P5` finishes at `+48.9%`, materially ahead of every fully invested variant. `P2`, the strongest of the fully invested strategies, still loses `32.3%`.</li>
+      <li>`P1` fails primarily because it is too concentrated and too dependent on late, noisy entry signals. It averages only `6.47` names and an average max weight of `59.7%`.</li>
+      <li>`P3` shows a more nuanced failure. The `accumulation_like` bucket has better simple forward returns than the neutral bucket (`12.1%` vs `1.5%`), but the portfolio still underperforms because the tilt amplifies concentration and tail losses.</li>
+      <li>`P4` does not help because the `likely_reduction` filter is directionally wrong in this sample. The names it avoids average `10.2%` forward return, versus `4.8%` for the names it keeps.</li>
+      <li>`P5` changes the interpretation of the disclosure stream. Once we stop redistributing sale proceeds into surviving names and instead allow cash to accumulate, the strategy stops fighting `PIF`'s apparent de-risking behavior.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Results Table</h2>
+    <table><thead><tr><th>Strategy</th><th>Design</th><th>Total Return</th><th>CAGR</th><th>Ann. Vol</th><th>Max Drawdown</th><th>Avg Positions</th><th>Avg Max Weight</th></tr></thead><tbody><tr><td>P1</td><td>New Positions Mirror</td><td>-75.8%</td><td>-20.2%</td><td>60.4%</td><td>-94.8%</td><td>6.47</td><td>59.7%</td></tr><tr><td>P2</td><td>Full Sleeve Equal Weight</td><td>-32.3%</td><td>-5.2%</td><td>43.1%</td><td>-81.1%</td><td>18.84</td><td>23.6%</td></tr><tr><td>P3</td><td>Accumulation Tilt</td><td>-69.3%</td><td>-15.0%</td><td>48.7%</td><td>-88.7%</td><td>17.86</td><td>27.5%</td></tr><tr><td>P4</td><td>Exit Avoidance</td><td>-45.2%</td><td>-7.9%</td><td>44.8%</td><td>-80.9%</td><td>17.86</td><td>25.9%</td></tr><tr><td>P5</td><td>Cash-Aware Copy Trade</td><td>48.9%</td><td>5.6%</td><td>38.3%</td><td>-62.6%</td><td>8.50</td><td>61.6%</td></tr></tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>Sanity Checks</h2>
+    <p>The analysis layer rechecked arithmetic consistency, gross exposure, weight normalization, entry-day PnL leakage, and exact-price coverage. The current result set is mechanically coherent.</p>
+    <table><thead><tr><th>Strategy</th><th>Arithmetic Violations</th><th>Weight Sum Range</th><th>Entry-Day PnL Violations</th><th>Non-Exact Price Rows</th></tr></thead><tbody><tr><td>P1</td><td>0</td><td>1.000000 to 1.000000</td><td>0</td><td>1</td></tr><tr><td>P2</td><td>0</td><td>1.000000 to 1.000000</td><td>0</td><td>28</td></tr><tr><td>P3</td><td>0</td><td>1.000000 to 1.000000</td><td>0</td><td>20</td></tr><tr><td>P4</td><td>0</td><td>1.000000 to 1.000000</td><td>0</td><td>20</td></tr><tr><td>P5</td><td>0</td><td>0.002331 to 1.000000</td><td>0</td><td>22</td></tr></tbody></table>
+  </div>
+
+  <div class="card"><img src="../research_charts/nav.svg" alt="NAV comparison"></div>
+  <div class="card"><img src="../research_charts/drawdown.svg" alt="Drawdown comparison"></div>
+  <div class="grid2">
+    <div class="card"><img src="../research_charts/total_return.svg" alt="Return chart"></div>
+    <div class="card"><img src="../research_charts/risk.svg" alt="Risk chart"></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><img src="../research_charts/positions.svg" alt="Position count chart"></div>
+    <div class="card"><img src="../research_charts/concentration.svg" alt="Concentration chart"></div>
+  </div>
+  <div class="card"><img src="../research_charts/period_heatmap.svg" alt="Rebalance heatmap"></div>
+  <div class="card"><img src="../research_charts/turnover.svg" alt="Turnover chart"></div>
+
+  <div class="card">
+    <h2>Why The Strategies Failed Or Worked</h2>
+    <h3>P1 New Positions Mirror</h3>
+    <p>`P1` is the clearest failure. The strategy buys only newly disclosed names, so it arrives after the disclosure lag and often with only a tiny basket. The cohort-level signal is not useless on simple average (`11.9%` mean forward return and `73.6%` hit rate), but the realized portfolio is too concentrated. The worst single forward return inside the entry sample is `-91.9%`, and the strategy's average max weight stays near `60%`.</p>
+    <h3>P2 Full Sleeve Equal Weight</h3>
+    <p>`P2` loses less because diversification helps. It spreads risk across the broad disclosed sleeve and avoids the severe single-name concentration of `P1`. Even so, the result is still negative. That implies the disclosed sleeve, when mirrored with lag and equal weights, does not provide sufficient edge to overcome the combination of delay, partial observability, and subsequent market performance.</p>
+    <h3>P3 Accumulation Tilt</h3>
+    <p>`P3` is more interesting analytically than `P2`. The accumulation-like bucket does outperform the neutral bucket on simple forward averages, which suggests there may be some directional information in share-count changes. But the implemented portfolio loses badly because the tilt magnifies exposure to a smaller set of names with fatter downside tails. In other words, the signal may exist, but this expression of it is too concentrated.</p>
+    <h3>P4 Exit Avoidance</h3>
+    <p>`P4` fails more simply: the reduction-avoidance heuristic does not work in this sample. The names flagged as likely reductions go on to outperform the names that remain in the sleeve on average, so excluding them is directionally harmful.</p>
+    <h3>P5 Cash-Aware Copy Trade</h3>
+    <p>`P5` is the first strategy whose logic lines up with the intuitive copy-trading story. It sells what the disclosed sleeve appears to sell, keeps those proceeds in cash, and funds later disclosed buys only from that available cash. That matters. Instead of mechanically concentrating into a shrinking set of survivors, the strategy allows gross exposure to fall when `PIF` appears to be reducing the visible sleeve. In this sample, that change in capital treatment is enough to turn the strategy positive.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><img src="../research_charts/p1_quality.svg" alt="P1 quality chart"></div>
+    <div class="card"><img src="../research_charts/p3_bucket.svg" alt="P3 bucket chart"></div>
+  </div>
+  <div class="card"><img src="../research_charts/p4_avoid.svg" alt="P4 avoidance chart"></div>
+
+  <div class="grid2">
+    <div class="card"><img src="../research_charts/p1_contributors.svg" alt="P1 contributors"></div>
+    <div class="card"><img src="../research_charts/p2_contributors.svg" alt="P2 contributors"></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><img src="../research_charts/p4_contributors.svg" alt="P4 contributors"></div>
+    <div class="card"><img src="../research_charts/p5_contributors.svg" alt="P5 contributors"></div>
+  </div>
+
+  <div class="card">
+    <h2>Conclusion</h2>
+    <p>The corrected backtests support a narrower but more interesting conclusion than the earlier fully invested variants suggested. A naive lagged mirror of the disclosed `PIF` sleeve is unattractive, but a cash-aware copy-trade that respects disclosed sells as genuine de-risking does generate positive return in this sample. That suggests the disclosure edge, if it exists at all, is less about blindly owning what `PIF` owns and more about respecting how the visible sleeve expands or contracts over time.</p>
+  </div>
+</body>
+</html>

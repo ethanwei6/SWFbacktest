@@ -1,0 +1,91 @@
+security_key,issuer_name,cusip,title_of_class,baseline_price_eligible_flag,eligibility_note,selected_symbol,selected_exchange,selected_type,selected_country,selected_score,mapping_source,mapping_status,mapping_notes
+00507V109|COM||SH|ACTIVISION BLIZZARD INC,ACTIVISION BLIZZARD INC,00507V109,COM,1,,ATVIEUR,XS,Common Stock,,6,openfigi_cusip,needs_review,Auto-selected from OpenFIGI CUSIP mapping.
+00724F101|COM||SH|ADOBE INC,ADOBE INC,00724F101,COM,1,,ADBE,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+00724F101|COM||SH|ADOBE SYSTEMS INCORPORATED,ADOBE SYSTEMS INCORPORATED,00724F101,COM,1,,ADBE,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+007903107|COM||SH|ADVANCED MICRO DEVICES INC,ADVANCED MICRO DEVICES INC,007903107,COM,1,,AMD,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+009158106|COM||SH|AIR PRODS & CHEMS INC,AIR PRODS & CHEMS INC,009158106,COM,1,,APD,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+01609W102|SPONSORED ADS||SH|ALIBABA GROUP HLDG LTD,ALIBABA GROUP HLDG LTD,01609W102,SPONSORED ADS,1,,BABA,US,ADR,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+02079K305|CAP STK CL A||SH|ALPHABET INC,ALPHABET INC,02079K305,CAP STK CL A,1,,GOOGL,NASDAQ,Common Stock,United States,19,twelvedata_search,auto_approved,
+023135106|COM||SH|AMAZON COM INC,AMAZON COM INC,023135106,COM,1,,AMZN,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+03027X100|COM||SH|AMERICAN TOWER CORP NEW,AMERICAN TOWER CORP NEW,03027X100,COM,1,,AMT,NYSE,REIT,United States,16,twelvedata_search,auto_approved,
+053015103|COM||SH|AUTOMATIC DATA PROCESSING IN,AUTOMATIC DATA PROCESSING IN,053015103,COM,1,,ADP,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+053611109|COM||SH|AVERY DENNISON CORP,AVERY DENNISON CORP,053611109,COM,1,,AVY,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+055622104|SPONSORED ADR||SH|BP PLC,BP PLC,055622104,SPONSORED ADR,1,,BP,NYSE,American Depositary Receipt,United States,13,twelvedata_search,auto_approved,
+058586108|COM||SH|BALLARD PWR SYS INC NEW,BALLARD PWR SYS INC NEW,058586108,COM,1,,BLDP,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+060505104|COM||SH|BK OF AMERICA CORP,BK OF AMERICA CORP,060505104,COM,1,,BAC,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+07725L102|SPONSORED ADR||SH|BEIGENE LTD,BEIGENE LTD,07725L102,SPONSORED ADR,1,,BEIGF,OTC,Common Stock,United States,13,twelvedata_search,auto_approved,
+07725L102|SPONSORED ADS||SH|BEIGENE LTD,BEIGENE LTD,07725L102,SPONSORED ADS,1,,BEIGF,OTC,Common Stock,United States,13,twelvedata_search,auto_approved,
+07725L102|SPONSORED ADS||SH|BEONE MEDICINES LTD,BEONE MEDICINES LTD,07725L102,SPONSORED ADS,1,,ONC,NASDAQ,American Depositary Receipt,United States,14,twelvedata_search,auto_approved,
+084670702|CL B NEW||SH|BERKSHIRE HATHAWAY INC DEL,BERKSHIRE HATHAWAY INC DEL,084670702,CL B NEW,1,,BRK.B,NYSE,Common Stock,United States,verified,manual_override,approved,Verified against Twelve Data time_series.
+09247X101|COM||SH|BLACKROCK INC,BLACKROCK INC,09247X101,COM,1,,BLK,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+093712107|COM CL A||SH|BLOOM ENERGY CORP,BLOOM ENERGY CORP,093712107,COM CL A,1,,BE,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+097023105|COM||SH|BOEING CO,BOEING CO,097023105,COM,1,,BA,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+09857L108|COM||SH|BOOKING HLDGS INC,BOOKING HLDGS INC,09857L108,COM,1,,BKNG,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+09857L108|COM||SH|BOOKING HOLDINGS INC,BOOKING HOLDINGS INC,09857L108,COM,1,,BKNG,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+11135F101|COM||SH|BROADCOM INC,BROADCOM INC,11135F101,COM,1,,AVGO,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+136385101|COM||SH|CANADIAN NAT RES LTD,CANADIAN NAT RES LTD,136385101,COM,1,,CNQ,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+143658300|COMMON STOCK||SH|CARNIVAL CORP,CARNIVAL CORP,143658300,COMMON STOCK,1,,CCL,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+143658300|UNIT 99/99/9999||SH|CARNIVAL CORP,CARNIVAL CORP,143658300,UNIT 99/99/9999,1,,CCL,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+17275R102|COM||SH|CISCO SYS INC,CISCO SYS INC,17275R102,COM,1,,CSCO,NASDAQ,Common Stock,United States,14,twelvedata_search,auto_approved,
+172967424|COM NEW||SH|CITIGROUP INC,CITIGROUP INC,172967424,COM NEW,1,,C,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+204833206|UNIT 99/99/9999||SH|COMPUTE HEALTH ACQUISITIN CO,COMPUTE HEALTH ACQUISITIN CO,204833206,UNIT 99/99/9999,1,,POAI,NASDAQ,Common Stock,United States,verified,manual_override,approved,Verified against Twelve Data time_series.
+22160K105|COM||SH|COSTCO WHSL CORP NEW,COSTCO WHSL CORP NEW,22160K105,COM,1,,COST,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+22266T109|CL A||SH|COUPANG INC,COUPANG INC,22266T109,CL A,1,,CPNG,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+231021106|COM||SH|CUMMINS INC,CUMMINS INC,231021106,COM,1,,CMI,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+23804L103|CL A COM||SH|DATADOG INC,DATADOG INC,23804L103,CL A COM,1,,DDOG,NASDAQ,Common Stock,United States,13,twelvedata_search,auto_approved,
+254687106|COM DISNEY||SH|DISNEY WALT CO,DISNEY WALT CO,254687106,COM DISNEY,1,,DIS,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+25809K105|CL A||SH|DOORDASH INC,DOORDASH INC,25809K105,CL A,1,,DASH,NASDAQ,Common Stock,United States,16,twelvedata_search,auto_approved,
+285512109|COM||SH|ELECTRONIC ARTS INC,ELECTRONIC ARTS INC,285512109,COM,1,,EA,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+30303M102|CL A||SH|FACEBOOK INC,FACEBOOK INC,30303M102,CL A,1,,META,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+30303M102|CL A||SH|META PLATFORMS INC,META PLATFORMS INC,30303M102,CL A,1,,META,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+30744W107|ORD SH CL A||SH|FARFETCH LTD,FARFETCH LTD,30744W107,ORD SH CL A,1,,FTCHQ,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+31428X106|COM||SH|FEDEX CORP,FEDEX CORP,31428X106,COM,1,,FDX,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+35671D857|CL B||SH|FREEPORT-MCMORAN INC,FREEPORT-MCMORAN INC,35671D857,CL B,1,,FCX,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+437076102|COM||SH|HOME DEPOT INC,HOME DEPOT INC,437076102,COM,1,,HD,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+44951Y102|COM CL A||SH|HYZON MOTORS INC,HYZON MOTORS INC,44951Y102,COM CL A,1,,,,,,,twelvedata_search,needs_review,
+459200101|COM||SH|INTERNATIONAL BUSINESS MACHS,INTERNATIONAL BUSINESS MACHS,459200101,COM,1,,IBM,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+46625H100|COM||SH|JPMORGAN CHASE & CO,JPMORGAN CHASE & CO,46625H100,COM,1,,JPM,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+48214T305|SPONSORED ADS||SH|JUST EAT TAKEAWAY COM N V,JUST EAT TAKEAWAY COM N V,48214T305,SPONSORED ADS,1,,JTKWY,US,ADR,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+538034109|COM||SH|LIVE NATION ENTERTAINMENT IN,LIVE NATION ENTERTAINMENT IN,538034109,COM,1,,LYV,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+549498103|COM||SH|LUCID GROUP INC,LUCID GROUP INC,549498103,COM,1,,LCID,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+549498202|COM NEW||SH|LUCID GROUP INC,LUCID GROUP INC,549498202,COM NEW,1,,LCID,NASDAQ,Common Stock,United States,16,twelvedata_search,auto_approved,
+571903202|CL A||SH|MARRIOTT INTL INC NEW,MARRIOTT INTL INC NEW,571903202,CL A,1,,MAR,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+594918104|COM||SH|MICROSOFT CORP,MICROSOFT CORP,594918104,COM,1,,MSFT,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+62548M100|COM||SH|MULTIPLAN CORPORATION,MULTIPLAN CORPORATION,62548M100,COM,1,,MPLN,NYSE,Common Stock,United States,verified,manual_override,approved,Verified against Twelve Data time_series.
+62548M209|CL A NEW||SH|CLARITEV CORPORATION,CLARITEV CORPORATION,62548M209,CL A NEW,1,,MPLN,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+62548M209|CL A NEW||SH|MULTIPLAN CORPORATION,MULTIPLAN CORPORATION,62548M209,CL A NEW,1,,CTEV,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+65339F101|COM||SH|NEXTERA ENERGY INC,NEXTERA ENERGY INC,65339F101,COM,1,,NEE,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+66987E206|COM NEW||SH|NOVAGOLD RES INC,NOVAGOLD RES INC,66987E206,COM NEW,1,,NG,NYSE,Common Stock,United States,13,twelvedata_search,auto_approved,
+70450Y103|COM||SH|PAYPAL HLDGS INC,PAYPAL HLDGS INC,70450Y103,COM,1,,PYPL,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+717081103|COM||SH|PFIZER INC,PFIZER INC,717081103,COM,1,,PFE,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+722304102|SPONSORED ADS||SH|PDD HOLDINGS INC,PDD HOLDINGS INC,722304102,SPONSORED ADS,1,,PDD,NASDAQ,American Depositary Receipt,United States,14,twelvedata_search,auto_approved,
+722304102|SPONSORED ADS||SH|PINDUODUO INC,PINDUODUO INC,722304102,SPONSORED ADS,1,,PDD,US,ADR,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+72352L106|CL A||SH|PINTEREST INC,PINTEREST INC,72352L106,CL A,1,,PINS,NYSE,Common Stock,United States,13,twelvedata_search,auto_approved,
+72919P202|COM NEW||SH|PLUG POWER INC,PLUG POWER INC,72919P202,COM NEW,1,,PLUG,NASDAQ,Common Stock,United States,16,twelvedata_search,auto_approved,
+74340W103|COM||SH|PROLOGIS INC.,PROLOGIS INC.,74340W103,COM,1,,PLD,NYSE,REIT,United States,16,twelvedata_search,auto_approved,
+747525103|COM||SH|QUALCOMM INC,QUALCOMM INC,747525103,COM,1,,QCOM,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+780259206|SPONS ADR A||SH|ROYAL DUTCH SHELL PLC,ROYAL DUTCH SHELL PLC,780259206,SPONS ADR A,1,,SHEL,NYSE,ADR,United States,verified,manual_override,approved,Use SHEL because Twelve Data rejects legacy RDS.A but returns valid NYSE history under the post-rename lineage.
+79466L302|COM||SH|SALESFORCE INC,SALESFORCE INC,79466L302,COM,1,,CRM,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+81141R100|SPONSORD ADS||SH|SEA LTD,SEA LTD,81141R100,SPONSORD ADS,1,,SE,US,ADR,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+81141R100|SPONSORED ADS||SH|SEA LTD,SEA LTD,81141R100,SPONSORED ADS,1,,SE,US,ADR,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+81369Y860|RL EST SEL SEC||SH|SELECT SECTOR SPDR TR,SELECT SECTOR SPDR TR,81369Y860,RL EST SEL SEC,1,,XLRE,US,ETP,United States,6,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+81369Y860|SBI MATERIALS||SH|SELECT SECTOR SPDR TR,SELECT SECTOR SPDR TR,81369Y860,SBI MATERIALS,1,,XLRE,US,ETP,United States,6,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+81369Y886|SBI INT-UTILS||SH|SELECT SECTOR SPDR TR,SELECT SECTOR SPDR TR,81369Y886,SBI INT-UTILS,1,,XLU,US,ETP,United States,6,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+82509L107|CL A||SH|SHOPIFY INC,SHOPIFY INC,82509L107,CL A,1,,SHOP,NASDAQ,Common Stock,United States,16,twelvedata_search,auto_approved,
+855244109|COM||SH|STARBUCKS CORP,STARBUCKS CORP,855244109,COM,1,,SBUX,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+867224107|COM||SH|SUNCOR ENERGY INC NEW,SUNCOR ENERGY INC NEW,867224107,COM,1,,SU,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+874054109|COM||SH|TAKE-TWO INTERACTIVE SOFTWAR,TAKE-TWO INTERACTIVE SOFTWAR,874054109,COM,1,,TTWO,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+88160R101|COM||SH|TESLA INC,TESLA INC,88160R101,COM,1,,TSLA,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+89151E109|SPONSORED ADS||SH|TOTAL S.A.,TOTAL S.A.,89151E109,SPONSORED ADS,1,,TTE,NYSE,ADR,United States,verified,manual_override,approved,Verified against Twelve Data search and time_series.
+90353T100|COM||SH|UBER TECHNOLOGIES INC,UBER TECHNOLOGIES INC,90353T100,COM,1,,UBER,NYSE,Common Stock,United States,17,twelvedata_search,auto_approved,
+907818108|COM||SH|UNION PAC CORP,UNION PAC CORP,907818108,COM,1,,UNP,NYSE,Common Stock,United States,14,twelvedata_search,auto_approved,
+92826C839|COM CL A||SH|VISA INC,VISA INC,92826C839,COM CL A,1,,V,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+931142103|COM||SH|WALMART INC,WALMART INC,931142103,COM,1,,WMT,NASDAQ,Common Stock,United States,17,twelvedata_search,auto_approved,
+98980L101|CL A||SH|ZOOM VIDEO COMMUNICATIONS IN,ZOOM VIDEO COMMUNICATIONS IN,98980L101,CL A,1,,ZM,US,Common Stock,United States,9,openfigi_cusip,auto_approved,Auto-selected from OpenFIGI CUSIP mapping.
+G07031100|CL A SHS||SH|BABYLON HLDGS LTD,BABYLON HLDGS LTD,G07031100,CL A SHS,1,,BBLNF,OTC,Common Stock,United States,13,twelvedata_search,auto_approved,
+G07031209|CL A SHS||SH|BABYLON HLDGS LTD,BABYLON HLDGS LTD,G07031209,CL A SHS,1,,BBLNF,OTC,Common Stock,United States,13,twelvedata_search,auto_approved,
+G5494J103|SHS||SH|LINDE PLC,LINDE PLC,G5494J103,SHS,1,,LIN,NASDAQ,Common Stock,United States,16,twelvedata_search,auto_approved,
+G54950103|SHS||SH|LINDE PLC,LINDE PLC,G54950103,SHS,1,,LIN,NASDAQ,Common Stock,United States,16,twelvedata_search,auto_approved,
+G6683N103|ORD SHS CL A||SH|NU HLDGS LTD,NU HLDGS LTD,G6683N103,ORD SHS CL A,1,,NU,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+N30577105|ORD SHS||SH|ERMENEGILDO ZEGNA N V,ERMENEGILDO ZEGNA N V,N30577105,ORD SHS,1,,ZGN,NYSE,Common Stock,United States,16,twelvedata_search,auto_approved,
+N80029106|ORD SHS||SH|SIGNA SPORTS UNITED NV,SIGNA SPORTS UNITED NV,N80029106,ORD SHS,1,,SSUNF,OTC,Common Stock,United States,verified,manual_override,approved,Verified against Twelve Data search and time_series.

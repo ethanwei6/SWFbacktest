@@ -1,0 +1,20 @@
+{
+  "strategy_id": "P2_EQUAL_WEIGHT",
+  "strategy_name": "PIF Full Disclosed Sleeve Mirror Equal Weight",
+  "initial_nav": 1.0,
+  "final_nav": 0.6769723269571642,
+  "total_return": -0.32302767304283575,
+  "rebalance_count": 27,
+  "orders_count": 1117,
+  "holdings_daily_rows": 34424,
+  "portfolio_daily_rows": 1827,
+  "eligible_signals": 577,
+  "excluded_signals": 40,
+  "start_date": "2019-02-14",
+  "end_date": "2026-05-18",
+  "max_drawdown": -0.811054598765,
+  "excluded_signal_reasons": {
+    "missing_trade_date_close": 6,
+    "unapproved_or_missing_symbol_mapping": 34
+  }
+}

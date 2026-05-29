@@ -1,0 +1,113 @@
+<informationTable xmlns="http://www.sec.gov/edgar/document/thirteenf/informationtable">		<infoTable>
+			<nameOfIssuer>AUTOMATIC DATA PROCESSING IN</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>053015103</cusip>
+			<value>206701</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>1481837</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>1481837</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>CARNIVAL CORP</nameOfIssuer>
+			<titleOfClass>UNIT 99/99/9999</titleOfClass>
+			<cusip>143658300</cusip>
+			<value>771613</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>50830926</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>50830926</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>LIVE NATION ENTERTAINMENT IN</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>538034109</cusip>
+			<value>677011</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>12565167</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>12565167</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>NOVAGOLD RES INC</nameOfIssuer>
+			<titleOfClass>COM NEW</titleOfClass>
+			<cusip>66987E206</cusip>
+			<value>154577</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>13000611</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>13000611</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>SELECT SECTOR SPDR TR</nameOfIssuer>
+			<titleOfClass>SBI INT-UTILS</titleOfClass>
+			<cusip>81369Y886</cusip>
+			<value>1958739</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>32986504</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>32986504</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>SUNCOR ENERGY INC NEW</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>867224107</cusip>
+			<value>623428</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>50975315</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>50975315</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>UBER TECHNOLOGIES INC</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>90353T100</cusip>
+			<value>2657223</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>72840541</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>72840541</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+</informationTable>

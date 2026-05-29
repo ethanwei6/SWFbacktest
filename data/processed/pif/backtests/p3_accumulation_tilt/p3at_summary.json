@@ -1,0 +1,25 @@
+{
+  "strategy_id": "P3_ACCUMULATION_TILT",
+  "strategy_name": "PIF Accumulation Tilt",
+  "initial_nav": 1.0,
+  "final_nav": 0.3073666508524406,
+  "total_return": -0.6926333491475594,
+  "rebalance_count": 27,
+  "orders_count": 1064,
+  "holdings_daily_rows": 32627,
+  "portfolio_daily_rows": 1827,
+  "eligible_signals": 550,
+  "excluded_signals": 67,
+  "start_date": "2019-02-14",
+  "end_date": "2026-05-18",
+  "max_drawdown": -0.88662909392,
+  "eligible_bucket_counts": {
+    "neutral": 383,
+    "accumulation_like": 167
+  },
+  "excluded_signal_reasons": {
+    "missing_trade_date_close": 6,
+    "reduction_overlay_exclusion": 27,
+    "unapproved_or_missing_symbol_mapping": 34
+  }
+}

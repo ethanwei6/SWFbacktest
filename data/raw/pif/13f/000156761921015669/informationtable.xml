@@ -1,0 +1,209 @@
+<informationTable xmlns="http://www.sec.gov/edgar/document/thirteenf/informationtable">		<infoTable>
+			<nameOfIssuer>ACTIVISION BLIZZARD INC</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>00507V109</cusip>
+			<value>3614313</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>37870000</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>37870000</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>AUTOMATIC DATA PROCESSING IN</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>053015103</cusip>
+			<value>294322</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>1481837</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>1481837</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>CARNIVAL CORP</nameOfIssuer>
+			<titleOfClass>UNIT 99/99/9999</titleOfClass>
+			<cusip>143658300</cusip>
+			<value>1339903</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>50830926</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>50830926</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>COMPUTE HEALTH ACQUISITIN CO</nameOfIssuer>
+			<titleOfClass>UNIT 99/99/9999</titleOfClass>
+			<cusip>204833206</cusip>
+			<value>73650</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>7499999</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>7499999</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>COUPANG INC</nameOfIssuer>
+			<titleOfClass>CL A</titleOfClass>
+			<cusip>22266T109</cusip>
+			<value>119486</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>2857142</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>2857142</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>ELECTRONIC ARTS INC</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>285512109</cusip>
+			<value>2043824</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>14210000</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>14210000</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>LIVE NATION ENTERTAINMENT IN</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>538034109</cusip>
+			<value>1100583</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>12565167</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>12565167</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>MULTIPLAN CORPORATION</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>62548M100</cusip>
+			<value>487900</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>51250000</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>51250000</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>MULTIPLAN CORPORATION</nameOfIssuer>
+			<titleOfClass>*W EXP 02/13/202</titleOfClass>
+			<cusip>62548M118</cusip>
+			<value>5650</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>2500000</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>2500000</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>NOVAGOLD RES INC</nameOfIssuer>
+			<titleOfClass>COM NEW</titleOfClass>
+			<cusip>66987E206</cusip>
+			<value>129263</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>16137695</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>16137695</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>SELECT SECTOR SPDR TR</nameOfIssuer>
+			<titleOfClass>SBI INT-UTILS</titleOfClass>
+			<cusip>81369Y886</cusip>
+			<value>2085737</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>32986504</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>32986504</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>TAKE-TWO INTERACTIVE SOFTWAR</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>874054109</cusip>
+			<value>998393</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>5640000</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>5640000</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+		<infoTable>
+			<nameOfIssuer>UBER TECHNOLOGIES INC</nameOfIssuer>
+			<titleOfClass>COM</titleOfClass>
+			<cusip>90353T100</cusip>
+			<value>3650768</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>72840541</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>72840541</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+</informationTable>

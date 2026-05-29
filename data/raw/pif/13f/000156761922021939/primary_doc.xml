@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edgarSubmission xmlns="http://www.sec.gov/edgar/thirteenffiler" xmlns:com="http://www.sec.gov/edgar/common">
+  <headerData>
+    <submissionType>13F-HR/A</submissionType>
+    <filerInfo>
+      <liveTestFlag>LIVE</liveTestFlag>
+      <flags>
+        <confirmingCopyFlag>false</confirmingCopyFlag>
+        <returnCopyFlag>true</returnCopyFlag>
+        <overrideInternetFlag>false</overrideInternetFlag>
+      </flags>
+      <filer>
+        <credentials>
+          <cik>0001767640</cik>
+          <ccc>XXXXXXXX</ccc>
+        </credentials>
+      </filer>
+      <periodOfReport>03-31-2022</periodOfReport>
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPage>
+      <reportCalendarOrQuarter>03-31-2022</reportCalendarOrQuarter>
+      <isAmendment>true</isAmendment>
+      <amendmentNo>2</amendmentNo>
+      <amendmentInfo>
+        <amendmentType>RESTATEMENT</amendmentType>
+      </amendmentInfo>
+      <filingManager>
+        <name>PUBLIC INVESTMENT FUND</name>
+        <address>
+          <com:street1>P.O. BOX 6847</com:street1>
+          <com:city>RIYADH</com:city>
+          <com:stateOrCountry>T0</com:stateOrCountry>
+          <com:zipCode>11452</com:zipCode>
+        </address>
+      </filingManager>
+      <reportType>13F HOLDINGS REPORT</reportType>
+      <form13FFileNumber>028-19159</form13FFileNumber>
+      <provideInfoForInstruction5>Y</provideInfoForInstruction5>
+      <additionalInformation>This Amendment is being filed solely to correct the CUSIP and TITLE OF CLASS for the COMPUTE HEALTH ACQUISITIN CO position.</additionalInformation>
+    </coverPage>
+    <signatureBlock>
+      <name>His Excellency Mr. Yasir O. Al-Rumayyan</name>
+      <title>Governor</title>
+      <phone>966-11-813-5001</phone>
+      <signature>/s/ Yasir O. Al-Rumayyan</signature>
+      <city>Riyadh</city>
+      <stateOrCountry>T0</stateOrCountry>
+      <signatureDate>12-22-2022</signatureDate>
+    </signatureBlock>
+    <summaryPage>
+      <otherIncludedManagersCount>0</otherIncludedManagersCount>
+      <tableEntryTotal>38</tableEntryTotal>
+      <tableValueTotal>43959679</tableValueTotal>
+      <isConfidentialOmitted>false</isConfidentialOmitted>
+    </summaryPage>
+  </formData>
+</edgarSubmission>

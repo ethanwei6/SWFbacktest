@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PIF Backtest Strategy Analysis</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 32px auto;
+      max-width: 1180px;
+      color: #0F172A;
+      background: #F8FAFC;
+      line-height: 1.45;
+    }
+    .card {
+      background: white;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .metric {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .sub {
+      color: #334155;
+      font-size: 13px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      background: white;
+    }
+    h1, h2, h3 {
+      margin: 0 0 10px 0;
+    }
+    ul {
+      margin: 8px 0 0 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid #E2E8F0;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #F1F5F9;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>PIF Backtest Strategy Analysis</h1>
+    <div class="sub">Sanity-checked comparison of the first four PIF strategies before building the interactive experience.</div>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="sub">Best total return after split fix</div>
+      <div class="metric">P5 +48.9%</div>
+      <div class="sub">The first positive absolute-return result appears only when the strategy copies sells to cash instead of forcing full reinvestment.</div>
+    </div>
+    <div class="card">
+      <div class="sub">Best excess return vs SPY</div>
+      <div class="metric">P5 -50.4%</div>
+      <div class="sub">This is the strictest quick read on whether the public filings create alpha over a passive benchmark.</div>
+    </div>
+    <div class="card">
+      <div class="sub">Alpha conclusion</div>
+      <div class="metric">No alpha vs SPY</div>
+      <div class="sub">All strategies lagged a simple SPY buy-and-hold benchmark over their own live windows.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Sanity Check Read</h2>
+    <ul>
+      <li>The mechanical checks are now clean: arithmetic violations are zero across all five strategies. `P1` through `P4` remain fully invested, while `P5` deliberately lets gross exposure fall and cash build when disclosed sells outpace disclosed buys.</li>
+      <li>The biggest analytical correction is price-basis related, not portfolio-construction related. The earlier eye-catching gains in `P2` through `P4` were driven by raw-price reverse-split jumps; the split-adjusted rerun removes those artifacts.</li>
+      <li>`P1` is weak because it is extremely concentrated. It carries only `6.47` names on average, its average max weight is `59.7%`, and it periodically goes all-in on ugly cohorts, including a worst single forward return of `-91.9%`.</li>
+      <li>`P3` does find stronger simple average forward returns in `accumulation_like` names (12.1% vs 1.5% for `neutral`), but the tilted portfolio still loses more because it concentrates into names with deeper tail losses, including a worst accumulation-like forward return of `-91.9%`.</li>
+      <li>`P4` does not rescue the sleeve. The names it avoided under the likely-reduction rule actually averaged `10.2%` forward return, versus `4.8%` for the names it kept, so the exit-avoidance heuristic was directionally wrong in this sample.</li>
+      <li>`P5` is the important new result in absolute terms: once the strategy copies sell signals into cash rather than redistributing that capital into survivors, the backtest turns positive. That suggests the informative part of the disclosure stream may be changing exposure, not just changing names.</li>
+      <li>The stricter alpha question is benchmark-relative. Against `SPY` over matched dates, `P5` posts excess return of -50.4% with information ratio -0.12. So the cash-aware interpretation improves the absolute result, but it still does not clear the alpha bar against a simple passive benchmark.</li>
+    </ul>
+  </div>
+
+  <div class="card"><img src="../charts/strategy_nav_comparison.svg" alt="Strategy NAV comparison"></div>
+  <div class="card"><img src="../charts/strategy_relative_to_spy.svg" alt="Strategy relative to SPY"></div>
+  <div class="card"><img src="../charts/strategy_drawdown_comparison.svg" alt="Strategy drawdown comparison"></div>
+  <div class="grid">
+    <div class="card"><img src="../charts/strategy_position_count.svg" alt="Strategy position counts"></div>
+    <div class="card"><img src="../charts/strategy_return_vs_drawdown.svg" alt="Return vs drawdown"></div>
+  </div>
+  <div class="card"><img src="../charts/strategy_concentration.svg" alt="Strategy concentration"></div>
+  <div class="grid">
+    <div class="card"><img src="../charts/strategy_vs_spy_total_return.svg" alt="Strategy returns vs SPY"></div>
+    <div class="card"><img src="../charts/strategy_vs_spy_excess_quality.svg" alt="Strategy excess quality vs SPY"></div>
+  </div>
+  <div class="grid">
+    <div class="card"><img src="../charts/p1_entry_cohort_quality.svg" alt="P1 entry cohort quality"></div>
+    <div class="card"><img src="../charts/p3_bucket_forward_returns.svg" alt="P3 bucket forward returns"></div>
+  </div>
+  <div class="grid">
+    <div class="card"><img src="../charts/p4_avoidance_effect.svg" alt="P4 avoidance effect"></div>
+    <div class="card"><img src="../charts/p4_top_contributors.svg" alt="P4 top contributors"></div>
+  </div>
+
+  <div class="card">
+    <h2>Strategy Summary</h2>
+    <table><thead><tr><th>strategy</th><th>start</th><th>end</th><th>total_return</th><th>spy_return</th><th>excess_return</th><th>cagr</th><th>excess_ann</th><th>ann_vol</th><th>max_drawdown</th><th>avg_positions</th><th>avg_max_weight</th><th>sharpe_0rf</th><th>info_ratio</th></tr></thead><tbody><tr><td>P1 New Positions Mirror</td><td>2019-08-07</td><td>2025-11-17</td><td>-75.8%</td><td>153.8%</td><td>-90.5%</td><td>-20.2%</td><td>-16.6%</td><td>60.4%</td><td>-94.8%</td><td>6.47</td><td>59.7%</td><td>0.01</td><td>-0.30</td></tr><tr><td>P2 Full Sleeve Equal Weight</td><td>2019-02-14</td><td>2026-05-18</td><td>-32.3%</td><td>200.0%</td><td>-77.4%</td><td>-5.2%</td><td>-11.8%</td><td>43.1%</td><td>-81.1%</td><td>18.84</td><td>23.6%</td><td>0.12</td><td>-0.32</td></tr><tr><td>P3 Accumulation Tilt</td><td>2019-02-14</td><td>2026-05-18</td><td>-69.3%</td><td>200.0%</td><td>-89.8%</td><td>-15.0%</td><td>-18.1%</td><td>48.7%</td><td>-88.7%</td><td>17.86</td><td>27.5%</td><td>-0.02</td><td>-0.41</td></tr><tr><td>P4 Exit Avoidance</td><td>2019-02-14</td><td>2026-05-18</td><td>-45.2%</td><td>200.0%</td><td>-81.7%</td><td>-7.9%</td><td>-14.2%</td><td>44.8%</td><td>-80.9%</td><td>17.86</td><td>25.9%</td><td>0.07</td><td>-0.36</td></tr><tr><td>P5 Cash-Aware Copy</td><td>2019-02-14</td><td>2026-05-18</td><td>48.9%</td><td>200.0%</td><td>-50.4%</td><td>5.6%</td><td>-4.3%</td><td>38.3%</td><td>-62.6%</td><td>8.50</td><td>61.6%</td><td>0.33</td><td>-0.12</td></tr></tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>Sanity Check Table</h2>
+    <table><thead><tr><th>strategy</th><th>arith_violations</th><th>gross_exposure_range</th><th>weight_sum_range</th><th>entry_day_pnl_violations</th><th>position_count_mismatch_days</th><th>non_exact_price_rows</th></tr></thead><tbody><tr><td>P1 New Positions Mirror</td><td>0</td><td>1.000 to 1.000</td><td>1.000000 to 1.000000</td><td>0</td><td>0</td><td>1</td></tr><tr><td>P2 Full Sleeve Equal Weight</td><td>0</td><td>1.000 to 1.000</td><td>1.000000 to 1.000000</td><td>0</td><td>0</td><td>28</td></tr><tr><td>P3 Accumulation Tilt</td><td>0</td><td>1.000 to 1.000</td><td>1.000000 to 1.000000</td><td>0</td><td>0</td><td>20</td></tr><tr><td>P4 Exit Avoidance</td><td>0</td><td>1.000 to 1.000</td><td>1.000000 to 1.000000</td><td>0</td><td>0</td><td>20</td></tr><tr><td>P5 Cash-Aware Copy</td><td>0</td><td>0.002 to 1.000</td><td>0.002331 to 1.000000</td><td>0</td><td>0</td><td>22</td></tr></tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>Top Contributors</h2>
+    <table><thead><tr><th>strategy</th><th>issuer_name</th><th>contribution</th></tr></thead><tbody><tr><td>P1 New Positions Mirror</td><td>CLARITEV CORPORATION</td><td>59.6%</td></tr><tr><td>P1 New Positions Mirror</td><td>LINDE PLC</td><td>24.1%</td></tr><tr><td>P1 New Positions Mirror</td><td>PDD HOLDINGS INC</td><td>21.2%</td></tr><tr><td>P1 New Positions Mirror</td><td>NU HLDGS LTD</td><td>18.1%</td></tr><tr><td>P1 New Positions Mirror</td><td>BEONE MEDICINES LTD</td><td>16.2%</td></tr><tr><td>P2 Full Sleeve Equal Weight</td><td>TESLA INC</td><td>75.3%</td></tr><tr><td>P2 Full Sleeve Equal Weight</td><td>LINDE PLC</td><td>21.2%</td></tr><tr><td>P2 Full Sleeve Equal Weight</td><td>AMAZON COM INC</td><td>16.0%</td></tr><tr><td>P2 Full Sleeve Equal Weight</td><td>BLOOM ENERGY CORP</td><td>14.3%</td></tr><tr><td>P2 Full Sleeve Equal Weight</td><td>SUNCOR ENERGY INC NEW</td><td>7.4%</td></tr><tr><td>P3 Accumulation Tilt</td><td>TESLA INC</td><td>62.7%</td></tr><tr><td>P3 Accumulation Tilt</td><td>LINDE PLC</td><td>21.9%</td></tr><tr><td>P3 Accumulation Tilt</td><td>AMAZON COM INC</td><td>15.9%</td></tr><tr><td>P3 Accumulation Tilt</td><td>BLOOM ENERGY CORP</td><td>7.1%</td></tr><tr><td>P3 Accumulation Tilt</td><td>AUTOMATIC DATA PROCESSING IN</td><td>6.9%</td></tr><tr><td>P4 Exit Avoidance</td><td>TESLA INC</td><td>64.4%</td></tr><tr><td>P4 Exit Avoidance</td><td>LINDE PLC</td><td>22.0%</td></tr><tr><td>P4 Exit Avoidance</td><td>AMAZON COM INC</td><td>16.1%</td></tr><tr><td>P4 Exit Avoidance</td><td>SUNCOR ENERGY INC NEW</td><td>7.0%</td></tr><tr><td>P4 Exit Avoidance</td><td>AUTOMATIC DATA PROCESSING IN</td><td>6.8%</td></tr><tr><td>P5 Cash-Aware Copy</td><td>TESLA INC</td><td>121.7%</td></tr><tr><td>P5 Cash-Aware Copy</td><td>LINDE PLC</td><td>55.6%</td></tr><tr><td>P5 Cash-Aware Copy</td><td>PDD HOLDINGS INC</td><td>14.8%</td></tr><tr><td>P5 Cash-Aware Copy</td><td>SELECT SECTOR SPDR TR</td><td>5.5%</td></tr><tr><td>P5 Cash-Aware Copy</td><td>LIVE NATION ENTERTAINMENT IN</td><td>4.1%</td></tr></tbody></table>
+  </div>
+</body>
+</html>

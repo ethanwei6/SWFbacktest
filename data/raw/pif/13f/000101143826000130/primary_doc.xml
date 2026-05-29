@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edgarSubmission xmlns:com="http://www.sec.gov/edgar/common" xmlns="http://www.sec.gov/edgar/thirteenffiler">
+  <schemaVersion>X0202</schemaVersion>
+  <headerData>
+    <submissionType>13F-HR</submissionType>
+    <filerInfo>
+      <liveTestFlag>LIVE</liveTestFlag>
+      <filer>
+        <credentials>
+          <cik>0001767640</cik>
+          <ccc>XXXXXXXX</ccc>
+        </credentials>
+      </filer>
+      <periodOfReport>12-31-2025</periodOfReport>
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPage>
+      <reportCalendarOrQuarter>12-31-2025</reportCalendarOrQuarter>
+      <isAmendment>false</isAmendment>
+      <filingManager>
+        <name>PUBLIC INVESTMENT FUND</name>
+        <address>
+          <com:street1>THE PUBLIC INVESTMENT FUND TOWER,</com:street1>
+          <com:street2>KING ABDULLAH FINANCIAL DISTRICT (KAFD)</com:street2>
+          <com:city>AL AQIQ DISTRICT, RIYADH</com:city>
+          <com:stateOrCountry>T0</com:stateOrCountry>
+          <com:zipCode>13519</com:zipCode>
+        </address>
+      </filingManager>
+      <reportType>13F COMBINATION REPORT</reportType>
+      <form13FFileNumber>028-19159</form13FFileNumber>
+      <otherManagersInfo>
+        <otherManager>
+          <cik>0002100727</cik>
+          <name>Saudi Electronic Games Holding Co</name>
+        </otherManager>
+      </otherManagersInfo>
+      <provideInfoForInstruction5>N</provideInfoForInstruction5>
+    </coverPage>
+    <signatureBlock>
+      <name>Ahmad AlFilimbany</name>
+      <title>Head of the Investment Operations Department</title>
+      <phone>966.11.813.5001</phone>
+      <signature>/s/ Ahmad AlFilimbany</signature>
+      <city>AL AQIQ DISTRICT, RIYADH</city>
+      <stateOrCountry>T0</stateOrCountry>
+      <signatureDate>02-17-2026</signatureDate>
+    </signatureBlock>
+    <summaryPage>
+      <otherIncludedManagersCount>0</otherIncludedManagersCount>
+      <tableEntryTotal>5</tableEntryTotal>
+      <tableValueTotal>12947425684</tableValueTotal>
+    </summaryPage>
+  </formData>
+</edgarSubmission>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edgarSubmission xmlns:ns1="http://www.sec.gov/edgar/common" xmlns="http://www.sec.gov/edgar/thirteenffiler">
+  <schemaVersion>X0202</schemaVersion>
+  <headerData>
+    <submissionType>13F-HR/A</submissionType>
+    <filerInfo>
+      <liveTestFlag>LIVE</liveTestFlag>
+      <flags>
+        <confirmingCopyFlag>false</confirmingCopyFlag>
+        <returnCopyFlag>false</returnCopyFlag>
+        <overrideInternetFlag>false</overrideInternetFlag>
+      </flags>
+      <filer>
+        <credentials>
+          <cik>0001767640</cik>
+          <ccc>XXXXXXXX</ccc>
+        </credentials>
+      </filer>
+      <periodOfReport>06-30-2024</periodOfReport>
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPage>
+      <reportCalendarOrQuarter>06-30-2024</reportCalendarOrQuarter>
+      <isAmendment>true</isAmendment>
+      <amendmentNo>1</amendmentNo>
+      <amendmentInfo>
+        <amendmentType>NEW HOLDINGS</amendmentType>
+      </amendmentInfo>
+      <filingManager>
+        <name>PUBLIC INVESTMENT FUND</name>
+        <address>
+          <ns1:street1>THE PUBLIC INVESTMENT FUND TOWER,</ns1:street1>
+          <ns1:street2>KING ABDULLAH FINANCIAL DISTRICT (KAFD)</ns1:street2>
+          <ns1:city>AL AQIQ DISTRICT, RIYADH</ns1:city>
+          <ns1:stateOrCountry>T0</ns1:stateOrCountry>
+          <ns1:zipCode>13519</ns1:zipCode>
+        </address>
+      </filingManager>
+      <reportType>13F HOLDINGS REPORT</reportType>
+      <form13FFileNumber>028-19159</form13FFileNumber>
+      <provideInfoForInstruction5>N</provideInfoForInstruction5>
+    </coverPage>
+    <signatureBlock>
+      <name>Yasir O. AlRumayyan</name>
+      <title>Governor</title>
+      <phone>966.11.813.5001</phone>
+      <signature>/s/ Yasir O. AlRumayyan</signature>
+      <city>Riyadh</city>
+      <stateOrCountry>T0</stateOrCountry>
+      <signatureDate>09-30-2024</signatureDate>
+    </signatureBlock>
+    <summaryPage>
+      <otherIncludedManagersCount>0</otherIncludedManagersCount>
+      <tableEntryTotal>1</tableEntryTotal>
+      <tableValueTotal>65929363</tableValueTotal>
+      <isConfidentialOmitted>false</isConfidentialOmitted>
+    </summaryPage>
+  </formData>
+</edgarSubmission>

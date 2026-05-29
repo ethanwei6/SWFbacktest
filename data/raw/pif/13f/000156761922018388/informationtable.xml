@@ -1,0 +1,17 @@
+<informationTable xmlns="http://www.sec.gov/edgar/document/thirteenf/informationtable">		<infoTable>
+			<nameOfIssuer>LINDE PLC</nameOfIssuer>
+			<titleOfClass>SHS</titleOfClass>
+			<cusip>G5494J103</cusip>
+			<value>354519</value>
+			<shrsOrPrnAmt>
+				<sshPrnamt>1208396</sshPrnamt>
+				<sshPrnamtType>SH</sshPrnamtType>
+			</shrsOrPrnAmt>
+			<investmentDiscretion>SOLE</investmentDiscretion>
+			<votingAuthority>
+				<Sole>1208396</Sole>
+				<Shared>0</Shared>
+				<None>0</None>
+			</votingAuthority>
+		</infoTable>
+</informationTable>

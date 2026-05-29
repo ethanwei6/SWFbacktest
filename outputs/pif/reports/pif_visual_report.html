@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PIF 13F Visual Report</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 32px auto;
+      max-width: 1100px;
+      color: #0F172A;
+      background: #F8FAFC;
+      line-height: 1.45;
+    }
+    .card {
+      background: white;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .metric {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .sub {
+      color: #334155;
+      font-size: 13px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      background: white;
+    }
+    h1, h2 {
+      margin: 0 0 10px 0;
+    }
+    ul {
+      margin: 8px 0 0 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>PIF 13F Visual Report</h1>
+    <div class="sub">Built from canonical PIF 13F holdings and share-driven transition events.</div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="sub">Latest reporting period</div>
+      <div class="metric">2026-03-31</div>
+      <div class="sub">4 rows, $12.0B, largest holding UBER TECHNOLOGIES INC</div>
+    </div>
+    <div class="card">
+      <div class="sub">Latest transition period</div>
+      <div class="metric">2025-12-31-&gt;2026-03-31</div>
+      <div class="sub">Entries 0, exits 1, likely accumulations 0, likely reductions 0</div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Immediate Read</h2>
+    <ul>
+      <li>The disclosed PIF 13F sleeve evolves in bursts, with several periods that look like broad portfolio resets rather than gradual rebalancing.</li>
+      <li>Because share counts are available, the transition dataset is much more informative here than in NBIM for spotting likely accumulations and reductions.</li>
+      <li>The later filings introduce a meaningful option component: in the latest snapshot, option rows account for 0.0% of reported positions.</li>
+      <li>The 13F dataset is still only a partial view of PIF, so any eventual mirroring test should be framed as mirroring the reported US 13F sleeve, not the fund as a whole.</li>
+    </ul>
+  </div>
+  <div class="card"><img src="../charts/holdings_count.svg" alt="Holdings count chart"></div>
+  <div class="card"><img src="../charts/market_value.svg" alt="Market value chart"></div>
+  <div class="card"><img src="../charts/total_shares.svg" alt="Total shares chart"></div>
+  <div class="card"><img src="../charts/option_mix.svg" alt="Option mix chart"></div>
+  <div class="card"><img src="../charts/transition_events.svg" alt="Transition events chart"></div>
+  <div class="card"><img src="../charts/net_share_delta.svg" alt="Net share delta chart"></div>
+  <div class="card"><img src="../charts/net_value_delta.svg" alt="Net value delta chart"></div>
+</body>
+</html>

@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PIF Strategy Step-Through Explorer</title>
+  <style>
+    :root {
+      --bg: #f5efe4;
+      --panel: #fffdf8;
+      --ink: #112031;
+      --muted: #5c6875;
+      --grid: #ddd4c6;
+      --accent: #b73e1d;
+      --accent-2: #0f5cc0;
+      --accent-3: #1d7b4f;
+      --accent-4: #7a3cff;
+      --accent-5: #ba185d;
+      --benchmark: #334155;
+      --shadow: 0 10px 30px rgba(17, 32, 49, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(183, 62, 29, 0.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(15, 92, 192, 0.08), transparent 24%),
+        var(--bg);
+      color: var(--ink);
+    }
+
+    .shell {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr .9fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--grid);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: -0.03em;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p, .muted {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .control-section h3, .chart-card h3, .detail-card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    button, select {
+      appearance: none;
+      border: 1px solid var(--ink);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 14px;
+    }
+
+    button.primary {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .strategy-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .strategy-item {
+      display: grid;
+      grid-template-columns: 18px 18px 1fr;
+      align-items: start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(92, 104, 117, 0.18);
+    }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      margin-top: 5px;
+    }
+
+    .strategy-item:last-child {
+      border-bottom: 0;
+    }
+
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .metric-grid .card {
+      padding: 16px 18px;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .metric-value {
+      margin-top: 6px;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .charts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .chart-card svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,252,246,0.96));
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(17, 32, 49, 0.06);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .summary-box {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(183, 62, 29, 0.08), rgba(15, 92, 192, 0.06));
+      margin-top: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid rgba(92, 104, 117, 0.12);
+      vertical-align: top;
+    }
+
+    th {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .table-wrap {
+      max-height: 420px;
+      overflow: auto;
+      border: 1px solid rgba(92, 104, 117, 0.12);
+      border-radius: 16px;
+      background: white;
+    }
+
+    .status-pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .status-include { background: rgba(29, 123, 79, 0.12); color: #165d3d; }
+    .status-exclude { background: rgba(183, 62, 29, 0.12); color: #8f3016; }
+    .status-buy { background: rgba(15, 92, 192, 0.12); color: #0f5cc0; }
+    .status-sell { background: rgba(186, 24, 93, 0.12); color: #9e114d; }
+
+    .holdings-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .empty-state {
+      padding: 26px;
+      border: 1px dashed var(--grid);
+      border-radius: 18px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255,255,255,0.45);
+    }
+
+    @media (max-width: 1180px) {
+      .hero, .controls, .charts, .details, .detail-grid, .holdings-columns {
+        grid-template-columns: 1fr;
+      }
+      .metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="card">
+        <div class="eyebrow">Interactive Explorer</div>
+        <h1>PIF Strategy Step-Through Explorer</h1>
+        <p>
+          Walk the backtest one filing at a time. Each click reveals the next report, the signals that became public,
+          the trades the strategy made, and the resulting performance path until the next filing arrives.
+        </p>
+        <p class="small">
+          The focus strategy drives the narrative and report panels. Overlay strategies are optional visual comparisons.
+          `P2` is the closest thing we have to a disclosed-sleeve proxy for visible `PIF` public-equity behavior.
+        </p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">How To Use</div>
+        <p class="small">
+          1. Choose a focus strategy. 2. Pick any comparison overlays. 3. Press <strong>Next Filing</strong> to animate from one public report window to the next.
+          4. Use the signal, order, and holdings panels to understand exactly why the portfolio changed.
+        </p>
+        <div class="badge-row">
+          <span class="badge">Animated step-through</span>
+          <span class="badge">Strategy vs benchmark</span>
+          <span class="badge">Signal-by-signal reasoning</span>
+          <span class="badge">Top holdings snapshots</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="card control-section">
+        <h3>Strategy Controls</h3>
+        <label class="small" for="focusStrategySelect">Focus strategy</label>
+        <div style="margin-top:8px;">
+          <select id="focusStrategySelect"></select>
+        </div>
+        <div class="button-row">
+          <button id="resetButton">Reset</button>
+          <button id="prevButton">Prev Filing</button>
+          <button id="nextButton" class="primary">Next Filing</button>
+          <button id="playButton">Auto Play</button>
+          <select id="speedSelect">
+            <option value="16">Fast</option>
+            <option value="28" selected>Normal</option>
+            <option value="44">Slow</option>
+          </select>
+        </div>
+      </div>
+      <div class="card control-section">
+        <h3>Overlay Comparison</h3>
+        <div id="overlayList" class="strategy-list"></div>
+      </div>
+    </section>
+
+    <section class="metric-grid">
+      <div class="card">
+        <div class="metric-label">Current Filing Window</div>
+        <div class="metric-value" id="metricWindow">Not started</div>
+      </div>
+      <div class="card">
+        <div class="metric-label">Strategy NAV</div>
+        <div class="metric-value" id="metricNav">—</div>
+      </div>
+      <div class="card">
+        <div class="metric-label">Benchmark NAV</div>
+        <div class="metric-value" id="metricBenchmark">—</div>
+      </div>
+      <div class="card">
+        <div class="metric-label">Relative To SPY</div>
+        <div class="metric-value" id="metricRelative">—</div>
+      </div>
+      <div class="card">
+        <div class="metric-label">Cash Weight / Positions</div>
+        <div class="metric-value" id="metricCash">—</div>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div class="card chart-card">
+        <h3>Portfolio Value vs PIF Proxy vs Benchmark</h3>
+        <div class="small">Selected overlays are drawn alongside `SPY`. The focus window is shaded.</div>
+        <div id="navChart"></div>
+      </div>
+      <div class="card chart-card">
+        <h3>Relative Performance vs SPY</h3>
+        <div class="small">A value above `1.0x` means the strategy is ahead of matched-window `SPY`.</div>
+        <div id="relativeChart"></div>
+      </div>
+      <div class="card chart-card">
+        <h3>Focus Strategy Risk Posture</h3>
+        <div class="small">Cash weight and gross exposure show whether the strategy stays invested or steps back.</div>
+        <div id="postureChart"></div>
+      </div>
+      <div class="card chart-card">
+        <h3>Window Returns By Filing</h3>
+        <div class="small">Each bar pair compares the focus strategy to `SPY` between public reports.</div>
+        <div id="windowReturnChart"></div>
+      </div>
+    </section>
+
+    <section class="details">
+      <div>
+        <div class="card detail-card">
+          <h3>Current Filing Narrative</h3>
+          <div id="narrativePanel" class="empty-state">Press <strong>Next Filing</strong> to begin the step-through.</div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="card detail-card">
+            <h3>Visible Signals</h3>
+            <div id="signalsPanel"></div>
+          </div>
+          <div class="card detail-card">
+            <h3>Executed Orders</h3>
+            <div id="ordersPanel"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card detail-card">
+          <h3>Holdings Snapshot</h3>
+          <div class="holdings-columns">
+            <div>
+              <div class="small" style="margin-bottom:8px;">Immediately after the filing-driven rebalance</div>
+              <div id="holdingsAfterPanel"></div>
+            </div>
+            <div>
+              <div class="small" style="margin-bottom:8px;">At the end of the window, right before the next filing</div>
+              <div id="holdingsEndPanel"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="./pif_strategy_explorer_data.js"></script>
+  <script>
+    (function () {
+      const data = window.PIFStrategyExplorerData;
+      if (!data) {
+        document.body.innerHTML = '<div style="padding:32px;font-family:sans-serif">Missing explorer data bundle.</div>';
+        return;
+      }
+
+      const colors = {
+        benchmark: data.benchmarkMeta.color,
+        grid: '#ddd4c6',
+        text: '#112031',
+        muted: '#5c6875',
+        fillA: 'rgba(183, 62, 29, 0.08)',
+        fillB: 'rgba(15, 92, 192, 0.08)',
+        focus: 'rgba(186, 24, 93, 0.10)'
+      };
+
+      const state = {
+        focusKey: data.defaultFocusStrategy,
+        overlayKeys: new Set(data.defaultOverlayStrategies),
+        currentSegmentIndex: -1,
+        visibleDate: null,
+        animating: false,
+        autoplay: false,
+        animationToken: 0,
+        framesPerStep: 28,
+      };
+
+      const focusSelect = document.getElementById('focusStrategySelect');
+      const overlayList = document.getElementById('overlayList');
+      const resetButton = document.getElementById('resetButton');
+      const prevButton = document.getElementById('prevButton');
+      const nextButton = document.getElementById('nextButton');
+      const playButton = document.getElementById('playButton');
+      const speedSelect = document.getElementById('speedSelect');
+
+      const metricWindow = document.getElementById('metricWindow');
+      const metricNav = document.getElementById('metricNav');
+      const metricBenchmark = document.getElementById('metricBenchmark');
+      const metricRelative = document.getElementById('metricRelative');
+      const metricCash = document.getElementById('metricCash');
+
+      const navChart = document.getElementById('navChart');
+      const relativeChart = document.getElementById('relativeChart');
+      const postureChart = document.getElementById('postureChart');
+      const windowReturnChart = document.getElementById('windowReturnChart');
+      const narrativePanel = document.getElementById('narrativePanel');
+      const signalsPanel = document.getElementById('signalsPanel');
+      const ordersPanel = document.getElementById('ordersPanel');
+      const holdingsAfterPanel = document.getElementById('holdingsAfterPanel');
+      const holdingsEndPanel = document.getElementById('holdingsEndPanel');
+
+      const strategyEntries = Object.values(data.strategies);
+
+      function pct(value, digits = 1) {
+        return `${(value * 100).toFixed(digits)}%`;
+      }
+
+      function mult(value, digits = 2) {
+        return `${value.toFixed(digits)}x`;
+      }
+
+      function num(value, digits = 2) {
+        return Number(value).toFixed(digits);
+      }
+
+      function compactDate(text) {
+        if (!text) return '';
+        if (text.length === 10) return `${text.slice(2, 4)}-${text.slice(5, 7)}-${text.slice(8, 10)}`;
+        return text;
+      }
+
+      function focusStrategy() {
+        return data.strategies[state.focusKey];
+      }
+
+      function focusDaily() {
+        return focusStrategy().daily;
+      }
+
+      function focusSegments() {
+        return focusStrategy().segments;
+      }
+
+      function visibleDateIndex() {
+        if (!state.visibleDate) return -1;
+        return focusDaily().findIndex(row => row.date === state.visibleDate);
+      }
+
+      function visibleRowsForStrategy(strategyKey) {
+        const strategy = data.strategies[strategyKey];
+        if (!state.visibleDate) return [];
+        return strategy.daily.filter(row => row.date <= state.visibleDate);
+      }
+
+      function currentSegment() {
+        if (state.currentSegmentIndex < 0) return null;
+        return focusSegments()[state.currentSegmentIndex] || null;
+      }
+
+      function currentFocusRow() {
+        if (!state.visibleDate) return null;
+        return focusDaily().find(row => row.date === state.visibleDate) || null;
+      }
+
+      function clampOverlayKeys() {
+        if (!state.overlayKeys.has(state.focusKey)) {
+          state.overlayKeys.add(state.focusKey);
+        }
+      }
+
+      function populateControls() {
+        focusSelect.innerHTML = strategyEntries.map(strategy => (
+          `<option value="${strategy.meta.key}">${strategy.meta.name}</option>`
+        )).join('');
+        focusSelect.value = state.focusKey;
+
+        overlayList.innerHTML = strategyEntries.map(strategy => {
+          const checked = state.overlayKeys.has(strategy.meta.key) ? 'checked' : '';
+          return `
+            <label class="strategy-item">
+              <input type="checkbox" data-overlay-key="${strategy.meta.key}" ${checked}>
+              <span class="swatch" style="background:${strategy.meta.color}"></span>
+              <span>
+                <strong>${strategy.meta.name}</strong>
+                <div class="small">${strategy.meta.subtitle}${strategy.meta.key === data.pifProxyStrategyKey ? ' This is the closest disclosed-sleeve proxy in the app.' : ''}</div>
+              </span>
+            </label>
+          `;
+        }).join('');
+      }
+
+      function buildLineChart(series, options = {}) {
+        const width = options.width || 760;
+        const height = options.height || 360;
+        const margin = { top: 30, right: 18, bottom: 54, left: 60 };
+        const plotW = width - margin.left - margin.right;
+        const plotH = height - margin.top - margin.bottom;
+        const focus = focusStrategy();
+        const rows = focusDaily();
+        const visibleIdx = visibleDateIndex();
+        const axisRows = visibleIdx >= 0 ? rows.slice(0, visibleIdx + 1) : [];
+
+        if (!axisRows.length) {
+          return `
+            <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Empty chart">
+              <rect width="${width}" height="${height}" fill="transparent"></rect>
+              <text x="${width / 2}" y="${height / 2}" text-anchor="middle" fill="${colors.muted}" font-size="15">
+                Press Next Filing to animate this chart
+              </text>
+            </svg>
+          `;
+        }
+
+        const labels = axisRows.map(row => row.date);
+        const xMap = new Map(labels.map((date, i) => [date, margin.left + (plotW * (labels.length === 1 ? 0 : i / (labels.length - 1)))]));
+        const values = series.flatMap(item => item.points.map(point => point.value)).filter(v => Number.isFinite(v));
+        const minY = options.minY !== undefined ? options.minY : Math.min(...values, 0);
+        const maxYRaw = options.maxY !== undefined ? options.maxY : Math.max(...values, 1);
+        const maxY = maxYRaw === minY ? minY + 1 : maxYRaw;
+        const yScale = (value) => margin.top + plotH - ((value - minY) / (maxY - minY)) * plotH;
+        const xScale = (date) => xMap.get(date);
+
+        let grid = '';
+        for (let i = 0; i < 5; i++) {
+          const frac = i / 4;
+          const y = margin.top + plotH - frac * plotH;
+          const value = minY + frac * (maxY - minY);
+          grid += `<line x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}" stroke="${colors.grid}" stroke-width="1" />`;
+          grid += `<text x="${margin.left - 10}" y="${y + 4}" text-anchor="end" font-size="11" fill="${colors.muted}">${options.formatY ? options.formatY(value) : value.toFixed(2)}</text>`;
+        }
+
+        const tickStep = Math.max(1, Math.ceil(labels.length / 8));
+        let xTicks = '';
+        labels.forEach((label, i) => {
+          if (i % tickStep !== 0 && i !== labels.length - 1) return;
+          xTicks += `<text x="${xScale(label)}" y="${height - 18}" text-anchor="middle" font-size="10.5" fill="${colors.muted}">${compactDate(label)}</text>`;
+        });
+
+        let highlightRect = '';
+        const segment = currentSegment();
+        if (segment) {
+          const startX = xScale(segment.tradeDate) || xScale(labels[0]);
+          const endX = xScale(segment.windowEndDate) || xScale(labels[labels.length - 1]);
+          if (startX && endX && endX >= startX) {
+            highlightRect = `<rect x="${startX}" y="${margin.top}" width="${Math.max(2, endX - startX)}" height="${plotH}" fill="${colors.focus}" />`;
+          }
+        }
+
+        const paths = series.map(item => {
+          const ordered = item.points.filter(point => xMap.has(point.date));
+          if (!ordered.length) return '';
+          const polyline = ordered.map(point => `${xScale(point.date)},${yScale(point.value)}`).join(' ');
+          const last = ordered[ordered.length - 1];
+          return `
+            <polyline fill="none" stroke="${item.color}" stroke-width="${item.strokeWidth || 3}" points="${polyline}" />
+            <circle cx="${xScale(last.date)}" cy="${yScale(last.value)}" r="4.2" fill="${item.color}" />
+          `;
+        }).join('');
+
+        let legendX = margin.left;
+        const legend = series.map(item => {
+          const chunk = `
+            <rect x="${legendX}" y="${height - 42}" width="12" height="12" rx="2" fill="${item.color}"></rect>
+            <text x="${legendX + 18}" y="${height - 32}" font-size="11.5" fill="${colors.text}">${item.label}</text>
+          `;
+          legendX += Math.min(220, 14 + item.label.length * 7.2 + 28);
+          return chunk;
+        }).join('');
+
+        return `
+          <svg viewBox="0 0 ${width} ${height}" role="img">
+            <rect width="${width}" height="${height}" fill="transparent"></rect>
+            ${grid}
+            ${highlightRect}
+            ${paths}
+            ${xTicks}
+            ${legend}
+          </svg>
+        `;
+      }
+
+      function buildBarChart(series, labels, options = {}) {
+        const width = options.width || 760;
+        const height = options.height || 320;
+        const margin = { top: 24, right: 18, bottom: 64, left: 60 };
+        const plotW = width - margin.left - margin.right;
+        const plotH = height - margin.top - margin.bottom;
+
+        if (!labels.length) {
+          return `
+            <svg viewBox="0 0 ${width} ${height}">
+              <text x="${width / 2}" y="${height / 2}" text-anchor="middle" fill="${colors.muted}" font-size="15">
+                Press Next Filing to reveal filing-by-filing returns
+              </text>
+            </svg>
+          `;
+        }
+
+        const values = series.flatMap(item => item.values);
+        const minY = Math.min(...values, 0);
+        const maxYRaw = Math.max(...values, 0);
+        const maxY = maxYRaw === minY ? minY + 1 : maxYRaw;
+        const yScale = (value) => margin.top + plotH - ((value - minY) / (maxY - minY)) * plotH;
+        const groupW = plotW / labels.length;
+        const innerW = Math.min(42, groupW / Math.max(series.length, 1));
+
+        let grid = '';
+        for (let i = 0; i < 5; i++) {
+          const frac = i / 4;
+          const y = margin.top + plotH - frac * plotH;
+          const value = minY + frac * (maxY - minY);
+          grid += `<line x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}" stroke="${colors.grid}" stroke-width="1" />`;
+          grid += `<text x="${margin.left - 10}" y="${y + 4}" text-anchor="end" font-size="11" fill="${colors.muted}">${options.formatY ? options.formatY(value) : value.toFixed(2)}</text>`;
+        }
+
+        let bars = '';
+        labels.forEach((label, groupIndex) => {
+          const baseX = margin.left + groupIndex * groupW + groupW / 2 - (series.length * innerW) / 2;
+          series.forEach((item, seriesIndex) => {
+            const value = item.values[groupIndex];
+            const x = baseX + seriesIndex * innerW;
+            const y = yScale(Math.max(value, 0));
+            const zero = yScale(0);
+            const barH = Math.max(1, Math.abs(zero - yScale(value)));
+            bars += `<rect x="${x}" y="${value >= 0 ? y : zero}" width="${innerW - 4}" height="${barH}" rx="4" fill="${item.color}" opacity="${groupIndex === state.currentSegmentIndex ? 1 : 0.78}"></rect>`;
+          });
+          bars += `<text x="${margin.left + groupIndex * groupW + groupW / 2}" y="${height - 18}" text-anchor="middle" font-size="10.5" fill="${colors.muted}">${label}</text>`;
+        });
+
+        let legendX = margin.left;
+        const legend = series.map(item => {
+          const chunk = `
+            <rect x="${legendX}" y="${height - 44}" width="12" height="12" rx="2" fill="${item.color}"></rect>
+            <text x="${legendX + 18}" y="${height - 34}" font-size="11.5" fill="${colors.text}">${item.label}</text>
+          `;
+          legendX += Math.min(180, 16 + item.label.length * 7.1 + 26);
+          return chunk;
+        }).join('');
+
+        return `<svg viewBox="0 0 ${width} ${height}">${grid}${bars}${legend}</svg>`;
+      }
+
+      function renderTable(rows, columns, emptyText) {
+        if (!rows.length) {
+          return `<div class="empty-state">${emptyText}</div>`;
+        }
+        const thead = `<thead><tr>${columns.map(column => `<th>${column.label}</th>`).join('')}</tr></thead>`;
+        const tbody = rows.map(row => `<tr>${columns.map(column => `<td>${column.render(row)}</td>`).join('')}</tr>`).join('');
+        return `<div class="table-wrap"><table>${thead}<tbody>${tbody}</tbody></table></div>`;
+      }
+
+      function renderHoldingsTable(rows, emptyText) {
+        return renderTable(rows, [
+          { label: 'Symbol', render: row => row.symbol || '—' },
+          { label: 'Issuer', render: row => row.issuerName },
+          { label: 'Weight', render: row => pct(row.weightEnd, 1) },
+          { label: 'MV', render: row => num(row.marketValueEnd, 3) },
+          { label: 'Days', render: row => String(row.daysSinceEntry) },
+        ], emptyText);
+      }
+
+      function updateMetrics() {
+        const row = currentFocusRow();
+        const segment = currentSegment();
+        if (!row) {
+          metricWindow.textContent = 'Not started';
+          metricNav.textContent = '—';
+          metricBenchmark.textContent = '—';
+          metricRelative.textContent = '—';
+          metricCash.textContent = '—';
+          return;
+        }
+        metricWindow.textContent = segment
+          ? `${compactDate(segment.tradeDate)} → ${compactDate(segment.windowEndDate)}`
+          : compactDate(row.date);
+        metricNav.textContent = mult(row.navEnd, 2);
+        metricBenchmark.textContent = row.benchmarkNav != null ? mult(row.benchmarkNav, 2) : '—';
+        metricRelative.textContent = row.relativeNavRatio != null ? mult(row.relativeNavRatio, 2) : '—';
+        metricCash.textContent = `${pct(row.cashWeightEnd, 1)} / ${row.positionCountEnd}`;
+      }
+
+      function updateNarrative() {
+        const segment = currentSegment();
+        if (!segment) {
+          narrativePanel.innerHTML = '<div class="empty-state">Press <strong>Next Filing</strong> to begin the step-through.</div>';
+          return;
+        }
+        const focus = focusStrategy();
+        const signalWord = segment.includedSignalCount === 1 ? 'signal' : 'signals';
+        const orderWord = segment.orderRows.length === 1 ? 'order' : 'orders';
+        const includedTypes = {};
+        segment.signalRows.forEach(signal => {
+          const key = signal.signalType;
+          includedTypes[key] = (includedTypes[key] || 0) + 1;
+        });
+        const typeText = Object.entries(includedTypes).map(([key, value]) => `${value} ${key}`).join(', ');
+        const bundleBadge = segment.sameDayBundleFlag ? '<span class="badge">Same-day bundle</span>' : '';
+        const summaryText = `
+          <div class="eyebrow">Filing ${state.currentSegmentIndex + 1} of ${focus.segments.length}</div>
+          <h3 style="margin-top:0;">${focus.meta.name}</h3>
+          <div class="small">Report periods: ${segment.reportPeriods.join(', ') || '—'} | Signal dates: ${segment.signalDates.join(', ') || '—'} | Trade date: ${segment.tradeDate}</div>
+          <div class="badge-row">
+            ${bundleBadge}
+            <span class="badge">${segment.includedSignalCount} included ${signalWord}</span>
+            <span class="badge">${segment.excludedSignalCount} excluded</span>
+            <span class="badge">${segment.orderRows.length} ${orderWord}</span>
+            <span class="badge">Window return ${pct(segment.windowReturn, 1)}</span>
+            <span class="badge">SPY ${pct(segment.windowBenchmarkReturn, 1)}</span>
+            <span class="badge">Excess ${pct(segment.windowExcessReturn, 1)}</span>
+          </div>
+          <div class="summary-box">
+            <strong>What the strategy did:</strong> ${focus.meta.subtitle}
+            <div class="small" style="margin-top:8px;">
+              This filing produced ${segment.includedSignalCount} included signals and ${segment.orderRows.length} executed orders.
+              The most visible signal types in this step were: ${typeText || 'none'}.
+              The portfolio moved from ${mult(segment.tradeNav, 2)} to ${mult(segment.endNav, 2)} while cash shifted from ${pct(segment.tradeCashWeight, 1)} to ${pct(segment.endCashWeight, 1)}.
+            </div>
+          </div>
+        `;
+        narrativePanel.innerHTML = summaryText;
+      }
+
+      function updateTables() {
+        const segment = currentSegment();
+        if (!segment) {
+          signalsPanel.innerHTML = '<div class="empty-state">Signals appear here after the first filing step.</div>';
+          ordersPanel.innerHTML = '<div class="empty-state">Orders appear here after the first filing step.</div>';
+          holdingsAfterPanel.innerHTML = '<div class="empty-state">Holdings snapshots appear here.</div>';
+          holdingsEndPanel.innerHTML = '<div class="empty-state">Window-end holdings appear here.</div>';
+          return;
+        }
+
+        signalsPanel.innerHTML = renderTable(segment.signalRows, [
+          {
+            label: 'Status',
+            render: row => `<span class="status-pill ${row.include ? 'status-include' : 'status-exclude'}">${row.include ? 'Included' : 'Excluded'}</span>`
+          },
+          { label: 'Type', render: row => row.signalType },
+          { label: 'Symbol', render: row => row.symbol || '—' },
+          { label: 'Issuer', render: row => row.issuerName },
+          {
+            label: 'Detail',
+            render: row => {
+              const parts = [];
+              if (row.reportPeriod) parts.push(`RP ${row.reportPeriod}`);
+              if (row.stalenessDays) parts.push(`${row.stalenessDays}d stale`);
+              if (row.deltaShares) parts.push(`Δsh ${row.deltaShares}`);
+              if (row.exclusionReason) parts.push(`Why excluded: ${row.exclusionReason}`);
+              return `${parts.join(' | ')}<div class="small">${row.rationaleText || ''}</div>`;
+            }
+          }
+        ], 'No visible signals in this filing window.');
+
+        ordersPanel.innerHTML = renderTable(segment.orderRows, [
+          {
+            label: 'Side',
+            render: row => `<span class="status-pill ${row.side === 'BUY' ? 'status-buy' : 'status-sell'}">${row.side}</span>`
+          },
+          { label: 'Symbol', render: row => row.symbol || '—' },
+          { label: 'Issuer', render: row => row.issuerName },
+          { label: 'Value', render: row => num(row.executionValue, 3) },
+          { label: 'Shares', render: row => num(row.shares, 4) },
+          {
+            label: 'Rationale',
+            render: row => `<div>${row.rationaleText || '—'}</div><div class="small">${row.sourceReportPeriod ? `Report ${row.sourceReportPeriod}` : ''}</div>`
+          }
+        ], 'No trades executed in this filing step.');
+
+        holdingsAfterPanel.innerHTML = renderHoldingsTable(
+          segment.holdingsAfterTrade,
+          'No holdings after this trade date.'
+        );
+        holdingsEndPanel.innerHTML = renderHoldingsTable(
+          segment.holdingsAtWindowEnd,
+          'No holdings at this window end.'
+        );
+      }
+
+      function updateCharts() {
+        const overlays = Array.from(state.overlayKeys).filter(key => data.strategies[key]);
+        const focus = focusStrategy();
+
+        const navSeries = overlays.map(key => {
+          const strategy = data.strategies[key];
+          return {
+            label: strategy.meta.name + (key === data.pifProxyStrategyKey ? ' (PIF proxy)' : ''),
+            color: strategy.meta.color,
+            points: visibleRowsForStrategy(key).map(row => ({ date: row.date, value: row.navEnd })),
+          };
+        });
+        if (state.visibleDate) {
+          const benchmarkPoints = visibleRowsForStrategy(state.focusKey).map(row => ({ date: row.date, value: row.benchmarkNav }));
+          navSeries.push({ label: data.benchmarkMeta.key, color: data.benchmarkMeta.color, points: benchmarkPoints, strokeWidth: 2.5 });
+        }
+        navChart.innerHTML = buildLineChart(navSeries, {
+          minY: 0,
+          formatY: value => mult(value, 1)
+        });
+
+        const relativeSeries = overlays.map(key => {
+          const strategy = data.strategies[key];
+          return {
+            label: strategy.meta.name,
+            color: strategy.meta.color,
+            points: visibleRowsForStrategy(key).map(row => ({ date: row.date, value: row.relativeNavRatio })),
+          };
+        });
+        relativeChart.innerHTML = buildLineChart(relativeSeries, {
+          minY: 0,
+          maxY: undefined,
+          formatY: value => mult(value, 1)
+        });
+
+        const focusRows = state.visibleDate ? visibleRowsForStrategy(state.focusKey) : [];
+        const postureSeries = [
+          {
+            label: 'Cash weight',
+            color: focus.meta.color,
+            points: focusRows.map(row => ({ date: row.date, value: row.cashWeightEnd }))
+          },
+          {
+            label: 'Gross exposure',
+            color: data.benchmarkMeta.color,
+            points: focusRows.map(row => ({ date: row.date, value: row.grossExposureEnd }))
+          }
+        ];
+        postureChart.innerHTML = buildLineChart(postureSeries, {
+          minY: 0,
+          maxY: 1.15,
+          formatY: value => pct(value, 0)
+        });
+
+        const segmentRows = focus.segments.slice(0, state.currentSegmentIndex + 1);
+        const labels = segmentRows.map(segment => compactDate(segment.tradeDate));
+        const windowSeries = [
+          {
+            label: focus.meta.name,
+            color: focus.meta.color,
+            values: segmentRows.map(segment => segment.windowReturn)
+          },
+          {
+            label: 'SPY',
+            color: data.benchmarkMeta.color,
+            values: segmentRows.map(segment => segment.windowBenchmarkReturn)
+          }
+        ];
+        windowReturnChart.innerHTML = buildBarChart(windowSeries, labels, {
+          formatY: value => pct(value, 0)
+        });
+      }
+
+      function renderAll() {
+        clampOverlayKeys();
+        focusSelect.value = state.focusKey;
+        Array.from(overlayList.querySelectorAll('input[type="checkbox"]')).forEach(input => {
+          input.checked = state.overlayKeys.has(input.getAttribute('data-overlay-key'));
+        });
+        prevButton.disabled = state.currentSegmentIndex <= -1 || state.animating;
+        nextButton.disabled = state.currentSegmentIndex >= focusSegments().length - 1 || state.animating;
+        playButton.textContent = state.autoplay ? 'Pause' : 'Auto Play';
+        updateMetrics();
+        updateNarrative();
+        updateTables();
+        updateCharts();
+      }
+
+      function stopAnimation() {
+        state.animating = false;
+        state.autoplay = false;
+        state.animationToken += 1;
+        renderAll();
+      }
+
+      function jumpToSegment(index) {
+        if (index < 0) {
+          state.currentSegmentIndex = -1;
+          state.visibleDate = null;
+        } else {
+          const segment = focusSegments()[index];
+          state.currentSegmentIndex = index;
+          state.visibleDate = segment.windowEndDate;
+        }
+        renderAll();
+      }
+
+      function animateToSegment(index) {
+        if (index < 0 || index >= focusSegments().length) return;
+        const segment = focusSegments()[index];
+        const rows = focusDaily();
+        const startDate = state.visibleDate;
+        const startIndex = startDate ? rows.findIndex(row => row.date === startDate) : -1;
+        const targetIndex = rows.findIndex(row => row.date === segment.windowEndDate);
+        const token = ++state.animationToken;
+        state.currentSegmentIndex = index;
+        state.animating = true;
+        renderAll();
+
+        if (targetIndex <= startIndex) {
+          state.visibleDate = segment.windowEndDate;
+          state.animating = false;
+          renderAll();
+          if (state.autoplay && index < focusSegments().length - 1) {
+            window.setTimeout(() => animateToSegment(index + 1), 500);
+          }
+          return;
+        }
+
+        let frame = 0;
+        function step() {
+          if (token !== state.animationToken) return;
+          frame += 1;
+          const progress = Math.min(1, frame / state.framesPerStep);
+          const idx = Math.round(startIndex + (targetIndex - startIndex) * progress);
+          state.visibleDate = rows[Math.max(0, idx)].date;
+          renderAll();
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            state.visibleDate = segment.windowEndDate;
+            state.animating = false;
+            renderAll();
+            if (state.autoplay && index < focusSegments().length - 1) {
+              window.setTimeout(() => animateToSegment(index + 1), 550);
+            } else if (state.autoplay) {
+              state.autoplay = false;
+              renderAll();
+            }
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      focusSelect.addEventListener('change', () => {
+        stopAnimation();
+        state.focusKey = focusSelect.value;
+        state.overlayKeys.add(state.focusKey);
+        jumpToSegment(-1);
+      });
+
+      overlayList.addEventListener('change', (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLInputElement)) return;
+        const key = target.getAttribute('data-overlay-key');
+        if (!key) return;
+        if (target.checked) {
+          state.overlayKeys.add(key);
+        } else if (key !== state.focusKey) {
+          state.overlayKeys.delete(key);
+        } else {
+          target.checked = true;
+        }
+        renderAll();
+      });
+
+      resetButton.addEventListener('click', () => {
+        stopAnimation();
+        jumpToSegment(-1);
+      });
+
+      prevButton.addEventListener('click', () => {
+        stopAnimation();
+        jumpToSegment(state.currentSegmentIndex - 1);
+      });
+
+      nextButton.addEventListener('click', () => {
+        if (state.animating) return;
+        animateToSegment(state.currentSegmentIndex + 1);
+      });
+
+      playButton.addEventListener('click', () => {
+        if (state.animating && state.autoplay) {
+          stopAnimation();
+          return;
+        }
+        state.autoplay = true;
+        if (state.currentSegmentIndex >= focusSegments().length - 1) {
+          jumpToSegment(-1);
+        }
+        animateToSegment(state.currentSegmentIndex + 1);
+      });
+
+      speedSelect.addEventListener('change', () => {
+        state.framesPerStep = Number(speedSelect.value);
+      });
+
+      populateControls();
+      renderAll();
+    })();
+  </script>
+</body>
+</html>

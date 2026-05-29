@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<informationTable xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sec.gov/edgar/document/thirteenf/informationtable">
+    <infoTable>
+        <nameOfIssuer>ALLURION TECHNOLOGIES INC</nameOfIssuer>
+        <titleOfClass>*W EXP 08/01/203</titleOfClass>
+        <cusip>02008G110</cusip>
+        <value>31008</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>1148436</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>1148436</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>CLARITEV CORPORATION</nameOfIssuer>
+        <titleOfClass>CL A NEW</titleOfClass>
+        <cusip>62548M209</cusip>
+        <value>68008750</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>1281250</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>1281250</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>ELECTRONIC ARTS INC</nameOfIssuer>
+        <titleOfClass>COM</titleOfClass>
+        <cusip>285512109</cusip>
+        <value>5003759884</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>24807932</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>24807932</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>LUCID GROUP INC</nameOfIssuer>
+        <titleOfClass>COM NEW</titleOfClass>
+        <cusip>549498202</cusip>
+        <value>4212944146</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>177088867</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>177088867</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>TAKE-TWO INTERACTIVE SOFTWAR</nameOfIssuer>
+        <titleOfClass>COM</titleOfClass>
+        <cusip>874054109</cusip>
+        <value>2949096725</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>11414680</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>11414680</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>UBER TECHNOLOGIES INC</nameOfIssuer>
+        <titleOfClass>COM</titleOfClass>
+        <cusip>90353T100</cusip>
+        <value>7136187802</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>72840541</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>72840541</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+</informationTable>
