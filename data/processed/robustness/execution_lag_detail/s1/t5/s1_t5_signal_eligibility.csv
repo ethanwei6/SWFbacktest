@@ -1,0 +1,37 @@
+rebalance_id,trade_date,strategy_id,signal_count,rationale_text,pif_exposure_state
+S1_T5-R001,2019-02-21,S1 Exposure Regime Overlay,3,"exposure_state=initial; selected=Consumer Staples,Financials,Industrials",initial
+S1_T5-R002,2019-03-06,S1 Exposure Regime Overlay,3,"exposure_state=initial; selected=Consumer Discretionary,Health Care,Technology",initial
+S1_T5-R003,2019-05-20,S1 Exposure Regime Overlay,3,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology",stable
+S1_T5-R004,2019-08-13,S1 Exposure Regime Overlay,3,"exposure_state=expanding; selected=Consumer Discretionary,Health Care,Technology",expanding
+S1_T5-R005,2019-10-28,S1 Exposure Regime Overlay,3,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology",stable
+S1_T5-R006,2020-02-11,S1 Exposure Regime Overlay,3,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology",stable
+S1_T5-R007,2020-03-03,S1 Exposure Regime Overlay,1,exposure_state=stable; selected=Technology,stable
+S1_T5-R008,2020-05-22,S1 Exposure Regime Overlay,1,exposure_state=expanding; selected=Technology,expanding
+S1_T5-R009,2020-08-21,S1 Exposure Regime Overlay,1,exposure_state=contracting; selected=Technology,contracting
+S1_T5-R010,2020-11-23,S1 Exposure Regime Overlay,1,exposure_state=contracting; selected=Technology,contracting
+S1_T5-R011,2021-03-04,S1 Exposure Regime Overlay,2,"exposure_state=contracting; selected=Consumer Discretionary,Technology",contracting
+S1_T5-R012,2021-05-24,S1 Exposure Regime Overlay,2,"exposure_state=expanding; selected=Consumer Discretionary,Technology",expanding
+S1_T5-R013,2021-08-23,S1 Exposure Regime Overlay,2,"exposure_state=stable; selected=Consumer Discretionary,Technology",stable
+S1_T5-R014,2022-03-10,S1 Exposure Regime Overlay,5,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology",stable
+S1_T5-R015,2022-10-18,S1 Exposure Regime Overlay,5,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology",stable
+S1_T5-R016,2022-11-21,S1 Exposure Regime Overlay,5,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology",stable
+S1_T5-R017,2022-12-30,S1 Exposure Regime Overlay,5,"exposure_state=expanding; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology",expanding
+S1_T5-R018,2023-02-22,S1 Exposure Regime Overlay,5,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology",stable
+S1_T5-R019,2023-03-14,S1 Exposure Regime Overlay,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care",stable
+S1_T5-R020,2023-05-22,S1 Exposure Regime Overlay,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care",stable
+S1_T5-R021,2023-08-21,S1 Exposure Regime Overlay,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care",stable
+S1_T5-R022,2023-11-21,S1 Exposure Regime Overlay,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care",stable
+S1_T5-R023,2024-02-22,S1 Exposure Regime Overlay,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care",stable
+S1_T5-R024,2024-03-05,S1 Exposure Regime Overlay,2,"exposure_state=stable; selected=Consumer Discretionary,Technology",stable
+S1_T5-R025,2024-05-22,S1 Exposure Regime Overlay,2,"exposure_state=contracting; selected=Consumer Discretionary,Technology",contracting
+S1_T5-R026,2024-08-21,S1 Exposure Regime Overlay,1,exposure_state=contracting; selected=Technology,contracting
+S1_T5-R027,2024-10-07,S1 Exposure Regime Overlay,1,exposure_state=contracting; selected=Technology,contracting
+S1_T5-R028,2024-11-21,S1 Exposure Regime Overlay,1,exposure_state=expanding; selected=Technology,expanding
+S1_T5-R029,2025-02-24,S1 Exposure Regime Overlay,1,exposure_state=stable; selected=Technology,stable
+S1_T5-R030,2025-03-04,S1 Exposure Regime Overlay,2,"exposure_state=stable; selected=Consumer Discretionary,Technology",stable
+S1_T5-R031,2025-05-22,S1 Exposure Regime Overlay,2,"exposure_state=stable; selected=Consumer Discretionary,Technology",stable
+S1_T5-R032,2025-08-19,S1 Exposure Regime Overlay,1,exposure_state=stable; selected=Financials,stable
+S1_T5-R033,2025-08-21,S1 Exposure Regime Overlay,1,exposure_state=contracting; selected=Financials,contracting
+S1_T5-R034,2025-11-21,S1 Exposure Regime Overlay,1,exposure_state=contracting; selected=Financials,contracting
+S1_T5-R035,2026-02-24,S1 Exposure Regime Overlay,1,exposure_state=contracting; selected=Financials,contracting
+S1_T5-R036,2026-03-06,S1 Exposure Regime Overlay,1,exposure_state=contracting; selected=Technology,contracting

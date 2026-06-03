@@ -1,0 +1,16 @@
+{
+  "strategy_id": "S1",
+  "strategy_name": "S1 Exposure Regime Overlay",
+  "initial_nav": 1.0,
+  "final_nav": 2.546536873783338,
+  "total_return": 1.5465368737833378,
+  "rebalance_count": 37,
+  "orders_count": 108,
+  "holdings_daily_rows": 4579,
+  "portfolio_daily_rows": 1824,
+  "signal_rows": 37,
+  "start_date": "2019-02-14",
+  "end_date": "2026-05-18",
+  "max_drawdown": -0.251241341828,
+  "avg_cash_weight_end": 0.2704773984596009
+}

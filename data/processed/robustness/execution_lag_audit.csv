@@ -1,0 +1,11 @@
+strategy_key,variant_key,check_type,status,expected_value,actual_value,difference,note
+p5,t1,baseline_reproduction_final_nav,pass,1.489482567877,1.489482567877,0.000000000000,Baseline T+1 should reproduce the validated P5 run exactly.
+p5,t1,shifted_trade_date_collisions,pass,0_or_more,0,0.000000000000,Multiple filings can legally collapse onto one delayed execution date; P5 groups by trade date.
+n4,t1,baseline_reproduction_final_nav,pass,3.219459550909,3.219459550909,0.000000000000,Baseline T+1 should reproduce the validated NBIM run exactly.
+n6,t1,baseline_reproduction_final_nav,pass,3.151802670272,3.151802670272,0.000000000000,Baseline T+1 should reproduce the validated NBIM run exactly.
+s1,t1,shifted_event_date_collisions,pass,0_or_more,0,0.000000000000,"When delayed combined states land on the same close, the latest cumulative state is retained."
+s1,t1,baseline_reproduction_final_nav,pass,2.546536873783,2.546536873783,0.000000000000,Baseline T+1 should reproduce the validated S1 run exactly.
+p5,t3,shifted_trade_date_collisions,pass,0_or_more,0,0.000000000000,Multiple filings can legally collapse onto one delayed execution date; P5 groups by trade date.
+s1,t3,shifted_event_date_collisions,pass,0_or_more,0,0.000000000000,"When delayed combined states land on the same close, the latest cumulative state is retained."
+p5,t5,shifted_trade_date_collisions,pass,0_or_more,0,0.000000000000,Multiple filings can legally collapse onto one delayed execution date; P5 groups by trade date.
+s1,t5,shifted_event_date_collisions,pass,0_or_more,0,0.000000000000,"When delayed combined states land on the same close, the latest cumulative state is retained."

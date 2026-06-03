@@ -1,0 +1,16 @@
+{
+  "strategy_id": "S2",
+  "strategy_name": "S2 Cross-Fund Consensus Sector Tilt",
+  "initial_nav": 1.0,
+  "final_nav": 1.8228314949273594,
+  "total_return": 0.8228314949273594,
+  "rebalance_count": 37,
+  "orders_count": 78,
+  "holdings_daily_rows": 2525,
+  "portfolio_daily_rows": 1824,
+  "signal_rows": 37,
+  "start_date": "2019-02-14",
+  "end_date": "2026-05-18",
+  "max_drawdown": -0.220818262131,
+  "avg_cash_weight_end": 0.424303490065284
+}

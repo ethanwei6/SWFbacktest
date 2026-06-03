@@ -1,0 +1,26 @@
+source_system,raw_label_type,raw_label,common_sector,mapping_rule,notes
+PIF,sector,BASIC MATERIALS,Materials,direct_alpha_to_common,Maps Alpha Vantage style sector to common sector taxonomy.
+PIF,sector,COMMUNICATION SERVICES,Communication Services,direct_alpha_to_common,Direct match.
+PIF,sector,CONSUMER CYCLICAL,Consumer Discretionary,direct_alpha_to_common,Maps Alpha Vantage cyclicals label to common discretionary sector.
+PIF,sector,CONSUMER DEFENSIVE,Consumer Staples,direct_alpha_to_common,Maps Alpha Vantage defensive label to common staples sector.
+PIF,sector,ENERGY,Energy,direct_alpha_to_common,Direct match.
+PIF,sector,FINANCIAL SERVICES,Financials,direct_alpha_to_common,Maps Alpha Vantage financial-services label to common financials sector.
+PIF,sector,HEALTHCARE,Health Care,direct_alpha_to_common,Maps Alpha Vantage healthcare label to common health-care sector.
+PIF,sector,INDUSTRIALS,Industrials,direct_alpha_to_common,Direct match.
+PIF,sector,REAL ESTATE,Real Estate,direct_alpha_to_common,Direct match.
+PIF,sector,TECHNOLOGY,Technology,direct_alpha_to_common,Direct match.
+PIF,sector,UTILITIES,Utilities,direct_alpha_to_common,Direct match.
+NBIM,industry,Basic Materials,Materials,coarse_industry_to_common,Matches existing NBIM ETF mapping group materials.
+NBIM,industry,Consumer Discretionary,Consumer Discretionary,coarse_industry_to_common,Direct match in later NBIM snapshots.
+NBIM,industry,Consumer Goods,Consumer Staples,coarse_industry_to_common,Aligned to existing NBIM ETF mapping XLP consumer staples.
+NBIM,industry,Consumer Services,Consumer Discretionary,coarse_industry_to_common,Aligned to existing NBIM ETF mapping XLY consumer discretionary.
+NBIM,industry,Consumer Staples,Consumer Staples,coarse_industry_to_common,Direct match in later NBIM snapshots.
+NBIM,industry,Energy,Energy,coarse_industry_to_common,Direct match in later NBIM snapshots.
+NBIM,industry,Financials,Financials,coarse_industry_to_common,Direct match.
+NBIM,industry,Health Care,Health Care,coarse_industry_to_common,Direct match.
+NBIM,industry,Industrials,Industrials,coarse_industry_to_common,Direct match.
+NBIM,industry,Oil & Gas,Energy,coarse_industry_to_common,Aligned to existing NBIM ETF mapping XLE energy.
+NBIM,industry,Real Estate,Real Estate,coarse_industry_to_common,Direct match.
+NBIM,industry,Technology,Technology,coarse_industry_to_common,Direct match.
+NBIM,industry,Telecommunications,Communication Services,coarse_industry_to_common,Aligned to existing NBIM ETF mapping XLC communication services.
+NBIM,industry,Utilities,Utilities,coarse_industry_to_common,Direct match.

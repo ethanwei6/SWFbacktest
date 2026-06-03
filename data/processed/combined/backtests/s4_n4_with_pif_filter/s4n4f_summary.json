@@ -1,0 +1,16 @@
+{
+  "strategy_id": "S4",
+  "strategy_name": "S4 N4 Sleeve With PIF Risk Filter",
+  "initial_nav": 1.0,
+  "final_nav": 2.3439337371292757,
+  "total_return": 1.3439337371292757,
+  "rebalance_count": 37,
+  "orders_count": 187,
+  "holdings_daily_rows": 8439,
+  "portfolio_daily_rows": 1824,
+  "signal_rows": 37,
+  "start_date": "2019-02-14",
+  "end_date": "2026-05-18",
+  "max_drawdown": -0.243167792519,
+  "avg_cash_weight_end": 0.27575783736428516
+}

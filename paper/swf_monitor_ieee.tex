@@ -8,18 +8,20 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 
 \graphicspath{{figures/}}
+\Urlmuskip=0mu plus 1mu\relax
+\emergencystretch=1em
 
 \title{Can Sovereign Wealth Fund Disclosures Be Monetized?\\
 A Disclosure-Lag-Aware Study of PIF and Norges Bank Signals}
 
 \author{
 \IEEEauthorblockN{Ethan Wei}
-\IEEEauthorblockA{Independent Research Project\\
-Singapore\\
-\texttt{ethanwei6}}
+\IEEEauthorblockA{GAO Capital\\
+Singapore}
 }
 
 \begin{document}
@@ -28,7 +30,7 @@ Singapore\\
 \begin{abstract}
 This paper examines whether public sovereign wealth fund (SWF) disclosures contain investable information once disclosure lag, partial visibility, and implementation constraints are treated as first-class design variables. The project began with three funds---Saudi Arabia's Public Investment Fund (PIF), Norges Bank Investment Management (NBIM), and Singapore's GIC---but quickly encountered radical disclosure asymmetry: NBIM provides broad but slow public-equity visibility, PIF provides security-level visibility only for its reportable U.S. 13F sleeve, and GIC is too opaque to support a comparable holdings panel. We therefore construct fund-specific normalized datasets and test lag-aware strategies rather than forcing all funds into a common template.
 
-For PIF, five backtests are implemented on a canonical 13F panel with filing-aware trade timing, benchmark comparison against \texttt{SPY}, and a corrected split-adjusted price layer. After validation, all strategies underperform on an excess-return basis; the best cash-aware variant still trails the benchmark materially. For NBIM, eight strategies are tested against \texttt{VT} using split-adjusted daily prices for first-post-release execution and month-end marks derived from the same daily source. The strongest direct mirror results are shown to be contaminated by survivor-selection in a bounded mega-cap universe. More credible sector-based tests produce only modest benchmark-relative gains, with the best results coming from industry weight-change and concentrated leadership strategies. Across both funds, the evidence does not support strong claims of easy copy-trading alpha. The most credible signal is slower-moving sector posture rather than single-name imitation.
+For PIF, five backtests are implemented on a canonical 13F panel with filing-aware trade timing, benchmark comparison against \texttt{SPY}, and a corrected split-adjusted price layer. After validation, all strategies underperform on an excess-return basis; the best cash-aware variant still trails the benchmark materially. For NBIM, eight strategies are tested against \texttt{VT} using split-adjusted daily prices for first-post-release execution and month-end marks derived from the same daily source. The strongest direct mirror results are shown to be contaminated by survivor-selection in a bounded mega-cap universe. More credible sector-based tests produce only modest benchmark-relative gains, with the best results coming from industry weight-change and concentrated leadership strategies. A final robustness layer then stresses the surviving signals with execution lags, explicit one-way costs, realistic caps, subperiod splits, and alternate benchmarks. An attribution layer decomposes benchmark-relative performance into exposure timing, allocation, and concentration effects. Across both funds, the evidence does not support strong claims of easy copy-trading alpha. The most credible residual signal is slower-moving sector posture rather than single-name imitation, and among the tested strategies only NBIM's concentrated leadership sleeve remains meaningfully positive through the full robustness stack.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -120,7 +122,7 @@ The final project scale is summarized in Table~\ref{tab:dataset-scale}.
 \textbf{Fund} & \textbf{Holdings Rows} & \textbf{Periods} & \textbf{Additional Scale Information} \\
 \midrule
 PIF & 775 & 30 & 30 canonical filings, 6 amendments in raw set, 998 transition rows, 88 priced securities. \\
-NBIM & 97{,}010 & 11 & 98{,}450 transition rows, 16{,}445 unique issuer-country keys, 20 priced instruments plus 2 explicitly missing ETF proxies. \\
+NBIM & 97{,}010 & 11 & 98{,}450 transition rows, 16{,}445 unique issuer-country keys, 22 priced instruments with full daily coverage. \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -260,6 +262,8 @@ The final backtests were checked for:
 
 For the final NBIM panel, all strategies showed zero negative-cash breaches and only floating-point-level weight gaps. The corrected PIF engines passed the same integrity standard.
 
+In addition, cached market-data rows were spot-checked against live API responses at representative benchmark, ETF, and single-name points after the final rebuild. The sampled \texttt{VT}, \texttt{XLK}, \texttt{XLC}, \texttt{TSLA}, \texttt{UBER}, and \texttt{LCID} closes matched the stored price layers exactly. A dedicated Phase-3 robustness audit then re-checked all A1--A3 outputs through 26 automated tests spanning baseline reproduction, delayed execution pricing, self-financing cost application, cap compliance at rebalance, and benchmark alignment; the final audit passed with zero failed checks.
+
 \section{Results: PIF}
 
 \subsection{Summary Results}
@@ -270,6 +274,9 @@ Table~\ref{tab:pif-results} reports the validated PIF strategy outcomes. The imp
 \caption{PIF Strategy Results versus SPY}
 \label{tab:pif-results}
 \centering
+\small
+\setlength{\tabcolsep}{5pt}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrr}
 \toprule
 \textbf{Strategy} & \textbf{Total Return} & \textbf{CAGR} & \textbf{Max Drawdown} & \textbf{Excess Return vs SPY} & \textbf{Information Ratio} \\
@@ -281,6 +288,7 @@ P4 Exit Avoidance & $-45.2\%$ & $-7.9\%$ & $-80.9\%$ & $-81.7\%$ & $-0.362$ \\
 P5 Cash-Aware Copy & $+48.9\%$ & $+5.6\%$ & $-62.6\%$ & $-50.4\%$ & $-0.120$ \\
 \bottomrule
 \end{tabular}
+}
 \end{table*}
 
 \begin{figure*}[!t]
@@ -289,13 +297,6 @@ P5 Cash-Aware Copy & $+48.9\%$ & $+5.6\%$ & $-62.6\%$ & $-50.4\%$ & $-0.120$ \\
 \caption{Validated PIF strategy paths versus SPY. The cash-aware strategy (P5) materially improves on fully invested variants but still lags the benchmark.}
 \label{fig:pif-nav}
 \end{figure*}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=\columnwidth]{pif_excess_return.png}
-\caption{Excess total return of PIF strategies versus SPY.}
-\label{fig:pif-excess}
-\end{figure}
 
 \subsection{Interpretation}
 
@@ -318,6 +319,9 @@ Table~\ref{tab:nbim-results} reports the final NBIM strategy results versus \tex
 \caption{NBIM Strategy Results versus VT}
 \label{tab:nbim-results}
 \centering
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llrrrr}
 \toprule
 \textbf{Strategy} & \textbf{Type} & \textbf{Total Return} & \textbf{Ann. Return} & \textbf{Max Drawdown} & \textbf{Excess Return vs VT} \\
@@ -332,6 +336,7 @@ N7 Top-3 Industry Increases & Targeted rotation & $+129.9\%$ & $12.2\%$ & $-24.4
 N8 Consensus Rotation Tilt & Targeted consensus filter & $+83.3\%$ & $8.7\%$ & $-19.2\%$ & $-27.3\%$ \\
 \bottomrule
 \end{tabular}
+}
 \end{table*}
 
 \begin{figure*}[!t]
@@ -340,13 +345,6 @@ N8 Consensus Rotation Tilt & Targeted consensus filter & $+83.3\%$ & $8.7\%$ & $
 \caption{NBIM sector-based strategies rebased against VT. Only the realistic industry strategies are shown; the exploratory direct mirror sleeve is intentionally excluded from this figure.}
 \label{fig:nbim-nav}
 \end{figure*}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=\columnwidth]{nbim_realistic_excess_return.png}
-\caption{Excess total return of realistic NBIM strategies versus VT.}
-\label{fig:nbim-excess}
-\end{figure}
 
 \subsection{Why N1 and N2 Are Not Strong Alpha Evidence}
 
@@ -366,6 +364,123 @@ The realistic NBIM findings are much narrower:
 
 Thus, the most credible NBIM signal is not direct mirroring but slow-moving sector posture, especially disclosed industry weight change.
 
+\section{Results: Combined PIF + NBIM Strategies}
+
+\subsection{Phase-2 Combined Results}
+
+The Phase-2 tests ask a narrower and more realistic question than either single-fund panel alone: can PIF's exposure-regime information and NBIM's sector-posture information be combined into a modest but credible overlay strategy? Table~\ref{tab:combined-results} summarizes the results.
+
+\begin{table*}[!t]
+\caption{Combined PIF + NBIM Strategy Results}
+\label{tab:combined-results}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Strategy} & \textbf{Total Return} & \textbf{Excess Return vs VT} & \textbf{Excess Return vs SPY} & \textbf{Max Drawdown} & \textbf{Avg. Cash Weight} \\
+\midrule
+S1 Exposure Regime Overlay & $+154.7\%$ & $+1.9\%$ & $-15.1\%$ & $-25.1\%$ & $27.0\%$ \\
+S2 Cross-Fund Consensus Sector Tilt & $+82.3\%$ & $-27.1\%$ & $-39.2\%$ & $-22.1\%$ & $42.4\%$ \\
+S3 PIF Cash-Aware Base + NBIM Overlay & $+58.0\%$ & $-36.8\%$ & $-47.3\%$ & $-60.2\%$ & $7.8\%$ \\
+S4 N4 Sleeve With PIF Risk Filter & $+134.4\%$ & $-6.2\%$ & $-21.9\%$ & $-24.3\%$ & $27.6\%$ \\
+S5 N6 Sleeve With PIF Risk Filter & $+133.9\%$ & $-6.4\%$ & $-22.0\%$ & $-29.4\%$ & $27.2\%$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+Three observations stand out.
+\begin{enumerate}[leftmargin=1.4em]
+    \item \textbf{S1 is the only positive VT-relative result.} The combination of a PIF risk regime and an NBIM sector overlay can add a small amount of value versus \texttt{VT}, but the edge is modest.
+    \item \textbf{Consensus-only confirmation is too restrictive.} S2 spends too much time in cash or fallback exposure, which limits both upside and signal harvest.
+    \item \textbf{PIF helps more as a throttle than as a selection engine.} S4 and S5 are cleaner than S3 because they preserve validated NBIM sleeves and only use PIF to modulate gross exposure. Even so, they still fail to beat \texttt{VT}.
+\end{enumerate}
+
+The combined evidence therefore strengthens, rather than weakens, the conservative interpretation of the project. There is some informational value in the interaction between the two funds, but it appears to be a \emph{risk-and-sector overlay} effect rather than a strong source of standalone alpha.
+
+\subsection{Phase-3 Robustness Results}
+
+The next question is whether any surviving signals remain after more realistic implementation stress. Four focus strategies were selected for robustness work:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{P5:} the best PIF design conceptually, because it retains cash after disclosed sales;
+    \item \textbf{N4:} the strongest NBIM weight-change strategy;
+    \item \textbf{N6:} the strongest concentrated NBIM leadership sleeve; and
+    \item \textbf{S1:} the best combined PIF + NBIM overlay.
+\end{itemize}
+
+Three robustness dimensions were tested:
+\begin{enumerate}[leftmargin=1.4em]
+    \item \textbf{A1 execution lag:} baseline next-day trading versus \texttt{T+3} and \texttt{T+5};
+    \item \textbf{A2 explicit one-way execution costs:} 0, 10, 25, and 50 bps;
+    \item \textbf{A3 concentration and exposure caps:} realistic position, sector, and gross-exposure limits.
+\end{enumerate}
+
+Table~\ref{tab:phase3-robustness} compresses the most decision-relevant results. It reports the baseline benchmark-relative excess return together with the same measure under the most demanding lag, cost, and cap variants tested.
+
+\begin{table*}[!t]
+\caption{Phase-3 Robustness Summary for the Focus Set}
+\label{tab:phase3-robustness}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrr}
+\toprule
+\textbf{Strategy} & \textbf{Benchmark} & \textbf{Baseline Excess} & \textbf{T+5 Excess} & \textbf{50 bps Excess} & \textbf{Tight-Cap Excess} \\
+\midrule
+P5 Cash-Aware Copy & SPY & $-151.1\%$ & $-149.0\%$ & $-161.2\%$ & $-156.7\%$ \\
+N4 Industry Weight-Change Tilt & VT & $+71.2\%$ & $+70.8\%$ & $+52.1\%$ & $-48.8\%$ \\
+N6 Top-3 Industry Leaders & VT & $+64.4\%$ & $+62.9\%$ & $+60.0\%$ & $+33.7\%$ \\
+S1 Exposure Regime Overlay & VT & $+4.7\%$ & $-8.7\%$ & $-14.3\%$ & $-79.0\%$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+The interpretation is sharper than the Phase-2 results alone:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{P5 remains non-alpha.} The strategy is still useful for understanding PIF as an exposure-throttle signal, but it does not beat \texttt{SPY} under any tested implementation variant.
+    \item \textbf{N4 is plausible but cap-sensitive.} Its positive excess return survives delayed execution and one-way costs, but disappears once realistic sector caps are imposed.
+    \item \textbf{N6 is the strongest residual signal.} It remains positive versus \texttt{VT} under delayed execution, explicit costs, and both moderate and tight cap regimes.
+    \item \textbf{S1 is fragile.} The modest Phase-2 edge vanishes once execution is delayed or even modest costs and exposure constraints are imposed.
+\end{itemize}
+
+This robustness layer matters because it narrows the project's actionable conclusion. The surviving signal is not ``copy SWFs'' in general, nor even ``combine PIF and NBIM.'' It is specifically that a simple, slow-moving NBIM sector-leadership sleeve appears to carry some residual information even after several realistic implementation stresses.
+
+The subsequent subperiod-stability test reinforces the same hierarchy. P5 is strong only in the early sample and gives back the edge in 2024--2026. S1 is positive in 2019--2021 but negative in the later subperiods. N4 is regime-dependent: strong in 2019--2021, negative in 2022--2023, and only modestly positive thereafter. N6 is the only focus-set strategy that remains positive versus \texttt{VT} in all three subperiods, although its excess return becomes very small in the most recent window. This is not evidence of a large persistent alpha engine, but it is stronger support for N6 than for any other tested strategy in the project.
+
+\subsection{Benchmark Robustness and Attribution}
+
+Phase 3 then asked whether the remaining conclusions depend too heavily on benchmark choice. This matters especially for two cases: P5, where a U.S. 13F sleeve might look different against growth-heavy benchmarks, and S1, where a mixed cash-and-sector strategy might appear stronger against a global benchmark than against a U.S. benchmark.
+
+The benchmark-robustness results sharpen the interpretation further:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{P5 remains non-alpha under both benchmark choices.} It underperforms \texttt{SPY} by $151.1\%$ and underperforms \texttt{QQQ} by $282.9\%$ on the matched live window.
+    \item \textbf{N4 and N6 remain positive under an alternate global benchmark.} N4 posts $71.2\%$ excess versus \texttt{VT} and $69.4\%$ excess versus \texttt{ACWI}. N6 posts $64.4\%$ excess versus \texttt{VT} and $62.7\%$ versus \texttt{ACWI}.
+    \item \textbf{S1 is benchmark-sensitive.} It is slightly positive versus \texttt{VT} at $4.7\%$, but negative versus \texttt{SPY} at $-45.4\%$ and still negative versus a 50/50 rebased \texttt{VT}/\texttt{SPY} blend at $-20.4\%$.
+\end{itemize}
+
+That result is important because it separates ``global-allocation-like'' behavior from true cross-market alpha. S1 appears closest to a modest global-overlay effect, not to a benchmark-agnostic source of excess return.
+
+The attribution layer then explains \emph{why} the four focus strategies behave differently. The decomposition is performed in exact daily arithmetic excess-return space, where each period's excess return is split into:
+\begin{enumerate}[leftmargin=1.4em]
+    \item an \textbf{exposure timing effect}, driven by holding more or less benchmark exposure through cash;
+    \item an \textbf{allocation effect}, measured by equal-weighting the invested sleeve; and
+    \item a \textbf{concentration effect}, measured as the incremental impact of the actual strategy weights versus equal weights within that same sleeve.
+\end{enumerate}
+
+The resulting interpretation is highly consistent with the earlier robustness findings:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{P5 fails mostly because of concentration, not because of cash alone.} Its cumulative arithmetic cash drag is small at roughly $-0.9$ percentage points, while the concentration term is strongly negative at about $-105.7$ percentage points.
+    \item \textbf{N4 relies heavily on concentration.} Its allocation term is negative, but a strongly positive concentration term overwhelms it. This fits the cap-sensitivity finding from A3.
+    \item \textbf{N6 is the cleanest survivor.} Its allocation term is strongly positive, while concentration is near zero. That is exactly the pattern one would want from a robust sector-leadership sleeve.
+    \item \textbf{S1 gives back much of its potential edge through cash drag.} It has a positive allocation term, but a large negative exposure-timing effect from running below full benchmark exposure.
+\end{itemize}
+
+This attribution result is arguably the most decision-useful output of Phase 3. It shows that N6 is not merely surviving by accident or by leverage-like concentration. Instead, its residual signal appears to come from the sectors it chooses to own rather than from aggressive weight concentration.
+
 \section{Discussion}
 
 \subsection{What the Combined Evidence Says}
@@ -374,10 +489,12 @@ The PIF and NBIM panels point to the same high-level conclusion from different d
 \begin{itemize}[leftmargin=1.4em]
     \item direct single-name copy trading is weak once lag and partial visibility are respected;
     \item broad mirroring often collapses into benchmark-like exposure rather than differentiated alpha; and
-    \item the most plausible residual signal lies in slower-moving allocation and sector rotation.
+    \item the most plausible residual signal lies in slower-moving allocation, sector rotation, and risk throttling.
 \end{itemize}
 
-In PIF, even the most sensible copycat variant fails to beat \texttt{SPY}. In NBIM, the strongest realistic sector-based strategies are positive, but only modestly so.
+In PIF, even the most sensible copycat variant fails to beat \texttt{SPY}. In NBIM, the strongest realistic sector-based strategies are positive, but only modestly so. In the combined panel, only S1 exceeds \texttt{VT}, and only by a small amount; the filtered-sleeve variants S4 and S5 remain below both \texttt{VT} and \texttt{SPY}.
+
+Phase 3 further tightens that conclusion. Once lag sensitivity, explicit costs, concentration constraints, subperiod stability, and alternate benchmark choices are modeled, the combined edge in S1 no longer looks robust. N4 remains interesting but cap-sensitive and concentration-dependent. N6 is the only strategy in the focus set that stays meaningfully positive through all tested robustness layers, and its attribution profile is cleaner than the alternatives.
 
 \subsection{What Was Built Beyond the Final Returns}
 
@@ -396,11 +513,12 @@ This matters because disclosure-based alpha is especially vulnerable to hidden a
 
 Several limitations remain:
 \begin{itemize}[leftmargin=1.4em]
-    \item transaction costs and market impact were not modeled in the first-pass backtests;
+    \item market impact, taxes, and venue-specific implementation frictions were not modeled even though Phase 3 did add explicit lag, transaction-cost, cap, subperiod, and benchmark sensitivity;
     \item GIC was not included quantitatively because the public data was too incomplete;
-    \item NBIM sector tests used U.S. ETF proxies for a global industry book, introducing representation error;
-    \item the free-data path originally constrained NBIM timing, so the final implementation switched to a smaller Twelve Data daily proxy universe to obtain exact first-post-release execution;
-    \item the strongest NBIM direct mirror results were contaminated by mirror-universe selection bias.
+    \item NBIM sector tests still used U.S. ETF proxies for a global industry book, introducing representation error;
+    \item the NBIM direct mirror universe remained bounded and should still be treated as exploratory even after the timing and daily-price corrections;
+    \item the strongest NBIM direct mirror results were contaminated by mirror-universe selection bias;
+    \item the attribution layer is exact in arithmetic excess-return space, but it should not be confused with a perfect decomposition of compounded terminal return.
 \end{itemize}
 
 These do not invalidate the project, but they sharply limit how strong any alpha claim can be.
@@ -413,16 +531,14 @@ For PIF, no strategy generated alpha versus \texttt{SPY}. The best-performing de
 
 For NBIM, the strongest raw stock-mirror result could not be accepted at face value because it was driven by a bounded basket of recurring mega-cap winners. More realistic industry-based strategies were far more credible, but the edge was modest. The best signals came from industry weight changes and concentrated leadership sectors, not from broad portfolio mirroring.
 
+For the combined Phase-2 layer, the conclusion is similar. Using PIF as a gross-exposure regime and NBIM as a sector allocator can produce a small benchmark-relative edge versus \texttt{VT}, but the effect is not large enough to support a strong alpha claim and does not survive the tougher implementation tests in Phase 3 or the broader benchmark comparisons.
+
 The highest-confidence conclusion is therefore:
 \begin{quote}
-\textit{Public SWF disclosures are more useful as slow-moving allocation and rotation signals than as literal copy-trading instructions.}
+\textit{Public SWF disclosures are more useful as slow-moving allocation and rotation signals than as literal copy-trading instructions, and even then the most durable evidence in this project narrows to a modest NBIM sector-leadership effect rather than a broad cross-fund alpha engine.}
 \end{quote}
 
-The practical continuation of this research should prioritize monitoring tools, sector-rotation visualization, and higher-capacity price infrastructure, rather than ever-larger naive mirroring engines.
-
-\section*{Artifact Note}
-
-The paper corresponds to the committed project state pushed to the public repository at commit \texttt{2d51bd2}. The LaTeX source and figure assets in the local \texttt{paper/} directory were prepared after that push.
+The practical continuation of this research should prioritize event-level attribution, state-transition analysis, and monitoring tools, rather than ever-larger naive mirroring engines.
 
 \begin{thebibliography}{99}
 

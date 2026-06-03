@@ -117,6 +117,46 @@ Definition of done:
 - specify alert fields
 - connect new filings to sector implications
 
+### Phase 7: Robustness and Attribution
+
+- stress-test surviving strategies under delayed execution, costs, and caps
+- decompose returns into exposure, allocation, and concentration effects
+- formalize the cross-fund state model
+- upgrade the monitoring and interactive layer around current state changes
+
+Current progress:
+
+- `A1` execution-lag sensitivity is complete for `P5`, `N4`, `N6`, and `S1`
+- outputs are in [`data/processed/robustness/execution_lag_summary.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/execution_lag_summary.csv), [`data/processed/robustness/execution_lag_daily.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/execution_lag_daily.csv), and [`data/processed/robustness/execution_lag_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/execution_lag_audit.csv)
+- baseline `T+1` reproduces the validated `P5`, `N4`, `N6`, and `S1` final NAVs exactly within floating-point tolerance
+- the first robust read is that `S1` loses its modest excess versus `VT` under `T+3` and `T+5`, while `N4` and `N6` remain positive versus `VT`
+- `A2` transaction cost sensitivity is complete for the same focus set
+- outputs are in [`data/processed/robustness/cost_sensitivity_summary.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/cost_sensitivity_summary.csv), [`data/processed/robustness/cost_sensitivity_daily.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/cost_sensitivity_daily.csv), and [`data/processed/robustness/cost_sensitivity_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/cost_sensitivity_audit.csv)
+- zero-cost reruns reproduce `P5`, `N4`, `N6`, and `S1` within floating-point tolerance, and all self-financing cost checks pass
+- the current robust read is that `N4` and `N6` remain positive versus `VT` even at `50 bps`, while `S1` is roughly flat versus `VT` at `10 bps` and turns negative by `25 bps`
+- `A3` concentration and exposure caps are complete for the same focus set
+- outputs are in [`data/processed/robustness/concentration_cap_summary.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/concentration_cap_summary.csv), [`data/processed/robustness/concentration_cap_daily.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/concentration_cap_daily.csv), and [`data/processed/robustness/concentration_cap_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/concentration_cap_audit.csv)
+- uncapped reruns reproduce `P5`, `N4`, `N6`, and `S1` within floating-point tolerance, and all rebalance-close cap-compliance checks pass
+- the current robust read is that `N6` remains positive versus `VT` even under the tighter cap set, while `N4` and `S1` lose their excess once realistic caps are imposed; capped `P5` remains clearly negative versus `SPY`
+- `A4` subperiod stability is complete for the same focus set
+- outputs are in [`data/processed/robustness/subperiod_summary.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/subperiod_summary.csv), [`data/processed/robustness/subperiod_daily.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/subperiod_daily.csv), and [`data/processed/robustness/subperiod_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/subperiod_audit.csv)
+- all subperiods pass minimum-row-count, date-order, and rebase-anchor checks
+- the current stability read is that `N6` is the only focus-set strategy that stays positive versus `VT` in all three subperiods; `N4` is regime-dependent, while `P5` and `S1` are strong early but materially weaker in later windows
+- a dedicated cross-step audit of `A1` through `A3` also passes cleanly with zero failed checks in [`data/processed/robustness/phase3_robustness_audit.json`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/phase3_robustness_audit.json) and [`data/processed/robustness/phase3_robustness_audit_checks.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/phase3_robustness_audit_checks.csv)
+- `A5` benchmark robustness is complete for the same focus set
+- benchmark inputs are in [`data/processed/robustness/benchmark_series_daily.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/benchmark_series_daily.csv) and [`data/processed/robustness/benchmark_series_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/benchmark_series_audit.csv)
+- strategy-vs-benchmark outputs are in [`data/processed/robustness/benchmark_comparison_summary.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/benchmark_comparison_summary.csv), [`data/processed/robustness/benchmark_comparison_daily.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/benchmark_comparison_daily.csv), and [`data/processed/robustness/benchmark_comparison_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/robustness/benchmark_comparison_audit.csv)
+- all benchmark comparisons pass minimum-row-count, date-order, and rebase-anchor checks
+- the current benchmark-robustness read is that `P5` remains clearly negative against both `SPY` and `QQQ`, `N4` and `N6` remain positive against both `VT` and `ACWI`, and `S1` is only positive versus `VT` while remaining negative against both `SPY` and the blended `VT`/`SPY` benchmark
+- `B1` return decomposition is complete for the same focus set
+- outputs are in [`data/processed/attribution/strategy_return_decomposition.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/strategy_return_decomposition.csv), [`data/processed/attribution/daily_excess_return_decomposition.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/daily_excess_return_decomposition.csv), and [`data/processed/attribution/strategy_decomposition_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/strategy_decomposition_audit.csv)
+- all daily and total decomposition reconciliation checks pass with zero failed rows
+- the current attribution read is that `N6` is driven mainly by broad allocation rather than concentration, `N4` relies heavily on concentration in the winning sleeves, `S1` gives up much of its edge to cash drag, and `P5` is hurt primarily by concentration rather than by cash alone
+
+Current next-step plan:
+
+- see [`docs/phase3-plan.md`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/docs/phase3-plan.md)
+
 ## Working Assumptions
 
 - the main quantitative analysis should be public-markets only
@@ -193,3 +233,33 @@ Definition of done:
 - [ ] Decide whether mirroring portfolios are equal-weight or value-weight
 - [ ] Define confidence tiers for inferred `GIC` rows
 - [ ] Define how to represent partial exits and threshold crossings
+
+## Phase 2 Direction
+
+Current recommendation:
+
+- prioritize a combined `PIF + NBIM` signal model before widening to more sovereign funds
+- treat `PIF` as the stronger `exposure regime` signal
+- treat `NBIM` as the stronger `slow-moving sector posture` signal
+- test whether cross-fund confirmation improves results more than either standalone signal
+
+Reference:
+
+- detailed execution plan in [`docs/phase2-plan.md`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/docs/phase2-plan.md)
+
+Immediate Phase 2 build order:
+
+1. `PIF` sector exposure and sector change tables
+2. common `PIF/NBIM` sector taxonomy and crosswalk
+3. combined signal panel and signal-state table
+4. first three combined strategies:
+   - `S1` exposure regime overlay
+   - `S2` cross-fund consensus sector tilt
+   - `S3` `PIF` cash-aware base plus `NBIM` sector overlay
+5. validation gates before interpretation
+
+Extension priority after Phase 2:
+
+- `Mubadala` first if broadening to another SWF
+- `Temasek` second only after filing-entity consistency review
+- not `ADIA` or `GIC` for the next quantitative expansion

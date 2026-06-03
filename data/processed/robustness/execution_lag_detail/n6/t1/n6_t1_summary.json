@@ -1,0 +1,15 @@
+{
+  "strategy_key": "n6",
+  "strategy_name": "N6 Top-3 Industry Leaders",
+  "initial_nav": 1.0,
+  "start_date": "2018-02-28",
+  "end_date": "2026-05-29",
+  "final_nav": 3.151802670272,
+  "total_return": 2.151802670272,
+  "max_drawdown": -0.243000941596,
+  "rebalance_count": 11,
+  "eligibility_count": 33,
+  "order_count": 35,
+  "average_holding_count": 3.0,
+  "average_cash_weight": 0.0
+}

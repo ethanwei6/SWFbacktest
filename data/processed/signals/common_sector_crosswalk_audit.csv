@@ -1,0 +1,26 @@
+source_system,raw_label_type,raw_label,common_sector,mapping_status
+PIF,sector,BASIC MATERIALS,Materials,mapped
+PIF,sector,COMMUNICATION SERVICES,Communication Services,mapped
+PIF,sector,CONSUMER CYCLICAL,Consumer Discretionary,mapped
+PIF,sector,CONSUMER DEFENSIVE,Consumer Staples,mapped
+PIF,sector,ENERGY,Energy,mapped
+PIF,sector,FINANCIAL SERVICES,Financials,mapped
+PIF,sector,HEALTHCARE,Health Care,mapped
+PIF,sector,INDUSTRIALS,Industrials,mapped
+PIF,sector,REAL ESTATE,Real Estate,mapped
+PIF,sector,TECHNOLOGY,Technology,mapped
+PIF,sector,UTILITIES,Utilities,mapped
+NBIM,industry,Basic Materials,Materials,mapped
+NBIM,industry,Consumer Discretionary,Consumer Discretionary,mapped
+NBIM,industry,Consumer Goods,Consumer Staples,mapped
+NBIM,industry,Consumer Services,Consumer Discretionary,mapped
+NBIM,industry,Consumer Staples,Consumer Staples,mapped
+NBIM,industry,Energy,Energy,mapped
+NBIM,industry,Financials,Financials,mapped
+NBIM,industry,Health Care,Health Care,mapped
+NBIM,industry,Industrials,Industrials,mapped
+NBIM,industry,Oil & Gas,Energy,mapped
+NBIM,industry,Real Estate,Real Estate,mapped
+NBIM,industry,Technology,Technology,mapped
+NBIM,industry,Telecommunications,Communication Services,mapped
+NBIM,industry,Utilities,Utilities,mapped

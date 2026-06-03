@@ -1,0 +1,21 @@
+{
+  "strategy_id": "P5_CASH_AWARE_COPY",
+  "strategy_name": "PIF Cash-Aware Copy Trade",
+  "initial_nav": 1.0,
+  "final_nav": 1.5059718033448233,
+  "total_return": 0.5059718033448233,
+  "rebalance_count": 23,
+  "orders_count": 186,
+  "holdings_daily_rows": 15554,
+  "portfolio_daily_rows": 1827,
+  "eligible_signals": 323,
+  "excluded_signals": 21,
+  "start_date": "2019-02-21",
+  "end_date": "2026-05-22",
+  "max_drawdown": -0.631126541001,
+  "avg_cash_weight_end": 0.07957584026387189,
+  "excluded_signal_reasons": {
+    "missing_trade_date_close": 1,
+    "unapproved_or_missing_symbol_mapping": 20
+  }
+}

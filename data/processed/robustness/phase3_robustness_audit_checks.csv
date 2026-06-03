@@ -1,0 +1,27 @@
+layer,check_name,status,expected,actual,note
+A1,audit_rows_all_pass,pass,0,0,Execution-lag audit file should have no failed checks.
+A1,baseline_reproduction::p5::t1,pass,<=1e-9,0.000000000000,Baseline T+1 variant must reproduce validated final NAV within tolerance.
+A1,baseline_reproduction::n4::t1,pass,<=1e-9,0.000000000000,Baseline T+1 variant must reproduce validated final NAV within tolerance.
+A1,baseline_reproduction::n6::t1,pass,<=1e-9,0.000000000000,Baseline T+1 variant must reproduce validated final NAV within tolerance.
+A1,baseline_reproduction::s1::t1,pass,<=1e-9,0.000000000000,Baseline T+1 variant must reproduce validated final NAV within tolerance.
+A1,source_price_match::p5_orders,pass,20.37600000,20.37600000,Sample delayed-execution order price should match stored validated source price exactly.
+A1,source_price_match::n4_t3_orders,pass,48.66173000,48.66173000,Sample delayed-execution order price should match stored validated source price exactly.
+A1,source_price_match::s1_t5_orders,pass,45.20220000,45.20220000,Sample delayed-execution order price should match stored validated source price exactly.
+A2,audit_rows_all_pass,pass,0,0,Cost-sensitivity audit file should have no failed checks.
+A2,baseline_reproduction::p5::c0,pass,<=5e-10,0.000000000000,Zero-cost variant must reproduce validated final NAV within tolerance.
+A2,baseline_reproduction::n4::c0,pass,<=5e-10,0.000000000005,Zero-cost variant must reproduce validated final NAV within tolerance.
+A2,baseline_reproduction::n6::c0,pass,<=5e-10,0.000000000025,Zero-cost variant must reproduce validated final NAV within tolerance.
+A2,baseline_reproduction::s1::c0,pass,<=5e-10,0.000000000001,Zero-cost variant must reproduce validated final NAV within tolerance.
+A2,cost_monotonicity::s1,pass,non-increasing,"2.546536873784,2.507236258214,2.449420332518,2.356009120253",Higher one-way cost should not improve final NAV for the same strategy.
+A2,cost_monotonicity::n4,pass,non-increasing,"3.219459550904,3.180291543336,3.122435539142,3.028349025198",Higher one-way cost should not improve final NAV for the same strategy.
+A2,cost_monotonicity::n6,pass,non-increasing,"3.151802670247,3.142796151248,3.129335666206,3.107032207933",Higher one-way cost should not improve final NAV for the same strategy.
+A2,cost_monotonicity::p5,pass,non-increasing,"1.489482567877,1.468717156856,1.438082916141,1.388365098476",Higher one-way cost should not improve final NAV for the same strategy.
+A3,audit_rows_all_pass,pass,0,0,Concentration-cap audit file should have no failed checks.
+A3,baseline_reproduction::p5::u0,pass,<=1e-9,0.000000000001,Uncapped variant must reproduce validated final NAV within tolerance.
+A3,baseline_reproduction::n4::u0,pass,<=1e-9,0.000000000000,Uncapped variant must reproduce validated final NAV within tolerance.
+A3,baseline_reproduction::n6::u0,pass,<=1e-9,0.000000000001,Uncapped variant must reproduce validated final NAV within tolerance.
+A3,baseline_reproduction::s1::u0,pass,<=1e-9,0.000000000001,Uncapped variant must reproduce validated final NAV within tolerance.
+A3,summary_matches_baseline::p5,pass,1.489482567877,1.489482567878,Uncapped summary should agree with the validated baseline summary.
+A3,summary_matches_baseline::n4,pass,3.219459550909,3.219459550909,Uncapped summary should agree with the validated baseline summary.
+A3,summary_matches_baseline::n6,pass,3.151802670272,3.151802670271,Uncapped summary should agree with the validated baseline summary.
+A3,summary_matches_baseline::s1,pass,2.546536873783,2.546536873784,Uncapped summary should agree with the validated baseline summary.

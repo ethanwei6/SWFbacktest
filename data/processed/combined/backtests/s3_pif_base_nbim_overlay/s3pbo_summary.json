@@ -1,0 +1,16 @@
+{
+  "strategy_id": "S3",
+  "strategy_name": "S3 PIF Cash-Aware Base Plus NBIM Overlay",
+  "initial_nav": 1.0,
+  "final_nav": 1.580246918401214,
+  "total_return": 0.580246918401214,
+  "rebalance_count": 37,
+  "orders_count": 307,
+  "holdings_daily_rows": 14622,
+  "portfolio_daily_rows": 1824,
+  "signal_rows": 37,
+  "start_date": "2019-02-14",
+  "end_date": "2026-05-18",
+  "max_drawdown": -0.602482982232,
+  "avg_cash_weight_end": 0.07848578020409756
+}

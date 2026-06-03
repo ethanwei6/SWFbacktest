@@ -1,0 +1,28 @@
+strategy_key,benchmark_key,check_type,status,expected_value,actual_value,difference,note
+p5,SPY,minimum_row_count,pass,>=2,1827,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+p5,SPY,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+p5,SPY,date_order,pass,start<=end,2019-02-14->2026-05-18,0.000000000000,Aligned benchmark dates must remain ordered.
+p5,QQQ,minimum_row_count,pass,>=2,1827,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+p5,QQQ,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+p5,QQQ,date_order,pass,start<=end,2019-02-14->2026-05-18,0.000000000000,Aligned benchmark dates must remain ordered.
+n4,VT,minimum_row_count,pass,>=2,108,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+n4,VT,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+n4,VT,date_order,pass,start<=end,2018-02-28->2026-05-29,0.000000000000,Aligned benchmark dates must remain ordered.
+n4,ACWI,minimum_row_count,pass,>=2,108,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+n4,ACWI,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+n4,ACWI,date_order,pass,start<=end,2018-02-28->2026-05-29,0.000000000000,Aligned benchmark dates must remain ordered.
+n6,VT,minimum_row_count,pass,>=2,108,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+n6,VT,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+n6,VT,date_order,pass,start<=end,2018-02-28->2026-05-29,0.000000000000,Aligned benchmark dates must remain ordered.
+n6,ACWI,minimum_row_count,pass,>=2,108,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+n6,ACWI,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+n6,ACWI,date_order,pass,start<=end,2018-02-28->2026-05-29,0.000000000000,Aligned benchmark dates must remain ordered.
+s1,VT,minimum_row_count,pass,>=2,1824,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+s1,VT,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+s1,VT,date_order,pass,start<=end,2019-02-14->2026-05-18,0.000000000000,Aligned benchmark dates must remain ordered.
+s1,SPY,minimum_row_count,pass,>=2,1824,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+s1,SPY,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+s1,SPY,date_order,pass,start<=end,2019-02-14->2026-05-18,0.000000000000,Aligned benchmark dates must remain ordered.
+s1,BLEND_VT_SPY_50,minimum_row_count,pass,>=2,1824,0.000000000000,Each strategy-benchmark comparison needs at least two aligned rows.
+s1,BLEND_VT_SPY_50,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned date.
+s1,BLEND_VT_SPY_50,date_order,pass,start<=end,2019-02-14->2026-05-18,0.000000000000,Aligned benchmark dates must remain ordered.

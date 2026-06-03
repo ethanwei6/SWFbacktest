@@ -1,0 +1,6 @@
+signal_family,signal_count,sector_mapped_flag,public_date_legal_flag,notes
+cross_fund_consensus,407,1,1,Constructed from normalized PIF/NBIM tables and common sector taxonomy.
+nbim_industry_concentration,121,1,1,Constructed from normalized PIF/NBIM tables and common sector taxonomy.
+nbim_industry_weight_change,121,1,1,Constructed from normalized PIF/NBIM tables and common sector taxonomy.
+pif_exposure,29,1,1,Constructed from normalized PIF/NBIM tables and common sector taxonomy.
+pif_sector_proxy,319,1,1,Constructed from normalized PIF/NBIM tables and common sector taxonomy.

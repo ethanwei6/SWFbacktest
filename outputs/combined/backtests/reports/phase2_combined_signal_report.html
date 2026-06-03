@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Phase 2 Combined Signal Research</title>
+<style>
+body{font-family:Georgia,serif;max-width:1100px;margin:32px auto;padding:0 20px;color:#0f172a}
+h1,h2{margin:0 0 12px} h1{font-size:32px} h2{font-size:22px;margin-top:28px}
+table{border-collapse:collapse;width:100%;margin:16px 0} th,td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left}
+th{background:#f8fafc} .chart{margin:20px 0}
+</style></head><body>
+<h1>Phase 2 Combined Signal Research</h1>
+<p>This report evaluates 5 combined <code>PIF + NBIM</code> strategies built from the validated Phase 2 signal stack.</p>
+<h2>Headline Results</h2>
+<table>
+<tr><th>Strategy</th><th>Total Return</th><th>Excess vs VT</th><th>Excess vs SPY</th><th>Max Drawdown</th><th>Avg Cash</th></tr>
+<tr><td>S1 Exposure Regime Overlay</td><td>154.7%</td><td>1.9%</td><td>-15.1%</td><td>-25.1%</td><td>27.0%</td></tr><tr><td>S2 Cross-Fund Consensus Sector Tilt</td><td>82.3%</td><td>-27.1%</td><td>-39.2%</td><td>-22.1%</td><td>42.4%</td></tr><tr><td>S3 PIF Cash-Aware Base Plus NBIM Overlay</td><td>58.0%</td><td>-36.8%</td><td>-47.3%</td><td>-60.2%</td><td>7.8%</td></tr><tr><td>S4 N4 Sleeve With PIF Risk Filter</td><td>134.4%</td><td>-6.2%</td><td>-21.9%</td><td>-24.3%</td><td>27.6%</td></tr><tr><td>S5 N6 Sleeve With PIF Risk Filter</td><td>133.9%</td><td>-6.4%</td><td>-22.0%</td><td>-29.4%</td><td>27.2%</td></tr>
+</table>
+<p><strong>Best excess return vs VT:</strong> S1 Exposure Regime Overlay (1.9%).<br/>
+<strong>Worst excess return vs VT:</strong> S3 PIF Cash-Aware Base Plus NBIM Overlay (-36.8%).</p>
+<h2>Readthrough</h2>
+<p><code>S1</code> is the purest test of the combined thesis. <code>S2</code> asks whether requiring confirmation improves selectivity enough to justify the time in cash and fallback benchmark exposure. <code>S3</code> asks whether <code>NBIM</code> can improve the previously best standalone <code>PIF</code> construction by redistributing risk across the already-held sleeve. <code>S4</code> and <code>S5</code> ask the cleaner filtering question: do the more credible <code>NBIM</code> sleeves improve when <code>PIF</code> is used only as a risk throttle?</p>
+<p><strong>Interpretation.</strong> <code>S1</code> remains the only strategy with positive excess return versus <code>VT</code>, and that edge is modest rather than dramatic. <code>S2</code> appears too sparse and too defensive, while <code>S3</code> improves the standalone <code>P5</code> base by 6.1% but still fails to beat passive benchmarks. <code>S4</code> and <code>S5</code> help clarify that the useful cross-fund information is still better framed as a risk-and-sector overlay than as a source of large stand-alone alpha.</p>
+<div class="chart"><img src="../charts/strategy_nav_vs_benchmarks.svg" alt="NAV chart" style="width:100%"></div>
+<div class="chart"><img src="../charts/strategy_relative_to_vt.svg" alt="Relative VT chart" style="width:100%"></div>
+<div class="chart"><img src="../charts/strategy_drawdown.svg" alt="Drawdown chart" style="width:100%"></div>
+<div class="chart"><img src="../charts/strategy_cash_weight.svg" alt="Cash chart" style="width:100%"></div>
+<div class="chart"><img src="../charts/excess_return_vs_vt.svg" alt="Excess return chart" style="width:100%"></div>
+<div class="chart"><img src="../charts/consensus_count.svg" alt="Consensus count chart" style="width:100%"></div>
+<h2>Audit Notes</h2>
+<p>All combined strategy trade dates are legal relative to the underlying public dates. Holdings-plus-cash reconcile to one within floating-point tolerance, and the normalized sector stack is fully mapped into the shared taxonomy.</p>
+</body></html>

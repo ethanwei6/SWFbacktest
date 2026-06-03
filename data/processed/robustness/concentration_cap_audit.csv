@@ -1,0 +1,20 @@
+strategy_key,variant_key,check_type,status,expected_value,actual_value,difference,note
+p5,u0,baseline_reproduction_final_nav,pass,1.489482567877,1.489482567878,0.000000000001,Uncapped rerun should reproduce the validated baseline exactly.
+p5,u0,max_position_cap_compliance,pass,1.000000000000,1.000000000000,0.000000000000,Observed rebalance-close maximum single-name weight should not exceed the configured cap.
+n4,u0,baseline_reproduction_final_nav,pass,3.219459550909,3.219459550909,0.000000000000,Uncapped rerun should reproduce the validated baseline within floating-point tolerance.
+n4,u0,max_position_or_sector_cap_compliance,pass,1.000000000000,1.000000000000,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+n6,u0,baseline_reproduction_final_nav,pass,3.151802670272,3.151802670271,0.000000000001,Uncapped rerun should reproduce the validated baseline within floating-point tolerance.
+n6,u0,max_position_or_sector_cap_compliance,pass,1.000000000000,0.414906658329,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+s1,u0,baseline_reproduction_final_nav,pass,2.546536873783,2.546536873784,0.000000000001,Uncapped rerun should reproduce the validated baseline within floating-point tolerance.
+s1,u0,max_position_or_sector_cap_compliance,pass,1.000000000000,1.000000000000,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+s1,u0,gross_exposure_cap_compliance,pass,1.000000000000,1.000000000000,0.000000000000,Observed rebalance-close gross exposure should not exceed the configured cap.
+p5,m1,max_position_cap_compliance,pass,0.250000000000,0.250000000000,0.000000000000,Observed rebalance-close maximum single-name weight should not exceed the configured cap.
+n4,m1,max_position_or_sector_cap_compliance,pass,0.350000000000,0.350000000000,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+n6,m1,max_position_or_sector_cap_compliance,pass,0.350000000000,0.350000000000,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+s1,m1,max_position_or_sector_cap_compliance,pass,0.350000000000,0.350000000000,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+s1,m1,gross_exposure_cap_compliance,pass,0.750000000000,0.750000000000,0.000000000000,Observed rebalance-close gross exposure should not exceed the configured cap.
+p5,t1,max_position_cap_compliance,pass,0.200000000000,0.200000000000,0.000000000000,Observed rebalance-close maximum single-name weight should not exceed the configured cap.
+n4,t1,max_position_or_sector_cap_compliance,pass,0.300000000000,0.300000000000,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+n6,t1,max_position_or_sector_cap_compliance,pass,0.300000000000,0.300000000000,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+s1,t1,max_position_or_sector_cap_compliance,pass,0.300000000000,0.300000000000,0.000000000000,Observed rebalance-close maximum weight should not exceed the configured cap.
+s1,t1,gross_exposure_cap_compliance,pass,0.600000000000,0.600000000000,0.000000000000,Observed rebalance-close gross exposure should not exceed the configured cap.

@@ -1,0 +1,79 @@
+rebalance_id,execution_date,side,instrument_key,issuer_name,symbol,shares,execution_price,execution_value,sector,rationale_text
+S2CFC-R001,2019-02-14,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.016260054201,61.50041000,1.000000000000,,no_consensus; fallback=VT; exposure_state=initial
+S2CFC-R003,2019-05-14,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.006504021681,63.07115100,0.410216133518,,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R004,2019-08-07,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.009756032521,63.50655000,0.619571967081,,consensus_sectors=Technology; exposure_state=expanding
+S2CFC-R004,2019-08-07,BUY,sector::XLK,XLK,XLK,0.029819689869,34.53383000,1.029788100600,Technology,consensus_sectors=Technology; exposure_state=expanding
+S2CFC-R005,2019-10-22,SELL,sector::XLK,XLK,XLK,0.029819689869,36.17855000,1.078833140922,Technology,consensus_sectors=Consumer Discretionary; exposure_state=stable
+S2CFC-R005,2019-10-22,BUY,sector::XLY,XLY,XLY,0.011851083223,54.61947000,0.647299884553,Consumer Discretionary,consensus_sectors=Consumer Discretionary; exposure_state=stable
+S2CFC-R006,2020-02-05,SELL,sector::XLY,XLY,XLY,0.011851083223,58.29087000,0.690809951497,Consumer Discretionary,consensus_sectors=Technology; exposure_state=stable
+S2CFC-R006,2020-02-05,BUY,sector::XLK,XLK,XLK,0.014965264507,44.99793000,0.673405924719,Technology,consensus_sectors=Technology; exposure_state=stable
+S2CFC-R007,2020-02-26,BUY,sector::XLK,XLK,XLK,0.000452024772,41.83860000,0.018912083646,Technology,consensus_sectors=Technology; exposure_state=stable
+S2CFC-R008,2020-05-18,BUY,sector::XLF,XLF,XLF,0.025446753489,19.86012000,0.505375577893,Financials,"consensus_sectors=Financials,Industrials,Technology; exposure_state=expanding"
+S2CFC-R008,2020-05-18,BUY,sector::XLI,XLI,XLI,0.004953110160,57.84544000,0.286514836594,Industrials,"consensus_sectors=Financials,Industrials,Technology; exposure_state=expanding"
+S2CFC-R008,2020-05-18,SELL,sector::XLK,XLK,XLK,0.008286491834,43.66929000,0.361865214986,Technology,"consensus_sectors=Financials,Industrials,Technology; exposure_state=expanding"
+S2CFC-R009,2020-08-17,SELL,sector::XLK,XLK,XLK,0.007130797445,52.56598000,0.374837355900,Technology,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R009,2020-08-17,SELL,sector::XLF,XLF,XLF,0.025446753489,22.36083000,0.569010528809,Financials,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R009,2020-08-17,SELL,sector::XLI,XLI,XLI,0.004953110160,70.74290000,0.350397376762,Industrials,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R009,2020-08-17,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.004426484786,73.09667400,0.323561315368,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R010,2020-11-17,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.000243719392,78.88804000,0.019226545117,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R011,2021-02-26,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.000241602273,85.47057000,0.020649884018,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R012,2021-05-18,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.003941163121,91.17761000,0.359345833991,,"consensus_sectors=Consumer Discretionary,Financials,Technology; exposure_state=expanding"
+S2CFC-R012,2021-05-18,BUY,sector::XLY,XLY,XLY,0.003982869785,78.27480000,0.311758335869,Consumer Discretionary,"consensus_sectors=Consumer Discretionary,Financials,Technology; exposure_state=expanding"
+S2CFC-R012,2021-05-18,BUY,sector::XLF,XLF,XLF,0.016136013560,34.31161000,0.553652604228,Financials,"consensus_sectors=Consumer Discretionary,Financials,Technology; exposure_state=expanding"
+S2CFC-R012,2021-05-18,BUY,sector::XLK,XLK,XLK,0.008108830513,62.21554000,0.504495269132,Technology,"consensus_sectors=Consumer Discretionary,Financials,Technology; exposure_state=expanding"
+S2CFC-R013,2021-08-17,SELL,sector::XLY,XLY,XLY,0.003982869785,81.91005000,0.326237063256,Consumer Discretionary,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R013,2021-08-17,SELL,sector::XLF,XLF,XLF,0.016136013560,35.17452000,0.567576531689,Financials,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R013,2021-08-17,SELL,sector::XLK,XLK,XLK,0.008108830513,72.00273130,0.583857944582,Technology,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R013,2021-08-17,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.009330129765,95.02578700,0.886602923716,,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R014,2022-03-04,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.009330129765,89.07586500,0.831089379366,,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R014,2022-03-04,BUY,sector::XLC,XLC,XLC,0.013423271169,63.56832000,0.853294797106,Communication Services,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R015,2022-10-12,SELL,sector::XLC,XLC,XLC,0.013423271169,45.85857000,0.615572020524,Communication Services,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R015,2022-10-12,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.009696080508,73.29365000,0.710661131157,,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R016,2022-11-15,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.009696080508,82.84316000,0.803253948933,,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R016,2022-11-15,BUY,sector::XLC,XLC,XLC,0.015739998312,48.67960000,0.766216821822,Communication Services,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R017,2022-12-23,SELL,sector::XLC,XLC,XLC,0.014295195551,46.13495000,0.659508131970,Communication Services,"consensus_sectors=Communication Services,Consumer Discretionary,Financials,Real Estate,Technology; exposure_state=expanding"
+S2CFC-R017,2022-12-23,BUY,sector::XLY,XLY,XLY,0.004969058850,61.50355000,0.305614759449,Consumer Discretionary,"consensus_sectors=Communication Services,Consumer Discretionary,Financials,Real Estate,Technology; exposure_state=expanding"
+S2CFC-R017,2022-12-23,BUY,sector::XLF,XLF,XLF,0.009369221892,32.19344000,0.301627482816,Financials,"consensus_sectors=Communication Services,Consumer Discretionary,Financials,Real Estate,Technology; exposure_state=expanding"
+S2CFC-R017,2022-12-23,BUY,sector::XLRE,XLRE,XLRE,0.003974027303,33.23974000,0.132095634321,Real Estate,"consensus_sectors=Communication Services,Consumer Discretionary,Financials,Real Estate,Technology; exposure_state=expanding"
+S2CFC-R017,2022-12-23,BUY,sector::XLK,XLK,XLK,0.007221458304,59.68067000,0.430981469932,Technology,"consensus_sectors=Communication Services,Consumer Discretionary,Financials,Real Estate,Technology; exposure_state=expanding"
+S2CFC-R018,2023-02-15,SELL,sector::XLY,XLY,XLY,0.004969058850,73.13139000,0.363394180710,Consumer Discretionary,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R018,2023-02-15,SELL,sector::XLF,XLF,XLF,0.009369221892,34.84857000,0.326503984937,Financials,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R018,2023-02-15,SELL,sector::XLRE,XLRE,XLRE,0.003974027303,36.01868200,0.143139225704,Real Estate,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R018,2023-02-15,SELL,sector::XLK,XLK,XLK,0.007221458304,69.01594700,0.498395783539,Technology,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R018,2023-02-15,BUY,sector::XLC,XLC,XLC,0.014131363167,54.30991000,0.767473061763,Communication Services,consensus_sectors=Communication Services; exposure_state=stable
+S2CFC-R019,2023-03-08,SELL,sector::XLC,XLC,XLC,0.015576165928,52.34097000,0.815271633550,Communication Services,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R019,2023-03-08,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.009745355547,84.91625000,0.827539048007,,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R020,2023-05-16,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.000092140504,86.97201000,0.008013644848,,no_consensus; fallback=VT; exposure_state=stable
+S2CFC-R021,2023-08-15,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.009653215043,91.33234000,0.881650718429,,consensus_sectors=Consumer Discretionary; exposure_state=stable
+S2CFC-R021,2023-08-15,BUY,sector::XLY,XLY,XLY,0.010729452248,80.60190000,0.864814237169,Consumer Discretionary,consensus_sectors=Consumer Discretionary; exposure_state=stable
+S2CFC-R022,2023-11-15,SELL,sector::XLY,XLY,XLY,0.005260326307,80.80622000,0.425067084875,Consumer Discretionary,"consensus_sectors=Consumer Discretionary,Health Care; exposure_state=stable"
+S2CFC-R022,2023-11-15,BUY,sector::XLV,XLV,XLV,0.003455761146,122.74870000,0.424190188202,Health Care,"consensus_sectors=Consumer Discretionary,Health Care; exposure_state=stable"
+S2CFC-R023,2024-02-15,SELL,sector::XLV,XLV,XLV,0.003455761146,139.85926000,0.483320196639,Health Care,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R023,2024-02-15,SELL,sector::XLY,XLY,XLY,0.000899727330,87.06027800,0.078330511511,Consumer Discretionary,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R023,2024-02-15,BUY,sector::XLK,XLK,XLK,0.005262844743,99.62616000,0.524317012438,Technology,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R024,2024-02-28,SELL,sector::XLY,XLY,XLY,0.000510938335,88.54923000,0.045243196118,Consumer Discretionary,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R024,2024-02-28,BUY,sector::XLK,XLK,XLK,0.000423720883,99.74798000,0.042265302140,Technology,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R025,2024-05-16,SELL,sector::XLY,XLY,XLY,0.004058460276,86.32226000,0.350335463110,Consumer Discretionary,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R025,2024-05-16,SELL,sector::XLK,XLK,XLK,0.005686565626,103.78779000,0.590196079005,Technology,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R025,2024-05-16,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.003606488089,108.01802300,0.389565713315,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R026,2024-08-15,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.000073544115,111.03707200,0.008166123193,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R027,2024-10-01,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.000102961280,115.52614000,0.011894719304,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R028,2024-11-15,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.003429982693,115.11819000,0.394853399374,,"consensus_sectors=Consumer Discretionary,Financials,Technology; exposure_state=expanding"
+S2CFC-R028,2024-11-15,BUY,sector::XLY,XLY,XLY,0.003800934067,104.50435000,0.397214144068,Consumer Discretionary,"consensus_sectors=Consumer Discretionary,Financials,Technology; exposure_state=expanding"
+S2CFC-R028,2024-11-15,BUY,sector::XLF,XLF,XLF,0.008959386710,48.73053000,0.436595662829,Financials,"consensus_sectors=Consumer Discretionary,Financials,Technology; exposure_state=expanding"
+S2CFC-R028,2024-11-15,BUY,sector::XLK,XLK,XLK,0.006658452180,112.60899000,0.749801574918,Technology,"consensus_sectors=Consumer Discretionary,Financials,Technology; exposure_state=expanding"
+S2CFC-R029,2025-02-18,SELL,sector::XLF,XLF,XLF,0.008959386710,51.19472000,0.458673293965,Financials,consensus_sectors=Consumer Discretionary; exposure_state=stable
+S2CFC-R029,2025-02-18,SELL,sector::XLK,XLK,XLK,0.006658452180,119.62136000,0.796493105229,Technology,consensus_sectors=Consumer Discretionary; exposure_state=stable
+S2CFC-R029,2025-02-18,BUY,sector::XLY,XLY,XLY,0.005248785673,111.25456000,0.583951340630,Consumer Discretionary,consensus_sectors=Consumer Discretionary; exposure_state=stable
+S2CFC-R030,2025-02-26,BUY,sector::XLY,XLY,XLY,0.000181884725,105.93191000,0.019267396311,Consumer Discretionary,consensus_sectors=Consumer Discretionary; exposure_state=stable
+S2CFC-R031,2025-05-16,SELL,sector::XLY,XLY,XLY,0.006060337465,107.56601000,0.651886320394,Consumer Discretionary,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R031,2025-05-16,BUY,sector::XLK,XLK,XLK,0.005546806953,116.43675000,0.645852174451,Technology,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R032,2025-08-13,SELL,sector::XLY,XLY,XLY,0.000073505557,114.06699700,0.008384558189,Consumer Discretionary,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R032,2025-08-13,SELL,sector::XLK,XLK,XLK,0.000281730736,133.44344000,0.037595118561,Technology,"consensus_sectors=Consumer Discretionary,Technology; exposure_state=stable"
+S2CFC-R033,2025-08-15,SELL,sector::XLY,XLY,XLY,0.003097761443,113.66501000,0.352107085367,Consumer Discretionary,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R033,2025-08-15,SELL,sector::XLK,XLK,XLK,0.005265076217,132.14537000,0.695755444740,Technology,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R033,2025-08-15,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.003328855424,131.56354000,0.437956003763,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R034,2025-11-17,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.000086863071,136.30589000,0.011839948141,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R035,2026-02-18,SELL,benchmark_vt,Vanguard Total World Stock ETF,VT,0.000171759448,146.66632000,0.025191326131,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R036,2026-03-02,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.000000940191,146.60646000,0.000137838106,,no_consensus; fallback=VT; exposure_state=contracting
+S2CFC-R037,2026-05-18,BUY,benchmark_vt,Vanguard Total World Stock ETF,VT,0.004044166346,153.71001000,0.621628849484,,no_consensus; fallback=VT; exposure_state=stable

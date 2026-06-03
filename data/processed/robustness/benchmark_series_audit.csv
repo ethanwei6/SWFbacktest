@@ -1,0 +1,6 @@
+benchmark_key,row_count,first_date,last_date,first_close,last_close,source,status
+ACWI,2075,2018-02-27,2026-05-29,63.51924,158.53999,twelvedata,ok
+BLEND_VT_SPY_50,1861,2019-01-02,2026-05-28,1.000000000000,3.080897020461,synthetic_blend,ok
+QQQ,1862,2019-01-02,2026-05-29,147.83747,738.31000,twelvedata,ok
+SPY,1862,2019-01-02,2026-05-28,224.47642,754.59998,local_pif_benchmark,ok
+VT,2740,2018-02-27,2026-05-29,63.80226,158.12000,local_nbim_benchmark,ok

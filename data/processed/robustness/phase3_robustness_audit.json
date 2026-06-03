@@ -1,0 +1,19 @@
+{
+  "overall_status": "pass",
+  "check_count": 26,
+  "failed_checks": 0,
+  "layers": {
+    "A1": {
+      "check_count": 8,
+      "failed_checks": 0
+    },
+    "A2": {
+      "check_count": 9,
+      "failed_checks": 0
+    },
+    "A3": {
+      "check_count": 9,
+      "failed_checks": 0
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "strategy_id": "S5",
+  "strategy_name": "S5 N6 Sleeve With PIF Risk Filter",
+  "initial_nav": 1.0,
+  "final_nav": 2.339482023983976,
+  "total_return": 1.339482023983976,
+  "rebalance_count": 37,
+  "orders_count": 113,
+  "holdings_daily_rows": 5472,
+  "portfolio_daily_rows": 1824,
+  "signal_rows": 37,
+  "start_date": "2019-02-14",
+  "end_date": "2026-05-18",
+  "max_drawdown": -0.293663180053,
+  "avg_cash_weight_end": 0.27152523874913664
+}

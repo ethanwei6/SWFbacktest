@@ -1,0 +1,15 @@
+{
+  "strategy_key": "n4",
+  "strategy_name": "N4 Industry Weight-Change Tilt",
+  "initial_nav": 1.0,
+  "start_date": "2018-03-02",
+  "end_date": "2026-05-29",
+  "final_nav": 3.060118210173,
+  "total_return": 2.060118210173,
+  "max_drawdown": -0.256104043924,
+  "rebalance_count": 11,
+  "eligibility_count": 44,
+  "order_count": 66,
+  "average_holding_count": 4.083333333333333,
+  "average_cash_weight": 0.12037037037037036
+}

@@ -1,0 +1,109 @@
+rebalance_id,execution_date,side,instrument_key,issuer_name,symbol,shares,execution_price,execution_value,sector,rationale_text
+S1ERO-R001,2019-02-14,BUY,sector::XLP,XLP,XLP,0.005813010822,44.49966000,0.258677005144,Consumer Staples,"exposure_state=initial; selected=Consumer Staples,Financials,Industrials"
+S1ERO-R001,2019-02-14,BUY,sector::XLF,XLF,XLF,0.020716810053,22.56961000,0.467570323346,Financials,"exposure_state=initial; selected=Consumer Staples,Financials,Industrials"
+S1ERO-R001,2019-02-14,BUY,sector::XLI,XLI,XLI,0.004129477917,66.29232000,0.273752671509,Industrials,"exposure_state=initial; selected=Consumer Staples,Financials,Industrials"
+S1ERO-R002,2019-02-28,SELL,sector::XLP,XLP,XLP,0.005813010822,44.91292000,0.261079289996,Consumer Staples,"exposure_state=initial; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R002,2019-02-28,SELL,sector::XLF,XLF,XLF,0.020716810053,23.12775000,0.479133203709,Financials,"exposure_state=initial; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R002,2019-02-28,SELL,sector::XLI,XLI,XLI,0.004129477917,67.75680000,0.279800209329,Industrials,"exposure_state=initial; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R002,2019-02-28,BUY,sector::XLY,XLY,XLY,0.006515781700,48.42446000,0.315523210304,Consumer Discretionary,"exposure_state=initial; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R002,2019-02-28,BUY,sector::XLV,XLV,XLV,0.004139871205,81.01512400,0.335392179046,Health Care,"exposure_state=initial; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R002,2019-02-28,BUY,sector::XLK,XLK,XLK,0.011846338414,31.15708000,0.369097313685,Technology,"exposure_state=initial; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R003,2019-05-14,SELL,sector::XLY,XLY,XLY,0.001753172147,50.85100000,0.089150556854,Consumer Discretionary,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R003,2019-05-14,SELL,sector::XLV,XLV,XLV,0.000830662757,77.79326000,0.064619963860,Health Care,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R003,2019-05-14,SELL,sector::XLK,XLK,XLK,0.003252094251,32.96449000,0.107203628404,Technology,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R004,2019-08-07,BUY,sector::XLY,XLY,XLY,0.001591870877,52.18025000,0.083064220307,Consumer Discretionary,"exposure_state=expanding; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R004,2019-08-07,BUY,sector::XLV,XLV,XLV,0.001081624653,80.27141000,0.086823535975,Health Care,"exposure_state=expanding; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R004,2019-08-07,BUY,sector::XLK,XLK,XLK,0.002637598924,34.53383000,0.091086392837,Technology,"exposure_state=expanding; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R005,2019-10-22,SELL,sector::XLY,XLY,XLY,0.001621433604,54.61947000,0.088561844108,Consumer Discretionary,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R005,2019-10-22,SELL,sector::XLV,XLV,XLV,0.001047275306,82.18661000,0.086072007099,Health Care,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R005,2019-10-22,SELL,sector::XLK,XLK,XLK,0.002872989884,36.17855000,0.103940608179,Technology,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R006,2020-02-05,BUY,sector::XLY,XLY,XLY,0.000219253827,58.29087000,0.012780496341,Consumer Discretionary,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R006,2020-02-05,SELL,sector::XLV,XLV,XLV,0.000072862257,93.81862000,0.006835836365,Health Care,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R006,2020-02-05,SELL,sector::XLK,XLK,XLK,0.000854304567,44.99793000,0.038441937122,Technology,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1ERO-R007,2020-02-26,SELL,sector::XLY,XLY,XLY,0.004952300652,54.82934000,0.271531376254,Consumer Discretionary,exposure_state=stable; selected=Technology
+S1ERO-R007,2020-02-26,SELL,sector::XLV,XLV,XLV,0.003270695539,87.81481000,0.287215507293,Health Care,exposure_state=stable; selected=Technology
+S1ERO-R007,2020-02-26,BUY,sector::XLK,XLK,XLK,0.013716257545,41.83860000,0.573869012922,Technology,exposure_state=stable; selected=Technology
+S1ERO-R008,2020-05-18,BUY,sector::XLK,XLK,XLK,0.006777064778,43.66929000,0.295949607158,Technology,exposure_state=expanding; selected=Technology
+S1ERO-R009,2020-08-17,SELL,sector::XLK,XLK,XLK,0.013998935480,52.56598000,0.735867762440,Technology,exposure_state=contracting; selected=Technology
+S1ERO-R010,2020-11-17,SELL,sector::XLK,XLK,XLK,0.000434470803,56.04479100,0.024349825367,Technology,exposure_state=contracting; selected=Technology
+S1ERO-R011,2021-02-26,BUY,sector::XLY,XLY,XLY,0.004058921196,74.35889000,0.301816874700,Consumer Discretionary,"exposure_state=contracting; selected=Consumer Discretionary,Technology"
+S1ERO-R011,2021-02-26,SELL,sector::XLK,XLK,XLK,0.005487490818,60.46915000,0.331823905385,Technology,"exposure_state=contracting; selected=Consumer Discretionary,Technology"
+S1ERO-R012,2021-05-18,BUY,sector::XLY,XLY,XLY,0.003799187160,78.27480000,0.297380615143,Consumer Discretionary,"exposure_state=expanding; selected=Consumer Discretionary,Technology"
+S1ERO-R012,2021-05-18,BUY,sector::XLK,XLK,XLK,0.007921557915,62.21554000,0.492844003350,Technology,"exposure_state=expanding; selected=Consumer Discretionary,Technology"
+S1ERO-R013,2021-08-17,SELL,sector::XLY,XLY,XLY,0.001578599579,81.91005000,0.129303170461,Consumer Discretionary,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R013,2021-08-17,SELL,sector::XLK,XLK,XLK,0.004438662700,72.00273130,0.319595837752,Technology,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R014,2022-03-04,BUY,sector::XLC,XLC,XLC,0.001369469703,63.56832000,0.087054888304,Communication Services,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R014,2022-03-04,SELL,sector::XLY,XLY,XLY,0.001299225314,80.14470000,0.104126023048,Consumer Discretionary,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R014,2022-03-04,BUY,sector::XLE,XLE,XLE,0.003605328282,28.40314000,0.102402643952,Energy,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R014,2022-03-04,BUY,sector::XLRE,XLRE,XLRE,0.004265310798,40.44756000,0.172521414430,Real Estate,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R014,2022-03-04,SELL,sector::XLK,XLK,XLK,0.003558058905,70.34365000,0.250286850280,Technology,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R015,2022-10-12,BUY,sector::XLC,XLC,XLC,0.000265149252,45.85857000,0.012159365525,Communication Services,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R015,2022-10-12,BUY,sector::XLY,XLY,XLY,0.000251612166,65.69218000,0.016528951678,Consumer Discretionary,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R015,2022-10-12,SELL,sector::XLE,XLE,XLE,0.000865726978,32.18605000,0.027864331795,Energy,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R015,2022-10-12,BUY,sector::XLRE,XLRE,XLRE,0.000663418804,30.14060000,0.019995840790,Real Estate,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R015,2022-10-12,BUY,sector::XLK,XLK,XLK,0.000729395396,55.51148000,0.040489817930,Technology,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R016,2022-11-15,BUY,sector::XLC,XLC,XLC,0.000030165666,48.67960000,0.001468452537,Communication Services,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R016,2022-11-15,BUY,sector::XLY,XLY,XLY,0.000200023519,68.40494000,0.013682596788,Consumer Discretionary,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R016,2022-11-15,SELL,sector::XLE,XLE,XLE,0.000217287856,37.79410000,0.008212198948,Energy,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R016,2022-11-15,SELL,sector::XLRE,XLRE,XLRE,0.000183622562,33.84612000,0.006214911265,Real Estate,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R016,2022-11-15,SELL,sector::XLK,XLK,XLK,0.000495795511,63.62676000,0.031545861961,Technology,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R017,2022-12-23,BUY,sector::XLC,XLC,XLC,0.000559903184,46.13495000,0.025831105408,Communication Services,"exposure_state=expanding; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R017,2022-12-23,BUY,sector::XLY,XLY,XLY,0.002219370649,61.50355000,0.136499173706,Consumer Discretionary,"exposure_state=expanding; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R017,2022-12-23,BUY,sector::XLE,XLE,XLE,0.000860748059,35.68677000,0.030717317994,Energy,"exposure_state=expanding; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R017,2022-12-23,BUY,sector::XLRE,XLRE,XLRE,0.001374046601,33.23974000,0.045672951778,Real Estate,"exposure_state=expanding; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R017,2022-12-23,BUY,sector::XLK,XLK,XLK,0.002884094041,59.68067000,0.172124664689,Technology,"exposure_state=expanding; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R018,2023-02-15,SELL,sector::XLC,XLC,XLC,0.000598544613,54.30991000,0.032506904088,Communication Services,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R018,2023-02-15,SELL,sector::XLY,XLY,XLY,0.002114350691,73.13139000,0.154625405016,Consumer Discretionary,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R018,2023-02-15,SELL,sector::XLE,XLE,XLE,0.000518737850,36.26885000,0.018814025253,Energy,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R018,2023-02-15,SELL,sector::XLRE,XLRE,XLRE,0.001260008197,36.01868200,0.045383834573,Real Estate,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R018,2023-02-15,SELL,sector::XLK,XLK,XLK,0.002845639724,69.01594700,0.196394520385,Technology,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1ERO-R019,2023-03-08,SELL,sector::XLK,XLK,XLK,0.008273864370,67.15752000,0.555652211931,Technology,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R019,2023-03-08,SELL,sector::XLY,XLY,XLY,0.005536939105,67.95185000,0.376245255502,Consumer Discretionary,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R019,2023-03-08,SELL,sector::XLC,XLC,XLC,0.001626143191,52.34097000,0.085113911982,Communication Services,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R019,2023-03-08,SELL,sector::XLRE,XLRE,XLRE,0.004859145444,34.20789000,0.166221112843,Real Estate,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R019,2023-03-08,BUY,sector::XLP,XLP,XLP,0.003260829426,66.19467000,0.215849527761,Consumer Staples,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R019,2023-03-08,BUY,sector::XLE,XLE,XLE,0.001256554624,34.80137000,0.043729822399,Energy,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R019,2023-03-08,BUY,sector::XLF,XLF,XLF,0.015678979884,33.15119000,0.519776841125,Financials,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R019,2023-03-08,BUY,sector::XLV,XLV,XLV,0.003498390665,119.75252000,0.418941098040,Health Care,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R020,2023-05-16,SELL,sector::XLP,XLP,XLP,0.000235156826,70.33777000,0.016540406771,Consumer Staples,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R020,2023-05-16,BUY,sector::XLE,XLE,XLE,0.000269431289,32.20701000,0.008677576206,Energy,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R020,2023-05-16,BUY,sector::XLF,XLF,XLF,0.001200880921,30.36040000,0.036459225108,Financials,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R020,2023-05-16,SELL,sector::XLV,XLV,XLV,0.000180886271,124.50904000,0.022521975920,Health Care,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R021,2023-08-15,BUY,sector::XLP,XLP,XLP,0.000220862884,68.37250000,0.015100947548,Consumer Staples,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R021,2023-08-15,SELL,sector::XLE,XLE,XLE,0.000438044234,37.31561000,0.016345887805,Energy,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R021,2023-08-15,SELL,sector::XLF,XLF,XLF,0.000556375505,32.74572000,0.018218916503,Financials,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R021,2023-08-15,BUY,sector::XLV,XLV,XLV,0.000008598348,129.52924000,0.001113737506,Health Care,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R022,2023-11-15,BUY,sector::XLP,XLP,XLP,0.000078669364,65.85993000,0.005181158822,Consumer Staples,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R022,2023-11-15,BUY,sector::XLE,XLE,XLE,0.000029710900,36.54063000,0.001085655016,Energy,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R022,2023-11-15,SELL,sector::XLF,XLF,XLF,0.000512047273,33.35294000,0.017078281982,Financials,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R022,2023-11-15,BUY,sector::XLV,XLV,XLV,0.000136675119,122.74870000,0.016776693192,Health Care,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R023,2024-02-15,BUY,sector::XLP,XLP,XLP,0.000131502806,68.91736000,0.009062826210,Consumer Staples,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R023,2024-02-15,BUY,sector::XLE,XLE,XLE,0.000218123788,37.68484000,0.008219960052,Energy,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R023,2024-02-15,SELL,sector::XLF,XLF,XLF,0.000882209942,38.42552000,0.033899375761,Financials,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R023,2024-02-15,SELL,sector::XLV,XLV,XLV,0.000156784922,139.85926000,0.021927823189,Health Care,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1ERO-R024,2024-02-28,SELL,sector::XLE,XLE,XLE,0.004200100025,37.72885000,0.158464943822,Energy,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R024,2024-02-28,SELL,sector::XLP,XLP,XLP,0.003456707654,70.23600000,0.242785318753,Consumer Staples,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R024,2024-02-28,SELL,sector::XLF,XLF,XLF,0.014929228084,38.99557000,0.582173758805,Financials,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R024,2024-02-28,SELL,sector::XLV,XLV,XLV,0.003305992939,140.68791000,0.465113237075,Health Care,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R024,2024-02-28,BUY,sector::XLY,XLY,XLY,0.006327027259,88.54923000,0.560253391991,Consumer Discretionary,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R024,2024-02-28,BUY,sector::XLK,XLK,XLK,0.008865198446,99.74798000,0.884285637240,Technology,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R025,2024-05-16,SELL,sector::XLY,XLY,XLY,0.001951389613,86.32226000,0.168448361498,Consumer Discretionary,"exposure_state=contracting; selected=Consumer Discretionary,Technology"
+S1ERO-R025,2024-05-16,SELL,sector::XLK,XLK,XLK,0.003121045905,103.78779000,0.323926456964,Technology,"exposure_state=contracting; selected=Consumer Discretionary,Technology"
+S1ERO-R026,2024-08-15,SELL,sector::XLY,XLY,XLY,0.004375637647,89.08687800,0.389811897197,Consumer Discretionary,exposure_state=contracting; selected=Technology
+S1ERO-R026,2024-08-15,BUY,sector::XLK,XLK,XLK,0.003415776618,108.43922000,0.370404152171,Technology,exposure_state=contracting; selected=Technology
+S1ERO-R027,2024-10-01,SELL,sector::XLK,XLK,XLK,0.000000391488,108.44849000,0.000042456272,Technology,exposure_state=contracting; selected=Technology
+S1ERO-R028,2024-11-15,BUY,sector::XLK,XLK,XLK,0.008821125467,112.60899000,0.993338029503,Technology,exposure_state=expanding; selected=Technology
+S1ERO-R029,2025-02-18,SELL,sector::XLK,XLK,XLK,0.004495165784,119.62136000,0.537717844563,Technology,exposure_state=stable; selected=Technology
+S1ERO-R030,2025-02-26,BUY,sector::XLY,XLY,XLY,0.005081303566,105.93191000,0.538272192065,Consumer Discretionary,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R030,2025-02-26,SELL,sector::XLK,XLK,XLK,0.004554316135,114.10858000,0.519686547040,Technology,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R031,2025-05-16,SELL,sector::XLY,XLY,XLY,0.000007074715,107.56601000,0.000760998820,Consumer Discretionary,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R031,2025-05-16,SELL,sector::XLK,XLK,XLK,0.000055937389,116.43675000,0.006513167763,Technology,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1ERO-R032,2025-08-13,SELL,sector::XLK,XLK,XLK,0.008875243829,133.44344000,1.184343067446,Technology,exposure_state=stable; selected=Financials
+S1ERO-R032,2025-08-13,SELL,sector::XLY,XLY,XLY,0.005074228852,114.06699700,0.578802047202,Consumer Discretionary,exposure_state=stable; selected=Financials
+S1ERO-R032,2025-08-13,BUY,sector::XLF,XLF,XLF,0.032934789587,52.13829000,1.717163610578,Financials,exposure_state=stable; selected=Financials
+S1ERO-R033,2025-08-15,SELL,sector::XLF,XLF,XLF,0.010946873332,51.84183000,0.567505946332,Financials,exposure_state=contracting; selected=Financials
+S1ERO-R034,2025-11-17,BUY,sector::XLF,XLF,XLF,0.000179158611,51.01055700,0.009138980554,Financials,exposure_state=contracting; selected=Financials
+S1ERO-R035,2026-02-18,SELL,sector::XLF,XLF,XLF,0.000277893925,52.32242000,0.014540082667,Financials,exposure_state=contracting; selected=Financials
+S1ERO-R036,2026-03-02,SELL,sector::XLF,XLF,XLF,0.021889180941,51.03898100,1.117201490140,Financials,exposure_state=contracting; selected=Technology
+S1ERO-R036,2026-03-02,BUY,sector::XLK,XLK,XLK,0.008117049033,139.36693000,1.131248204389,Technology,exposure_state=contracting; selected=Technology
+S1ERO-R037,2026-05-18,BUY,sector::XLK,XLK,XLK,0.002836739997,174.36000000,0.494613985943,Technology,exposure_state=stable; selected=Technology

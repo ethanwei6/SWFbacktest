@@ -1,0 +1,37 @@
+rebalance_id,trade_date,signal_count,positions_bought_count,positions_sold_count,cash_after_rebalance,position_count_end,rationale_text
+S1_T5-R001,2019-02-21,3,3,0,0.000000000000,3,"exposure_state=initial; selected=Consumer Staples,Financials,Industrials"
+S1_T5-R002,2019-03-06,3,3,3,0.000000000000,3,"exposure_state=initial; selected=Consumer Discretionary,Health Care,Technology"
+S1_T5-R003,2019-05-20,3,0,3,0.254807733796,3,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1_T5-R004,2019-08-13,3,3,0,0.000000000000,3,"exposure_state=expanding; selected=Consumer Discretionary,Health Care,Technology"
+S1_T5-R005,2019-10-28,3,0,3,0.275455039126,3,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1_T5-R006,2020-02-11,3,1,2,0.305286334175,3,"exposure_state=stable; selected=Consumer Discretionary,Health Care,Technology"
+S1_T5-R007,2020-03-03,1,1,2,0.281927571460,1,exposure_state=stable; selected=Technology
+S1_T5-R008,2020-05-22,1,1,0,0.000000000000,1,exposure_state=expanding; selected=Technology
+S1_T5-R009,2020-08-21,1,0,1,0.736697362754,1,exposure_state=contracting; selected=Technology
+S1_T5-R010,2020-11-23,1,0,1,0.745035519732,1,exposure_state=contracting; selected=Technology
+S1_T5-R011,2021-03-04,2,1,1,0.766960418104,2,"exposure_state=contracting; selected=Consumer Discretionary,Technology"
+S1_T5-R012,2021-05-24,2,2,0,0.000000000000,2,"exposure_state=expanding; selected=Consumer Discretionary,Technology"
+S1_T5-R013,2021-08-23,2,0,2,0.446926714358,2,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1_T5-R014,2022-03-10,5,3,2,0.427406062013,5,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1_T5-R015,2022-10-18,5,4,1,0.380037626432,5,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1_T5-R016,2022-11-21,5,2,3,0.392066495677,5,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1_T5-R017,2022-12-30,5,5,0,0.000000000000,5,"exposure_state=expanding; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1_T5-R018,2023-02-22,5,0,5,0.413855217525,5,"exposure_state=stable; selected=Communication Services,Consumer Discretionary,Energy,Real Estate,Technology"
+S1_T5-R019,2023-03-14,4,4,4,0.411441696863,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1_T5-R020,2023-05-22,4,2,2,0.419706196717,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1_T5-R021,2023-08-21,4,2,2,0.430766051177,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1_T5-R022,2023-11-21,4,3,1,0.430547720681,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1_T5-R023,2024-02-22,4,2,2,0.469735547255,4,"exposure_state=stable; selected=Consumer Staples,Energy,Financials,Health Care"
+S1_T5-R024,2024-03-05,2,2,4,0.469406993441,2,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1_T5-R025,2024-05-22,2,0,2,0.956056003973,2,"exposure_state=contracting; selected=Consumer Discretionary,Technology"
+S1_T5-R026,2024-08-21,1,1,1,0.983615493311,1,exposure_state=contracting; selected=Technology
+S1_T5-R027,2024-10-07,1,1,0,0.981351083973,1,exposure_state=contracting; selected=Technology
+S1_T5-R028,2024-11-21,1,1,0,0.000000000000,1,exposure_state=expanding; selected=Technology
+S1_T5-R029,2025-02-24,1,0,1,0.498751787479,1,exposure_state=stable; selected=Technology
+S1_T5-R030,2025-03-04,2,1,1,0.477730806459,2,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1_T5-R031,2025-05-22,2,1,1,0.493488019522,2,"exposure_state=stable; selected=Consumer Discretionary,Technology"
+S1_T5-R032,2025-08-19,1,1,2,0.539483978520,1,exposure_state=stable; selected=Financials
+S1_T5-R033,2025-08-21,1,0,1,1.080506430702,1,exposure_state=contracting; selected=Financials
+S1_T5-R034,2025-11-21,1,1,0,1.071685310655,1,exposure_state=contracting; selected=Financials
+S1_T5-R035,2026-02-24,1,1,0,1.066371094622,1,exposure_state=contracting; selected=Financials
+S1_T5-R036,2026-03-06,1,1,1,1.062083060298,1,exposure_state=contracting; selected=Technology

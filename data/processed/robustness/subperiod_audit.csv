@@ -1,0 +1,37 @@
+strategy_key,subperiod_key,check_type,status,expected_value,actual_value,difference,note
+p5,2019_2021,minimum_row_count,pass,>=2,727,0.000000000000,Each subperiod needs at least two aligned observations.
+p5,2019_2021,date_order,pass,start<=end,2019-02-14->2021-12-31,0.000000000000,Aligned subperiod dates must be ordered correctly.
+p5,2019_2021,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+p5,2022_2023,minimum_row_count,pass,>=2,501,0.000000000000,Each subperiod needs at least two aligned observations.
+p5,2022_2023,date_order,pass,start<=end,2022-01-03->2023-12-29,0.000000000000,Aligned subperiod dates must be ordered correctly.
+p5,2022_2023,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+p5,2024_2026,minimum_row_count,pass,>=2,599,0.000000000000,Each subperiod needs at least two aligned observations.
+p5,2024_2026,date_order,pass,start<=end,2024-01-02->2026-05-18,0.000000000000,Aligned subperiod dates must be ordered correctly.
+p5,2024_2026,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+n4,2019_2021,minimum_row_count,pass,>=2,37,0.000000000000,Each subperiod needs at least two aligned observations.
+n4,2019_2021,date_order,pass,start<=end,2019-01-31->2021-12-31,0.000000000000,Aligned subperiod dates must be ordered correctly.
+n4,2019_2021,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+n4,2022_2023,minimum_row_count,pass,>=2,26,0.000000000000,Each subperiod needs at least two aligned observations.
+n4,2022_2023,date_order,pass,start<=end,2022-01-31->2023-12-29,0.000000000000,Aligned subperiod dates must be ordered correctly.
+n4,2022_2023,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+n4,2024_2026,minimum_row_count,pass,>=2,34,0.000000000000,Each subperiod needs at least two aligned observations.
+n4,2024_2026,date_order,pass,start<=end,2024-01-31->2026-05-29,0.000000000000,Aligned subperiod dates must be ordered correctly.
+n4,2024_2026,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+n6,2019_2021,minimum_row_count,pass,>=2,37,0.000000000000,Each subperiod needs at least two aligned observations.
+n6,2019_2021,date_order,pass,start<=end,2019-01-31->2021-12-31,0.000000000000,Aligned subperiod dates must be ordered correctly.
+n6,2019_2021,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+n6,2022_2023,minimum_row_count,pass,>=2,26,0.000000000000,Each subperiod needs at least two aligned observations.
+n6,2022_2023,date_order,pass,start<=end,2022-01-31->2023-12-29,0.000000000000,Aligned subperiod dates must be ordered correctly.
+n6,2022_2023,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+n6,2024_2026,minimum_row_count,pass,>=2,34,0.000000000000,Each subperiod needs at least two aligned observations.
+n6,2024_2026,date_order,pass,start<=end,2024-01-31->2026-05-29,0.000000000000,Aligned subperiod dates must be ordered correctly.
+n6,2024_2026,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+s1,2019_2021,minimum_row_count,pass,>=2,727,0.000000000000,Each subperiod needs at least two aligned observations.
+s1,2019_2021,date_order,pass,start<=end,2019-02-14->2021-12-31,0.000000000000,Aligned subperiod dates must be ordered correctly.
+s1,2019_2021,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+s1,2022_2023,minimum_row_count,pass,>=2,501,0.000000000000,Each subperiod needs at least two aligned observations.
+s1,2022_2023,date_order,pass,start<=end,2022-01-03->2023-12-29,0.000000000000,Aligned subperiod dates must be ordered correctly.
+s1,2022_2023,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
+s1,2024_2026,minimum_row_count,pass,>=2,596,0.000000000000,Each subperiod needs at least two aligned observations.
+s1,2024_2026,date_order,pass,start<=end,2024-01-02->2026-05-18,0.000000000000,Aligned subperiod dates must be ordered correctly.
+s1,2024_2026,rebase_anchor,pass,1.000000000000/1.000000000000,1.000000000000/1.000000000000,0.000000000000,Both strategy and benchmark must rebase to 1.0 on the first aligned subperiod date.
