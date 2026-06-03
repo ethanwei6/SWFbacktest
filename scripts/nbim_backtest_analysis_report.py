@@ -5,6 +5,7 @@ import html
 import json
 import math
 import statistics
+from datetime import date
 from pathlib import Path
 
 
@@ -15,7 +16,7 @@ ANALYSIS_DIR = BACKTEST_ROOT / "analysis"
 CHARTS_DIR = ROOT / "outputs" / "nbim" / "backtests" / "charts"
 REPORTS_DIR = ROOT / "outputs" / "nbim" / "backtests" / "reports"
 
-PRICE_PATH = NBIM_ROOT / "nbim_alphavantage_monthly_prices.csv"
+PRICE_PATH = NBIM_ROOT / "nbim_twelvedata_daily_prices.csv"
 
 STRATEGIES = [
     {"key": "n1", "name": "N1 Core US Mirror Equal Weight", "dir": BACKTEST_ROOT / "n1_core_equal_weight", "prefix": "n1cew", "color": "#0B5FFF"},
@@ -33,7 +34,7 @@ COLORS = {
     "text": "#0F172A",
     "slate": "#475569",
     "gray": "#94A3B8",
-    "benchmark": "#0F766E",
+    "benchmark": "#111827",
 }
 
 
@@ -176,8 +177,14 @@ def bar_chart_svg(labels: list[str], values: list[float], title: str, subtitle: 
 def load_strategy_data() -> list[dict[str, object]]:
     loaded = []
     for strategy in STRATEGIES:
-        portfolio_rows = read_csv(strategy["dir"] / f"{strategy['prefix']}_portfolio_monthly.csv")
-        holdings_rows = read_csv(strategy["dir"] / f"{strategy['prefix']}_holdings_monthly.csv")
+        portfolio_path = strategy["dir"] / f"{strategy['prefix']}_portfolio_timeline.csv"
+        holdings_path = strategy["dir"] / f"{strategy['prefix']}_holdings_timeline.csv"
+        if not portfolio_path.exists():
+            portfolio_path = strategy["dir"] / f"{strategy['prefix']}_portfolio_monthly.csv"
+        if not holdings_path.exists():
+            holdings_path = strategy["dir"] / f"{strategy['prefix']}_holdings_monthly.csv"
+        portfolio_rows = read_csv(portfolio_path)
+        holdings_rows = read_csv(holdings_path)
         rebalance_rows = read_csv(strategy["dir"] / f"{strategy['prefix']}_rebalance_events.csv")
         summary = json.loads((strategy["dir"] / f"{strategy['prefix']}_summary.json").read_text(encoding="utf-8"))
         loaded.append({**strategy, "portfolio_rows": portfolio_rows, "holdings_rows": holdings_rows, "rebalance_rows": rebalance_rows, "summary": summary})
@@ -186,7 +193,12 @@ def load_strategy_data() -> list[dict[str, object]]:
 
 def build_benchmark_lookup() -> dict[str, float]:
     rows = [row for row in read_csv(PRICE_PATH) if row["instrument_key"] == "benchmark_vt"]
-    return {row["date"]: to_float(row["adjusted_close"]) for row in rows}
+    return {row["date"]: to_float(row["close"]) for row in rows}
+
+
+def parse_date(value: str) -> date:
+    year, month, day = value.split("-")
+    return date(int(year), int(month), int(day))
 
 
 def compute_strategy_summary(loaded: list[dict[str, object]]) -> tuple[list[dict[str, str]], list[dict[str, str]], str]:
@@ -196,7 +208,7 @@ def compute_strategy_summary(loaded: list[dict[str, object]]) -> tuple[list[dict
 
     strategy_rows: list[dict[str, str]] = []
     relative_rows: list[dict[str, str]] = []
-    monthly_rows: list[dict[str, str]] = []
+    timeline_rows: list[dict[str, str]] = []
 
     benchmark_start = benchmark_lookup[common_dates[0]]
     benchmark_series = {date: benchmark_lookup[date] / benchmark_start for date in common_dates}
@@ -206,9 +218,16 @@ def compute_strategy_summary(loaded: list[dict[str, object]]) -> tuple[list[dict
         nav_series = [to_float(row["nav_end"]) for row in portfolio_rows]
         rebased_nav_series = [value / nav_series[0] for value in nav_series]
         returns = [rebased_nav_series[i] / rebased_nav_series[i - 1] - 1.0 for i in range(1, len(rebased_nav_series))]
+        interval_days = [
+            max(1, (parse_date(portfolio_rows[i]["date"]) - parse_date(portfolio_rows[i - 1]["date"])).days)
+            for i in range(1, len(portfolio_rows))
+        ]
         vol = statistics.pstdev(returns) if len(returns) > 1 else 0.0
-        ann_return = nav_series[-1] ** (12 / max(1, len(nav_series) - 1)) - 1.0
-        ann_vol = vol * math.sqrt(12)
+        elapsed_days = max(1, (parse_date(portfolio_rows[-1]["date"]) - parse_date(portfolio_rows[0]["date"])).days)
+        elapsed_years = elapsed_days / 365.25
+        ann_return = nav_series[-1] ** (1 / elapsed_years) - 1.0 if elapsed_years > 0 else 0.0
+        avg_interval_days = statistics.fmean(interval_days) if interval_days else 30.4375
+        ann_vol = vol * math.sqrt(365.25 / avg_interval_days)
         avg_cash = statistics.fmean(to_float(row["cash_end"]) / to_float(row["nav_end"]) for row in portfolio_rows if to_float(row["nav_end"]) > 0)
         avg_holdings = statistics.fmean(int(row["holding_count"]) for row in portfolio_rows)
         turnover = statistics.fmean(to_float(row["turnover_notional"]) for row in item["rebalance_rows"]) if item["rebalance_rows"] else 0.0
@@ -248,7 +267,7 @@ def compute_strategy_summary(loaded: list[dict[str, object]]) -> tuple[list[dict
         for idx, (row, rebased_nav) in enumerate(zip(portfolio_rows, rebased_nav_series)):
             date = row["date"]
             benchmark_nav = benchmark_series[date]
-            monthly_rows.append(
+            timeline_rows.append(
                 {
                     "date": date,
                     "strategy_key": item["key"],
@@ -263,7 +282,8 @@ def compute_strategy_summary(loaded: list[dict[str, object]]) -> tuple[list[dict
 
     write_csv(ANALYSIS_DIR / "strategy_summary.csv", strategy_rows)
     write_csv(ANALYSIS_DIR / "strategy_vs_benchmark_summary.csv", relative_rows)
-    write_csv(ANALYSIS_DIR / "strategy_vs_benchmark_monthly.csv", monthly_rows)
+    write_csv(ANALYSIS_DIR / "strategy_vs_benchmark_timeline.csv", timeline_rows)
+    write_csv(ANALYSIS_DIR / "strategy_vs_benchmark_monthly.csv", timeline_rows)
     return strategy_rows, relative_rows, common_start
 
 
@@ -288,6 +308,7 @@ def build_concentration_rows(loaded: list[dict[str, object]]) -> list[dict[str, 
                     "hhi": f"{sum(weight * weight for weight in weights):.12f}",
                 }
             )
+    write_csv(ANALYSIS_DIR / "strategy_concentration_timeline.csv", rows)
     write_csv(ANALYSIS_DIR / "strategy_concentration_monthly.csv", rows)
     return rows
 

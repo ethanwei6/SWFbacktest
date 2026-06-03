@@ -3,13 +3,13 @@
   "strategy_name": "N8 Consensus Rotation Tilt",
   "initial_nav": 1.0,
   "start_date": "2019-02-28",
-  "end_date": "2026-05-28",
-  "final_nav": 1.833042668482,
-  "total_return": 0.833042668482,
-  "max_drawdown": -0.191717854166,
+  "end_date": "2026-05-29",
+  "final_nav": 1.829964229279,
+  "total_return": 0.8299642292789999,
+  "max_drawdown": -0.19258726524,
   "rebalance_count": 10,
   "eligibility_count": 9,
-  "order_count": 13,
-  "average_holding_count": 0.9318181818181818,
-  "average_cash_weight": 0.6066474576111224
+  "order_count": 17,
+  "average_holding_count": 1.15625,
+  "average_cash_weight": 0.6145833333333334
 }

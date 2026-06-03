@@ -4,8 +4,8 @@ Common benchmark comparison window starts on `2019-02-28` so every strategy is c
 
 ## Key takeaways
 
-- Best benchmark-relative strategy: `N1 Core US Mirror Equal Weight` with excess total return `231.7%` vs `VT`.
-- Worst benchmark-relative strategy: `N5 Industry Accumulation Tilt` with excess total return `-32.9%` vs `VT`.
+- Best benchmark-relative strategy: `N1 Core US Mirror Equal Weight` with excess total return `232.0%` vs `VT`.
+- Worst benchmark-relative strategy: `N5 Industry Accumulation Tilt` with excess total return `-32.8%` vs `VT`.
 - Direct mirror strategies test whether the disclosed core US sleeve can be copied with lag.
 - Industry strategies test whether NBIM's slow-moving sector posture contains more persistent signal than single-name mirroring.
 
@@ -14,11 +14,11 @@ Common benchmark comparison window starts on `2019-02-28` so every strategy is c
 | Strategy | Total Return | Annualized Return | Max Drawdown | Avg Cash | Avg Holdings |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | N1 Core US Mirror Equal Weight | 717.0% | 33.6% | -28.6% | 0.0% | 10.0 |
-| N2 Core US Mirror NBIM Weight | 466.8% | 27.0% | -34.7% | 0.0% | 10.0 |
+| N2 Core US Mirror NBIM Weight | 466.8% | 27.1% | -34.7% | 0.0% | 10.0 |
 | N3 Industry Weight Mirror | 161.1% | 14.2% | -22.2% | 5.3% | 8.6 |
 | N4 Industry Weight-Change Tilt | 199.0% | 16.3% | -24.3% | 3.3% | 3.7 |
 | N5 Industry Accumulation Tilt | 69.2% | 7.5% | -24.3% | 58.7% | 3.3 |
-| N6 Top-3 Industry Leaders | 197.7% | 16.2% | -25.8% | 0.0% | 3.0 |
+| N6 Top-3 Industry Leaders | 197.7% | 16.3% | -25.8% | 0.0% | 3.0 |
 | N7 Top-3 Industry Increases | 129.9% | 12.2% | -24.4% | 9.1% | 2.6 |
 | N8 Consensus Rotation Tilt | 83.3% | 8.7% | -19.2% | 60.7% | 0.9 |
 
@@ -26,11 +26,11 @@ Common benchmark comparison window starts on `2019-02-28` so every strategy is c
 
 | Strategy | Strategy Return | VT Return | Excess Return |
 | --- | ---: | ---: | ---: |
-| N1 Core US Mirror Equal Weight | 736.3% | 152.1% | 231.7% |
-| N2 Core US Mirror NBIM Weight | 454.1% | 152.1% | 119.8% |
-| N3 Industry Weight Mirror | 157.6% | 152.1% | 2.1% |
-| N4 Industry Weight-Change Tilt | 199.0% | 152.1% | 18.6% |
-| N5 Industry Accumulation Tilt | 69.2% | 152.1% | -32.9% |
-| N6 Top-3 Industry Leaders | 197.8% | 152.1% | 18.1% |
-| N7 Top-3 Industry Increases | 129.9% | 152.1% | -8.8% |
-| N8 Consensus Rotation Tilt | 83.3% | 152.1% | -27.3% |
+| N1 Core US Mirror Equal Weight | 736.3% | 151.9% | 232.0% |
+| N2 Core US Mirror NBIM Weight | 454.1% | 151.9% | 120.0% |
+| N3 Industry Weight Mirror | 157.6% | 151.9% | 2.2% |
+| N4 Industry Weight-Change Tilt | 199.0% | 151.9% | 18.7% |
+| N5 Industry Accumulation Tilt | 69.2% | 151.9% | -32.8% |
+| N6 Top-3 Industry Leaders | 197.8% | 151.9% | 18.2% |
+| N7 Top-3 Industry Increases | 129.9% | 151.9% | -8.7% |
+| N8 Consensus Rotation Tilt | 83.3% | 151.9% | -27.2% |

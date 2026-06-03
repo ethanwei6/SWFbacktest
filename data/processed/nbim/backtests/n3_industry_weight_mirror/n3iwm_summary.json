@@ -3,13 +3,13 @@
   "strategy_name": "N3 Industry Weight Mirror",
   "initial_nav": 1.0,
   "start_date": "2018-02-28",
-  "end_date": "2026-05-28",
-  "final_nav": 2.610811771519,
-  "total_return": 1.6108117715189998,
-  "max_drawdown": -0.221567296382,
+  "end_date": "2026-05-29",
+  "final_nav": 2.90832102259,
+  "total_return": 1.90832102259,
+  "max_drawdown": -0.226945070781,
   "rebalance_count": 11,
   "eligibility_count": 117,
-  "order_count": 95,
-  "average_holding_count": 8.51,
-  "average_cash_weight": 0.0531558154337416
+  "order_count": 116,
+  "average_holding_count": 10.425925925925926,
+  "average_cash_weight": 0.0031463461881689916
 }

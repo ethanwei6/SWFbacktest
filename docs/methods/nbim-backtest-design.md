@@ -24,12 +24,12 @@ This is intentionally narrower than the `NBIM` holdings dataset itself. The offi
 
 `NBIM` holdings are not traded on the `as_of_date`. They become usable only after public release.
 
-Because the selected price source is monthly adjusted data from Alpha Vantage, the execution convention is:
+The execution convention is:
 
 - `signal_date = public_date`
-- `trade_date = first available month-end strictly after signal_date`
+- `trade_date = first tradable close strictly after signal_date`
 
-This is conservative. For example, a report published on `27 February 2024` is first tradable in the backtest at the next month-end observation, `29 February 2024` if the monthly series includes it, otherwise the next monthly bar after publication.
+This means a report published on `27 February 2024` is first tradable on the first U.S. market close after release, not at the next month-end. After that execution point, the portfolio is carried at month-end closes until the next report.
 
 ### Benchmark
 
@@ -38,15 +38,18 @@ Use `VT` (`Vanguard Total World Stock ETF`) as the primary benchmark because:
 - `NBIM` is a global equity owner
 - `SPY` is too US-centric for this dataset
 
-### Price Frequency
+### Price Layer
 
-Use `TIME_SERIES_MONTHLY_ADJUSTED` from Alpha Vantage.
+Use `Twelve Data` adjusted daily history for the investable `NBIM` proxy universe, then derive:
+
+- exact first-post-release execution closes
+- month-end holding marks between reports
 
 Rationale:
 
-- the free Alpha Vantage key supports monthly adjusted history
-- the free key does not provide a practical daily adjusted route for this universe
-- `NBIM` itself is disclosed at annual and half-year intervals, so monthly frequency is sufficiently aligned for a first-pass lagged backtest
+- the `NBIM` investable backtest universe is only `22` instruments, so a daily adjusted source is operationally feasible
+- the free Alpha Vantage key does not provide full historical `TIME_SERIES_DAILY_ADJUSTED`
+- using a single daily adjusted source removes the timing distortion from waiting until the next month-end to enter a trade
 
 ### Direct Mirror Universe
 
@@ -77,7 +80,7 @@ These ETFs are implementation proxies, not one-for-one representations of `NBIM`
 - Universe: `core US mirror universe`
 - At each public disclosure, select names present in the current snapshot
 - Weight selected names equally
-- Rebalance on the first tradable month-end after public release
+- Rebalance on the first tradable close after public release
 - Hold until the next rebalance
 
 Purpose:
@@ -89,7 +92,7 @@ Purpose:
 - Universe: `core US mirror universe`
 - At each public disclosure, select names present in the current snapshot
 - Weight by normalized `NBIM` market value within the selected universe
-- Rebalance on the first tradable month-end after public release
+- Rebalance on the first tradable close after public release
 
 Purpose:
 
@@ -101,7 +104,7 @@ Purpose:
 - Convert each snapshot’s industry weights into ETF weights
 - Aggregate multiple `NBIM` industry labels onto the same ETF where needed
 - Normalize ETF weights to `100%`
-- Rebalance on the first tradable month-end after public release
+- Rebalance on the first tradable close after public release
 
 Purpose:
 
@@ -178,5 +181,5 @@ The `NBIM` backtests follow the same pattern as the `PIF` work:
 
 - direct mirroring is only for a bounded, investable subset of the full `NBIM` book
 - ETF proxies are US-sector implementations of a global portfolio
-- the monthly trade convention introduces additional lag relative to an ideal daily execution framework
+- although holdings are still marked at month-end between reports, the entry and rebalance timing now uses the first tradable close after public release
 - the `NBIM` taxonomy changes slightly across time, so some legacy industry labels are merged to modern sector proxies

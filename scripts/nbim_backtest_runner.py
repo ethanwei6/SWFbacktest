@@ -17,7 +17,7 @@ INDUSTRY_TRANSITION_PATH = NBIM_ROOT / "nbim_transition_industry_summary.csv"
 PUBLIC_DATE_MAP_PATH = NBIM_ROOT / "nbim_public_date_map.csv"
 MIRROR_UNIVERSE_PATH = NBIM_ROOT / "nbim_core_us_mirror_universe.csv"
 INDUSTRY_MAP_PATH = NBIM_ROOT / "nbim_industry_etf_map.csv"
-PRICE_PATH = NBIM_ROOT / "nbim_alphavantage_monthly_prices.csv"
+PRICE_PATH = NBIM_ROOT / "nbim_twelvedata_daily_prices.csv"
 
 INITIAL_NAV = 1.0
 
@@ -132,7 +132,7 @@ def load_trade_date_map(public_rows: list[dict[str, str]], calendar_dates: list[
         public_date = row["public_date"]
         trade_date = next((date for date in calendar_dates if date > public_date), "")
         if not trade_date:
-            raise RuntimeError(f"No monthly trade date found after public date {public_date}")
+            raise RuntimeError(f"No daily trade date found after public date {public_date}")
         mapping[row["as_of_date"]] = trade_date
     return mapping
 
@@ -145,6 +145,25 @@ def load_price_lookup(price_rows: list[dict[str, str]]) -> tuple[dict[tuple[str,
         if row["instrument_key"] == "benchmark_vt":
             benchmark_dates.add(row["date"])
     return lookup, sorted(benchmark_dates)
+
+
+def load_month_end_dates(price_rows: list[dict[str, str]]) -> list[str]:
+    benchmark_rows = sorted(
+        (row for row in price_rows if row["instrument_key"] == "benchmark_vt"),
+        key=lambda item: item["date"],
+    )
+    month_end_dates: list[str] = []
+    current_month = ""
+    last_date = ""
+    for row in benchmark_rows:
+        month = row["date"][:7]
+        if current_month and month != current_month and last_date:
+            month_end_dates.append(last_date)
+        current_month = month
+        last_date = row["date"]
+    if last_date:
+        month_end_dates.append(last_date)
+    return month_end_dates
 
 
 def load_mirror_symbol_map() -> dict[str, dict[str, str]]:
@@ -523,7 +542,7 @@ def run_strategy(
     strategy: dict[str, str],
     rebalances: list[dict[str, object]],
     price_lookup: dict[tuple[str, str], dict[str, str]],
-    calendar_dates: list[str],
+    timeline_dates: list[str],
 ) -> None:
     strategy_dir: Path = strategy["dir"]
     prefix = strategy["prefix"]
@@ -534,7 +553,7 @@ def run_strategy(
     portfolio_rows: list[dict[str, str]] = []
 
     rebalances_by_date = {row["trade_date"]: row for row in rebalances}
-    calendar = [date for date in calendar_dates if date >= min(row["trade_date"] for row in rebalances)]
+    calendar = [date for date in timeline_dates if date >= min(row["trade_date"] for row in rebalances)]
     holdings: dict[str, Position] = {}
     cash = INITIAL_NAV
     previous_nav = INITIAL_NAV
@@ -564,7 +583,7 @@ def run_strategy(
             price_row = price_lookup.get((instrument_key, current_date))
             if price_row is None:
                 continue
-            current_values[instrument_key] = position.shares * to_float(price_row["adjusted_close"])
+            current_values[instrument_key] = position.shares * to_float(price_row["close"])
 
         nav_pre_rebalance = cash + sum(current_values.values())
         rebalance = rebalances_by_date.get(current_date)
@@ -587,7 +606,7 @@ def run_strategy(
                 price_row = price_lookup.get((str(row["instrument_key"]), current_date))
                 if price_row is None:
                     continue
-                price = to_float(price_row["adjusted_close"])
+                price = to_float(price_row["close"])
                 target_weight = float(row["target_weight"])
                 target_value = nav_pre_rebalance * target_weight
                 target_shares = target_value / price if price > 0 else 0.0
@@ -634,7 +653,7 @@ def run_strategy(
                 price_row = price_lookup.get((instrument_key, current_date))
                 if price_row is None:
                     continue
-                price = to_float(price_row["adjusted_close"])
+                price = to_float(price_row["close"])
                 turnover_notional += abs(existing.shares) * price
                 if abs(existing.shares) > 1e-12:
                     order_count += 1
@@ -689,7 +708,7 @@ def run_strategy(
             price_row = price_lookup.get((instrument_key, current_date))
             if price_row is None:
                 continue
-            market_value = position.shares * to_float(price_row["adjusted_close"])
+            market_value = position.shares * to_float(price_row["close"])
             values_for_rows[instrument_key] = market_value
             total_position_value += market_value
 
@@ -752,15 +771,19 @@ def run_strategy(
     write_csv(strategy_dir / f"{prefix}_signal_eligibility.csv", eligibility_rows)
     write_csv(strategy_dir / f"{prefix}_rebalance_events.csv", rebalance_rows)
     write_csv(strategy_dir / f"{prefix}_orders.csv", order_rows)
+    write_csv(strategy_dir / f"{prefix}_holdings_timeline.csv", holdings_rows)
+    write_csv(strategy_dir / f"{prefix}_portfolio_timeline.csv", portfolio_rows)
     write_csv(strategy_dir / f"{prefix}_holdings_monthly.csv", holdings_rows)
     write_csv(strategy_dir / f"{prefix}_portfolio_monthly.csv", portfolio_rows)
     write_json(strategy_dir / f"{prefix}_summary.json", summary)
 
 
 def main() -> None:
-    price_lookup, calendar_dates = load_price_lookup(read_csv(PRICE_PATH))
+    price_rows = read_csv(PRICE_PATH)
+    price_lookup, execution_dates = load_price_lookup(price_rows)
+    month_end_dates = load_month_end_dates(price_rows)
     public_rows = read_csv(PUBLIC_DATE_MAP_PATH)
-    trade_date_by_snapshot = load_trade_date_map(public_rows, calendar_dates)
+    trade_date_by_snapshot = load_trade_date_map(public_rows, execution_dates)
     holdings_by_snapshot, snapshot_industry_by_snapshot, transition_industry_by_snapshot = build_signal_payloads()
     targets = build_strategy_targets(
         trade_date_by_snapshot,
@@ -768,11 +791,12 @@ def main() -> None:
         snapshot_industry_by_snapshot,
         transition_industry_by_snapshot,
     )
+    timeline_dates = sorted(set(month_end_dates) | set(trade_date_by_snapshot.values()))
     for strategy in STRATEGIES:
         rebalances = targets[strategy["key"]]
         if not rebalances:
             raise RuntimeError(f"No rebalances built for {strategy['key']}")
-        run_strategy(strategy, rebalances, price_lookup, calendar_dates)
+        run_strategy(strategy, rebalances, price_lookup, timeline_dates)
         print(f"Built {strategy['key']} backtest outputs in {strategy['dir']}")
 
 
