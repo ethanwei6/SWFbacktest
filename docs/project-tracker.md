@@ -152,6 +152,12 @@ Current progress:
 - outputs are in [`data/processed/attribution/strategy_return_decomposition.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/strategy_return_decomposition.csv), [`data/processed/attribution/daily_excess_return_decomposition.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/daily_excess_return_decomposition.csv), and [`data/processed/attribution/strategy_decomposition_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/strategy_decomposition_audit.csv)
 - all daily and total decomposition reconciliation checks pass with zero failed rows
 - the current attribution read is that `N6` is driven mainly by broad allocation rather than concentration, `N4` relies heavily on concentration in the winning sleeves, `S1` gives up much of its edge to cash drag, and `P5` is hurt primarily by concentration rather than by cash alone
+- `B2` event-window analysis is complete for the validated signal families
+- outputs are in [`data/processed/attribution/event_window_forward_returns.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/event_window_forward_returns.csv), [`data/processed/attribution/event_window_summary.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/event_window_summary.csv), and [`data/processed/attribution/event_window_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/event_window_audit.csv)
+- the event-window audit passes cleanly with `561` passes and only `4` expected end-of-sample skips for incomplete forward horizons
+- the current signal-level read is that `PIF expanding` and `PIF contracting` are both followed by positive absolute `SPY` returns, which weakens the idea that `PIF` regime changes are a directional market-timing edge on their own
+- `NBIM` positive industry-weight-change events are only mildly positive in aggregate, but technology and energy are the strongest six-month sector-level winners, which is directionally consistent with the stronger `N6` and tech-heavy `NBIM` conclusions
+- cross-fund consensus gained events are modestly positive at the family level, but consensus lost events are not reliably negative, so the signal appears more useful as a selective confirmation overlay than as a clean short or de-risk trigger
 
 Current next-step plan:
 

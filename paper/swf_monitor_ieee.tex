@@ -481,6 +481,31 @@ The resulting interpretation is highly consistent with the earlier robustness fi
 
 This attribution result is arguably the most decision-useful output of Phase 3. It shows that N6 is not merely surviving by accident or by leverage-like concentration. Instead, its residual signal appears to come from the sectors it chooses to own rather than from aggressive weight concentration.
 
+\subsection{Event-Window Evidence}
+
+The final Phase 3 diagnostic asked a narrower question: which individual state changes are actually followed by favorable forward returns? This event-window layer was built directly from the validated signal-state tables rather than from the portfolio backtests themselves. Six event families were tested over one-, three-, and six-month windows:
+\begin{itemize}[leftmargin=1.4em]
+    \item transitions into \texttt{PIF expanding};
+    \item transitions into \texttt{PIF contracting};
+    \item \texttt{NBIM} technology overweight events;
+    \item all positive \texttt{NBIM} industry-weight-change events;
+    \item cross-fund consensus gained events; and
+    \item cross-fund consensus lost events.
+\end{itemize}
+
+The audit for this step is clean. The event-window output contains 236 realized windows and no failed logic checks; the only non-pass audit rows are four explicit end-of-sample skips for the final 2026 technology event where the full three- and six-month horizons are not yet observable.
+
+The results are informative precisely because they are not overly flattering:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{PIF regime changes are not strong directional timing signals on their own.} Both \texttt{PIF expanding} and \texttt{PIF contracting} events are followed by positive absolute \texttt{SPY} returns on average. The six-month average forward return is about $13.7\%$ after expanding events and $11.9\%$ after contracting events. That weakens any interpretation that the PIF state machine alone offers a clean market-timing edge.
+    \item \textbf{NBIM technology overweight events are directionally consistent with the stronger N6 result.} The technology overweight event family produces a positive six-month average excess return of about $6.5\%$ versus \texttt{VT}, with a 71.4\% excess hit rate.
+    \item \textbf{All positive NBIM industry-weight changes are only mildly useful in aggregate.} Across all sectors, the six-month average excess return is roughly $1.4\%$, and the three-month average excess return is slightly negative. This suggests that positive weight changes are not uniformly informative and need sector selection.
+    \item \textbf{The sector breakdown matters.} Within the positive-industry-change family, Energy and Technology are the strongest six-month sectors, while Financials and Communication Services are weak in this sample. That again points toward selective leadership effects rather than broad portfolio-wide timing skill.
+    \item \textbf{Cross-fund consensus is better as confirmation than as a reversal signal.} Consensus gained events are modestly positive at six months, with average excess return near $4.9\%$ versus \texttt{VT}. But consensus lost events are not reliably negative; they remain slightly positive on average. In other words, gaining alignment may help identify constructive sectors, while losing alignment is not a clean short or de-risking trigger.
+\end{itemize}
+
+This event-window layer reinforces the broader project conclusion. The residual signal is not a universal ``follow every state change'' rule. It is narrower and more selective: technology-heavy or leadership-style \texttt{NBIM} sector signals survive best, while the broader \texttt{PIF} regime shifts and consensus-lost conditions are too blunt to support strong standalone timing claims.
+
 \section{Discussion}
 
 \subsection{What the Combined Evidence Says}
