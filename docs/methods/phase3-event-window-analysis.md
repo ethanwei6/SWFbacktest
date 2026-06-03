@@ -91,6 +91,23 @@ This is intentionally conservative:
 - it avoids fabricating returns on dates where either the proxy or benchmark is missing
 - it keeps the window anchored to the same legal disclosure timing used throughout Phase 3
 
+## Unconditional baseline comparison
+
+To distinguish state-conditioned forward returns from ordinary market drift, each proxy and window pair also gets an unconditional baseline:
+
+- for `SPY`, `VT`, and each sector ETF, compute every available forward window of the same length across the full tradable sample
+- use the same end-date logic as the event study itself:
+  - first tradable close on or after the target horizon
+  - common proxy/benchmark end dates when a benchmark is involved
+- attach the unconditional average proxy return, benchmark return, and excess return to every event row that uses that same proxy and horizon
+
+This means `PIF` event families can now be interpreted two ways:
+
+- absolute forward return versus cash
+- conditional return versus the unconditional average `SPY` drift for the same horizon
+
+The same comparison is available for the `NBIM` and cross-fund event families.
+
 ## Outputs
 
 Running:
@@ -113,8 +130,10 @@ produces:
   - target end date
   - actual end date
   - actual horizon in days
+  - unconditional baseline averages for the same proxy and horizon
 - the audit file checks:
   - start dates found
   - end dates found
+  - unconditional baseline availability
   - valid date ordering
   - non-empty detail and summary outputs

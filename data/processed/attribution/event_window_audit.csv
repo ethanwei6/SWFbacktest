@@ -239,8 +239,39 @@ nbim_overweight_tech,2026-03-02,Technology,6,end_date_found,skip,Insufficient fo
 nbim_positive_industry_weight_change,2026-03-02,Technology,1,window_built,pass,XLK vs VT from 2026-03-02 to 2026-04-02.
 nbim_positive_industry_weight_change,2026-03-02,Technology,3,end_date_found,skip,Insufficient forward history for target end date 2026-06-02.
 nbim_positive_industry_weight_change,2026-03-02,Technology,6,end_date_found,skip,Insufficient forward history for target end date 2026-09-02.
+baseline,,SPY,1,baseline_available,pass,SPY vs CASH built from 1841 unconditional windows.
+baseline,,SPY,3,baseline_available,pass,SPY vs CASH built from 1800 unconditional windows.
+baseline,,SPY,6,baseline_available,pass,SPY vs CASH built from 1738 unconditional windows.
+baseline,,XLC,1,baseline_available,pass,XLC vs VT built from 1976 unconditional windows.
+baseline,,XLC,3,baseline_available,pass,XLC vs VT built from 1934 unconditional windows.
+baseline,,XLC,6,baseline_available,pass,XLC vs VT built from 1873 unconditional windows.
+baseline,,XLE,1,baseline_available,pass,XLE vs VT built from 2054 unconditional windows.
+baseline,,XLE,3,baseline_available,pass,XLE vs VT built from 2012 unconditional windows.
+baseline,,XLE,6,baseline_available,pass,XLE vs VT built from 1951 unconditional windows.
+baseline,,XLF,1,baseline_available,pass,XLF vs VT built from 2054 unconditional windows.
+baseline,,XLF,3,baseline_available,pass,XLF vs VT built from 2012 unconditional windows.
+baseline,,XLF,6,baseline_available,pass,XLF vs VT built from 1951 unconditional windows.
+baseline,,XLI,1,baseline_available,pass,XLI vs VT built from 2054 unconditional windows.
+baseline,,XLI,3,baseline_available,pass,XLI vs VT built from 2012 unconditional windows.
+baseline,,XLI,6,baseline_available,pass,XLI vs VT built from 1951 unconditional windows.
+baseline,,XLK,1,baseline_available,pass,XLK vs VT built from 2054 unconditional windows.
+baseline,,XLK,3,baseline_available,pass,XLK vs VT built from 2012 unconditional windows.
+baseline,,XLK,6,baseline_available,pass,XLK vs VT built from 1951 unconditional windows.
+baseline,,XLP,1,baseline_available,pass,XLP vs VT built from 2054 unconditional windows.
+baseline,,XLP,3,baseline_available,pass,XLP vs VT built from 2012 unconditional windows.
+baseline,,XLP,6,baseline_available,pass,XLP vs VT built from 1951 unconditional windows.
+baseline,,XLRE,1,baseline_available,pass,XLRE vs VT built from 2054 unconditional windows.
+baseline,,XLRE,3,baseline_available,pass,XLRE vs VT built from 2012 unconditional windows.
+baseline,,XLRE,6,baseline_available,pass,XLRE vs VT built from 1951 unconditional windows.
+baseline,,XLV,1,baseline_available,pass,XLV vs VT built from 2054 unconditional windows.
+baseline,,XLV,3,baseline_available,pass,XLV vs VT built from 2012 unconditional windows.
+baseline,,XLV,6,baseline_available,pass,XLV vs VT built from 1951 unconditional windows.
+baseline,,XLY,1,baseline_available,pass,XLY vs VT built from 2054 unconditional windows.
+baseline,,XLY,3,baseline_available,pass,XLY vs VT built from 2012 unconditional windows.
+baseline,,XLY,6,baseline_available,pass,XLY vs VT built from 1951 unconditional windows.
 all,,,all,detail_row_count_positive,pass,Built 236 detail rows from 240 potential windows.
 all,,,all,summary_row_count_positive,pass,Built 87 summary rows.
+all,,,all,unconditional_baseline_attached,pass,Rows missing nonzero unconditional baselines: 0
 nbim_overweight_tech,,,1,summary_count_matches_detail,pass,summary=8 detail=8 aggregation=family_total
 nbim_overweight_tech,,Technology,1,summary_count_matches_detail,pass,summary=8 detail=8 aggregation=sector
 nbim_overweight_tech,,,3,summary_count_matches_detail,pass,summary=7 detail=7 aggregation=family_total

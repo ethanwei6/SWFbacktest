@@ -353,6 +353,106 @@ def build_detail_rows(events: list[dict[str, str]], series: dict[str, dict[str, 
     return detail_rows, audit_rows
 
 
+def build_unconditional_baselines(
+    detail_rows: list[dict[str, str]], series: dict[str, dict[str, float]]
+) -> tuple[dict[tuple[str, str, str], dict[str, float | int]], list[dict[str, str]]]:
+    baselines: dict[tuple[str, str, str], dict[str, float | int]] = {}
+    audit_rows: list[dict[str, str]] = []
+    sorted_dates_by_symbol = {symbol: sorted(prices) for symbol, prices in series.items()}
+    unique_keys = sorted({(row["proxy_symbol"], row["benchmark_symbol"], row["window_months"]) for row in detail_rows})
+
+    for proxy_symbol, benchmark_symbol, window_months in unique_keys:
+        months = int(window_months)
+        proxy_series = series[proxy_symbol]
+        proxy_dates = sorted_dates_by_symbol[proxy_symbol]
+        benchmark_series = series.get(benchmark_symbol, {})
+        benchmark_dates = sorted_dates_by_symbol.get(benchmark_symbol, [])
+        if benchmark_symbol == "CASH":
+            start_dates = proxy_dates
+        else:
+            benchmark_date_set = set(benchmark_dates)
+            start_dates = [candidate for candidate in proxy_dates if candidate in benchmark_date_set]
+
+        proxy_returns: list[float] = []
+        benchmark_returns: list[float] = []
+        excess_returns: list[float] = []
+
+        for start_date in start_dates:
+            target_end_date = add_months(start_date, months)
+            end_date = (
+                first_on_or_after(target_end_date, proxy_dates)
+                if benchmark_symbol == "CASH"
+                else first_common_on_or_after(target_end_date, proxy_dates, benchmark_dates)
+            )
+            if end_date is None:
+                continue
+            proxy_return = proxy_series[end_date] / proxy_series[start_date] - 1.0
+            if benchmark_symbol == "CASH":
+                benchmark_return = 0.0
+            else:
+                benchmark_return = benchmark_series[end_date] / benchmark_series[start_date] - 1.0
+            proxy_returns.append(proxy_return)
+            benchmark_returns.append(benchmark_return)
+            excess_returns.append(proxy_return - benchmark_return)
+
+        if not proxy_returns:
+            audit_rows.append(
+                {
+                    "event_family": "baseline",
+                    "event_date": "",
+                    "sector": proxy_symbol,
+                    "window_months": window_months,
+                    "check_name": "baseline_available",
+                    "status": "fail",
+                    "detail": f"No unconditional baseline windows for {proxy_symbol} vs {benchmark_symbol}.",
+                }
+            )
+            continue
+
+        baselines[(proxy_symbol, benchmark_symbol, window_months)] = {
+            "sample_count": len(proxy_returns),
+            "avg_proxy_forward_return": statistics.mean(proxy_returns),
+            "avg_benchmark_forward_return": statistics.mean(benchmark_returns),
+            "avg_excess_forward_return": statistics.mean(excess_returns),
+        }
+        audit_rows.append(
+            {
+                "event_family": "baseline",
+                "event_date": "",
+                "sector": proxy_symbol,
+                "window_months": window_months,
+                "check_name": "baseline_available",
+                "status": "pass",
+                "detail": f"{proxy_symbol} vs {benchmark_symbol} built from {len(proxy_returns)} unconditional windows.",
+            }
+        )
+
+    return baselines, audit_rows
+
+
+def attach_unconditional_baselines(
+    detail_rows: list[dict[str, str]],
+    baselines: dict[tuple[str, str, str], dict[str, float | int]],
+) -> list[dict[str, str]]:
+    enriched_rows: list[dict[str, str]] = []
+    for row in detail_rows:
+        baseline = baselines[(row["proxy_symbol"], row["benchmark_symbol"], row["window_months"])]
+        proxy_baseline = float(baseline["avg_proxy_forward_return"])
+        benchmark_baseline = float(baseline["avg_benchmark_forward_return"])
+        excess_baseline = float(baseline["avg_excess_forward_return"])
+        proxy_return = to_float(row["proxy_forward_return"])
+        excess_return = to_float(row["excess_forward_return"])
+        enriched = dict(row)
+        enriched["unconditional_sample_count"] = str(int(baseline["sample_count"]))
+        enriched["unconditional_avg_proxy_forward_return"] = f"{proxy_baseline:.12f}"
+        enriched["unconditional_avg_benchmark_forward_return"] = f"{benchmark_baseline:.12f}"
+        enriched["unconditional_avg_excess_forward_return"] = f"{excess_baseline:.12f}"
+        enriched["proxy_return_minus_unconditional_avg"] = f"{(proxy_return - proxy_baseline):.12f}"
+        enriched["excess_return_minus_unconditional_avg"] = f"{(excess_return - excess_baseline):.12f}"
+        enriched_rows.append(enriched)
+    return enriched_rows
+
+
 def summarize(detail_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     grouped: dict[tuple[str, str, str, str], list[dict[str, str]]] = defaultdict(list)
     for row in detail_rows:
@@ -366,6 +466,12 @@ def summarize(detail_rows: list[dict[str, str]]) -> list[dict[str, str]]:
         proxy_returns = [to_float(row["proxy_forward_return"]) for row in rows]
         benchmark_returns = [to_float(row["benchmark_forward_return"]) for row in rows]
         excess_returns = [to_float(row["excess_forward_return"]) for row in rows]
+        unconditional_proxy = [to_float(row["unconditional_avg_proxy_forward_return"]) for row in rows]
+        unconditional_benchmark = [to_float(row["unconditional_avg_benchmark_forward_return"]) for row in rows]
+        unconditional_excess = [to_float(row["unconditional_avg_excess_forward_return"]) for row in rows]
+        proxy_minus_unconditional = [to_float(row["proxy_return_minus_unconditional_avg"]) for row in rows]
+        excess_minus_unconditional = [to_float(row["excess_return_minus_unconditional_avg"]) for row in rows]
+        unconditional_sample_count = [int(row["unconditional_sample_count"]) for row in rows]
         summary_rows.append(
             {
                 "aggregation_level": aggregation_level,
@@ -377,11 +483,17 @@ def summarize(detail_rows: list[dict[str, str]]) -> list[dict[str, str]]:
                 "median_proxy_forward_return": f"{statistics.median(proxy_returns):.12f}",
                 "avg_benchmark_forward_return": f"{statistics.mean(benchmark_returns):.12f}",
                 "avg_excess_forward_return": f"{statistics.mean(excess_returns):.12f}",
+                "avg_unconditional_proxy_forward_return": f"{statistics.mean(unconditional_proxy):.12f}",
+                "avg_unconditional_benchmark_forward_return": f"{statistics.mean(unconditional_benchmark):.12f}",
+                "avg_unconditional_excess_forward_return": f"{statistics.mean(unconditional_excess):.12f}",
+                "avg_proxy_minus_unconditional": f"{statistics.mean(proxy_minus_unconditional):.12f}",
+                "avg_excess_minus_unconditional": f"{statistics.mean(excess_minus_unconditional):.12f}",
                 "median_excess_forward_return": f"{statistics.median(excess_returns):.12f}",
                 "excess_hit_rate": f"{(sum(1 for value in excess_returns if value > 0.0) / len(excess_returns)):.12f}",
                 "positive_proxy_hit_rate": f"{(sum(1 for value in proxy_returns if value > 0.0) / len(proxy_returns)):.12f}",
                 "best_excess_forward_return": f"{max(excess_returns):.12f}",
                 "worst_excess_forward_return": f"{min(excess_returns):.12f}",
+                "avg_unconditional_sample_count": f"{statistics.mean(unconditional_sample_count):.2f}",
             }
         )
     return summary_rows
@@ -412,6 +524,21 @@ def build_audit(detail_rows: list[dict[str, str]], summary_rows: list[dict[str, 
             "detail": f"Built {len(summary_rows)} summary rows.",
         }
     )
+    if detail_rows:
+        baseline_missing = [
+            row for row in detail_rows if to_float(row["unconditional_avg_proxy_forward_return"]) == 0.0 and row["proxy_symbol"] != "SPY"
+        ]
+        rows.append(
+            {
+                "event_family": "all",
+                "event_date": "",
+                "sector": "",
+                "window_months": "all",
+                "check_name": "unconditional_baseline_attached",
+                "status": "pass" if not baseline_missing else "fail",
+                "detail": f"Rows missing nonzero unconditional baselines: {len(baseline_missing)}",
+            }
+        )
     summary_count_lookup = {
         (row["aggregation_level"], row["event_family"], row["sector"], row["window_months"]): int(row["event_count"])
         for row in summary_rows
@@ -456,8 +583,10 @@ def main() -> None:
     series = load_price_series()
     events = build_event_rows(states, panel)
     detail_rows, audit_seed = build_detail_rows(events, series)
+    baselines, baseline_audit = build_unconditional_baselines(detail_rows, series)
+    detail_rows = attach_unconditional_baselines(detail_rows, baselines)
     summary_rows = summarize(detail_rows)
-    audit_rows = build_audit(detail_rows, summary_rows, audit_seed)
+    audit_rows = build_audit(detail_rows, summary_rows, audit_seed + baseline_audit)
 
     write_csv(DETAIL_PATH, detail_rows)
     write_csv(SUMMARY_PATH, summary_rows)
