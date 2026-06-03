@@ -159,6 +159,13 @@ Current progress:
 - the current signal-level read is that `PIF expanding` and `PIF contracting` are both followed by positive absolute `SPY` returns and both also exceed unconditional `SPY` drift, but `expanding` is stronger than `contracting`; this still weakens the idea that `PIF` regime changes are a clean directional market-timing edge on their own
 - `NBIM` positive industry-weight-change events are only mildly positive in aggregate, but technology and energy are the strongest six-month sector-level winners, which is directionally consistent with the stronger `N6` and tech-heavy `NBIM` conclusions
 - cross-fund consensus gained events are modestly positive at the family level, but consensus lost events are not reliably negative, so the signal appears more useful as a selective confirmation overlay than as a clean short or de-risk trigger
+- `B3` window hit-rate and contribution analysis is complete for the same focus set
+- outputs are in [`data/processed/attribution/window_hit_rate_summary.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/window_hit_rate_summary.csv), [`data/processed/attribution/top_bottom_windows.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/top_bottom_windows.csv), and [`data/processed/attribution/window_hit_rate_audit.csv`](/Users/ethanwei/Documents/Codex/2026-05-28-i-want-to-move-to-this/data/processed/attribution/window_hit_rate_audit.csv)
+- all rebalance-window checks pass, and the summed window contribution deltas reconcile exactly to the final relative-excess NAV for every focus-set strategy
+- the current breadth read is that `N6` is the broadest surviving effect, with a `63.6%` benchmark-beating hit rate and a lower positive-contribution concentration (`HHI 0.189`) than `N4`
+- `N4` still works, but the contribution profile is noticeably more concentrated, with the top three positive windows contributing about `82.5%` of total positive contribution
+- `P5` is highly concentrated and unstable at the window level, with only a `39.1%` hit rate and a very large share of positive contribution coming from a few windows
+- `S1` has a relatively diffuse contribution profile, but too many small losing windows and too little net excess, which fits the earlier cash-drag interpretation
 
 Current next-step plan:
 
