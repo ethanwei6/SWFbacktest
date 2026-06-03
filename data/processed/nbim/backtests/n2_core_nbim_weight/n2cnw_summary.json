@@ -1,0 +1,15 @@
+{
+  "strategy_key": "n2",
+  "strategy_name": "N2 Core US Mirror NBIM Weight",
+  "initial_nav": 1.0,
+  "start_date": "2018-02-28",
+  "end_date": "2026-05-28",
+  "final_nav": 5.667567065696,
+  "total_return": 4.667567065696,
+  "max_drawdown": -0.347470639597,
+  "rebalance_count": 11,
+  "eligibility_count": 110,
+  "order_count": 110,
+  "average_holding_count": 10.0,
+  "average_cash_weight": 0.0
+}

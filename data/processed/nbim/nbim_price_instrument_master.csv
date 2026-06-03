@@ -1,0 +1,23 @@
+instrument_key,instrument_type,display_name,source_ref,requested_symbol,alternate_symbol,resolved_symbol
+benchmark_vt,benchmark,Vanguard Total World Stock ETF,benchmark,VT,,VT
+mirror::AAPL,mirror_equity,Apple Inc,Apple Inc,AAPL,,AAPL
+mirror::AMZN,mirror_equity,Amazon.com Inc,Amazon.com Inc,AMZN,,AMZN
+mirror::BRK.B,mirror_equity,Berkshire Hathaway Inc,Berkshire Hathaway Inc,BRK.B,BRK-B,BRK.B
+mirror::GOOGL,mirror_equity,Alphabet Inc,Alphabet Inc,GOOGL,GOOG,GOOGL
+mirror::JPM,mirror_equity,JPMorgan Chase & Co,JPMorgan Chase & Co,JPM,,JPM
+mirror::META,mirror_equity,Meta Platforms Inc,Meta Platforms Inc,META,,META
+mirror::MSFT,mirror_equity,Microsoft Corp,Microsoft Corp,MSFT,,MSFT
+mirror::NVDA,mirror_equity,NVIDIA Corp,NVIDIA Corp,NVDA,,NVDA
+mirror::TSLA,mirror_equity,Tesla Inc,Tesla Inc,TSLA,,TSLA
+mirror::XOM,mirror_equity,Exxon Mobil Corp,Exxon Mobil Corp,XOM,,XOM
+sector::XLB,industry_etf,Materials Select Sector SPDR Fund,materials,XLB,,XLB
+sector::XLC,industry_etf,Communication Services Select Sector SPDR Fund,communication_services,XLC,,
+sector::XLE,industry_etf,Energy Select Sector SPDR Fund,energy,XLE,,XLE
+sector::XLF,industry_etf,Financial Select Sector SPDR Fund,financials,XLF,,XLF
+sector::XLI,industry_etf,Industrial Select Sector SPDR Fund,industrials,XLI,,XLI
+sector::XLK,industry_etf,Technology Select Sector SPDR Fund,technology,XLK,,XLK
+sector::XLP,industry_etf,Consumer Staples Select Sector SPDR Fund,consumer_staples,XLP,,XLP
+sector::XLRE,industry_etf,Real Estate Select Sector SPDR Fund,real_estate,XLRE,,XLRE
+sector::XLU,industry_etf,Utilities Select Sector SPDR Fund,utilities,XLU,,
+sector::XLV,industry_etf,Health Care Select Sector SPDR Fund,health_care,XLV,,XLV
+sector::XLY,industry_etf,Consumer Discretionary Select Sector SPDR Fund,consumer_discretionary,XLY,,XLY

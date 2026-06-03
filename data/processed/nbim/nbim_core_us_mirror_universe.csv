@@ -1,0 +1,12 @@
+issuer_name,symbol,alternate_symbol,listing_country,note
+Apple Inc,AAPL,,United States,Core recurring US NBIM holding
+Microsoft Corp,MSFT,,United States,Core recurring US NBIM holding
+Amazon.com Inc,AMZN,,United States,Core recurring US NBIM holding
+Alphabet Inc,GOOGL,GOOG,United States,Class approximation required because dataset does not specify share class
+Berkshire Hathaway Inc,BRK.B,BRK-B,United States,Class B approximation
+JPMorgan Chase & Co,JPM,,United States,Core recurring US NBIM holding
+Exxon Mobil Corp,XOM,,United States,Core recurring US NBIM holding
+Meta Platforms Inc,META,,United States,Includes historical Facebook/Meta continuity
+Facebook Inc,META,,United States,Historical name mapped to current Meta ticker
+NVIDIA Corp,NVDA,,United States,Core recurring US NBIM holding
+Tesla Inc,TSLA,,United States,Core recurring US NBIM holding

@@ -1,0 +1,15 @@
+{
+  "strategy_key": "n5",
+  "strategy_name": "N5 Industry Accumulation Tilt",
+  "initial_nav": 1.0,
+  "start_date": "2019-02-28",
+  "end_date": "2026-05-28",
+  "final_nav": 1.69216579634,
+  "total_return": 0.6921657963400001,
+  "max_drawdown": -0.242981249142,
+  "rebalance_count": 10,
+  "eligibility_count": 34,
+  "order_count": 43,
+  "average_holding_count": 3.3068181818181817,
+  "average_cash_weight": 0.5870519926145338
+}

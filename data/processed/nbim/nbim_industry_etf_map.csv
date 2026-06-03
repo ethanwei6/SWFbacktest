@@ -1,0 +1,15 @@
+nbim_industry,etf_symbol,etf_name,mapping_group
+Basic Materials,XLB,Materials Select Sector SPDR Fund,materials
+Consumer Discretionary,XLY,Consumer Discretionary Select Sector SPDR Fund,consumer_discretionary
+Consumer Goods,XLP,Consumer Staples Select Sector SPDR Fund,consumer_staples
+Consumer Services,XLY,Consumer Discretionary Select Sector SPDR Fund,consumer_discretionary
+Consumer Staples,XLP,Consumer Staples Select Sector SPDR Fund,consumer_staples
+Energy,XLE,Energy Select Sector SPDR Fund,energy
+Financials,XLF,Financial Select Sector SPDR Fund,financials
+Health Care,XLV,Health Care Select Sector SPDR Fund,health_care
+Industrials,XLI,Industrial Select Sector SPDR Fund,industrials
+Oil & Gas,XLE,Energy Select Sector SPDR Fund,energy
+Real Estate,XLRE,Real Estate Select Sector SPDR Fund,real_estate
+Technology,XLK,Technology Select Sector SPDR Fund,technology
+Telecommunications,XLC,Communication Services Select Sector SPDR Fund,communication_services
+Utilities,XLU,Utilities Select Sector SPDR Fund,utilities

@@ -1,0 +1,23 @@
+instrument_key,instrument_type,display_name,source_ref,requested_symbol,alternate_symbol,resolved_symbol,status,row_count,start_date,end_date
+benchmark_vt,benchmark,Vanguard Total World Stock ETF,benchmark,VT,,VT,ok,215,2008-07-31,2026-05-28
+mirror::AAPL,mirror_equity,Apple Inc,Apple Inc,AAPL,,AAPL,ok,318,1999-12-31,2026-05-28
+mirror::AMZN,mirror_equity,Amazon.com Inc,Amazon.com Inc,AMZN,,AMZN,ok,318,1999-12-31,2026-05-28
+mirror::BRK.B,mirror_equity,Berkshire Hathaway Inc,Berkshire Hathaway Inc,BRK.B,BRK-B,BRK.B,ok,318,1999-12-31,2026-05-28
+mirror::GOOGL,mirror_equity,Alphabet Inc,Alphabet Inc,GOOGL,GOOG,GOOGL,ok,261,2004-09-30,2026-05-28
+mirror::JPM,mirror_equity,JPMorgan Chase & Co,JPMorgan Chase & Co,JPM,,JPM,ok,318,1999-12-31,2026-05-28
+mirror::META,mirror_equity,Meta Platforms Inc,Meta Platforms Inc,META,,META,ok,168,2012-06-29,2026-05-28
+mirror::MSFT,mirror_equity,Microsoft Corp,Microsoft Corp,MSFT,,MSFT,ok,318,1999-12-31,2026-05-28
+mirror::NVDA,mirror_equity,NVIDIA Corp,NVIDIA Corp,NVDA,,NVDA,ok,318,1999-12-31,2026-05-28
+mirror::TSLA,mirror_equity,Tesla Inc,Tesla Inc,TSLA,,TSLA,ok,191,2010-07-30,2026-05-28
+mirror::XOM,mirror_equity,Exxon Mobil Corp,Exxon Mobil Corp,XOM,,XOM,ok,318,1999-12-31,2026-05-28
+sector::XLB,industry_etf,Materials Select Sector SPDR Fund,materials,XLB,,XLB,ok,318,1999-12-31,2026-05-28
+sector::XLC,industry_etf,Communication Services Select Sector SPDR Fund,communication_services,XLC,,,missing_rate_limited,0,,
+sector::XLE,industry_etf,Energy Select Sector SPDR Fund,energy,XLE,,XLE,ok,318,1999-12-31,2026-05-28
+sector::XLF,industry_etf,Financial Select Sector SPDR Fund,financials,XLF,,XLF,ok,318,1999-12-31,2026-05-28
+sector::XLI,industry_etf,Industrial Select Sector SPDR Fund,industrials,XLI,,XLI,ok,318,1999-12-31,2026-05-28
+sector::XLK,industry_etf,Technology Select Sector SPDR Fund,technology,XLK,,XLK,ok,318,1999-12-31,2026-05-28
+sector::XLP,industry_etf,Consumer Staples Select Sector SPDR Fund,consumer_staples,XLP,,XLP,ok,318,1999-12-31,2026-05-28
+sector::XLRE,industry_etf,Real Estate Select Sector SPDR Fund,real_estate,XLRE,,XLRE,ok,127,2015-11-30,2026-05-28
+sector::XLU,industry_etf,Utilities Select Sector SPDR Fund,utilities,XLU,,,missing_unattempted_after_daily_limit,0,,
+sector::XLV,industry_etf,Health Care Select Sector SPDR Fund,health_care,XLV,,XLV,ok,318,1999-12-31,2026-05-28
+sector::XLY,industry_etf,Consumer Discretionary Select Sector SPDR Fund,consumer_discretionary,XLY,,XLY,ok,318,1999-12-31,2026-05-28

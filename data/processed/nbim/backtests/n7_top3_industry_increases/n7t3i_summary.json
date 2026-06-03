@@ -1,0 +1,15 @@
+{
+  "strategy_key": "n7",
+  "strategy_name": "N7 Top-3 Industry Increases",
+  "initial_nav": 1.0,
+  "start_date": "2018-02-28",
+  "end_date": "2026-05-28",
+  "final_nav": 2.299445214132,
+  "total_return": 1.299445214132,
+  "max_drawdown": -0.24395276766,
+  "rebalance_count": 11,
+  "eligibility_count": 28,
+  "order_count": 40,
+  "average_holding_count": 2.27,
+  "average_cash_weight": 0.1998880212596176
+}
