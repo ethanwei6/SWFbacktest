@@ -1,0 +1,9 @@
+strategy_key,check_name,status,detail
+p5,turnover_adjusted_excess_matches_cost_summary,pass,computed=-1.531606414212 expected=-1.531606414212 diff=2.220446049250e-16
+p5,turnover_nonnegative,pass,annualized_gross_turnover_ratio=4.699343073654
+n4,turnover_adjusted_excess_matches_cost_summary,pass,computed=0.672872599396 expected=0.672872599396 diff=3.330669073875e-16
+n4,turnover_nonnegative,pass,annualized_gross_turnover_ratio=2.859458873320
+n6,turnover_adjusted_excess_matches_cost_summary,pass,computed=0.635377207308 expected=0.635377207308 diff=2.220446049250e-16
+n6,turnover_nonnegative,pass,annualized_gross_turnover_ratio=0.451558775451
+s1,turnover_adjusted_excess_matches_cost_summary,pass,computed=0.007903164337 expected=0.007903164337 diff=2.237793284010e-16
+s1,turnover_nonnegative,pass,annualized_gross_turnover_ratio=3.537793326538

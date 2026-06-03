@@ -1218,9 +1218,14 @@ def build_report(
     p4_kept_mean = statistics.mean(p4_by_cohort["kept"]) if p4_by_cohort["kept"] else 0.0
 
     benchmark_by_key = {row["strategy_key"]: row for row in benchmark_summary_rows}
+    summary_row_by_key = {row["strategy_key"]: row for row in summary_rows}
     p5_excess = float(benchmark_by_key["p5"]["excess_total_return"])
     p5_info_ratio = float(benchmark_by_key["p5"]["information_ratio"])
     best_excess_key, best_excess_row = max(benchmark_by_key.items(), key=lambda item: float(item[1]["excess_total_return"]))
+    best_total_key, best_total_row = max(summary_row_by_key.items(), key=lambda item: float(item[1]["total_return"]))
+    p2_total = float(summary_row_by_key["p2"]["total_return"])
+    p2_excess = float(benchmark_by_key["p2"]["excess_total_return"])
+    p5_total = float(summary_row_by_key["p5"]["total_return"])
     alpha_exists = any(float(row["excess_total_return"]) > 0 for row in benchmark_summary_rows)
 
     summary_display = []
@@ -1349,8 +1354,8 @@ def build_report(
   <div class="grid3">
     <div class="card">
       <div class="sub">Best total return after split fix</div>
-      <div class="metric">P5 +48.9%</div>
-      <div class="sub">The first positive absolute-return result appears only when the strategy copies sells to cash instead of forcing full reinvestment.</div>
+      <div class="metric">{escape(best_total_key.upper())} {format_pct(float(best_total_row["total_return"]))}</div>
+      <div class="sub">Best absolute return after the split-adjusted rerun and same-day bundle fix. Absolute return still needs a benchmark check.</div>
     </div>
     <div class="card">
       <div class="sub">Best excess return vs SPY</div>
@@ -1368,12 +1373,12 @@ def build_report(
     <h2>Sanity Check Read</h2>
     <ul>
       <li>The mechanical checks are now clean: arithmetic violations are zero across all five strategies. `P1` through `P4` remain fully invested, while `P5` deliberately lets gross exposure fall and cash build when disclosed sells outpace disclosed buys.</li>
-      <li>The biggest analytical correction is price-basis related, not portfolio-construction related. The earlier eye-catching gains in `P2` through `P4` were driven by raw-price reverse-split jumps; the split-adjusted rerun removes those artifacts.</li>
+      <li>Two corrections matter most for the final `PIF` read. Split-adjusted marking removed false raw-price reverse-split gains, and same-day multi-period filing bundles are now traded as a single latest observable sleeve instead of as a union of stale periods.</li>
       <li>`P1` is weak because it is extremely concentrated. It carries only `{summary_display[0]["avg_positions"]}` names on average, its average max weight is `{summary_display[0]["avg_max_weight"]}`, and it periodically goes all-in on ugly cohorts, including a worst single forward return of `{format_pct(p1_worst)}`.</li>
       <li>`P3` does find stronger simple average forward returns in `accumulation_like` names ({format_pct(p3_acc_mean)} vs {format_pct(p3_neu_mean)} for `neutral`), but the tilted portfolio still loses more because it concentrates into names with deeper tail losses, including a worst accumulation-like forward return of `{format_pct(p3_acc_min)}`.</li>
       <li>`P4` does not rescue the sleeve. The names it avoided under the likely-reduction rule actually averaged `{format_pct(p4_avoid_mean)}` forward return, versus `{format_pct(p4_kept_mean)}` for the names it kept, so the exit-avoidance heuristic was directionally wrong in this sample.</li>
-      <li>`P5` is the important new result in absolute terms: once the strategy copies sell signals into cash rather than redistributing that capital into survivors, the backtest turns positive. That suggests the informative part of the disclosure stream may be changing exposure, not just changing names.</li>
-      <li>The stricter alpha question is benchmark-relative. Against `SPY` over matched dates, `P5` posts excess return of {format_pct(p5_excess)} with information ratio {format_num(p5_info_ratio)}. So the cash-aware interpretation improves the absolute result, but it still does not clear the alpha bar against a simple passive benchmark.</li>
+      <li>`P5` remains conceptually important even though it is no longer the top absolute-return strategy. Allowing cash to build keeps it positive at {format_pct(p5_total)}, which is more intuitive than forcing every disclosed sale back into the surviving names.</li>
+      <li>The strict alpha question is benchmark-relative. `P2` is now the strongest absolute strategy at {format_pct(p2_total)}, but it still trails `SPY` by {format_pct(p2_excess)}. `P5` lags `SPY` by {format_pct(p5_excess)} with information ratio {format_num(p5_info_ratio)}. The corrected read is therefore “positive absolute results, but still no alpha versus `SPY`.”</li>
     </ul>
   </div>
 
@@ -1422,13 +1427,13 @@ This report is the sanity-check and benchmarked visual layer for the first five 
 
 ## Immediate Read
 
-- After correcting split distortion, the old positive headlines for `P2` through `P4` should still be discarded, but the new `P5` cash-aware strategy is positive.
-- `P5` is the strongest result at `+48.9%`, while `P1` remains the weakest at `-75.8%`.
+- After the split-adjusted rerun and same-day bundle fix, `P2` through `P5` are positive in absolute terms while `P1` remains deeply negative.
+- `P2` is now the strongest absolute result at {format_pct(p2_total)}, while `P1` remains the weakest at {summary_display[0]["total_return"]}.
 - The stricter alpha test is benchmark-relative. Against a matched-window `SPY` buy-and-hold, none of the strategies generates positive excess return in this first pass.
 - `P1` is structurally fragile because it is highly concentrated: average max weight `{summary_display[0]["avg_max_weight"]}`, average positions `{summary_display[0]["avg_positions"]}`, and a worst forward cohort name at `{format_pct(p1_worst)}`.
 - `P3` still loses even though `accumulation_like` names have higher simple average forward returns (`{format_pct(p3_acc_mean)}` vs `{format_pct(p3_neu_mean)}`), which points to concentration and tail-risk drag rather than no signal at all.
 - `P4` is directionally unhelpful in this sample: avoided likely-reduction names averaged `{format_pct(p4_avoid_mean)}` forward return versus `{format_pct(p4_kept_mean)}` for the names it kept.
-- `P5` changes the interpretation of the whole project: when sale proceeds are retained as cash instead of being redistributed into remaining names, the `PIF` copycat strategy becomes profitable in absolute terms, but it still fails to beat `SPY`.
+- `P5` still changes the interpretation of the whole project: when sale proceeds are retained as cash instead of being redistributed into remaining names, the strategy stays positive in absolute terms at {format_pct(p5_total)}, but it still fails to beat `SPY`.
 
 ## Charts
 

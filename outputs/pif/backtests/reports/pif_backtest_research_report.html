@@ -83,18 +83,18 @@
   <div class="grid3">
     <div class="card neg">
       <div class="sub">Headline finding</div>
-      <div class="metric">Cash-aware copying matters</div>
-      <div class="sub">The only positive strategy is the one that copies sell signals into cash rather than forcing full reinvestment.</div>
+      <div class="metric">Absolute return is not alpha</div>
+      <div class="sub">Several corrected `PIF` strategies are positive in absolute terms, but none beats `SPY` on a matched-window basis.</div>
     </div>
     <div class="card">
       <div class="sub">Best result</div>
-      <div class="metric">P5: +48.9%</div>
-      <div class="sub">The cash-aware copy-trade outperforms every fully invested variant after the split-adjusted rerun.</div>
+      <div class="metric">P2: 122.3%</div>
+      <div class="sub">The strongest absolute result comes from the corrected strategy outputs, not from benchmark-relative alpha.</div>
     </div>
     <div class="card">
       <div class="sub">Core implication</div>
       <div class="metric">Exposure timing matters</div>
-      <div class="sub">The useful signal appears to be in copying `PIF`'s shrinking or expanding disclosed exposure, not in forcing the disclosed names into a permanently fully invested basket.</div>
+      <div class="sub">The cash-aware interpretation is still economically useful, but the strongest absolute return now comes from the fully invested equal-weight sleeve.</div>
     </div>
   </div>
 
@@ -117,18 +117,18 @@
   <div class="card">
     <h2>Executive Summary</h2>
     <ul>
-      <li>The backtests now support a more specific thesis: a naive fully invested mirror does not work, but a cash-aware copy-trade that preserves sale proceeds does generate positive return in this sample.</li>
-      <li>`P5` finishes at `+48.9%`, materially ahead of every fully invested variant. `P2`, the strongest of the fully invested strategies, still loses `32.3%`.</li>
+      <li>The corrected backtests do not support a simple “all fully invested mirroring fails” story. `P2`, `P3`, `P4`, and `P5` are all positive in absolute return after the split-adjusted rerun and same-day bundle fix.</li>
+      <li>`P2` is now the strongest fully invested strategy at `122.3%`. `P5` remains positive at `48.9%`, but it is no longer the best absolute-return strategy.</li>
       <li>`P1` fails primarily because it is too concentrated and too dependent on late, noisy entry signals. It averages only `6.47` names and an average max weight of `59.7%`.</li>
-      <li>`P3` shows a more nuanced failure. The `accumulation_like` bucket has better simple forward returns than the neutral bucket (`12.1%` vs `1.5%`), but the portfolio still underperforms because the tilt amplifies concentration and tail losses.</li>
-      <li>`P4` does not help because the `likely_reduction` filter is directionally wrong in this sample. The names it avoids average `10.2%` forward return, versus `4.8%` for the names it keeps.</li>
-      <li>`P5` changes the interpretation of the disclosure stream. Once we stop redistributing sale proceeds into surviving names and instead allow cash to accumulate, the strategy stops fighting `PIF`'s apparent de-risking behavior.</li>
+      <li>`P3` shows a more nuanced failure. The `accumulation_like` bucket has better simple forward returns than the neutral bucket (`10.5%` vs `1.5%`), but the portfolio still underperforms because the tilt amplifies concentration and tail losses.</li>
+      <li>`P4` does not help because the `likely_reduction` filter is directionally wrong in this sample. The names it avoids average `10.2%` forward return, versus `3.9%` for the names it keeps.</li>
+      <li>`P5` still changes the interpretation of the disclosure stream. Once we stop redistributing sale proceeds into surviving names and instead allow cash to accumulate, the strategy behaves more like a literal copy of observable `PIF` de-risking.</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>Results Table</h2>
-    <table><thead><tr><th>Strategy</th><th>Design</th><th>Total Return</th><th>CAGR</th><th>Ann. Vol</th><th>Max Drawdown</th><th>Avg Positions</th><th>Avg Max Weight</th></tr></thead><tbody><tr><td>P1</td><td>New Positions Mirror</td><td>-75.8%</td><td>-20.2%</td><td>60.4%</td><td>-94.8%</td><td>6.47</td><td>59.7%</td></tr><tr><td>P2</td><td>Full Sleeve Equal Weight</td><td>-32.3%</td><td>-5.2%</td><td>43.1%</td><td>-81.1%</td><td>18.84</td><td>23.6%</td></tr><tr><td>P3</td><td>Accumulation Tilt</td><td>-69.3%</td><td>-15.0%</td><td>48.7%</td><td>-88.7%</td><td>17.86</td><td>27.5%</td></tr><tr><td>P4</td><td>Exit Avoidance</td><td>-45.2%</td><td>-7.9%</td><td>44.8%</td><td>-80.9%</td><td>17.86</td><td>25.9%</td></tr><tr><td>P5</td><td>Cash-Aware Copy Trade</td><td>48.9%</td><td>5.6%</td><td>38.3%</td><td>-62.6%</td><td>8.50</td><td>61.6%</td></tr></tbody></table>
+    <table><thead><tr><th>Strategy</th><th>Design</th><th>Total Return</th><th>CAGR</th><th>Ann. Vol</th><th>Max Drawdown</th><th>Avg Positions</th><th>Avg Max Weight</th></tr></thead><tbody><tr><td>P1</td><td>New Positions Mirror</td><td>-75.8%</td><td>-20.2%</td><td>60.4%</td><td>-94.8%</td><td>6.47</td><td>59.7%</td></tr><tr><td>P2</td><td>Full Sleeve Equal Weight</td><td>122.3%</td><td>11.6%</td><td>36.0%</td><td>-62.2%</td><td>18.82</td><td>23.6%</td></tr><tr><td>P3</td><td>Accumulation Tilt</td><td>68.6%</td><td>7.5%</td><td>38.4%</td><td>-65.4%</td><td>17.82</td><td>27.5%</td></tr><tr><td>P4</td><td>Exit Avoidance</td><td>78.1%</td><td>8.3%</td><td>38.1%</td><td>-65.4%</td><td>17.82</td><td>25.9%</td></tr><tr><td>P5</td><td>Cash-Aware Copy Trade</td><td>48.9%</td><td>5.6%</td><td>38.3%</td><td>-62.6%</td><td>8.02</td><td>61.6%</td></tr></tbody></table>
   </div>
 
   <div class="card">
@@ -155,13 +155,13 @@
     <h3>P1 New Positions Mirror</h3>
     <p>`P1` is the clearest failure. The strategy buys only newly disclosed names, so it arrives after the disclosure lag and often with only a tiny basket. The cohort-level signal is not useless on simple average (`11.9%` mean forward return and `73.6%` hit rate), but the realized portfolio is too concentrated. The worst single forward return inside the entry sample is `-91.9%`, and the strategy's average max weight stays near `60%`.</p>
     <h3>P2 Full Sleeve Equal Weight</h3>
-    <p>`P2` loses less because diversification helps. It spreads risk across the broad disclosed sleeve and avoids the severe single-name concentration of `P1`. Even so, the result is still negative. That implies the disclosed sleeve, when mirrored with lag and equal weights, does not provide sufficient edge to overcome the combination of delay, partial observability, and subsequent market performance.</p>
+    <p>`P2` is no longer a negative-return strategy after the corrected bundle handling. It spreads risk across the broad disclosed sleeve and avoids the severe single-name concentration of `P1`, which is enough to produce a positive absolute return. The more important limitation is benchmark-relative: the sleeve still trails `SPY`, so the result looks more like diluted market exposure than alpha.</p>
     <h3>P3 Accumulation Tilt</h3>
-    <p>`P3` is more interesting analytically than `P2`. The accumulation-like bucket does outperform the neutral bucket on simple forward averages, which suggests there may be some directional information in share-count changes. But the implemented portfolio loses badly because the tilt magnifies exposure to a smaller set of names with fatter downside tails. In other words, the signal may exist, but this expression of it is too concentrated.</p>
+    <p>`P3` is more interesting analytically than `P2`. The accumulation-like bucket does outperform the neutral bucket on simple forward averages, which suggests there may be some directional information in share-count changes. The corrected portfolio is positive in absolute terms, but it still lags both `P2` and `SPY` because the tilt magnifies exposure to a smaller set of names with fatter downside tails.</p>
     <h3>P4 Exit Avoidance</h3>
-    <p>`P4` fails more simply: the reduction-avoidance heuristic does not work in this sample. The names flagged as likely reductions go on to outperform the names that remain in the sleeve on average, so excluding them is directionally harmful.</p>
+    <p>`P4` remains directionally suspect even after the corrected bundle handling. The strategy is positive in absolute terms, but the reduction-avoidance heuristic still looks wrong in this sample because the names it excludes go on to outperform the names it keeps on average.</p>
     <h3>P5 Cash-Aware Copy Trade</h3>
-    <p>`P5` is the first strategy whose logic lines up with the intuitive copy-trading story. It sells what the disclosed sleeve appears to sell, keeps those proceeds in cash, and funds later disclosed buys only from that available cash. That matters. Instead of mechanically concentrating into a shrinking set of survivors, the strategy allows gross exposure to fall when `PIF` appears to be reducing the visible sleeve. In this sample, that change in capital treatment is enough to turn the strategy positive.</p>
+    <p>`P5` is the first strategy whose logic lines up with the intuitive copy-trading story. It sells what the disclosed sleeve appears to sell, keeps those proceeds in cash, and funds later disclosed buys only from that available cash. That matters. Instead of mechanically concentrating into a shrinking set of survivors, the strategy allows gross exposure to fall when `PIF` appears to be reducing the visible sleeve. In the corrected backtests, that change is enough to keep the strategy positive, even though it still does not beat `SPY`.</p>
   </div>
 
   <div class="grid2">
@@ -181,7 +181,7 @@
 
   <div class="card">
     <h2>Conclusion</h2>
-    <p>The corrected backtests support a narrower but more interesting conclusion than the earlier fully invested variants suggested. A naive lagged mirror of the disclosed `PIF` sleeve is unattractive, but a cash-aware copy-trade that respects disclosed sells as genuine de-risking does generate positive return in this sample. That suggests the disclosure edge, if it exists at all, is less about blindly owning what `PIF` owns and more about respecting how the visible sleeve expands or contracts over time.</p>
+    <p>The corrected backtests support a narrower and more nuanced conclusion than the earlier report versions suggested. A broad fully invested mirror of the disclosed sleeve can be positive in absolute terms, but it still does not beat `SPY`. The cash-aware copy trade remains conceptually valuable because it respects disclosed de-risking and stays positive without forcing concentration into surviving names. The most defensible conclusion is therefore not “copy trading `PIF` generates alpha,” but rather “`PIF` disclosures carry some exposure-structure information that is economically interpretable, though not benchmark-beating in this sample.”</p>
   </div>
 </body>
 </html>

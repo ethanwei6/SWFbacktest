@@ -1,0 +1,175 @@
+aggregation_level,event_family,sector,window_months,check_name,status,detail
+family_total,cross_fund_consensus_gained,,1,bootstrap_ci_ordered,pass,"excess=(-0.009365808352,0.018856950382) excess_u=(-0.012039311167,0.015664887066) proxy_u=(-0.002645752903,0.044217552636)"
+family_total,cross_fund_consensus_gained,,1,event_count_positive,pass,event_count=21
+family_total,cross_fund_consensus_gained,,3,bootstrap_ci_ordered,pass,"excess=(-0.014860605181,0.039920468119) excess_u=(-0.022086699984,0.026279507606) proxy_u=(-0.016226276575,0.054658039241)"
+family_total,cross_fund_consensus_gained,,3,event_count_positive,pass,event_count=21
+family_total,cross_fund_consensus_gained,,6,bootstrap_ci_ordered,pass,"excess=(0.000214028618,0.096846310182) excess_u=(-0.017333578800,0.070778526585) proxy_u=(-0.011100108424,0.114986664488)"
+family_total,cross_fund_consensus_gained,,6,event_count_positive,pass,event_count=21
+family_total,cross_fund_consensus_lost,,1,bootstrap_ci_ordered,pass,"excess=(-0.017636593555,0.017811427121) excess_u=(-0.020895153215,0.014143137861) proxy_u=(-0.050825828657,0.005480794212)"
+family_total,cross_fund_consensus_lost,,1,event_count_positive,pass,event_count=21
+family_total,cross_fund_consensus_lost,,3,bootstrap_ci_ordered,pass,"excess=(-0.015185470811,0.041203990869) excess_u=(-0.025140661266,0.027566760405) proxy_u=(-0.032084349779,0.041848813719)"
+family_total,cross_fund_consensus_lost,,3,event_count_positive,pass,event_count=21
+family_total,cross_fund_consensus_lost,,6,bootstrap_ci_ordered,pass,"excess=(-0.007983866588,0.069468852819) excess_u=(-0.026727288197,0.044666202004) proxy_u=(-0.021697986388,0.062732198400)"
+family_total,cross_fund_consensus_lost,,6,event_count_positive,pass,event_count=21
+family_total,nbim_overweight_tech,,1,bootstrap_ci_ordered,pass,"excess=(-0.018965796807,0.029674542546) excess_u=(-0.028205705993,0.018569583991) proxy_u=(-0.064818039964,0.011366030717)"
+family_total,nbim_overweight_tech,,1,event_count_positive,pass,event_count=8
+family_total,nbim_overweight_tech,,3,bootstrap_ci_ordered,pass,"excess=(-0.013938694673,0.052978614015) excess_u=(-0.043239983732,0.024706872203) proxy_u=(-0.063964237986,-0.005632387925)"
+family_total,nbim_overweight_tech,,3,event_count_positive,pass,event_count=7
+family_total,nbim_overweight_tech,,6,bootstrap_ci_ordered,pass,"excess=(0.009990426270,0.135470344370) excess_u=(-0.047105200787,0.076513423519) proxy_u=(-0.085857207927,0.098978577072)"
+family_total,nbim_overweight_tech,,6,event_count_positive,pass,event_count=7
+family_total,nbim_positive_industry_weight_change,,1,bootstrap_ci_ordered,pass,"excess=(-0.014394452436,0.014339234647) excess_u=(-0.018691556744,0.010629112647) proxy_u=(-0.022965925773,0.022712690067)"
+family_total,nbim_positive_industry_weight_change,,1,event_count_positive,pass,event_count=22
+family_total,nbim_positive_industry_weight_change,,3,bootstrap_ci_ordered,pass,"excess=(-0.035841349383,0.026027368668) excess_u=(-0.046953211308,0.011944020119) proxy_u=(-0.058508489832,-0.004035735053)"
+family_total,nbim_positive_industry_weight_change,,3,event_count_positive,pass,event_count=21
+family_total,nbim_positive_industry_weight_change,,6,bootstrap_ci_ordered,pass,"excess=(-0.020922230637,0.054833290001) excess_u=(-0.040097387279,0.025128874275) proxy_u=(-0.078929977549,0.012166763582)"
+family_total,nbim_positive_industry_weight_change,,6,event_count_positive,pass,event_count=21
+family_total,pif_contracting,,1,bootstrap_ci_ordered,pass,"excess=(-0.006125915884,0.034821868611) excess_u=(-0.020943068702,0.020004715793) proxy_u=(-0.020943068702,0.020004715793)"
+family_total,pif_contracting,,1,event_count_positive,pass,event_count=3
+family_total,pif_contracting,,3,bootstrap_ci_ordered,pass,"excess=(0.037408938310,0.071462898296) excess_u=(-0.003431074171,0.030622885815) proxy_u=(-0.003431074171,0.030622885815)"
+family_total,pif_contracting,,3,event_count_positive,pass,event_count=3
+family_total,pif_contracting,,6,bootstrap_ci_ordered,pass,"excess=(0.067318256939,0.170805573632) excess_u=(-0.013460690772,0.090026625921) proxy_u=(-0.013460690772,0.090026625921)"
+family_total,pif_contracting,,6,event_count_positive,pass,event_count=3
+family_total,pif_expanding,,1,bootstrap_ci_ordered,pass,"excess=(0.022750343970,0.050489156197) excess_u=(0.007933191152,0.033679533783) proxy_u=(0.007933191152,0.035672003379)"
+family_total,pif_expanding,,1,event_count_positive,pass,event_count=5
+family_total,pif_expanding,,3,bootstrap_ci_ordered,pass,"excess=(0.042928233962,0.116286244683) excess_u=(0.002088221481,0.075446232202) proxy_u=(0.002088221481,0.075446232202)"
+family_total,pif_expanding,,3,event_count_positive,pass,event_count=5
+family_total,pif_expanding,,6,bootstrap_ci_ordered,pass,"excess=(0.069558883163,0.189778595447) excess_u=(-0.011220064548,0.107441503928) proxy_u=(-0.009661920740,0.108999647736)"
+family_total,pif_expanding,,6,event_count_positive,pass,event_count=5
+sector,cross_fund_consensus_gained,Communication Services,1,bootstrap_ci_ordered,pass,"excess=(-0.034826379776,0.011247769912) excess_u=(-0.035124549593,0.010949600095) proxy_u=(-0.060787904647,0.062206697827)"
+sector,cross_fund_consensus_gained,Communication Services,1,event_count_positive,pass,event_count=2
+sector,cross_fund_consensus_gained,Communication Services,3,bootstrap_ci_ordered,pass,"excess=(-0.063733811595,0.057783003738) excess_u=(-0.067878621719,0.053638193614) proxy_u=(-0.131751503089,0.080439691442)"
+sector,cross_fund_consensus_gained,Communication Services,3,event_count_positive,pass,event_count=2
+sector,cross_fund_consensus_gained,Communication Services,6,bootstrap_ci_ordered,pass,"excess=(-0.092905211046,0.133728369040) excess_u=(-0.106597701439,0.120035878647) proxy_u=(-0.273910675836,0.115122335174)"
+sector,cross_fund_consensus_gained,Communication Services,6,event_count_positive,pass,event_count=2
+sector,cross_fund_consensus_gained,Consumer Discretionary,1,bootstrap_ci_ordered,pass,"excess=(-0.020220708510,0.059252758635) excess_u=(-0.020531801681,0.057393233842) proxy_u=(-0.005562947210,0.080228870967)"
+sector,cross_fund_consensus_gained,Consumer Discretionary,1,event_count_positive,pass,event_count=5
+sector,cross_fund_consensus_gained,Consumer Discretionary,3,bootstrap_ci_ordered,pass,"excess=(-0.021804045146,0.044298651496) excess_u=(-0.028858157724,0.038442354557) proxy_u=(-0.010931859322,0.047654956958)"
+sector,cross_fund_consensus_gained,Consumer Discretionary,3,event_count_positive,pass,event_count=5
+sector,cross_fund_consensus_gained,Consumer Discretionary,6,bootstrap_ci_ordered,pass,"excess=(-0.019392420712,0.145687436758) excess_u=(-0.029651136264,0.132070870401) proxy_u=(-0.078306164973,0.166298597005)"
+sector,cross_fund_consensus_gained,Consumer Discretionary,6,event_count_positive,pass,event_count=5
+sector,cross_fund_consensus_gained,Financials,1,bootstrap_ci_ordered,pass,"excess=(-0.053607147140,0.005000718499) excess_u=(-0.053171941236,0.005435924403) proxy_u=(-0.043631059063,0.061912702937)"
+sector,cross_fund_consensus_gained,Financials,1,event_count_positive,pass,event_count=4
+sector,cross_fund_consensus_gained,Financials,3,bootstrap_ci_ordered,pass,"excess=(-0.090348347284,-0.012942084350) excess_u=(-0.089668682821,-0.012262419887) proxy_u=(-0.078513129371,0.062534203855)"
+sector,cross_fund_consensus_gained,Financials,3,event_count_positive,pass,event_count=4
+sector,cross_fund_consensus_gained,Financials,6,bootstrap_ci_ordered,pass,"excess=(-0.104867874853,-0.005378128111) excess_u=(-0.106276767344,-0.006787020601) proxy_u=(-0.065948275814,0.134510844163)"
+sector,cross_fund_consensus_gained,Financials,6,event_count_positive,pass,event_count=4
+sector,cross_fund_consensus_gained,Health Care,1,bootstrap_ci_ordered,pass,"excess=(-0.000161923515,-0.000161923515) excess_u=(0.002188467943,0.002188467943) proxy_u=(0.040210170493,0.040210170493)"
+sector,cross_fund_consensus_gained,Health Care,1,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Health Care,3,bootstrap_ci_ordered,pass,"excess=(0.036649416011,0.036649416011) excess_u=(0.041655652028,0.041655652028) proxy_u=(0.114140363827,0.114140363827)"
+sector,cross_fund_consensus_gained,Health Care,3,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Health Care,6,bootstrap_ci_ordered,pass,"excess=(-0.020890551419,-0.020890551419) excess_u=(-0.010526028533,-0.010526028533) proxy_u=(0.101759814510,0.101759814510)"
+sector,cross_fund_consensus_gained,Health Care,6,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Industrials,1,bootstrap_ci_ordered,pass,"excess=(0.034754237722,0.034754237722) excess_u=(0.033387318387,0.033387318387) proxy_u=(0.093909318705,0.093909318705)"
+sector,cross_fund_consensus_gained,Industrials,1,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Industrials,3,bootstrap_ci_ordered,pass,"excess=(0.048117539593,0.048117539593) excess_u=(0.043170135068,0.043170135068) proxy_u=(0.181099830907,0.181099830907)"
+sector,cross_fund_consensus_gained,Industrials,3,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Industrials,6,bootstrap_ci_ordered,pass,"excess=(0.138950246183,0.138950246183) excess_u=(0.130052707683,0.130052707683) proxy_u=(0.318480374708,0.318480374708)"
+sector,cross_fund_consensus_gained,Industrials,6,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Real Estate,1,bootstrap_ci_ordered,pass,"excess=(-0.004434396932,-0.004434396932) excess_u=(-0.002205444469,-0.002205444469) proxy_u=(0.052315775071,0.052315775071)"
+sector,cross_fund_consensus_gained,Real Estate,1,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Real Estate,3,bootstrap_ci_ordered,pass,"excess=(-0.090549892123,-0.090549892123) excess_u=(-0.083047833000,-0.083047833000) proxy_u=(-0.082507515797,-0.082507515797)"
+sector,cross_fund_consensus_gained,Real Estate,3,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Real Estate,6,bootstrap_ci_ordered,pass,"excess=(-0.125833392612,-0.125833392612) excess_u=(-0.107023570445,-0.107023570445) proxy_u=(-0.058359459709,-0.058359459709)"
+sector,cross_fund_consensus_gained,Real Estate,6,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_gained,Technology,1,bootstrap_ci_ordered,pass,"excess=(0.000979983750,0.029508759224) excess_u=(-0.009549949331,0.019311990402) proxy_u=(-0.036527542457,0.038093879020)"
+sector,cross_fund_consensus_gained,Technology,1,event_count_positive,pass,event_count=7
+sector,cross_fund_consensus_gained,Technology,3,bootstrap_ci_ordered,pass,"excess=(0.021877241639,0.099648236042) excess_u=(-0.008830323858,0.069602798648) proxy_u=(-0.034767404682,0.077664660548)"
+sector,cross_fund_consensus_gained,Technology,3,event_count_positive,pass,event_count=7
+sector,cross_fund_consensus_gained,Technology,6,bootstrap_ci_ordered,pass,"excess=(0.048399928702,0.188162226160) excess_u=(-0.002426663359,0.135154645537) proxy_u=(0.003013345274,0.168358706689)"
+sector,cross_fund_consensus_gained,Technology,6,event_count_positive,pass,event_count=7
+sector,cross_fund_consensus_lost,Communication Services,1,bootstrap_ci_ordered,pass,"excess=(-0.072998673194,0.066122903637) excess_u=(-0.073296843011,0.065824733820) proxy_u=(0.034637680104,0.075885732471)"
+sector,cross_fund_consensus_lost,Communication Services,1,event_count_positive,pass,event_count=2
+sector,cross_fund_consensus_lost,Communication Services,3,bootstrap_ci_ordered,pass,"excess=(-0.062029588628,0.111813052395) excess_u=(-0.066174398752,0.107668242271) proxy_u=(0.062989996028,0.133178757610)"
+sector,cross_fund_consensus_lost,Communication Services,3,event_count_positive,pass,event_count=2
+sector,cross_fund_consensus_lost,Communication Services,6,bootstrap_ci_ordered,pass,"excess=(0.040691520590,0.162657675870) excess_u=(0.026999030197,0.148965185477) proxy_u=(0.147336995043,0.162575175345)"
+sector,cross_fund_consensus_lost,Communication Services,6,event_count_positive,pass,event_count=2
+sector,cross_fund_consensus_lost,Consumer Discretionary,1,bootstrap_ci_ordered,pass,"excess=(-0.009308919743,0.027203967159) excess_u=(-0.011168444536,0.024628954952) proxy_u=(-0.082206914378,0.029451307572)"
+sector,cross_fund_consensus_lost,Consumer Discretionary,1,event_count_positive,pass,event_count=5
+sector,cross_fund_consensus_lost,Consumer Discretionary,3,bootstrap_ci_ordered,pass,"excess=(-0.026415406336,0.088277786586) excess_u=(-0.032292251355,0.082400941567) proxy_u=(-0.104074910001,0.074269610199)"
+sector,cross_fund_consensus_lost,Consumer Discretionary,3,event_count_positive,pass,event_count=5
+sector,cross_fund_consensus_lost,Consumer Discretionary,6,bootstrap_ci_ordered,pass,"excess=(-0.021656557331,0.114518876386) excess_u=(-0.031252879205,0.105065526508) proxy_u=(-0.032341852349,0.089429430719)"
+sector,cross_fund_consensus_lost,Consumer Discretionary,6,event_count_positive,pass,event_count=5
+sector,cross_fund_consensus_lost,Financials,1,bootstrap_ci_ordered,pass,"excess=(-0.062570500806,-0.004916558053) excess_u=(-0.062135294902,-0.004481352149) proxy_u=(-0.123259274323,-0.019007388502)"
+sector,cross_fund_consensus_lost,Financials,1,event_count_positive,pass,event_count=4
+sector,cross_fund_consensus_lost,Financials,3,bootstrap_ci_ordered,pass,"excess=(-0.091268759079,0.028346539764) excess_u=(-0.090589094616,0.029026204227) proxy_u=(-0.109481458258,0.058981141373)"
+sector,cross_fund_consensus_lost,Financials,3,event_count_positive,pass,event_count=4
+sector,cross_fund_consensus_lost,Financials,6,bootstrap_ci_ordered,pass,"excess=(-0.087104154160,0.081180137171) excess_u=(-0.088513046650,0.079771244680) proxy_u=(-0.098024280470,0.178127974590)"
+sector,cross_fund_consensus_lost,Financials,6,event_count_positive,pass,event_count=4
+sector,cross_fund_consensus_lost,Health Care,1,bootstrap_ci_ordered,pass,"excess=(-0.020465247677,-0.020465247677) excess_u=(-0.018114856219,-0.018114856219) proxy_u=(-0.006795772459,-0.006795772459)"
+sector,cross_fund_consensus_lost,Health Care,1,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Health Care,3,bootstrap_ci_ordered,pass,"excess=(-0.052539667063,-0.052539667063) excess_u=(-0.047533431046,-0.047533431046) proxy_u=(-0.014397190305,-0.014397190305)"
+sector,cross_fund_consensus_lost,Health Care,3,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Health Care,6,bootstrap_ci_ordered,pass,"excess=(-0.029634761367,-0.029634761367) excess_u=(-0.019270238481,-0.019270238481) proxy_u=(0.009980540404,0.009980540404)"
+sector,cross_fund_consensus_lost,Health Care,6,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Industrials,1,bootstrap_ci_ordered,pass,"excess=(0.033981296191,0.033981296191) excess_u=(0.032614376856,0.032614376856) proxy_u=(0.020436070217,0.020436070217)"
+sector,cross_fund_consensus_lost,Industrials,1,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Industrials,3,bootstrap_ci_ordered,pass,"excess=(0.060586303726,0.060586303726) excess_u=(0.055638899201,0.055638899201) proxy_u=(0.104606844512,0.104606844512)"
+sector,cross_fund_consensus_lost,Industrials,3,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Industrials,6,bootstrap_ci_ordered,pass,"excess=(-0.037974219237,-0.037974219237) excess_u=(-0.046871757737,-0.046871757737) proxy_u=(0.105806701158,0.105806701158)"
+sector,cross_fund_consensus_lost,Industrials,6,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Real Estate,1,bootstrap_ci_ordered,pass,"excess=(-0.011828333031,-0.011828333031) excess_u=(-0.009599380568,-0.009599380568) proxy_u=(-0.085516796925,-0.085516796925)"
+sector,cross_fund_consensus_lost,Real Estate,1,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Real Estate,3,bootstrap_ci_ordered,pass,"excess=(-0.073135331231,-0.073135331231) excess_u=(-0.065633272108,-0.065633272108) proxy_u=(-0.094897584176,-0.094897584176)"
+sector,cross_fund_consensus_lost,Real Estate,3,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Real Estate,6,bootstrap_ci_ordered,pass,"excess=(-0.110773553866,-0.110773553866) excess_u=(-0.091963731699,-0.091963731699) proxy_u=(-0.110178950400,-0.110178950400)"
+sector,cross_fund_consensus_lost,Real Estate,6,event_count_positive,pass,event_count=1
+sector,cross_fund_consensus_lost,Technology,1,bootstrap_ci_ordered,pass,"excess=(-0.023163902402,0.042506552476) excess_u=(-0.032322965467,0.033254217050) proxy_u=(-0.065840378136,0.029352293165)"
+sector,cross_fund_consensus_lost,Technology,1,event_count_positive,pass,event_count=7
+sector,cross_fund_consensus_lost,Technology,3,bootstrap_ci_ordered,pass,"excess=(0.000333520364,0.067175538347) excess_u=(-0.027268109141,0.039309521748) proxy_u=(-0.028747521527,0.071636071182)"
+sector,cross_fund_consensus_lost,Technology,3,event_count_positive,pass,event_count=7
+sector,cross_fund_consensus_lost,Technology,6,bootstrap_ci_ordered,pass,"excess=(-0.007640017722,0.119361653578) excess_u=(-0.062615911071,0.061985480667) proxy_u=(-0.056264001332,0.035898927221)"
+sector,cross_fund_consensus_lost,Technology,6,event_count_positive,pass,event_count=7
+sector,nbim_overweight_tech,Technology,1,bootstrap_ci_ordered,pass,"excess=(-0.018538748608,0.030501083723) excess_u=(-0.029228535367,0.019563925058) proxy_u=(-0.065591750820,0.011259762762)"
+sector,nbim_overweight_tech,Technology,1,event_count_positive,pass,event_count=8
+sector,nbim_overweight_tech,Technology,3,bootstrap_ci_ordered,pass,"excess=(-0.013938694673,0.055007730179) excess_u=(-0.042897451226,0.026265006465) proxy_u=(-0.063459607544,-0.005972086896)"
+sector,nbim_overweight_tech,Technology,3,event_count_positive,pass,event_count=7
+sector,nbim_overweight_tech,Technology,6,bootstrap_ci_ordered,pass,"excess=(0.008317692604,0.135840348920) excess_u=(-0.046755575218,0.076513423519) proxy_u=(-0.085915976550,0.100481269935)"
+sector,nbim_overweight_tech,Technology,6,event_count_positive,pass,event_count=7
+sector,nbim_positive_industry_weight_change,Communication Services,1,bootstrap_ci_ordered,pass,"excess=(0.011247769912,0.011247769912) excess_u=(0.010949600095,0.010949600095) proxy_u=(0.062206697827,0.062206697827)"
+sector,nbim_positive_industry_weight_change,Communication Services,1,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Communication Services,3,bootstrap_ci_ordered,pass,"excess=(-0.063733811595,-0.063733811595) excess_u=(-0.067878621719,-0.067878621719) proxy_u=(-0.131751503089,-0.131751503089)"
+sector,nbim_positive_industry_weight_change,Communication Services,3,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Communication Services,6,bootstrap_ci_ordered,pass,"excess=(-0.092905211046,-0.092905211046) excess_u=(-0.106597701439,-0.106597701439) proxy_u=(-0.273910675836,-0.273910675836)"
+sector,nbim_positive_industry_weight_change,Communication Services,6,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Consumer Discretionary,1,bootstrap_ci_ordered,pass,"excess=(-0.021569486957,0.030295941729) excess_u=(-0.023429011750,0.028436416936) proxy_u=(-0.030119051849,0.060187291183)"
+sector,nbim_positive_industry_weight_change,Consumer Discretionary,1,event_count_positive,pass,event_count=5
+sector,nbim_positive_industry_weight_change,Consumer Discretionary,3,bootstrap_ci_ordered,pass,"excess=(-0.068261863102,0.007454620848) excess_u=(-0.074138708121,0.002066250649) proxy_u=(-0.096261224024,0.007207201526)"
+sector,nbim_positive_industry_weight_change,Consumer Discretionary,3,event_count_positive,pass,event_count=5
+sector,nbim_positive_industry_weight_change,Consumer Discretionary,6,bootstrap_ci_ordered,pass,"excess=(-0.047525678634,0.045607549987) excess_u=(-0.056394828589,0.036774029920) proxy_u=(-0.102156221616,0.035370820334)"
+sector,nbim_positive_industry_weight_change,Consumer Discretionary,6,event_count_positive,pass,event_count=5
+sector,nbim_positive_industry_weight_change,Consumer Staples,1,bootstrap_ci_ordered,pass,"excess=(0.028669388153,0.028669388153) excess_u=(0.031269639409,0.031269639409) proxy_u=(0.041781244243,0.041781244243)"
+sector,nbim_positive_industry_weight_change,Consumer Staples,1,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Consumer Staples,3,bootstrap_ci_ordered,pass,"excess=(-0.036483750942,-0.036483750942) excess_u=(-0.029921154615,-0.029921154615) proxy_u=(-0.003595489289,-0.003595489289)"
+sector,nbim_positive_industry_weight_change,Consumer Staples,3,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Consumer Staples,6,bootstrap_ci_ordered,pass,"excess=(-0.071629528446,-0.071629528446) excess_u=(-0.057859457750,-0.057859457750) proxy_u=(-0.040774797461,-0.040774797461)"
+sector,nbim_positive_industry_weight_change,Consumer Staples,6,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Energy,1,bootstrap_ci_ordered,pass,"excess=(-0.017211277021,0.008698578157) excess_u=(-0.023912411979,0.001997443199) proxy_u=(0.012509048033,0.027795291936)"
+sector,nbim_positive_industry_weight_change,Energy,1,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Energy,3,bootstrap_ci_ordered,pass,"excess=(-0.073428731005,0.243805883247) excess_u=(-0.092331949605,0.224902664647) proxy_u=(-0.066006284279,0.161844933265)"
+sector,nbim_positive_industry_weight_change,Energy,3,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Energy,6,bootstrap_ci_ordered,pass,"excess=(0.048487942600,0.200259000207) excess_u=(0.017827447421,0.169598505028) proxy_u=(0.005760201052,0.034912107711)"
+sector,nbim_positive_industry_weight_change,Energy,6,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Financials,1,bootstrap_ci_ordered,pass,"excess=(-0.099539149034,-0.010011874304) excess_u=(-0.099103943130,-0.009576668400) proxy_u=(-0.088592338296,0.007279820271)"
+sector,nbim_positive_industry_weight_change,Financials,1,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Financials,3,bootstrap_ci_ordered,pass,"excess=(-0.103976430322,-0.037960071644) excess_u=(-0.103296765859,-0.037280407181) proxy_u=(-0.076971100533,-0.022116484742)"
+sector,nbim_positive_industry_weight_change,Financials,3,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Financials,6,bootstrap_ci_ordered,pass,"excess=(-0.121463642213,-0.087087608562) excess_u=(-0.122872534703,-0.088496501052) proxy_u=(-0.076185334887,-0.071411840763)"
+sector,nbim_positive_industry_weight_change,Financials,6,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Health Care,1,bootstrap_ci_ordered,pass,"excess=(-0.012378314167,0.039034384310) excess_u=(-0.010027922709,0.041384775768) proxy_u=(-0.015375601129,0.051896380603)"
+sector,nbim_positive_industry_weight_change,Health Care,1,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Health Care,3,bootstrap_ci_ordered,pass,"excess=(-0.027531420486,-0.023541010309) excess_u=(-0.022525184469,-0.018534774292) proxy_u=(-0.058452478047,0.007790891033)"
+sector,nbim_positive_industry_weight_change,Health Care,3,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Health Care,6,bootstrap_ci_ordered,pass,"excess=(-0.023896502233,-0.023052072967) excess_u=(-0.013531979347,-0.012687550081) proxy_u=(-0.062265606647,0.003552680943)"
+sector,nbim_positive_industry_weight_change,Health Care,6,event_count_positive,pass,event_count=2
+sector,nbim_positive_industry_weight_change,Real Estate,1,bootstrap_ci_ordered,pass,"excess=(-0.003604410299,-0.003604410299) excess_u=(-0.001375457836,-0.001375457836) proxy_u=(0.050332246079,0.050332246079)"
+sector,nbim_positive_industry_weight_change,Real Estate,1,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Real Estate,3,bootstrap_ci_ordered,pass,"excess=(-0.025301963963,-0.025301963963) excess_u=(-0.017799904840,-0.017799904840) proxy_u=(-0.080857636223,-0.080857636223)"
+sector,nbim_positive_industry_weight_change,Real Estate,3,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Real Estate,6,bootstrap_ci_ordered,pass,"excess=(0.009456726656,0.009456726656) excess_u=(0.028266548823,0.028266548823) proxy_u=(-0.135571755153,-0.135571755153)"
+sector,nbim_positive_industry_weight_change,Real Estate,6,event_count_positive,pass,event_count=1
+sector,nbim_positive_industry_weight_change,Technology,1,bootstrap_ci_ordered,pass,"excess=(-0.018615192013,0.029751294572) excess_u=(-0.028862729680,0.019436380735) proxy_u=(-0.066797992659,0.011259762762)"
+sector,nbim_positive_industry_weight_change,Technology,1,event_count_positive,pass,event_count=8
+sector,nbim_positive_industry_weight_change,Technology,3,bootstrap_ci_ordered,pass,"excess=(-0.013251213094,0.053549232880) excess_u=(-0.042512879237,0.026265006465) proxy_u=(-0.063064446155,-0.005659633263)"
+sector,nbim_positive_industry_weight_change,Technology,3,event_count_positive,pass,event_count=7
+sector,nbim_positive_industry_weight_change,Technology,6,bootstrap_ci_ordered,pass,"excess=(0.011602452950,0.134534587866) excess_u=(-0.045786677987,0.076126098504) proxy_u=(-0.089921509682,0.100422501312)"
+sector,nbim_positive_industry_weight_change,Technology,6,event_count_positive,pass,event_count=7

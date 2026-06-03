@@ -1,0 +1,28 @@
+segment_id,state_signature,pif_risk_state,nbim_sector_state,model_sector_tilt_primary,model_sector_tilt_source,cross_fund_confirmation_count,model_exposure_target,segment_start_date,segment_end_state_date,next_state_date,segment_row_count,duration_days_to_next_state,open_segment_flag
+SEG-001,unavailable|top3_led|Financials|0|na,unavailable,top3_led,Financials,nbim_top3,0,,2018-02-28,2018-02-28,2019-02-14,1,351,0
+SEG-002,risk_on|top3_led|Financials|0|1.000000000000,risk_on,top3_led,Financials,nbim_top3,0,1.000000000000,2019-02-14,2019-02-14,2019-02-28,1,14,0
+SEG-003,risk_on|overweight_led|Technology|0|1.000000000000,risk_on,overweight_led,Technology,nbim_overweight,0,1.000000000000,2019-02-28,2019-02-28,2019-05-14,1,75,0
+SEG-004,neutral|overweight_led|Technology|0|0.750000000000,neutral,overweight_led,Technology,nbim_overweight,0,0.750000000000,2019-05-14,2019-05-14,2019-08-07,1,85,0
+SEG-005,risk_on|consensus_led|Technology|1|1.000000000000,risk_on,consensus_led,Technology,cross_fund_consensus,1,1.000000000000,2019-08-07,2019-08-07,2019-10-22,1,76,0
+SEG-006,neutral|consensus_led|Consumer Discretionary|1|0.750000000000,neutral,consensus_led,Consumer Discretionary,cross_fund_consensus,1,0.750000000000,2019-10-22,2019-10-22,2020-02-05,1,106,0
+SEG-007,neutral|consensus_led|Technology|1|0.750000000000,neutral,consensus_led,Technology,cross_fund_consensus,1,0.750000000000,2020-02-05,2020-02-26,2020-05-18,2,103,0
+SEG-008,risk_on|consensus_led|Financials|3|1.000000000000,risk_on,consensus_led,Financials,cross_fund_consensus,3,1.000000000000,2020-05-18,2020-05-18,2020-08-17,1,91,0
+SEG-009,risk_off|overweight_led|Technology|0|0.500000000000,risk_off,overweight_led,Technology,nbim_overweight,0,0.500000000000,2020-08-17,2021-02-26,2021-05-18,3,274,0
+SEG-010,risk_on|consensus_led|Financials|3|1.000000000000,risk_on,consensus_led,Financials,cross_fund_consensus,3,1.000000000000,2021-05-18,2021-05-18,2021-08-17,1,91,0
+SEG-011,neutral|overweight_led|Technology|0|0.750000000000,neutral,overweight_led,Technology,nbim_overweight,0,0.750000000000,2021-08-17,2021-08-17,2022-03-04,1,199,0
+SEG-012,neutral|consensus_led|Communication Services|1|0.750000000000,neutral,consensus_led,Communication Services,cross_fund_consensus,1,0.750000000000,2022-03-04,2022-03-04,2022-10-12,1,222,0
+SEG-013,neutral|overweight_led|Technology|0|0.750000000000,neutral,overweight_led,Technology,nbim_overweight,0,0.750000000000,2022-10-12,2022-10-12,2022-11-15,1,34,0
+SEG-014,neutral|consensus_led|Communication Services|1|0.750000000000,neutral,consensus_led,Communication Services,cross_fund_consensus,1,0.750000000000,2022-11-15,2022-11-15,2022-12-23,1,38,0
+SEG-015,risk_on|consensus_led|Technology|5|1.000000000000,risk_on,consensus_led,Technology,cross_fund_consensus,5,1.000000000000,2022-12-23,2022-12-23,2023-02-15,1,54,0
+SEG-016,neutral|consensus_led|Communication Services|1|0.750000000000,neutral,consensus_led,Communication Services,cross_fund_consensus,1,0.750000000000,2023-02-15,2023-02-15,2023-03-08,1,21,0
+SEG-017,neutral|overweight_led|Financials|0|0.750000000000,neutral,overweight_led,Financials,nbim_overweight,0,0.750000000000,2023-03-08,2023-05-16,2023-08-15,2,160,0
+SEG-018,neutral|consensus_led|Consumer Discretionary|1|0.750000000000,neutral,consensus_led,Consumer Discretionary,cross_fund_consensus,1,0.750000000000,2023-08-15,2023-08-15,2023-11-15,1,92,0
+SEG-019,neutral|consensus_led|Consumer Discretionary|2|0.750000000000,neutral,consensus_led,Consumer Discretionary,cross_fund_consensus,2,0.750000000000,2023-11-15,2023-11-15,2024-02-15,1,92,0
+SEG-020,neutral|consensus_led|Technology|2|0.750000000000,neutral,consensus_led,Technology,cross_fund_consensus,2,0.750000000000,2024-02-15,2024-02-28,2024-05-16,2,91,0
+SEG-021,risk_off|overweight_led|Technology|0|0.500000000000,risk_off,overweight_led,Technology,nbim_overweight,0,0.500000000000,2024-05-16,2024-10-01,2024-11-15,3,183,0
+SEG-022,risk_on|consensus_led|Technology|3|1.000000000000,risk_on,consensus_led,Technology,cross_fund_consensus,3,1.000000000000,2024-11-15,2024-11-15,2025-02-18,1,95,0
+SEG-023,neutral|consensus_led|Consumer Discretionary|1|0.750000000000,neutral,consensus_led,Consumer Discretionary,cross_fund_consensus,1,0.750000000000,2025-02-18,2025-02-26,2025-05-16,2,87,0
+SEG-024,neutral|consensus_led|Technology|2|0.750000000000,neutral,consensus_led,Technology,cross_fund_consensus,2,0.750000000000,2025-05-16,2025-08-13,2025-08-15,2,91,0
+SEG-025,risk_off|overweight_led|Financials|0|0.500000000000,risk_off,overweight_led,Financials,nbim_overweight,0,0.500000000000,2025-08-15,2026-02-18,2026-03-02,3,199,0
+SEG-026,risk_off|overweight_led|Technology|0|0.500000000000,risk_off,overweight_led,Technology,nbim_overweight,0,0.500000000000,2026-03-02,2026-03-02,2026-05-18,1,77,0
+SEG-027,neutral|overweight_led|Technology|0|0.750000000000,neutral,overweight_led,Technology,nbim_overweight,0,0.750000000000,2026-05-18,2026-05-18,,1,,1

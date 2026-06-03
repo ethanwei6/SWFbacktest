@@ -30,7 +30,7 @@ Singapore}
 \begin{abstract}
 This paper examines whether public sovereign wealth fund (SWF) disclosures contain investable information once disclosure lag, partial visibility, and implementation constraints are treated as first-class design variables. The project began with three funds---Saudi Arabia's Public Investment Fund (PIF), Norges Bank Investment Management (NBIM), and Singapore's GIC---but quickly encountered radical disclosure asymmetry: NBIM provides broad but slow public-equity visibility, PIF provides security-level visibility only for its reportable U.S. 13F sleeve, and GIC is too opaque to support a comparable holdings panel. We therefore construct fund-specific normalized datasets and test lag-aware strategies rather than forcing all funds into a common template.
 
-For PIF, five backtests are implemented on a canonical 13F panel with filing-aware trade timing, benchmark comparison against \texttt{SPY}, and a corrected split-adjusted price layer. After validation, all strategies underperform on an excess-return basis; the best cash-aware variant still trails the benchmark materially. For NBIM, eight strategies are tested against \texttt{VT} using split-adjusted daily prices for first-post-release execution and month-end marks derived from the same daily source. The strongest direct mirror results are shown to be contaminated by survivor-selection in a bounded mega-cap universe. More credible sector-based tests produce only modest benchmark-relative gains, with the best results coming from industry weight-change and concentrated leadership strategies. A final robustness layer then stresses the surviving signals with execution lags, explicit one-way costs, realistic caps, subperiod splits, and alternate benchmarks. An attribution layer decomposes benchmark-relative performance into exposure timing, allocation, and concentration effects. Across both funds, the evidence does not support strong claims of easy copy-trading alpha. The most credible residual signal is slower-moving sector posture rather than single-name imitation, and among the tested strategies only NBIM's concentrated leadership sleeve remains meaningfully positive through the full robustness stack.
+For PIF, five backtests are implemented on a canonical 13F panel with filing-aware trade timing, benchmark comparison against \texttt{SPY}, and a corrected split-adjusted price layer. After validation, four of the five PIF strategies are positive in absolute return, but all five still underperform \texttt{SPY} on an excess-return basis. For NBIM, eight strategies are tested against \texttt{VT} using split-adjusted daily prices for first-post-release execution and month-end marks derived from the same daily source. The strongest direct mirror results are shown to be contaminated by survivor-selection in a bounded mega-cap universe. More credible sector-based tests produce only modest benchmark-relative gains, with the best results coming from industry weight-change and concentrated leadership strategies. A final robustness layer then stresses the surviving signals with execution lags, explicit one-way costs, realistic caps, subperiod splits, and alternate benchmarks. An attribution layer decomposes benchmark-relative performance into exposure timing, allocation, and concentration effects, while a final inference layer adds formal significance tests, bootstrap confidence intervals, and turnover-adjusted performance metrics. Across both funds, the evidence does not support strong claims of easy copy-trading alpha. The most credible residual signal is slower-moving sector posture rather than single-name imitation, and among the tested strategies only NBIM's concentrated leadership sleeve remains meaningfully positive through the full robustness stack---but even that signal looks suggestive rather than statistically decisive.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -191,42 +191,76 @@ This unified daily source removed the earlier timing distortion from waiting unt
 
 \section{Strategy Definitions}
 
+All strategies in the paper are \emph{long-only} and only react when a new public disclosure becomes tradable under the lag rules defined earlier. Between those dates, the portfolio is simply marked to market. No strategy assumes intraperiod foresight. The main differences between strategies are therefore:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{what information is acted on:} new names, all current names, sector weights, sector changes, or cross-fund agreement;
+    \item \textbf{how capital is allocated:} equal weight, disclosed weight, concentrated top sectors, or cash-retaining exposure throttles; and
+    \item \textbf{what happens after sales:} immediately reinvest, rotate into other sectors, or keep the proceeds in cash.
+\end{itemize}
+
+This section is written deliberately in operational terms so that a reader can understand what each backtest is actually doing behind the shorthand labels.
+
 \subsection{PIF Strategies}
+
+PIF disclosures come from the reportable U.S. 13F sleeve. That means every PIF strategy begins from the same basic information set: which U.S.-listed securities were disclosed in a filing, whether they were new, continued, reduced, or exited relative to the previous filing, and when that information became public.
+
+An important distinction is that the PIF strategies were designed for \emph{different research purposes}. They are not all literal copycat portfolios. In particular:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{P1 through P4 are fully invested research variants.} They do sell names when those names disappear or become disfavored, but in most cases they immediately recycle the proceeds into other eligible holdings rather than leaving the proceeds in cash.
+    \item \textbf{P5 is the cash-aware copycat variant.} It is the only PIF strategy that treats disclosed selling as a reason for portfolio cash to rise rather than as a reason to concentrate more heavily in the remaining names.
+\end{itemize}
+
+This distinction matters because PIF's public sleeve often shrinks dramatically. A strategy that always reinvests sale proceeds is really testing a \emph{stock-selection rule under constant exposure}, whereas a strategy that allows cash to build is testing whether the public disclosures contain useful information about \emph{overall risk posture}.
 
 Five PIF strategies were tested:
 \begin{enumerate}[leftmargin=1.4em]
-    \item \textbf{P1 New Positions Mirror:} buy new disclosed entries only.
-    \item \textbf{P2 Full Sleeve Equal Weight:} hold the full common-equity 13F sleeve equally weighted.
-    \item \textbf{P3 Accumulation Tilt:} overweight likely accumulations.
-    \item \textbf{P4 Exit Avoidance:} avoid likely reductions and exits.
-    \item \textbf{P5 Cash-Aware Copy:} copy buys and sells as disclosed while retaining sale proceeds in cash.
+    \item \textbf{P1 New Positions Mirror.} On each new filing date, buy only the names that newly appear in the disclosed 13F sleeve and ignore names that were already present in the prior filing. Capital is split equally across those new entries and held until the next filing-driven rebalance. At the next filing, the prior basket is sold and replaced with the new-entry basket. In plain terms, this is the purest ``follow only the newly revealed ideas'' test.
+    \item \textbf{P2 Full Sleeve Equal Weight.} On each filing date, hold the entire disclosed common-equity sleeve, but give every disclosed stock the same portfolio weight regardless of PIF's position size. If a name disappears from the sleeve, it is sold; if a new name appears, it is bought; and after those changes the whole sleeve is rebalanced back to equal weights. This asks whether the mere identity of PIF's disclosed U.S. holdings has value even if the sizing information is ignored.
+    \item \textbf{P3 Accumulation Tilt.} Start from the disclosed sleeve, but overweight names that look like additions or enlargements relative to the previous filing. New positions and likely share-count increases receive more weight than unchanged positions, while exited names are removed and the capital is redistributed among the remaining eligible names. This tests whether ``what PIF seems to be leaning into'' is more informative than the full sleeve.
+    \item \textbf{P4 Exit Avoidance.} Start from the disclosed sleeve, but exclude or down-weight names that appear to be reductions or exits. In practice this means selling or avoiding the names that seem to be on the way out, then reallocating the capital into the names that remain eligible. This is the opposite of P3: rather than chasing additions, it attempts to avoid names that PIF seems to be backing away from.
+    \item \textbf{P5 Cash-Aware Copy.} Buy and sell the disclosed positions as they become public, but \emph{do not} force sale proceeds back into the surviving names. If PIF's public sleeve shrinks, the copied portfolio can accumulate cash instead of becoming artificially more concentrated. This is the most literal ``copy what was disclosed, and if they sold a lot, let cash build'' interpretation.
 \end{enumerate}
 
-P5 was introduced after an important conceptual observation: if PIF liquidates positions from its disclosed sleeve, a literal copycat should often keep the residual cash rather than mechanically concentrating the survivors.
+P5 was introduced after an important conceptual observation: if PIF liquidates positions from its disclosed sleeve, a literal copycat should often keep the residual cash rather than mechanically concentrating the survivors. That distinction is important because a fully invested backtest can unintentionally turn ``PIF sold several names'' into ``we doubled down on the names that remained,'' which is not the same economic signal. Put differently, P1 through P4 mostly ask ``which disclosed names should we own if we insist on staying invested?'', whereas P5 asks ``what happens if we actually copy the observable buys and sells and allow exposure to shrink?''
 
 \subsection{NBIM Strategies}
 
-NBIM strategies naturally fall into two families.
+NBIM disclosures are fundamentally different. The dataset is much broader geographically, but it does not provide share-count history in the same way as the PIF 13F sleeve. That makes single-name mirroring much less direct and pushes the analysis toward sector and industry posture. NBIM strategies therefore fall into two families.
 
 \subsubsection{Exploratory direct mirrors}
 \begin{enumerate}[leftmargin=1.4em]
-    \item \textbf{N1 Core U.S. Mirror Equal Weight}
-    \item \textbf{N2 Core U.S. Mirror NBIM Weight}
+    \item \textbf{N1 Core U.S. Mirror Equal Weight.} Restrict NBIM to a bounded set of repeatedly observable U.S.-listed names with available price history, then hold those names equally weighted after each public release. This is a simplified stock-level copy test, but only on the observable U.S. subset rather than NBIM's full global book.
+    \item \textbf{N2 Core U.S. Mirror NBIM Weight.} Use the same bounded U.S. mirror sleeve as N1, but weight the positions in proportion to their disclosed NBIM market-value weights instead of equal-weighting them. This asks whether NBIM's stock sizing within the observable U.S. subset adds information beyond the stock list itself.
 \end{enumerate}
 
-These were included because single-name mirroring was one of the original hypotheses, but they rely on a bounded U.S. mirror sleeve rather than a full global book.
+These were included because single-name mirroring was one of the original hypotheses, but they rely on a bounded U.S. mirror sleeve rather than a full global book. They are therefore useful as exploratory tests, not as the paper's cleanest evidence of investable alpha.
 
 \subsubsection{Industry-based strategies}
 \begin{enumerate}[leftmargin=1.4em]
-    \item \textbf{N3 Industry Weight Mirror:} reproduce the disclosed industry posture through ETF proxies.
-    \item \textbf{N4 Industry Weight-Change Tilt:} hold only sectors whose disclosed weights increased versus the prior snapshot.
-    \item \textbf{N5 Industry Accumulation Tilt:} hold sectors with positive accumulation-minus-reduction transition scores.
-    \item \textbf{N6 Top-3 Industry Leaders:} concentrate in the three largest disclosed sector exposures.
-    \item \textbf{N7 Top-3 Industry Increases:} hold the three largest positive sector changes.
-    \item \textbf{N8 Consensus Rotation Tilt:} require both positive weight change and positive transition score.
+    \item \textbf{N3 Industry Weight Mirror.} Translate NBIM's disclosed industry weights into liquid sector ETF proxies and hold those proxies in the same approximate proportions. This is the broadest ``mirror the fund's sector posture'' version.
+    \item \textbf{N4 Industry Weight-Change Tilt.} Ignore the full weight map and hold only sectors whose disclosed weights increased versus the previous snapshot. The strategy therefore acts on change, not level: it buys what NBIM appears to be increasing and ignores what is flat or shrinking.
+    \item \textbf{N5 Industry Accumulation Tilt.} Use the transition engine to build a sector score from entry/exit and accumulation/reduction counts, then hold sectors with positive net accumulation signals. This is more event-driven than N4 and leans on the transition classification rather than only the disclosed weight change.
+    \item \textbf{N6 Top-3 Industry Leaders.} At each disclosure date, hold only the three largest industry exposures in the NBIM book, implemented through sector ETFs. This is a concentrated ``follow the leaders'' strategy rather than a full mirror.
+    \item \textbf{N7 Top-3 Industry Increases.} Hold only the three sectors with the largest positive weight changes since the previous snapshot. This is a narrower version of N4 that focuses on the strongest rotations rather than every positive change.
+    \item \textbf{N8 Consensus Rotation Tilt.} Hold only sectors that pass \emph{both} of two filters: positive disclosed weight change and positive transition-score evidence. This is designed as a higher-confidence but sparser version of the sector-rotation idea.
 \end{enumerate}
 
 This second family is more realistic and more aligned with what NBIM actually discloses: slow-moving sector posture rather than actionable stock-level trading instructions.
+
+\subsection{Combined PIF + NBIM Strategies}
+
+The combined strategies treat the two funds as complementary signal sources rather than interchangeable portfolios. PIF contributes a \emph{risk-posture} or \emph{exposure-throttle} signal: should the model be fully invested, partly invested, or more defensive? NBIM contributes a \emph{sector-posture} signal: if capital is deployed, which industries or sector proxies should be emphasized?
+
+Five combined strategies were tested:
+\begin{enumerate}[leftmargin=1.4em]
+    \item \textbf{S1 Exposure Regime Overlay.} Start with a broad global equity base, then scale gross exposure up or down using the PIF risk regime and tilt the invested sleeve toward NBIM's strongest sector signal. In plain English, this is ``use PIF to decide how much risk to take and NBIM to decide where inside equities to lean.''
+    \item \textbf{S2 Cross-Fund Consensus Sector Tilt.} Invest only when both funds point toward the same sector direction, and otherwise hold more cash or fallback exposure. This is the most selective confirmation strategy: it prefers fewer trades, but only when the funds line up.
+    \item \textbf{S3 PIF Cash-Aware Base + NBIM Overlay.} Start from the validated P5 cash-aware PIF portfolio and then overlay an NBIM sector tilt on top of the invested portion. This asks whether the best PIF implementation can be improved by adding NBIM's slow-moving sector view.
+    \item \textbf{S4 N4 Sleeve With PIF Risk Filter.} Start from the N4 sector-rotation sleeve and use the PIF regime only as a throttle on total exposure. The stock/sector choice comes from NBIM; PIF only decides whether the model should run at full size or partially de-risk.
+    \item \textbf{S5 N6 Sleeve With PIF Risk Filter.} Start from the concentrated N6 leadership sleeve and again use PIF only as the exposure filter. This is the concentrated leadership version of S4.
+\end{enumerate}
+
+These combined strategies are important because they move the project away from the naive question ``can we copy the fund?'' and toward the more realistic question ``can one fund help with exposure timing while another helps with sector selection?''
 
 \subsection{Benchmark-Relative Measure}
 
@@ -235,6 +269,8 @@ For clarity, the paper reports both standalone total return and benchmark-relati
 R^{\text{excess}}_{s,T}=\frac{\text{NAV}_{s,T}/\text{NAV}_{s,0}}{\text{NAV}_{b,T}/\text{NAV}_{b,0}}-1,
 \end{equation}
 where $s$ is the strategy and $b$ is the benchmark. This choice makes the interpretation straightforward: positive values represent outperformance over the matched benchmark horizon.
+
+In plain language, a strategy can make money in absolute terms and still be a poor result if a passive benchmark made much more over the same exact live period. That is why the paper emphasizes benchmark-relative results alongside raw return.
 
 \section{Validation Protocol}
 
@@ -260,7 +296,7 @@ The final backtests were checked for:
     \item rebalance arithmetic consistency.
 \end{itemize}
 
-For the final NBIM panel, all strategies showed zero negative-cash breaches and only floating-point-level weight gaps. The corrected PIF engines passed the same integrity standard.
+For the final NBIM panel, all strategies showed zero negative-cash breaches and only floating-point-level weight gaps. The corrected PIF engines passed the same integrity standard. A later full-project code-path audit also rechecked the original processing and baseline backtests from raw inputs forward. That audit found and fixed two genuine implementation issues in the original PIF layer: same-day bundled filings needed to be reduced to the latest observable report period before building the fully invested sleeves, and the cash-aware engine needed to prune near-zero floating-point fills so that zero-share ghost positions were not carried forward.
 
 In addition, cached market-data rows were spot-checked against live API responses at representative benchmark, ETF, and single-name points after the final rebuild. The sampled \texttt{VT}, \texttt{XLK}, \texttt{XLC}, \texttt{TSLA}, \texttt{UBER}, and \texttt{LCID} closes matched the stored price layers exactly. A dedicated Phase-3 robustness audit then re-checked all A1--A3 outputs through 26 automated tests spanning baseline reproduction, delayed execution pricing, self-financing cost application, cap compliance at rebalance, and benchmark alignment; the final audit passed with zero failed checks.
 
@@ -268,7 +304,7 @@ In addition, cached market-data rows were spot-checked against live API response
 
 \subsection{Summary Results}
 
-Table~\ref{tab:pif-results} reports the validated PIF strategy outcomes. The important point is not just that most strategies fail, but that the \emph{best conceptual fix} (cash-aware copying) still fails to generate alpha versus the benchmark.
+Table~\ref{tab:pif-results} reports the validated PIF strategy outcomes. The key conclusion is more nuanced than the earlier draft of this project suggested. Once the original bundle-handling bug in the fully invested strategies is corrected, P2 through P5 all generate positive absolute returns. However, none of them produce alpha versus \texttt{SPY}, so the public PIF sleeve still fails as a reliable benchmark-beating copy-trading signal.
 
 \begin{table*}[!t]
 \caption{PIF Strategy Results versus SPY}
@@ -282,9 +318,9 @@ Table~\ref{tab:pif-results} reports the validated PIF strategy outcomes. The imp
 \textbf{Strategy} & \textbf{Total Return} & \textbf{CAGR} & \textbf{Max Drawdown} & \textbf{Excess Return vs SPY} & \textbf{Information Ratio} \\
 \midrule
 P1 New Positions Mirror & $-75.8\%$ & $-20.2\%$ & $-94.8\%$ & $-90.5\%$ & $-0.299$ \\
-P2 Full Sleeve Equal Weight & $-32.3\%$ & $-5.2\%$ & $-81.1\%$ & $-77.4\%$ & $-0.319$ \\
-P3 Accumulation Tilt & $-69.3\%$ & $-15.0\%$ & $-88.7\%$ & $-89.8\%$ & $-0.415$ \\
-P4 Exit Avoidance & $-45.2\%$ & $-7.9\%$ & $-80.9\%$ & $-81.7\%$ & $-0.362$ \\
+P2 Full Sleeve Equal Weight & $+122.3\%$ & $+11.6\%$ & $-62.2\%$ & $-25.9\%$ & $+0.015$ \\
+P3 Accumulation Tilt & $+68.6\%$ & $+7.5\%$ & $-65.4\%$ & $-43.8\%$ & $-0.084$ \\
+P4 Exit Avoidance & $+78.1\%$ & $+8.3\%$ & $-65.4\%$ & $-40.6\%$ & $-0.064$ \\
 P5 Cash-Aware Copy & $+48.9\%$ & $+5.6\%$ & $-62.6\%$ & $-50.4\%$ & $-0.120$ \\
 \bottomrule
 \end{tabular}
@@ -294,7 +330,7 @@ P5 Cash-Aware Copy & $+48.9\%$ & $+5.6\%$ & $-62.6\%$ & $-50.4\%$ & $-0.120$ \\
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=0.92\textwidth]{pif_nav_vs_spy.png}
-\caption{Validated PIF strategy paths versus SPY. The cash-aware strategy (P5) materially improves on fully invested variants but still lags the benchmark.}
+\caption{Validated PIF strategy paths versus SPY. After correcting same-day bundle handling in the fully invested strategies, P2 is the strongest absolute-return PIF variant. Even so, every PIF strategy still lags SPY on a matched excess-return basis.}
 \label{fig:pif-nav}
 \end{figure*}
 
@@ -302,12 +338,12 @@ P5 Cash-Aware Copy & $+48.9\%$ & $+5.6\%$ & $-62.6\%$ & $-50.4\%$ & $-0.120$ \\
 
 Three findings are robust:
 \begin{enumerate}[leftmargin=1.4em]
-    \item \textbf{Naive mirroring fails.} Security-level lagged copying of the disclosed 13F sleeve is not a strong stock-picking edge.
-    \item \textbf{Cash-awareness helps but does not rescue alpha.} The difference between P2--P4 and P5 shows that disclosed sales contain useful exposure information, but not enough to beat passive U.S. beta.
+    \item \textbf{Absolute return and alpha are different here.} P2 through P5 all make money in dollar terms over the matched sample, but none of them beat passive U.S. beta. The strongest absolute PIF result, P2, still trails \texttt{SPY} by about 25.9 percentage points.
+    \item \textbf{Cash-awareness is economically informative, but not dominant.} P5 remains the most literal copycat design because it allows cash to build when the disclosed sleeve shrinks. That makes it useful for interpreting PIF's public filings as an exposure signal, even though it is not the highest-return PIF strategy in the sample and still does not generate alpha.
     \item \textbf{Partial disclosure is a structural limit.} Even a mechanically faithful mirror of PIF's 13F book is not a mirror of the entire fund.
 \end{enumerate}
 
-The implication is that PIF's public sleeve is better interpreted as a monitoring and posture dataset than as a direct alpha source.
+The implication is that PIF's public sleeve is better interpreted as a monitoring and posture dataset than as a direct alpha source. The fully invested variants show that the disclosed sleeve can still participate in broad equity upside, but the lagged public information is not strong enough to beat a passive benchmark once the sleeve is implemented honestly.
 
 \section{Results: NBIM}
 
@@ -464,6 +500,49 @@ The benchmark-robustness results sharpen the interpretation further:
 
 That result is important because it separates ``global-allocation-like'' behavior from true cross-market alpha. S1 appears closest to a modest global-overlay effect, not to a benchmark-agnostic source of excess return.
 
+\subsection{Formal Statistical Inference and Turnover-Adjusted Metrics}
+
+The robustness tests above are still mainly empirical. A natural next question is whether the surviving effects are statistically convincing once one tests the realized excess-return series directly rather than only inspecting terminal backtest outcomes.
+
+To answer that, the project adds a final inference layer on top of the validated strategy-versus-benchmark timelines. For each focus-set strategy, period excess returns are reconstructed directly from the already-audited benchmark-comparison files. Three diagnostics are then applied:
+\begin{enumerate}[leftmargin=1.4em]
+    \item a Newey--West mean-excess test on the realized excess-return series;
+    \item a moving-block bootstrap confidence interval for annualized excess return; and
+    \item a block sign-permutation test as a non-parametric robustness check.
+\end{enumerate}
+
+In parallel, the already-validated 10 bps cost layer is used to compute turnover-adjusted Sharpe and information ratios rather than relying only on total-return drag.
+
+\begin{table*}[!t]
+\caption{Formal Inference and Turnover-Adjusted Metrics for the Focus Set}
+\label{tab:phase3-inference}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrrr}
+\toprule
+\textbf{Strategy} & \textbf{Benchmark} & \textbf{Ann. Excess Mean} & \textbf{NW p-value} & \textbf{95\% Bootstrap CI} & \textbf{10 bps IR} & \textbf{Ann. Gross Turnover} \\
+\midrule
+P5 Cash-Aware Copy & SPY & $-4.3\%$ & $0.745$ & $[-31.3\%,\,22.2\%]$ & $-0.125$ & $4.70\times$ \\
+N4 Industry Weight-Change Tilt & VT & $+3.3\%$ & $0.292$ & $[-2.7\%,\,9.8\%]$ & $+0.331$ & $2.86\times$ \\
+N6 Top-3 Industry Leaders & VT & $+3.4\%$ & $0.122$ & $[-1.1\%,\,7.6\%]$ & $+0.498$ & $0.45\times$ \\
+S1 Exposure Regime Overlay & VT & $+0.1\%$ & $0.984$ & $[-6.2\%,\,6.4\%]$ & $-0.017$ & $3.54\times$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+This table changes the tone of the project in an important way:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{No focus-set strategy clears a strong conventional significance threshold.} Even N6, the strongest residual survivor, has a Newey--West p-value around 0.12 and a bootstrap interval for annualized excess return that still crosses zero.
+    \item \textbf{N6 remains the cleanest implementation candidate anyway.} It has the best turnover-adjusted information ratio and by far the lowest annualized trading burden among the surviving positive strategies.
+    \item \textbf{N4 is economically interesting but statistically weaker than its raw excess total suggests.} This is consistent with the earlier concentration and cap-sensitivity results.
+    \item \textbf{S1 is not just fragile economically; it also lacks inferential support.} Its annualized excess mean is essentially zero, and its turnover-adjusted information ratio turns slightly negative at the 10 bps implementation level.
+\end{itemize}
+
+In other words, the inference layer does not overturn the economic ranking of the strategies, but it does downgrade the strength of the claim one can make. The best remaining result is better described as \emph{evidence of a modest, plausible residual effect} than as proof of a durable alpha engine.
+
 The attribution layer then explains \emph{why} the four focus strategies behave differently. The decomposition is performed in exact daily arithmetic excess-return space, where each period's excess return is split into:
 \begin{enumerate}[leftmargin=1.4em]
     \item an \textbf{exposure timing effect}, driven by holding more or less benchmark exposure through cash;
@@ -504,6 +583,8 @@ The results are informative precisely because they are not overly flattering:
     \item \textbf{Cross-fund consensus is better as confirmation than as a reversal signal.} Consensus gained events are modestly positive at six months, with average excess return near $4.9\%$ versus \texttt{VT}. But consensus lost events are not reliably negative; they remain slightly positive on average. In other words, gaining alignment may help identify constructive sectors, while losing alignment is not a clean short or de-risking trigger.
 \end{itemize}
 
+Once bootstrap confidence intervals are added to these event families, the interpretation becomes even more disciplined. At the six-month horizon, every family-level \emph{excess above unconditional baseline} interval still overlaps zero, including \texttt{PIF expanding}, \texttt{PIF contracting}, \texttt{NBIM overweight tech}, and cross-fund consensus gained. That does not mean the events are useless; it means the evidence is better treated as directional and suggestive than as a statistically settled timing rule. The event-window layer therefore supports the same high-level conclusion as the strategy inference layer: the surviving effects are real enough to keep studying, but not strong enough to justify overconfident alpha claims.
+
 This event-window layer reinforces the broader project conclusion. The residual signal is not a universal ``follow every state change'' rule. It is narrower and more selective: technology-heavy or leadership-style \texttt{NBIM} sector signals survive best, while the broader \texttt{PIF} regime shifts and consensus-lost conditions are too blunt to support strong standalone timing claims.
 
 \subsection{Window Hit Rates and Contribution Concentration}
@@ -530,6 +611,51 @@ The resulting pattern again supports the same hierarchy:
 
 This is a useful distinction. A strategy can be broad-based but weak, or strong but highly concentrated. N6 is the only focus-set strategy that looks at least somewhat favorable on both dimensions at once: it survives the robustness tests, shows a positive hit-rate profile, and is not overwhelmingly dominated by a single small cluster of windows.
 
+\subsection{Formal State Model and Persistence}
+
+The final Workstream in Phase 3 converts the validated cross-fund signal layer into a compact state model that is easier to monitor and reason about than the full set of backtests. This step matters because the project is no longer only about whether a specific portfolio rule earned excess return. It is also about whether the underlying disclosure system can be summarized into durable and interpretable market states.
+
+The state table is built directly from the validated combined signal-state layer. Each state date records:
+\begin{itemize}[leftmargin=1.4em]
+    \item a \texttt{PIF} risk state, mapped from \texttt{initial}, \texttt{expanding}, \texttt{stable}, and \texttt{contracting} into \texttt{risk\_on}, \texttt{neutral}, and \texttt{risk\_off};
+    \item an \texttt{NBIM} sector state, classified as \texttt{consensus\_led}, \texttt{overweight\_led}, or \texttt{top3\_led};
+    \item the number of cross-fund confirming sectors;
+    \item a model exposure target derived from the \texttt{PIF} state; and
+    \item a primary sector tilt derived from the strongest cross-fund consensus sector, the strongest \texttt{NBIM} overweight sector, or the strongest \texttt{NBIM} top-three sector.
+\end{itemize}
+
+The resulting compact table contains 38 state dates and 27 explicit state changes. The audit for this layer is clean, with no failed logic checks. The structure of the state space is informative on its own:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{The model is mostly sector-led rather than broad-market-led.} Nineteen of the 38 dates are classified as \texttt{consensus\_led}, 17 as \texttt{overweight\_led}, and only two as pure \texttt{top3\_led} fallback states.
+    \item \textbf{Technology dominates the primary tilt.} Technology is the primary modeled sector on 21 of the 38 dates, followed by Financials on nine dates, Consumer Discretionary on five, and Communication Services on three.
+    \item \textbf{Risk-on periods are shorter lived than neutral or risk-off periods.} The average closed duration for a \texttt{risk\_on} state is about 71 days, versus about 102 days for \texttt{neutral} and about 183 days for \texttt{risk\_off}. In other words, the constructive phases appear more tactical, while defensive states are more persistent.
+\end{itemize}
+
+This persistence result is especially useful because it supports the interpretation developed earlier in the paper. If the states were flipping every few days, the whole framework would look too noisy to monitor. Instead, the dominant configurations persist for weeks to months, which makes them plausible research states rather than micro-timing artifacts.
+
+\subsection{Forward Returns by State}
+
+The next question is whether those compact states are useful directly, rather than only through full portfolio backtests. To answer that, each state date is evaluated over one-, three-, and six-month forward windows using the same validated daily benchmark and sector-proxy histories. For each state, the system records:
+\begin{itemize}[leftmargin=1.4em]
+    \item the forward return of \texttt{SPY};
+    \item the forward return of \texttt{SPY} relative to unconditional \texttt{SPY} drift over the same horizon;
+    \item the forward return of \texttt{VT}; and
+    \item when a primary sector proxy exists, the forward excess return of that sector ETF versus \texttt{VT}, both raw and relative to the unconditional average excess of that same sector.
+\end{itemize}
+
+This layer also audits cleanly. There are no failed rows. The only non-pass records are expected skips caused either by the pre-\texttt{SPY} start date of the earliest 2018 state or by incomplete end-of-sample windows in 2026.
+
+The resulting interpretation is conservative but useful:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{Risk-on states are directionally constructive, but not explosively so.} At the six-month horizon, \texttt{risk\_on} states are followed by \texttt{SPY} returns that are about 3.0 percentage points above unconditional six-month \texttt{SPY} drift.
+    \item \textbf{Risk-off states are not simple bearish market calls.} Six-month \texttt{SPY} returns after \texttt{risk\_off} states are also above unconditional drift, at about 3.4 percentage points. This is consistent with the earlier event-window result that \texttt{PIF contracting} is not a clean directional market-timing signal by itself.
+    \item \textbf{Technology-led states are the most stable constructive sector family.} Six-month Technology-led states deliver positive sector excess versus \texttt{VT}, and they remain slightly above unconditional Technology leadership as well.
+    \item \textbf{Financials- and Consumer-Discretionary-led states are weaker.} Their six-month primary-sector excess returns are negative relative to unconditional sector baselines, even when the accompanying \texttt{SPY} drift is still positive.
+    \item \textbf{Communication-Services-led states are unusual but informative.} They are associated with weak broad-market drift but strong sector-specific outperformance relative to unconditional Communication Services behavior. This looks more like a narrow leadership condition than a market-level risk-on regime.
+\end{itemize}
+
+Taken together, the state layer clarifies the practical meaning of the broader project. The useful information is not ``follow every sovereign wealth fund move'' and not even ``buy every positive state.'' Instead, the most credible use case is to treat the system as a slow-moving allocator: \texttt{PIF} helps define exposure posture, \texttt{NBIM} helps define sector posture, and the strongest surviving state family is still the technology-heavy leadership complex that also underlies the better \texttt{NBIM} strategy results.
+
 \section{Discussion}
 
 \subsection{What the Combined Evidence Says}
@@ -545,6 +671,8 @@ In PIF, even the most sensible copycat variant fails to beat \texttt{SPY}. In NB
 
 Phase 3 further tightens that conclusion. Once lag sensitivity, explicit costs, concentration constraints, subperiod stability, and alternate benchmark choices are modeled, the combined edge in S1 no longer looks robust. N4 remains interesting but cap-sensitive and concentration-dependent. N6 is the only strategy in the focus set that stays meaningfully positive through all tested robustness layers, and its attribution profile is cleaner than the alternatives.
 
+For that reason, the final model expression of the project is intentionally simpler than the full strategy library. The best candidate investable sleeve is just N6 itself, while the best higher-level product abstraction is the cross-fund state model. No new hybrid production strategy was added at the end of the project because the hardening layer weakened the case for more complexity rather than strengthening it.
+
 \subsection{What Was Built Beyond the Final Returns}
 
 This project produced more than terminal backtest numbers:
@@ -552,11 +680,42 @@ This project produced more than terminal backtest numbers:
     \item normalized holdings and transition datasets for PIF and NBIM;
     \item audit layers for disclosure dates, price coverage, and mirror-universe bias;
     \item benchmark-relative reports and chart packs;
-    \item a PIF interactive explorer for stepping through filings, signals, orders, and portfolio evolution; and
+    \item a PIF interactive explorer for stepping through filings, signals, orders, and portfolio evolution, later upgraded with plain-English strategy rulebooks and filing-by-filing explanation panels; and
     \item a reusable structure for extending the project to future monitoring and higher-capacity pricing sources.
 \end{itemize}
 
 This matters because disclosure-based alpha is especially vulnerable to hidden assumptions. The system-level outputs were designed to make those assumptions inspectable.
+
+\section{Assumptions and Caveats Appendix}
+
+Table~\ref{tab:assumptions} summarizes the assumptions and scope limits that most directly shape the interpretation of the project. The point of this table is not to weaken the work, but to make the boundaries of the claims explicit and easy to audit.
+
+\begin{table*}[!t]
+\caption{Assumptions and Caveats Summary}
+\label{tab:assumptions}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{2.0cm} p{5.6cm} p{2.5cm} p{5.6cm}}
+\toprule
+\textbf{Category} & \textbf{Assumption or Caveat} & \textbf{Scope} & \textbf{Why It Matters} \\
+\midrule
+Disclosure timing & Trades may occur only after public release and never on the underlying portfolio effective date unless that date is also public. & PIF and NBIM & This is the core protection against look-ahead bias. \\
+Disclosure coverage & PIF covers only the reportable U.S. 13F sleeve. & PIF & The copied book is not the whole sovereign fund, so underperformance cannot be interpreted as the full fund failing. \\
+Disclosure coverage & The NBIM direct mirror uses a bounded observable U.S. sleeve rather than the full global book. & NBIM direct mirrors & This can create survivor-selection bias and is why the direct mirror results are treated as exploratory only. \\
+Signal translation & NBIM sector posture is expressed through U.S. sector ETF proxies. & NBIM and combined strategies & This introduces proxy error between a global industry book and U.S.-listed sector instruments. \\
+Pricing & Portfolio valuation uses adjusted prices. & PIF and NBIM & This avoids split-driven false gains and keeps the mark-to-market layer economically coherent. \\
+Friction model & Costs are modeled as one-way basis-point charges, but market impact and taxes are omitted. & Phase 3 focus set & The live implementation burden could still be worse than the modeled drag. \\
+Inference & Strategy inference is run on realized excess-return series with HAC and bootstrap methods. & Phase 3 focus set & Large terminal returns do not automatically imply strong statistical evidence. \\
+Inference & Event-window families use bootstrap confidence intervals. & Event-window layer & Small event counts can produce unstable averages, so event interpretations should remain cautious. \\
+State model & PIF risk states are mapped into fixed exposure targets of 1.00, 0.75, and 0.50. & Combined state model & This is a monitoring abstraction, not proof that those exact sizing levels are optimal. \\
+Portfolio rules & All strategies are long-only and unlevered. & All backtests & This keeps the tests interpretable and investable, but may understate what a more flexible allocator could do. \\
+Scope & GIC remains qualitative only. & Overall research design & This avoids false precision from sparse public data but leaves one major SWF outside the quantitative panel. \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
 
 \section{Limitations}
 
@@ -576,7 +735,7 @@ These do not invalidate the project, but they sharply limit how strong any alpha
 
 This study asked whether sovereign wealth fund disclosures can be monetized after realistic lag and visibility constraints are enforced. The answer is mostly negative for naive copy trading and only cautiously positive for narrow sector-based signals.
 
-For PIF, no strategy generated alpha versus \texttt{SPY}. The best-performing design, cash-aware copying, improved materially on fully invested mirroring but still lagged passive beta.
+For PIF, no strategy generated alpha versus \texttt{SPY}. After the full audit, the absolute-return leader is the full-sleeve equal-weight design (P2), not the cash-aware design (P5). That revision matters because it changes the economic reading: cash-awareness remains useful for interpreting PIF as an exposure signal, but the strongest realized PIF result in the sample still comes from a fully invested sleeve that simply fails to beat passive beta.
 
 For NBIM, the strongest raw stock-mirror result could not be accepted at face value because it was driven by a bounded basket of recurring mega-cap winners. More realistic industry-based strategies were far more credible, but the edge was modest. The best signals came from industry weight changes and concentrated leadership sectors, not from broad portfolio mirroring.
 

@@ -6,6 +6,8 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
+from pif_backtest_utils import apply_latest_report_period_filter
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PIF_ROOT = ROOT / "data" / "processed" / "pif"
@@ -168,7 +170,7 @@ def build_signal_eligibility(
                 "rationale_text": "Hold the disclosed PIF sleeve but exclude names flagged as likely reductions in the same report period.",
             }
         )
-    return out
+    return apply_latest_report_period_filter(out)
 
 
 def next_trade_date_lookup(sorted_trade_dates: list[str]) -> dict[str, str]:

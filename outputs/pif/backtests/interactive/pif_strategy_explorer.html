@@ -191,6 +191,13 @@
       gap: 18px;
     }
 
+    .interpret-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
     .detail-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -219,6 +226,18 @@
       border-radius: 18px;
       background: linear-gradient(135deg, rgba(183, 62, 29, 0.08), rgba(15, 92, 192, 0.06));
       margin-top: 12px;
+    }
+
+    .explain-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    .explain-list li + li {
+      margin-top: 8px;
     }
 
     table {
@@ -277,8 +296,102 @@
       background: rgba(255,255,255,0.45);
     }
 
+    .step-rail {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .step-pill {
+      border: 1px solid rgba(17, 32, 49, 0.14);
+      border-radius: 16px;
+      background: white;
+      padding: 10px 11px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+
+    .step-pill:hover {
+      transform: translateY(-1px);
+      border-color: rgba(17, 32, 49, 0.32);
+      box-shadow: 0 10px 18px rgba(17, 32, 49, 0.06);
+    }
+
+    .step-pill.active {
+      border-color: var(--ink);
+      box-shadow: inset 0 0 0 1px var(--ink);
+      background: linear-gradient(135deg, rgba(15, 92, 192, 0.08), rgba(183, 62, 29, 0.08));
+    }
+
+    .step-pill.current-window {
+      background: linear-gradient(135deg, rgba(186, 24, 93, 0.1), rgba(15, 92, 192, 0.06));
+    }
+
+    .step-pill .step-date {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .step-pill .step-title {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .step-pill .step-sub {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .decision-tile {
+      border: 1px solid rgba(92, 104, 117, 0.12);
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: white;
+    }
+
+    .decision-tile .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .decision-tile .value {
+      margin-top: 6px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .decision-tile .sub {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
     @media (max-width: 1180px) {
-      .hero, .controls, .charts, .details, .detail-grid, .holdings-columns {
+      .hero, .controls, .charts, .details, .detail-grid, .holdings-columns, .interpret-grid, .decision-grid {
         grid-template-columns: 1fr;
       }
       .metric-grid {
@@ -365,6 +478,19 @@
       </div>
     </section>
 
+    <section class="interpret-grid">
+      <div class="card detail-card">
+        <h3>Focus Strategy Rulebook</h3>
+        <div class="small">Plain-English mechanics for the selected strategy so the animation reads like a trading process rather than just a chart.</div>
+        <div id="rulebookPanel" style="margin-top:12px;"></div>
+      </div>
+      <div class="card detail-card">
+        <h3>Filing Step Rail</h3>
+        <div class="small">Jump to any public report window. The highlighted card is the current filing step being shown in the animation.</div>
+        <div id="stepRail" class="step-rail"></div>
+      </div>
+    </section>
+
     <section class="charts">
       <div class="card chart-card">
         <h3>Portfolio Value vs PIF Proxy vs Benchmark</h3>
@@ -393,6 +519,12 @@
         <div class="card detail-card">
           <h3>Current Filing Narrative</h3>
           <div id="narrativePanel" class="empty-state">Press <strong>Next Filing</strong> to begin the step-through.</div>
+        </div>
+
+        <div class="card detail-card" style="margin-top:18px;">
+          <h3>What Changed This Filing</h3>
+          <div class="small">A compact explanation of what the filing caused the strategy to do, how exposure changed, and what mattered in the next window.</div>
+          <div id="decisionPanel" style="margin-top:12px;"></div>
         </div>
 
         <div class="detail-grid">
@@ -474,6 +606,9 @@
       const postureChart = document.getElementById('postureChart');
       const windowReturnChart = document.getElementById('windowReturnChart');
       const narrativePanel = document.getElementById('narrativePanel');
+      const rulebookPanel = document.getElementById('rulebookPanel');
+      const stepRail = document.getElementById('stepRail');
+      const decisionPanel = document.getElementById('decisionPanel');
       const signalsPanel = document.getElementById('signalsPanel');
       const ordersPanel = document.getElementById('ordersPanel');
       const holdingsAfterPanel = document.getElementById('holdingsAfterPanel');
@@ -498,6 +633,39 @@
         if (text.length === 10) return `${text.slice(2, 4)}-${text.slice(5, 7)}-${text.slice(8, 10)}`;
         return text;
       }
+
+      function signedPct(value, digits = 1) {
+        const sign = value > 0 ? '+' : '';
+        return `${sign}${(value * 100).toFixed(digits)}%`;
+      }
+
+      const strategyRulebook = {
+        p1: {
+          setup: 'At each filing, this strategy buys only names that are newly disclosed for the first time in that report cycle.',
+          tradeLogic: 'When the next filing arrives, it sells the old entry basket and replaces it with the new-entry basket. It never keeps cash.',
+          interpretation: 'This isolates whether PIF’s newest public ideas were worth chasing after the disclosure lag.'
+        },
+        p2: {
+          setup: 'At each filing, this strategy holds the full disclosed common-equity sleeve and gives every included name the same portfolio weight.',
+          tradeLogic: 'If a name disappears, it is sold. If a name appears, it is bought. All proceeds are immediately redistributed across the current sleeve.',
+          interpretation: 'This asks whether the identity of the disclosed sleeve has value if we stay fully invested and ignore PIF’s sizing.'
+        },
+        p3: {
+          setup: 'This starts from the full sleeve, but puts extra weight on names that look like new additions or probable accumulations.',
+          tradeLogic: 'Unchanged names remain in the basket at lower weight, while likely reductions are excluded and the capital is reallocated.',
+          interpretation: 'This tests whether the names PIF seems to be leaning into are more informative than the whole sleeve.'
+        },
+        p4: {
+          setup: 'This also starts from the full sleeve, but instead of chasing additions it avoids names that look like reductions or exits.',
+          tradeLogic: 'Names flagged as likely reductions are sold or kept out of the basket, and the capital is recycled into the remaining holdings.',
+          interpretation: 'This tests whether avoiding the names PIF seems to be backing away from is a better rule than following the full sleeve.'
+        },
+        p5: {
+          setup: 'This is the literal cash-aware copycat. It buys visible names, keeps them while they remain disclosed, and sells them when they disappear or are reduced.',
+          tradeLogic: 'Unlike P1 through P4, it does not force sale proceeds back into the survivors. Cash can build when the public sleeve contracts.',
+          interpretation: 'This is the closest strategy to “copy what PIF publicly did, and if they sold a lot, we also hold more cash.”'
+        }
+      };
 
       function focusStrategy() {
         return data.strategies[state.focusKey];
@@ -749,6 +917,54 @@
         metricCash.textContent = `${pct(row.cashWeightEnd, 1)} / ${row.positionCountEnd}`;
       }
 
+      function updateRulebook() {
+        const focus = focusStrategy();
+        const rules = strategyRulebook[focus.meta.key];
+        const summary = focus.summary;
+        rulebookPanel.innerHTML = `
+          <div class="summary-box">
+            <strong>${focus.meta.name}</strong>
+            <div class="small" style="margin-top:6px;">${focus.meta.subtitle}</div>
+          </div>
+          <ul class="explain-list">
+            <li><strong>What it starts from:</strong> ${rules.setup}</li>
+            <li><strong>How it trades:</strong> ${rules.tradeLogic}</li>
+            <li><strong>What question it answers:</strong> ${rules.interpretation}</li>
+            <li><strong>How it finished in the backtest:</strong> ${signedPct(summary.totalReturn)} total return and ${signedPct(summary.excessTotalReturn)} excess return versus SPY.</li>
+          </ul>
+        `;
+      }
+
+      function updateStepRail() {
+        const segments = focusSegments();
+        if (!segments.length) {
+          stepRail.innerHTML = '<div class="empty-state">No filing steps available.</div>';
+          return;
+        }
+        stepRail.innerHTML = segments.map((segment, index) => {
+          const activeClass = index === state.currentSegmentIndex ? ' active current-window' : '';
+          const counts = segment.signalRows.reduce((acc, row) => {
+            if (row.include) acc[row.signalType] = (acc[row.signalType] || 0) + 1;
+            return acc;
+          }, {});
+          const topType = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
+          const signalLabel = topType ? `${topType[1]} ${topType[0]}` : 'No included signals';
+          return `
+            <button class="step-pill${activeClass}" data-segment-index="${index}">
+              <span class="step-date">${compactDate(segment.tradeDate)}</span>
+              <span class="step-title">Window ${index + 1}</span>
+              <span class="step-sub">${signalLabel}</span>
+            </button>
+          `;
+        }).join('');
+        Array.from(stepRail.querySelectorAll('[data-segment-index]')).forEach(button => {
+          button.addEventListener('click', () => {
+            stopAnimation();
+            jumpToSegment(Number(button.getAttribute('data-segment-index')));
+          });
+        });
+      }
+
       function updateNarrative() {
         const segment = currentSegment();
         if (!segment) {
@@ -788,6 +1004,56 @@
           </div>
         `;
         narrativePanel.innerHTML = summaryText;
+      }
+
+      function updateDecisionPanel() {
+        const segment = currentSegment();
+        if (!segment) {
+          decisionPanel.innerHTML = '<div class="empty-state">Step into a filing window to see how the strategy translated public information into actual trades.</div>';
+          return;
+        }
+        const includedSignals = segment.signalRows.filter(row => row.include);
+        const excludedSignals = segment.signalRows.filter(row => !row.include);
+        const buyValue = segment.orderRows.filter(row => row.side === 'BUY').reduce((sum, row) => sum + row.executionValue, 0);
+        const sellValue = segment.orderRows.filter(row => row.side === 'SELL').reduce((sum, row) => sum + row.executionValue, 0);
+        const focus = focusStrategy();
+        const strongestSignal = Object.entries(includedSignals.reduce((acc, row) => {
+          acc[row.signalType] = (acc[row.signalType] || 0) + 1;
+          return acc;
+        }, {})).sort((a, b) => b[1] - a[1])[0];
+        const strongestText = strongestSignal ? `${strongestSignal[1]} ${strongestSignal[0]}` : 'No included signals';
+        const actionText = focus.meta.key === 'p5'
+          ? 'This strategy can keep sale proceeds in cash instead of forcing them back into the remaining names.'
+          : 'This strategy recycles sale proceeds back into the active eligible basket, so selling does not automatically mean holding more cash.';
+        decisionPanel.innerHTML = `
+          <div class="decision-grid">
+            <div class="decision-tile">
+              <div class="label">Signal Mix</div>
+              <div class="value">${includedSignals.length} / ${segment.signalRows.length}</div>
+              <div class="sub">Included versus total visible signals. Dominant included type: ${strongestText}.</div>
+            </div>
+            <div class="decision-tile">
+              <div class="label">Trade Flow</div>
+              <div class="value">${segment.buysCount}B / ${segment.sellsCount}S</div>
+              <div class="sub">Executed buy notional ${mult(buyValue, 2)} and sell notional ${mult(sellValue, 2)} on the filing trade date.</div>
+            </div>
+            <div class="decision-tile">
+              <div class="label">Exposure Shift</div>
+              <div class="value">${pct(segment.tradeCashWeight, 1)} → ${pct(segment.endCashWeight, 1)}</div>
+              <div class="sub">Cash weight from rebalance close to the end of the filing window. ${actionText}</div>
+            </div>
+            <div class="decision-tile">
+              <div class="label">Window Outcome</div>
+              <div class="value">${signedPct(segment.windowExcessReturn, 1)}</div>
+              <div class="sub">${signedPct(segment.windowReturn, 1)} for the strategy versus ${signedPct(segment.windowBenchmarkReturn, 1)} for SPY by the next filing.</div>
+            </div>
+          </div>
+          <ul class="explain-list">
+            <li><strong>Rebalance date:</strong> ${segment.tradeDate} from public signal date(s) ${segment.signalDates.join(', ') || '—'}.</li>
+            <li><strong>Window shape:</strong> holdings moved from ${segment.tradePositionCount} names and ${pct(segment.tradeCashWeight, 1)} cash to ${segment.endPositionCount} names and ${pct(segment.endCashWeight, 1)} cash by ${segment.windowEndDate}.</li>
+            <li><strong>Excluded signal count:</strong> ${excludedSignals.length}${segment.sameDayBundleFlag ? '; same-day multi-period filings were consolidated before trading.' : '.'}</li>
+          </ul>
+        `;
       }
 
       function updateTables() {
@@ -929,7 +1195,10 @@
         nextButton.disabled = state.currentSegmentIndex >= focusSegments().length - 1 || state.animating;
         playButton.textContent = state.autoplay ? 'Pause' : 'Auto Play';
         updateMetrics();
+        updateRulebook();
+        updateStepRail();
         updateNarrative();
+        updateDecisionPanel();
         updateTables();
         updateCharts();
       }

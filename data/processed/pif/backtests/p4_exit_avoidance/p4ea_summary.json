@@ -2,20 +2,21 @@
   "strategy_id": "P4_EXIT_AVOIDANCE",
   "strategy_name": "PIF Exit Avoidance",
   "initial_nav": 1.0,
-  "final_nav": 0.5484913740475771,
-  "total_return": -0.4515086259524229,
+  "final_nav": 1.7808082896571327,
+  "total_return": 0.7808082896571327,
   "rebalance_count": 27,
-  "orders_count": 1064,
-  "holdings_daily_rows": 32627,
+  "orders_count": 1028,
+  "holdings_daily_rows": 32557,
   "portfolio_daily_rows": 1827,
-  "eligible_signals": 550,
-  "excluded_signals": 67,
+  "eligible_signals": 516,
+  "excluded_signals": 101,
   "start_date": "2019-02-14",
   "end_date": "2026-05-18",
-  "max_drawdown": -0.808721939491,
+  "max_drawdown": -0.653521711868,
   "excluded_signal_reasons": {
     "likely_reduction_avoidance": 27,
     "missing_trade_date_close": 6,
+    "same_day_bundle_superseded_by_later_period": 34,
     "unapproved_or_missing_symbol_mapping": 34
   }
 }

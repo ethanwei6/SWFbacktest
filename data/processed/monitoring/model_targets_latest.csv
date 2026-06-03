@@ -1,0 +1,7 @@
+as_of_date,target_family,target_role,target_name,target_proxy,target_weight,target_direction,source_model,source_signal,implementation_note
+2026-05-18,cross_fund_state_model,gross_exposure,Model Gross Exposure,cash_plus_overlay,0.750000000000,neutral,Cross-Fund State Model,stable,Track PIF risk posture and NBIM sector posture jointly and update a current state table plus forward-return monitor after each disclosure cycle
+2026-05-18,cross_fund_state_model,cash,Residual Cash,cash,0.250000000000,reserve,Cross-Fund State Model,stable,Residual cash implied by the model exposure target.
+2026-05-18,cross_fund_state_model,primary_tilt,Technology,XLK,0.284331000000,overweight_led,Cross-Fund State Model,nbim_overweight,Primary sector tilt implied by the current cross-fund state.
+2026-05-18,production_sleeve,sector_proxy,Consumer Discretionary,XLY,0.333333333333,long,N6 Top-3 Industry Leaders,nbim_top3_leaders,NBIM current sector weight=0.13215400; production sleeve holds current top-3 sectors equally.
+2026-05-18,production_sleeve,sector_proxy,Financials,XLF,0.333333333333,long,N6 Top-3 Industry Leaders,nbim_top3_leaders,NBIM current sector weight=0.16847400; production sleeve holds current top-3 sectors equally.
+2026-05-18,production_sleeve,sector_proxy,Technology,XLK,0.333333333333,long,N6 Top-3 Industry Leaders,nbim_top3_leaders,NBIM current sector weight=0.28433100; production sleeve holds current top-3 sectors equally.

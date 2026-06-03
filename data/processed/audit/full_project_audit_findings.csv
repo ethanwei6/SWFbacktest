@@ -1,0 +1,2 @@
+severity,category,path,check_name,detail
+warning,audit_file,data/processed/nbim/nbim_alphavantage_monthly_price_audit.csv,audit_contains_known_missing_statuses,"missing_rate_limited, missing_unattempted_after_daily_limit"

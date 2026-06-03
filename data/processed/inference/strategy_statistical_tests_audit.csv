@@ -1,0 +1,28 @@
+strategy_key,benchmark_key,check_name,status,detail
+n4,ACWI,excess_total_matches_validated_summary,pass,stored=0.694376913139 computed=0.694376913139 diff=0.000000000000e+00
+n4,ACWI,bootstrap_ci_ordered,pass,low=-0.030925879024 high=0.096895913529
+n4,ACWI,p_values_in_unit_interval,pass,"0.289140708371,0.144570354186,0.307173206698,0.154961259685"
+n4,VT,excess_total_matches_validated_summary,pass,stored=0.712040606969 computed=0.712040606969 diff=0.000000000000e+00
+n4,VT,bootstrap_ci_ordered,pass,low=-0.026776272628 high=0.098201958581
+n4,VT,p_values_in_unit_interval,pass,"0.291892633245,0.145946316623,0.319920019995,0.158710322419"
+n6,ACWI,excess_total_matches_validated_summary,pass,stored=0.626720032502 computed=0.626720032502 diff=0.000000000000e+00
+n6,ACWI,bootstrap_ci_ordered,pass,low=-0.011238776742 high=0.074410850188
+n6,ACWI,p_values_in_unit_interval,pass,"0.119573486644,0.059786743322,0.199450137466,0.102474381405"
+n6,VT,excess_total_matches_validated_summary,pass,stored=0.644383726332 computed=0.644383726332 diff=0.000000000000e+00
+n6,VT,bootstrap_ci_ordered,pass,low=-0.011482807832 high=0.076094381390
+n6,VT,p_values_in_unit_interval,pass,"0.122347743995,0.061173871997,0.208697825544,0.101724568858"
+p5,QQQ,excess_total_matches_validated_summary,pass,stored=-2.829557350691 computed=-2.829557350691 diff=0.000000000000e+00
+p5,QQQ,bootstrap_ci_ordered,pass,low=-0.362882602389 high=0.173989227227
+p5,QQQ,p_values_in_unit_interval,pass,"0.444186666381,0.777906666810,0.443139215196,0.226193451637"
+p5,SPY,excess_total_matches_validated_summary,pass,stored=-1.510841003191 computed=-1.510841003191 diff=0.000000000000e+00
+p5,SPY,bootstrap_ci_ordered,pass,low=-0.313068404838 high=0.221825407430
+p5,SPY,p_values_in_unit_interval,pass,"0.745055898441,0.627472050779,0.749812546863,0.364408897776"
+s1,BLEND_VT_SPY_50,excess_total_matches_validated_summary,pass,stored=-0.203964392703 computed=-0.203964392703 diff=0.000000000000e+00
+s1,BLEND_VT_SPY_50,bootstrap_ci_ordered,pass,low=-0.066671858293 high=0.042362731595
+s1,BLEND_VT_SPY_50,p_values_in_unit_interval,pass,"0.635936647325,0.682031676337,0.648337915521,0.324668832792"
+s1,SPY,excess_total_matches_validated_summary,pass,stored=-0.453786697285 computed=-0.453786697285 diff=0.000000000000e+00
+s1,SPY,bootstrap_ci_ordered,pass,low=-0.077861061741 high=0.028760882918
+s1,SPY,p_values_in_unit_interval,pass,"0.325378040433,0.837310979784,0.352661834541,0.175456135966"
+s1,VT,excess_total_matches_validated_summary,pass,stored=0.047203779906 computed=0.047203779906 diff=0.000000000000e+00
+s1,VT,bootstrap_ci_ordered,pass,low=-0.061892528776 high=0.063551604505
+s1,VT,p_values_in_unit_interval,pass,"0.983546678231,0.491773339116,0.984753811547,0.489627593102"

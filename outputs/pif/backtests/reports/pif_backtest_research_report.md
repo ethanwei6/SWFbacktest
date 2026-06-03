@@ -4,13 +4,13 @@ Research report on lagged `PIF` 13F mirroring strategies using the disclosed US 
 
 ## Executive Summary
 
-- After correcting split distortion, the key result is no longer “all negative.” The new `P5` cash-aware copy strategy is positive.
-- `P5` is the strongest result at `+48.9%`.
-- `P2` is the strongest of the fully invested variants, but it still loses `32.3%`.
+- After the split-adjusted rerun and same-day bundle fix, `P2` through `P5` are positive in absolute terms; only `P1` remains negative.
+- `P2` is the strongest absolute result at `122.3%`.
+- `P2` is the strongest fully invested variant at `122.3%`.
 - `P1` is the weakest at `-75.8%`, driven by high concentration and fragile entry cohorts.
-- `P3` finds a stronger accumulation bucket on simple average (`12.1%` vs `1.5%`), but still loses because the tilt adds concentration and tail-risk drag.
-- `P4` is directionally unhelpful in this sample: avoided likely-reduction names average `10.2%` forward return versus `4.8%` for the names it keeps.
-- `P5` suggests the usable information is in exposure contraction and expansion, not just the identity of the disclosed holdings.
+- `P3` finds a stronger accumulation bucket on simple average (`10.5%` vs `1.5%`), but still loses because the tilt adds concentration and tail-risk drag.
+- `P4` is directionally unhelpful in this sample: avoided likely-reduction names average `10.2%` forward return versus `3.9%` for the names it keeps.
+- `P5` still suggests the most usable information is in exposure contraction and expansion, not just the identity of the disclosed holdings.
 
 ## Strategies
 
@@ -23,18 +23,18 @@ Research report on lagged `PIF` 13F mirroring strategies using the disclosed US 
 ## Results Table
 
 - P1: total return -75.8%, CAGR -20.2%, max drawdown -94.8%, avg positions 6.47, avg max weight 59.7%
-- P2: total return -32.3%, CAGR -5.2%, max drawdown -81.1%, avg positions 18.84, avg max weight 23.6%
-- P3: total return -69.3%, CAGR -15.0%, max drawdown -88.7%, avg positions 17.86, avg max weight 27.5%
-- P4: total return -45.2%, CAGR -7.9%, max drawdown -80.9%, avg positions 17.86, avg max weight 25.9%
-- P5: total return 48.9%, CAGR 5.6%, max drawdown -62.6%, avg positions 8.50, avg max weight 61.6%
+- P2: total return 122.3%, CAGR 11.6%, max drawdown -62.2%, avg positions 18.82, avg max weight 23.6%
+- P3: total return 68.6%, CAGR 7.5%, max drawdown -65.4%, avg positions 17.82, avg max weight 27.5%
+- P4: total return 78.1%, CAGR 8.3%, max drawdown -65.4%, avg positions 17.82, avg max weight 25.9%
+- P5: total return 48.9%, CAGR 5.6%, max drawdown -62.6%, avg positions 8.02, avg max weight 61.6%
 
 ## Why They Failed Or Worked
 
 - `P1` fails because lagged new-entry mirroring is too concentrated. Average positions are `6.47`, average max weight is `59.7%`, and the worst single forward return in the entry sample is `-91.9%`.
-- `P2` loses less because diversification helps, but the lagged equal-weight sleeve still does not produce positive alpha.
+- `P2` is positive because diversification helps, but the lagged equal-weight sleeve still does not produce positive alpha versus `SPY`.
 - `P3` identifies a more promising bucket but concentrates too hard into names with worse tail losses.
 - `P4` fails because the likely-reduction filter is directionally wrong in this sample.
-- `P5` works because it does not force the strategy to stay fully invested when the visible `PIF` sleeve is shrinking. It treats disclosed sells as genuine de-risking and allows cash to accumulate.
+- `P5` works because it does not force the strategy to stay fully invested when the visible `PIF` sleeve is shrinking. It treats disclosed sells as genuine de-risking and allows cash to accumulate, even though that still does not beat `SPY`.
 
 ## Charts
 

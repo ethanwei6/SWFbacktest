@@ -24,6 +24,7 @@ PORTFOLIO_DAILY_PATH = BACKTEST_ROOT / "p5cac_portfolio_daily.csv"
 SUMMARY_PATH = BACKTEST_ROOT / "p5cac_summary.json"
 
 INITIAL_NAV = 1.0
+EPSILON = 1e-12
 
 
 @dataclass
@@ -429,10 +430,12 @@ def run_backtest() -> None:
                         curr_shares = to_float(row["curr_shares"])
                         ratio = (curr_shares / prev_shares) if prev_shares > 0 else 0.0
                         new_target_shares = current_shares * ratio
-                    if new_target_shares >= current_shares:
+                    if new_target_shares >= current_shares - EPSILON:
                         continue
                     shares_to_sell = current_shares - new_target_shares
                     execution_value = shares_to_sell * mark_close
+                    if shares_to_sell <= EPSILON or execution_value <= EPSILON:
+                        continue
                     cash_end += execution_value
                     total_filled_sell += execution_value
                     sells_count += 1
@@ -458,7 +461,7 @@ def run_backtest() -> None:
                             "rationale_text": "Copy disclosed sale or reduction and keep the proceeds in cash.",
                         }
                     )
-                    if new_target_shares <= 0:
+                    if new_target_shares <= EPSILON:
                         positions.pop(security_key, None)
                     else:
                         current_position.shares = new_target_shares
@@ -480,7 +483,7 @@ def run_backtest() -> None:
                             current_shares = positions[security_key].shares
                             ratio = curr_shares / prev_shares
                             desired_add_shares = current_shares * (ratio - 1.0)
-                    if desired_add_shares <= 0:
+                    if desired_add_shares <= EPSILON:
                         continue
                     desired_value = desired_add_shares * mark_close
                     buy_requests.append(
@@ -502,7 +505,7 @@ def run_backtest() -> None:
                     row = item["row"]
                     filled_shares = item["desired_add_shares"] * fill_ratio
                     execution_value = filled_shares * item["mark_close"]
-                    if execution_value <= 0:
+                    if filled_shares <= EPSILON or execution_value <= EPSILON:
                         continue
                     security_key = row["security_key"]
                     total_filled_buy += execution_value

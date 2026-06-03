@@ -1,0 +1,14 @@
+check_name,status,detail
+p5_initial_seed_full_deployment,pass,buy_value=1.000000000000 expected=1.000000000000 cash_after=0.000000000000
+p5_cash_rebalance_arithmetic,pass,rebalance_id=P5CAC-R004 recomputed=0.000000000000 actual=0.000000000000
+n6_latest_top3_selection,pass,"snapshot=2025-12-31 expected=['XLK', 'XLF', 'XLY'] actual=['XLK', 'XLF', 'XLY']"
+s1_first_rebalance_uses_nbim_top3_fallback,pass,"expected=['Consumer Staples', 'Financials', 'Industrials'] actual=['Consumer Staples', 'Financials', 'Industrials']"
+n6_t3_execution_lag_alignment,pass,signal_date=2018-02-27 expected=2018-03-02 actual=2018-03-02
+p5_cost_50bps_initial_nav,pass,expected=0.995024875622 actual=0.995024875622
+n6_tight_cap_compliance,pass,max_position_weight_end=0.300000000000
+n6_subperiod_summary_reconciliation,pass,strategy=0.606992258140/0.606992258140 benchmark=0.602177794517/0.602177794517
+benchmark_blend_construction,pass,date=2024-08-28 expected=2.218212253232 actual=2.218212253232
+n6_decomposition_sample_reconstruction,pass,date=2018-03-29 expected=-0.013062843838 components=-0.013062843838
+event_window_sample_reconstruction,pass,expected=-0.018924788782 recomputed=-0.018924788782
+n6_window_hit_final_relative_excess,pass,recomputed=0.644383726332 summary=0.644383726332
+state_model_initial_pif_exposure_mapping,pass,state=risk_on exposure_target=1.000000000000

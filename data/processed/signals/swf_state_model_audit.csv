@@ -1,0 +1,115 @@
+state_date,check_name,status,detail
+2018-02-28,cross_count_matches_members,pass,count=0 members=
+2018-02-28,primary_sector_source_valid,pass,source=nbim_top3 primary=Financials
+2018-02-28,exposure_target_mapping,pass,actual= expected=
+2019-02-14,cross_count_matches_members,pass,count=0 members=
+2019-02-14,primary_sector_source_valid,pass,source=nbim_top3 primary=Financials
+2019-02-14,exposure_target_mapping,pass,actual=1.000000000000 expected=1.000000000000
+2019-02-28,cross_count_matches_members,pass,count=0 members=
+2019-02-28,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2019-02-28,exposure_target_mapping,pass,actual=1.000000000000 expected=1.000000000000
+2019-05-14,cross_count_matches_members,pass,count=0 members=
+2019-05-14,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2019-05-14,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2019-08-07,cross_count_matches_members,pass,count=1 members=Technology
+2019-08-07,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2019-08-07,exposure_target_mapping,pass,actual=1.000000000000 expected=1.000000000000
+2019-10-22,cross_count_matches_members,pass,count=1 members=Consumer Discretionary
+2019-10-22,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Consumer Discretionary
+2019-10-22,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2020-02-05,cross_count_matches_members,pass,count=1 members=Technology
+2020-02-05,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2020-02-05,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2020-02-26,cross_count_matches_members,pass,count=1 members=Technology
+2020-02-26,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2020-02-26,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2020-05-18,cross_count_matches_members,pass,count=3 members=Financials|Technology|Industrials
+2020-05-18,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Financials
+2020-05-18,exposure_target_mapping,pass,actual=1.000000000000 expected=1.000000000000
+2020-08-17,cross_count_matches_members,pass,count=0 members=
+2020-08-17,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2020-08-17,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2020-11-17,cross_count_matches_members,pass,count=0 members=
+2020-11-17,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2020-11-17,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2021-02-26,cross_count_matches_members,pass,count=0 members=
+2021-02-26,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2021-02-26,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2021-05-18,cross_count_matches_members,pass,count=3 members=Financials|Technology|Consumer Discretionary
+2021-05-18,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Financials
+2021-05-18,exposure_target_mapping,pass,actual=1.000000000000 expected=1.000000000000
+2021-08-17,cross_count_matches_members,pass,count=0 members=
+2021-08-17,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2021-08-17,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2022-03-04,cross_count_matches_members,pass,count=1 members=Communication Services
+2022-03-04,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Communication Services
+2022-03-04,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2022-10-12,cross_count_matches_members,pass,count=0 members=
+2022-10-12,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2022-10-12,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2022-11-15,cross_count_matches_members,pass,count=1 members=Communication Services
+2022-11-15,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Communication Services
+2022-11-15,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2022-12-23,cross_count_matches_members,pass,count=5 members=Technology|Consumer Discretionary|Financials|Real Estate|Communication Services
+2022-12-23,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2022-12-23,exposure_target_mapping,pass,actual=1.000000000000 expected=1.000000000000
+2023-02-15,cross_count_matches_members,pass,count=1 members=Communication Services
+2023-02-15,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Communication Services
+2023-02-15,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2023-03-08,cross_count_matches_members,pass,count=0 members=
+2023-03-08,primary_sector_source_valid,pass,source=nbim_overweight primary=Financials
+2023-03-08,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2023-05-16,cross_count_matches_members,pass,count=0 members=
+2023-05-16,primary_sector_source_valid,pass,source=nbim_overweight primary=Financials
+2023-05-16,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2023-08-15,cross_count_matches_members,pass,count=1 members=Consumer Discretionary
+2023-08-15,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Consumer Discretionary
+2023-08-15,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2023-11-15,cross_count_matches_members,pass,count=2 members=Consumer Discretionary|Health Care
+2023-11-15,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Consumer Discretionary
+2023-11-15,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2024-02-15,cross_count_matches_members,pass,count=2 members=Technology|Consumer Discretionary
+2024-02-15,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2024-02-15,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2024-02-28,cross_count_matches_members,pass,count=2 members=Technology|Consumer Discretionary
+2024-02-28,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2024-02-28,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2024-05-16,cross_count_matches_members,pass,count=0 members=
+2024-05-16,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2024-05-16,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2024-08-15,cross_count_matches_members,pass,count=0 members=
+2024-08-15,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2024-08-15,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2024-10-01,cross_count_matches_members,pass,count=0 members=
+2024-10-01,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2024-10-01,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2024-11-15,cross_count_matches_members,pass,count=3 members=Technology|Financials|Consumer Discretionary
+2024-11-15,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2024-11-15,exposure_target_mapping,pass,actual=1.000000000000 expected=1.000000000000
+2025-02-18,cross_count_matches_members,pass,count=1 members=Consumer Discretionary
+2025-02-18,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Consumer Discretionary
+2025-02-18,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2025-02-26,cross_count_matches_members,pass,count=1 members=Consumer Discretionary
+2025-02-26,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Consumer Discretionary
+2025-02-26,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2025-05-16,cross_count_matches_members,pass,count=2 members=Technology|Consumer Discretionary
+2025-05-16,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2025-05-16,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2025-08-13,cross_count_matches_members,pass,count=2 members=Technology|Consumer Discretionary
+2025-08-13,primary_sector_source_valid,pass,source=cross_fund_consensus primary=Technology
+2025-08-13,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000
+2025-08-15,cross_count_matches_members,pass,count=0 members=
+2025-08-15,primary_sector_source_valid,pass,source=nbim_overweight primary=Financials
+2025-08-15,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2025-11-17,cross_count_matches_members,pass,count=0 members=
+2025-11-17,primary_sector_source_valid,pass,source=nbim_overweight primary=Financials
+2025-11-17,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2026-02-18,cross_count_matches_members,pass,count=0 members=
+2026-02-18,primary_sector_source_valid,pass,source=nbim_overweight primary=Financials
+2026-02-18,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2026-03-02,cross_count_matches_members,pass,count=0 members=
+2026-03-02,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2026-03-02,exposure_target_mapping,pass,actual=0.500000000000 expected=0.500000000000
+2026-05-18,cross_count_matches_members,pass,count=0 members=
+2026-05-18,primary_sector_source_valid,pass,source=nbim_overweight primary=Technology
+2026-05-18,exposure_target_mapping,pass,actual=0.750000000000 expected=0.750000000000

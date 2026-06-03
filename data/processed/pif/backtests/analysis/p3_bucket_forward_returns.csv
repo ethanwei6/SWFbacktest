@@ -68,7 +68,6 @@ trade_date,issuer_name,symbol,tilt_bucket,transition_signal_type,evaluation_end_
 2021-08-17,SELECT SECTOR SPDR TR,XLU,neutral,continued_holding,2022-10-11,-0.010135501519
 2021-08-17,TAKE-TWO INTERACTIVE SOFTWAR,TTWO,neutral,continued_holding,2022-10-11,-0.295956469077
 2021-08-17,UBER TECHNOLOGIES INC,UBER,neutral,continued_holding,2022-10-11,-0.398536585366
-2022-10-12,LINDE PLC,LIN,accumulation_like,entry_observed,2022-11-14,0.222725418034
 2022-10-12,LINDE PLC,LIN,neutral,continued_holding,2022-11-14,0.222725418034
 2022-11-15,ADOBE SYSTEMS INCORPORATED,ADBE,neutral,continued_holding,2022-12-22,-0.027286392279
 2022-11-15,ADVANCED MICRO DEVICES INC,AMD,neutral,continued_holding,2022-12-22,-0.163807777923
@@ -119,39 +118,6 @@ trade_date,issuer_name,symbol,tilt_bucket,transition_signal_type,evaluation_end_
 2022-11-15,VISA INC,V,neutral,continued_holding,2022-12-22,-0.023477359327
 2022-11-15,WALMART INC,WMT,neutral,continued_holding,2022-12-22,-0.023203648939
 2022-11-15,ZOOM VIDEO COMMUNICATIONS IN,ZM,neutral,continued_holding,2022-12-22,-0.245882891125
-2022-12-23,AIR PRODS & CHEMS INC,APD,accumulation_like,entry_observed,2023-02-14,-0.093211346283
-2022-12-23,ALIBABA GROUP HLDG LTD,BABA,accumulation_like,entry_observed,2023-02-14,0.216812607827
-2022-12-23,AUTOMATIC DATA PROCESSING IN,ADP,accumulation_like,entry_observed,2023-02-14,-0.067859265355
-2022-12-23,AVERY DENNISON CORP,AVY,accumulation_like,entry_observed,2023-02-14,0.017282348742
-2022-12-23,BABYLON HLDGS LTD,BBLNF,accumulation_like,entry_observed,2023-02-14,0.702064896755
-2022-12-23,BALLARD PWR SYS INC NEW,BLDP,accumulation_like,entry_observed,2023-02-14,0.290187891441
-2022-12-23,CARNIVAL CORP,CCL,accumulation_like,entry_observed,2023-02-14,0.521126049702
-2022-12-23,COMPUTE HEALTH ACQUISITIN CO,POAI,accumulation_like,entry_observed,2023-02-14,0.164705882353
-2022-12-23,COUPANG INC,CPNG,accumulation_like,entry_observed,2023-02-14,0.027098479841
-2022-12-23,CUMMINS INC,CMI,accumulation_like,entry_observed,2023-02-14,0.029636088079
-2022-12-23,ELECTRONIC ARTS INC,EA,accumulation_like,entry_observed,2023-02-14,-0.076207753820
-2022-12-23,FARFETCH LTD,FTCHQ,accumulation_like,entry_observed,2023-02-14,0.459595959596
-2022-12-23,FEDEX CORP,FDX,accumulation_like,entry_observed,2023-02-14,0.208833120856
-2022-12-23,JUST EAT TAKEAWAY COM N V,JTKWY,accumulation_like,entry_observed,2023-02-14,0.102439024390
-2022-12-23,LINDE PLC,LIN,neutral,continued_holding,2023-02-14,0.014180353127
-2022-12-23,LIVE NATION ENTERTAINMENT IN,LYV,accumulation_like,entry_observed,2023-02-14,0.104540981751
-2022-12-23,LUCID GROUP INC,LCID,accumulation_like,entry_observed,2023-02-14,0.541791044776
-2022-12-23,META PLATFORMS INC,META,accumulation_like,entry_observed,2023-02-14,0.520501426771
-2022-12-23,MULTIPLAN CORPORATION,MPLN,accumulation_like,entry_observed,2023-02-14,-0.067226890756
-2022-12-23,NOVAGOLD RES INC,NG,accumulation_like,entry_observed,2023-02-14,-0.019480519481
-2022-12-23,PAYPAL HLDGS INC,PYPL,accumulation_like,entry_observed,2023-02-14,0.119223677657
-2022-12-23,PINDUODUO INC,PDD,accumulation_like,entry_observed,2023-02-14,0.141140082603
-2022-12-23,PINTEREST INC,PINS,accumulation_like,entry_observed,2023-02-14,0.006114961272
-2022-12-23,PLUG POWER INC,PLUG,accumulation_like,entry_observed,2023-02-14,0.281199351702
-2022-12-23,PROLOGIS INC.,PLD,accumulation_like,entry_observed,2023-02-14,0.124185871341
-2022-12-23,SEA LTD,SE,accumulation_like,entry_observed,2023-02-14,0.286658653846
-2022-12-23,SELECT SECTOR SPDR TR,XLU,accumulation_like,entry_observed,2023-02-14,-0.043435516240
-2022-12-23,SHOPIFY INC,SHOP,accumulation_like,entry_observed,2023-02-14,0.486502521507
-2022-12-23,SIGNA SPORTS UNITED NV,SSUNF,accumulation_like,entry_observed,2023-02-14,0.286472148541
-2022-12-23,TAKE-TWO INTERACTIVE SOFTWAR,TTWO,accumulation_like,entry_observed,2023-02-14,0.122808734849
-2022-12-23,UBER TECHNOLOGIES INC,UBER,accumulation_like,entry_observed,2023-02-14,0.429788961039
-2022-12-23,VISA INC,V,accumulation_like,entry_observed,2023-02-14,0.116641990680
-2022-12-23,WALMART INC,WMT,accumulation_like,entry_observed,2023-02-14,0.011963554926
 2022-12-23,ADOBE SYSTEMS INCORPORATED,ADBE,accumulation_like,entry_observed,2023-02-14,0.116560729308
 2022-12-23,ADVANCED MICRO DEVICES INC,AMD,accumulation_like,entry_observed,2023-02-14,0.332145071296
 2022-12-23,AIR PRODS & CHEMS INC,APD,accumulation_like,likely_accumulation,2023-02-14,-0.093211346283

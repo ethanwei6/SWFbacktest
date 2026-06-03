@@ -1,0 +1,25 @@
+grouping_level,group_key,segment_count,closed_segment_count,open_segment_count,avg_duration_days,median_duration_days,min_duration_days,max_duration_days,avg_confirmation_count,avg_exposure_target
+state_signature,neutral|consensus_led|Communication Services|1|0.750000000000,3,3,0,93.67,38.00,21,222,1.00,0.750000
+state_signature,neutral|consensus_led|Consumer Discretionary|1|0.750000000000,3,3,0,95.00,92.00,87,106,1.00,0.750000
+state_signature,neutral|consensus_led|Consumer Discretionary|2|0.750000000000,1,1,0,92.00,92.00,92,92,2.00,0.750000
+state_signature,neutral|consensus_led|Technology|1|0.750000000000,1,1,0,103.00,103.00,103,103,1.00,0.750000
+state_signature,neutral|consensus_led|Technology|2|0.750000000000,2,2,0,91.00,91.00,91,91,2.00,0.750000
+state_signature,neutral|overweight_led|Financials|0|0.750000000000,1,1,0,160.00,160.00,160,160,0.00,0.750000
+state_signature,neutral|overweight_led|Technology|0|0.750000000000,4,3,1,106.00,85.00,34,199,0.00,0.750000
+state_signature,risk_off|overweight_led|Financials|0|0.500000000000,1,1,0,199.00,199.00,199,199,0.00,0.500000
+state_signature,risk_off|overweight_led|Technology|0|0.500000000000,3,3,0,178.00,183.00,77,274,0.00,0.500000
+state_signature,risk_on|consensus_led|Financials|3|1.000000000000,2,2,0,91.00,91.00,91,91,3.00,1.000000
+state_signature,risk_on|consensus_led|Technology|1|1.000000000000,1,1,0,76.00,76.00,76,76,1.00,1.000000
+state_signature,risk_on|consensus_led|Technology|3|1.000000000000,1,1,0,95.00,95.00,95,95,3.00,1.000000
+state_signature,risk_on|consensus_led|Technology|5|1.000000000000,1,1,0,54.00,54.00,54,54,5.00,1.000000
+state_signature,risk_on|overweight_led|Technology|0|1.000000000000,1,1,0,75.00,75.00,75,75,0.00,1.000000
+state_signature,risk_on|top3_led|Financials|0|1.000000000000,1,1,0,14.00,14.00,14,14,0.00,1.000000
+state_signature,unavailable|top3_led|Financials|0|na,1,1,0,351.00,351.00,351,351,0.00,
+pif_risk_state,neutral,15,14,1,101.50,91.50,21,222,0.87,0.750000
+pif_risk_state,risk_off,4,4,0,183.25,191.00,77,274,0.00,0.500000
+pif_risk_state,risk_on,7,7,0,70.86,76.00,14,95,2.14,1.000000
+pif_risk_state,unavailable,1,1,0,351.00,351.00,351,351,0.00,
+model_sector_tilt_primary,Communication Services,3,3,0,93.67,38.00,21,222,1.00,0.750000
+model_sector_tilt_primary,Consumer Discretionary,4,4,0,94.25,92.00,87,106,1.25,0.750000
+model_sector_tilt_primary,Financials,6,6,0,151.00,125.50,14,351,1.00,0.850000
+model_sector_tilt_primary,Technology,14,13,1,110.54,91.00,34,274,1.00,0.767857

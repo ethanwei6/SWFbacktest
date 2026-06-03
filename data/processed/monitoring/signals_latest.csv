@@ -1,0 +1,27 @@
+as_of_date,signal_group,sector,signal_name,signal_direction,signal_value,active_trade_date,notes
+2026-05-18,pif_exposure,,pif_exposure_state,stable,0.00000000,2026-05-18,holding_count=4
+2026-05-18,pif_sector,Communication Services,pif_sector_state,positive,0.02976200,2026-05-18,sector_weight=0.42126930
+2026-05-18,nbim_sector,Communication Services,nbim_sector_state,neutral,0.00031800,2026-03-02,sector_weight=0.02924000;top3=0
+2026-05-18,pif_sector,Consumer Discretionary,pif_sector_state,neutral,0.00399933,2026-05-18,sector_weight=0.14057241
+2026-05-18,nbim_sector,Consumer Discretionary,nbim_sector_state,neutral,0.00412700,2026-03-02,sector_weight=0.13215400;top3=1
+2026-05-18,nbim_top3,Consumer Discretionary,nbim_top3_member,included,0.13215400,2026-03-02,Current N6 production-sleeve member
+2026-05-18,pif_sector,Consumer Staples,pif_sector_state,neutral,0.00000000,2026-05-18,sector_weight=0.00000000
+2026-05-18,nbim_sector,Consumer Staples,nbim_sector_state,underweight,0.00561000,2026-03-02,sector_weight=0.03836200;top3=0
+2026-05-18,pif_sector,Energy,pif_sector_state,neutral,0.00000000,2026-05-18,sector_weight=0.00000000
+2026-05-18,nbim_sector,Energy,nbim_sector_state,neutral,0.00055300,2026-03-02,sector_weight=0.02817300;top3=0
+2026-05-18,pif_sector,Financials,pif_sector_state,neutral,0.00000000,2026-05-18,sector_weight=0.00000000
+2026-05-18,nbim_sector,Financials,nbim_sector_state,neutral,0.00127600,2026-03-02,sector_weight=0.16847400;top3=1
+2026-05-18,nbim_top3,Financials,nbim_top3_member,included,0.16847400,2026-03-02,Current N6 production-sleeve member
+2026-05-18,pif_sector,Health Care,pif_sector_state,neutral,0.00248664,2026-05-18,sector_weight=0.00174382
+2026-05-18,nbim_sector,Health Care,nbim_sector_state,neutral,0.00183700,2026-03-02,sector_weight=0.09268800;top3=0
+2026-05-18,pif_sector,Industrials,pif_sector_state,neutral,0.00000000,2026-05-18,sector_weight=0.00000000
+2026-05-18,nbim_sector,Industrials,nbim_sector_state,neutral,0.00442300,2026-03-02,sector_weight=0.12666900;top3=0
+2026-05-18,pif_sector,Materials,pif_sector_state,neutral,0.00000000,2026-05-18,sector_weight=0.00000000
+2026-05-18,nbim_sector,Materials,nbim_sector_state,neutral,0.00322300,2026-03-02,sector_weight=0.03389700;top3=0
+2026-05-18,pif_sector,Real Estate,pif_sector_state,neutral,0.00000000,2026-05-18,sector_weight=0.00000000
+2026-05-18,nbim_sector,Real Estate,nbim_sector_state,neutral,0.00464600,2026-03-02,sector_weight=0.04217600;top3=0
+2026-05-18,pif_sector,Technology,pif_sector_state,negative,0.02327604,2026-05-18,sector_weight=0.43641447
+2026-05-18,nbim_sector,Technology,nbim_sector_state,overweight,0.01335600,2026-03-02,sector_weight=0.28433100;top3=1
+2026-05-18,nbim_top3,Technology,nbim_top3_member,included,0.28433100,2026-03-02,Current N6 production-sleeve member
+2026-05-18,pif_sector,Utilities,pif_sector_state,neutral,0.00000000,2026-05-18,sector_weight=0.00000000
+2026-05-18,nbim_sector,Utilities,nbim_sector_state,neutral,0.00064900,2026-03-02,sector_weight=0.02383800;top3=0
