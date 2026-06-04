@@ -1,0 +1,26 @@
+strategy_key,check_name,status,detail
+p2,strategy_total_matches_validated_source,pass,computed=1.222585036126 expected=1.222585036126
+p2,market_total_matches_validated_source,pass,computed=2.000323571068 expected=2.000323571068
+p2,market_excess_matches_validated_summary,pass,computed=-0.777738534942 expected=-0.777738534942
+p2,aligned_rebase_anchor,pass,strategy=1.000000000000 market=1.000000000000 cash=1.000000000000 defensive=1.000000000000
+p2,monthly_series_nonempty,pass,month_count=87
+p5,strategy_total_matches_validated_source,pass,computed=0.489482567877 expected=0.489482567877
+p5,market_total_matches_validated_source,pass,computed=2.000323571068 expected=2.000323571068
+p5,market_excess_matches_validated_summary,pass,computed=-1.510841003191 expected=-1.510841003191
+p5,aligned_rebase_anchor,pass,strategy=1.000000000000 market=1.000000000000 cash=1.000000000000 defensive=1.000000000000
+p5,monthly_series_nonempty,pass,month_count=87
+n4,strategy_total_matches_validated_source,pass,computed=2.219459550909 expected=2.219459550909
+n4,market_total_matches_validated_source,pass,computed=1.507418943940 expected=1.507418943940
+n4,market_excess_matches_validated_summary,pass,computed=0.712040606969 expected=0.712040606969
+n4,aligned_rebase_anchor,pass,strategy=1.000000000000 market=1.000000000000 cash=1.000000000000 defensive=1.000000000000
+n4,monthly_series_nonempty,pass,month_count=99
+n6,strategy_total_matches_validated_source,pass,computed=2.151802670272 expected=2.151802670272
+n6,market_total_matches_validated_source,pass,computed=1.507418943940 expected=1.507418943940
+n6,market_excess_matches_validated_summary,pass,computed=0.644383726332 expected=0.644383726332
+n6,aligned_rebase_anchor,pass,strategy=1.000000000000 market=1.000000000000 cash=1.000000000000 defensive=1.000000000000
+n6,monthly_series_nonempty,pass,month_count=99
+s1,strategy_total_matches_validated_source,pass,computed=1.546536873783 expected=1.546536873783
+s1,market_total_matches_validated_source,pass,computed=1.499333093877 expected=1.499333093877
+s1,market_excess_matches_validated_summary,pass,computed=0.047203779906 expected=0.047203779906
+s1,aligned_rebase_anchor,pass,strategy=1.000000000000 market=1.000000000000 cash=1.000000000000 defensive=1.000000000000
+s1,monthly_series_nonempty,pass,month_count=87

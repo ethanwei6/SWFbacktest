@@ -3,6 +3,7 @@ Disclosure timing,Trades may occur only after public release,PIF and NBIM,Preven
 Disclosure coverage,PIF panel covers only the disclosed U.S. 13F sleeve,PIF,The copied book is not the full fund,Interpret results as sleeve-level not whole-fund mirroring
 Disclosure coverage,NBIM direct mirror uses a bounded observable U.S. subset,NBIM direct mirrors,Can create survivor-selection bias,Direct mirror results treated as exploratory only
 Signal translation,NBIM sector posture is mapped into U.S. sector ETF proxies,NBIM and combined strategies,Introduces proxy and representation error,Use sector strategies as approximate expressions of industry posture
+Benchmark proxies,Cash and defensive benchmark layers use investable ETF proxies rather than official total-return index series,Phase 4 benchmark extension,Comparative rankings are useful but exact hurdle levels include ETF implementation effects,Use BIL for cash and USMV or ACWV for defensive-equity comparisons
 Pricing,Mark-to-market uses adjusted prices,PIF and NBIM,Avoids split-driven fake gains,Adjusted series used for portfolio valuation and robustness
 Friction model,Transaction costs are modeled as one-way basis-point charges,Phase 3 focus set,Captures simple implementation drag but not full trading frictions,"Tested at 10, 25, and 50 bps"
 Implementation realism,Taxes and market impact are not modeled,All strategies,True live results could be worse,Kept as explicit limitation in interpretation

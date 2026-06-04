@@ -1,0 +1,8 @@
+benchmark_key,benchmark_name,benchmark_family,row_count,first_date,last_date,first_close,last_close,nonpositive_close_count,close_growth_ratio,source,status
+ACWI,iShares MSCI ACWI ETF,market_global_equity,2075,2018-02-27,2026-05-29,63.51924,158.53999,0,2.495936506797,twelvedata,ok
+ACWV,iShares MSCI Global Min Vol Factor ETF,defensive_global_equity,2075,2018-02-27,2026-05-29,70.55662,122.010002,0,1.729249530377,twelvedata,ok
+BIL,SPDR Bloomberg 1-3 Month T-Bill ETF,cash_hurdle,2075,2018-02-27,2026-05-29,74.63868,91.66000,0,1.228049585014,twelvedata,ok
+QQQ,Invesco QQQ Trust,market_us_growth,1862,2019-01-02,2026-05-29,147.83747,738.31000,0,4.994065442273,twelvedata,ok
+SPY,SPDR S&P 500 ETF Trust,market_us_equity,1862,2019-01-02,2026-05-28,224.47642,754.59998,0,3.361600207273,local_pif_benchmark,ok
+USMV,iShares MSCI USA Min Vol Factor ETF,defensive_us_equity,1862,2019-01-02,2026-05-29,45.82420,96.60000,0,2.108056441793,twelvedata,ok
+VT,Vanguard Total World Stock ETF,market_global_equity,2740,2018-02-27,2026-05-29,63.80226,158.12000,0,2.478282117279,local_nbim_benchmark,ok
