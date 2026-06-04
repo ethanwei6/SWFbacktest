@@ -273,15 +273,23 @@ Five combined strategies were tested:
 
 These combined strategies are important because they move the project away from the naive question ``can we copy the fund?'' and toward the more realistic question ``can one fund help with exposure timing while another helps with sector selection?''
 
-\subsection{Benchmark-Relative Measure}
+\subsection{Relative Performance Conventions}
 
-For clarity, the paper reports both standalone total return and benchmark-relative excess return. The latter is defined as
+The project uses two related benchmark-relative conventions, and it is important to keep them separate.
+
+The first is a \emph{relative-NAV gap}, defined as
 \begin{equation}
-R^{\text{excess}}_{s,T}=\frac{\text{NAV}_{s,T}/\text{NAV}_{s,0}}{\text{NAV}_{b,T}/\text{NAV}_{b,0}}-1,
+R^{\text{relative}}_{s,T}=\frac{\text{NAV}_{s,T}/\text{NAV}_{s,0}}{\text{NAV}_{b,T}/\text{NAV}_{b,0}}-1,
 \end{equation}
-where $s$ is the strategy and $b$ is the benchmark. This choice makes the interpretation straightforward: positive values represent outperformance over the matched benchmark horizon.
+where $s$ is the strategy and $b$ is the benchmark. This is the convention used in the core PIF and NBIM summary tables. It answers the question: after both series are rebased to 1.0, how much benchmark-relative wealth did the strategy end with?
 
-In plain language, a strategy can make money in absolute terms and still be a poor result if a passive benchmark made much more over the same exact live period. That is why the paper emphasizes benchmark-relative results alongside raw return.
+The second is an \emph{arithmetic return gap}, defined as
+\begin{equation}
+G^{\text{return}}_{s,T}=\left(\frac{\text{NAV}_{s,T}}{\text{NAV}_{s,0}}-1\right)-\left(\frac{\text{NAV}_{b,T}}{\text{NAV}_{b,0}}-1\right).
+\end{equation}
+This is the convention used in the robustness, attribution, and institutional-benchmark layers. It answers the question: how many percentage points of total return separated the strategy from the benchmark over the same matched window?
+
+In plain language, the first measure is a relative-wealth comparison and the second is a return-gap comparison. Both are useful, but they should not be read as numerically interchangeable. A strategy can trail the benchmark by 25.9\% on a relative-NAV basis yet be behind by 77.8 percentage points on an arithmetic total-return basis if the benchmark itself compounded much more strongly over the sample.
 
 \section{Validation Protocol}
 
@@ -349,7 +357,7 @@ P5 Cash-Aware Copy & $+48.9\%$ & $+5.6\%$ & $-62.6\%$ & $-50.4\%$ & $-0.120$ \\
 
 Three findings are robust:
 \begin{enumerate}[leftmargin=1.4em]
-    \item \textbf{Absolute return and alpha are different here.} P2 through P5 all make money in dollar terms over the matched sample, but none of them beat passive U.S. beta. The strongest absolute PIF result, P2, still trails \texttt{SPY} by about 25.9 percentage points.
+    \item \textbf{Absolute return and alpha are different here.} P2 through P5 all make money in dollar terms over the matched sample, but none of them beat passive U.S. beta. The strongest absolute PIF result, P2, still trails \texttt{SPY} by about 25.9\% on a relative-NAV basis.
     \item \textbf{Cash-awareness is economically informative, but not dominant.} P5 remains the most literal copycat design because it allows cash to build when the disclosed sleeve shrinks. That makes it useful for interpreting PIF's public filings as an exposure signal, even though it is not the highest-return PIF strategy in the sample and still does not generate alpha.
     \item \textbf{Partial disclosure is a structural limit.} Even a mechanically faithful mirror of PIF's 13F book is not a mirror of the entire fund.
 \end{enumerate}
@@ -404,7 +412,7 @@ That is a valid exploratory result---it tells us what a bounded, disclosure-info
 The realistic NBIM findings are much narrower:
 \begin{itemize}[leftmargin=1.4em]
     \item \textbf{N3} is essentially benchmark-like. Broadly mirroring NBIM's sector posture mostly reproduces a high-quality global allocation.
-    \item \textbf{N4} is the strongest realistic signal. Following sectors whose disclosed weights increased produced a modest positive excess return of $18.6\%$ versus \texttt{VT}.
+    \item \textbf{N4} is the strongest realistic signal. Following sectors whose disclosed weights increased produced a modest positive relative gap of $18.6\%$ versus \texttt{VT} in the core NBIM summary layer.
     \item \textbf{N6} also worked reasonably well. Concentrating on NBIM's top three sector exposures produced an $18.1\%$ excess return.
     \item \textbf{N5}, \textbf{N7}, and \textbf{N8} are weak or too sparse. Transition-only and consensus-only rules do not appear strong enough on their own in this implementation.
 \end{itemize}
@@ -505,7 +513,7 @@ Phase 3 then asked whether the remaining conclusions depend too heavily on bench
 The benchmark-robustness results sharpen the interpretation further:
 \begin{itemize}[leftmargin=1.4em]
     \item \textbf{P5 remains non-alpha under both benchmark choices.} It underperforms \texttt{SPY} by $151.1\%$ and underperforms \texttt{QQQ} by $282.9\%$ on the matched live window.
-    \item \textbf{N4 and N6 remain positive under an alternate global benchmark.} N4 posts $71.2\%$ excess versus \texttt{VT} and $69.4\%$ excess versus \texttt{ACWI}. N6 posts $64.4\%$ excess versus \texttt{VT} and $62.7\%$ versus \texttt{ACWI}.
+    \item \textbf{N4 and N6 remain positive under an alternate global benchmark.} On the arithmetic return-gap convention used in the robustness layer, N4 posts $71.2\%$ versus \texttt{VT} and $69.4\%$ versus \texttt{ACWI}. N6 posts $64.4\%$ versus \texttt{VT} and $62.7\%$ versus \texttt{ACWI}.
     \item \textbf{S1 is benchmark-sensitive.} It is slightly positive versus \texttt{VT} at $4.7\%$, but negative versus \texttt{SPY} at $-45.4\%$ and still negative versus a 50/50 rebased \texttt{VT}/\texttt{SPY} blend at $-20.4\%$.
 \end{itemize}
 
@@ -539,7 +547,7 @@ In addition to total return and excess return, the layer computes Calmar ratio, 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{llrrrrrr}
 \toprule
-\textbf{Strategy} & \textbf{Market Bench} & \textbf{Excess vs Market} & \textbf{Excess vs Cash} & \textbf{Excess vs Defensive} & \textbf{Sortino vs Cash} & \textbf{Downside Capture} & \textbf{Max Drawdown} \\
+\textbf{Strategy} & \textbf{Market Bench} & \textbf{Return Gap vs Market} & \textbf{Return Gap vs Cash} & \textbf{Return Gap vs Defensive} & \textbf{Sortino vs Cash} & \textbf{Downside Capture} & \textbf{Max Drawdown} \\
 \midrule
 P2 Full Sleeve Equal Weight & SPY & $-77.8\%$ & $+101.8\%$ & $+29.5\%$ & $0.59$ & $1.12$ & $-62.2\%$ \\
 P5 Cash-Aware Copy & SPY & $-151.1\%$ & $+28.5\%$ & $-43.8\%$ & $0.39$ & $0.23$ & $-62.6\%$ \\
@@ -551,11 +559,13 @@ S1 Exposure Regime Overlay & VT & $+4.7\%$ & $+134.2\%$ & $+89.6\%$ & $0.95$ & $
 }
 \end{table*}
 
+In this table, ``return gap'' means the arithmetic difference in matched total returns, not the relative-NAV measure used in the earlier fund-level summary tables. ``Downside capture'' below one means the strategy lost less than the market benchmark in down months, while values above one mean it lost more.
+
 This expanded lens changes the interpretation in a useful way:
 \begin{itemize}[leftmargin=1.4em]
     \item \textbf{PIF mirroring still does not look institutionally compelling.} P2 does beat both cash and \texttt{USMV} in absolute return, but it does so with annualized volatility above 35\%, a drawdown above 62\%, and downside capture above one. That is not the profile of a smoother institutional allocator. P5 lowers downside capture dramatically, but still trails \texttt{USMV} and retains a similarly deep drawdown.
     \item \textbf{N4 and N6 both remain strong against cash and defensive equity comparators.} N4 has the best cash-relative Sortino ratio and downside capture below one, while N6 remains the stronger return-seeking sleeve with a higher positive-month rate and stronger upside participation.
-    \item \textbf{S1 looks better as a lower-beta overlay than as an alpha engine.} Its market excess versus \texttt{VT} is only modest, but it remains strongly positive versus both \texttt{BIL} and \texttt{ACWV}, with downside capture around 0.74 and upside capture around 0.85. In plain terms, S1 looks more like a controlled participation overlay than like a high-conviction benchmark-beating portfolio.
+    \item \textbf{S1 looks better as a lower-beta overlay than as an alpha engine.} Its arithmetic market return gap versus \texttt{VT} is only modest, but it remains strongly positive versus both \texttt{BIL} and \texttt{ACWV}, with downside capture around 0.74 and upside capture around 0.85. In plain terms, S1 looks more like a controlled participation overlay than like a high-conviction benchmark-beating portfolio.
 \end{itemize}
 
 This benchmark expansion is important because it prevents a false binary conclusion. A strategy can fail as a market-alpha engine yet still be informative as a lower-beta overlay. In this project, however, the evidence remains selective even under that friendlier lens: PIF mirroring is still weak, N4 and N6 are still the best-returning realistic sleeves, and S1 is best understood as a cautious cross-fund overlay rather than as a flagship alpha model.
