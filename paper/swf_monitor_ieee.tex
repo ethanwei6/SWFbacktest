@@ -28,9 +28,9 @@ Singapore}
 \maketitle
 
 \begin{abstract}
-This paper examines whether public sovereign wealth fund (SWF) disclosures contain investable information once disclosure lag, partial visibility, and implementation constraints are treated as first-class design variables. The project began with three funds---Saudi Arabia's Public Investment Fund (PIF), Norges Bank Investment Management (NBIM), and Singapore's GIC---but quickly encountered radical disclosure asymmetry: NBIM provides broad but slow public-equity visibility, PIF provides security-level visibility only for its reportable U.S. 13F sleeve, and GIC is too opaque to support a comparable holdings panel. We therefore construct fund-specific normalized datasets and test lag-aware strategies rather than forcing all funds into a common template.
+This paper asks a practical question: once sovereign wealth fund (SWF) disclosures become public, can an outside investor trade them profitably after respecting disclosure lag, incomplete visibility, and realistic implementation constraints? The study focuses on Saudi Arabia's Public Investment Fund (PIF) and Norway's Norges Bank Investment Management (NBIM), which sit at opposite ends of the public-data spectrum. PIF discloses a narrow but security-level U.S. sleeve through 13F filings, while NBIM discloses a much broader portfolio at lower frequency through public holdings releases. GIC is retained only as a qualitative disclosure-asymmetry case because its public record is too sparse for comparable backtesting.
 
-For PIF, five backtests are implemented on a canonical 13F panel with filing-aware trade timing, benchmark comparison against \texttt{SPY}, and a corrected split-adjusted price layer. After validation, four of the five PIF strategies are positive in absolute return, but all five still underperform \texttt{SPY} on an excess-return basis. For NBIM, eight strategies are tested against \texttt{VT} using split-adjusted daily prices for first-post-release execution and month-end marks derived from the same daily source. The strongest direct mirror results are shown to be contaminated by survivor-selection in a bounded mega-cap universe. More credible sector-based tests produce only modest benchmark-relative gains, with the best results coming from industry weight-change and concentrated leadership strategies. A final robustness layer then stresses the surviving signals with execution lags, explicit one-way costs, realistic caps, subperiod splits, and alternate benchmarks. An attribution layer decomposes benchmark-relative performance into exposure timing, allocation, and concentration effects, while a final inference layer adds formal significance tests, bootstrap confidence intervals, turnover-adjusted performance metrics, and an expanded benchmark stack that includes a cash hurdle and defensive-equity comparators. Across both funds, the evidence does not support strong claims of easy copy-trading alpha. The most credible residual signal is slower-moving sector posture rather than single-name imitation. Under the expanded benchmark lens, NBIM's concentrated leadership sleeve remains the strongest return-seeking candidate, while the combined exposure-regime overlay is better interpreted as a lower-beta reference design than as a benchmark-beating alpha engine.
+The paper builds normalized holdings and transition panels, maps each disclosure regime into lag-aware trading rules, and tests increasingly selective strategy families rather than assuming that all public holdings should be mirrored literally. For PIF, five strategies are tested against \texttt{SPY}. After correcting implementation errors and split-handling distortions, four of the five earn positive absolute returns, but none outperform the benchmark. For NBIM, eight strategies are tested against \texttt{VT}. The strongest raw stock-mirror results are shown to be driven by survivor-selection in a bounded U.S. mega-cap sleeve, so the more credible evidence comes from sector-based strategies. Within that set, industry weight-change and concentrated leadership rules perform best, but only modestly. The surviving signals are then stressed through delayed execution, one-way costs, realistic caps, subperiod splits, alternate benchmarks, attribution analysis, statistical inference, and event-window tests. Across those layers, the evidence does not support a strong claim of easy copy-trading alpha. The more defensible conclusion is narrower: public SWF disclosures appear more useful as slow-moving exposure and sector-posture signals than as literal instructions for single-name imitation. Under the full benchmark stack, NBIM's concentrated leadership sleeve remains the strongest return-seeking candidate, while the combined cross-fund overlay is better interpreted as a lower-beta allocation design than as a benchmark-beating alpha engine.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -64,6 +64,8 @@ The project ultimately contributes four things:
     \item validated lag-aware backtests distinguishing exploratory from credible results; and
     \item reproducible reports, charts, and interactive artifacts that expose the full path from disclosure to simulated trade.
 \end{enumerate}
+
+The rest of the paper follows the same sequence by which the project became credible. Section II explains why the disclosure regimes force different research designs. Section III describes the data and benchmark construction layers. Section IV defines the strategies in operational terms. Section V explains the validation steps that changed the interpretation of the early results. The remaining sections then report the fund-level results, the combined overlays, the robustness and inference layers, and the final state-model abstraction.
 
 \section{Research Scope and Disclosure Regimes}
 
@@ -295,7 +297,7 @@ In plain language, the first measure is a relative-wealth comparison and the sec
 
 \subsection{Why Validation Changed the Interpretation}
 
-The project produced two major validation lessons.
+This section is included for a simple reason: the final conclusions of the project are not the same as the first attractive backtest outputs. Two early result clusters looked much stronger than they should have. The paper therefore makes the validation story explicit before reporting the final strategy tables, because the credibility of the later sections depends on understanding what changed and why.
 
 \subsubsection{PIF split handling}
 
@@ -323,7 +325,7 @@ In addition, cached market-data rows were spot-checked against live API response
 
 \subsection{Summary Results}
 
-Table~\ref{tab:pif-results} reports the validated PIF strategy outcomes. The key conclusion is more nuanced than the earlier draft of this project suggested. Once the original bundle-handling bug in the fully invested strategies is corrected, P2 through P5 all generate positive absolute returns. However, none of them produce alpha versus \texttt{SPY}, so the public PIF sleeve still fails as a reliable benchmark-beating copy-trading signal.
+Table~\ref{tab:pif-results} reports the validated PIF strategy outcomes. The table should be read in two steps. First, ask which strategy earned the highest absolute return. Second, ask whether any of those returns actually beat simply owning \texttt{SPY} over the same live window. That distinction matters because a copied sleeve can make money in a rising market and still fail the alpha test. Once the original bundle-handling bug in the fully invested strategies is corrected, P2 through P5 all generate positive absolute returns. However, none of them outperform \texttt{SPY}, so the public PIF sleeve still fails as a reliable benchmark-beating copy-trading signal.
 
 \begin{table*}[!t]
 \caption{PIF Strategy Results versus SPY}
@@ -355,11 +357,11 @@ P5 Cash-Aware Copy & $+48.9\%$ & $+5.6\%$ & $-62.6\%$ & $-50.4\%$ & $-0.120$ \\
 
 \subsection{Interpretation}
 
-Three findings are robust:
+The PIF panel supports three conclusions that are easy to miss if the strategies are read too casually:
 \begin{enumerate}[leftmargin=1.4em]
-    \item \textbf{Absolute return and alpha are different here.} P2 through P5 all make money in dollar terms over the matched sample, but none of them beat passive U.S. beta. The strongest absolute PIF result, P2, still trails \texttt{SPY} by about 25.9\% on a relative-NAV basis.
-    \item \textbf{Cash-awareness is economically informative, but not dominant.} P5 remains the most literal copycat design because it allows cash to build when the disclosed sleeve shrinks. That makes it useful for interpreting PIF's public filings as an exposure signal, even though it is not the highest-return PIF strategy in the sample and still does not generate alpha.
-    \item \textbf{Partial disclosure is a structural limit.} Even a mechanically faithful mirror of PIF's 13F book is not a mirror of the entire fund.
+    \item \textbf{Constant exposure helps absolute return but does not create alpha.} The fully invested variants keep recycling capital into the remaining disclosed sleeve, so they remain exposed to broad equity upside. That is why P2 through P4 can finish with positive absolute returns even though they still lag \texttt{SPY}.
+    \item \textbf{Cash-awareness changes the economic interpretation more than the headline return rank.} P5 is not the best-returning PIF strategy, but it is still the cleanest answer to the question ``what would a literal disclosure follower do when PIF's public sleeve shrinks?'' It is therefore valuable as an exposure-signal test even though it does not deliver alpha.
+    \item \textbf{The public sleeve is only a partial window into the fund.} Even a perfectly implemented 13F copy cannot recover the whole PIF portfolio, so underperformance of the copied sleeve should be read as evidence against this public sub-book as a tradable signal, not as a verdict on the entire sovereign fund.
 \end{enumerate}
 
 The implication is that PIF's public sleeve is better interpreted as a monitoring and posture dataset than as a direct alpha source. The fully invested variants show that the disclosed sleeve can still participate in broad equity upside, but the lagged public information is not strong enough to beat a passive benchmark once the sleeve is implemented honestly.
@@ -368,7 +370,7 @@ The implication is that PIF's public sleeve is better interpreted as a monitorin
 
 \subsection{Exploratory Mirrors versus Realistic Signals}
 
-Table~\ref{tab:nbim-results} reports the final NBIM strategy results versus \texttt{VT}. Unlike the PIF panel, the table must be interpreted in two layers: the exploratory direct mirrors and the realistic sector-based tests.
+Table~\ref{tab:nbim-results} reports the final NBIM strategy results versus \texttt{VT}. Unlike the PIF panel, the table should not be read as a single ranked list. It mixes two different types of tests. N1 and N2 ask what happens if the observable U.S. slice of NBIM is mirrored directly. N3 through N8 ask the more realistic question of whether NBIM's disclosed sector posture can be translated into implementable industry rules. The distinction is crucial because only the second family lines up cleanly with what NBIM actually discloses.
 
 \begin{table*}[!t]
 \caption{NBIM Strategy Results versus VT}
@@ -409,11 +411,11 @@ That is a valid exploratory result---it tells us what a bounded, disclosure-info
 
 \subsection{What Looks More Credible}
 
-The realistic NBIM findings are much narrower:
+Once the exploratory mirrors are set aside, the realistic NBIM findings become much narrower and easier to summarize:
 \begin{itemize}[leftmargin=1.4em]
     \item \textbf{N3} is essentially benchmark-like. Broadly mirroring NBIM's sector posture mostly reproduces a high-quality global allocation.
-    \item \textbf{N4} is the strongest realistic signal. Following sectors whose disclosed weights increased produced a modest positive relative gap of $18.6\%$ versus \texttt{VT} in the core NBIM summary layer.
-    \item \textbf{N6} also worked reasonably well. Concentrating on NBIM's top three sector exposures produced an $18.1\%$ excess return.
+    \item \textbf{N4} is the strongest broad sector-rotation rule. Following only sectors whose disclosed weights increased produced a modest positive relative gap of $18.6\%$ versus \texttt{VT} in the core NBIM summary layer.
+    \item \textbf{N6} is the cleanest concentrated expression. Instead of mirroring the full sector map, it simply follows NBIM's three largest industry exposures. That narrower rule produced an $18.1\%$ relative gap.
     \item \textbf{N5}, \textbf{N7}, and \textbf{N8} are weak or too sparse. Transition-only and consensus-only rules do not appear strong enough on their own in this implementation.
 \end{itemize}
 
@@ -423,7 +425,7 @@ Thus, the most credible NBIM signal is not direct mirroring but slow-moving sect
 
 \subsection{Phase-2 Combined Results}
 
-The Phase-2 tests ask a narrower and more realistic question than either single-fund panel alone: can PIF's exposure-regime information and NBIM's sector-posture information be combined into a modest but credible overlay strategy? Table~\ref{tab:combined-results} summarizes the results.
+The Phase-2 tests ask a narrower and more realistic question than either single-fund panel alone: can PIF's exposure-regime information and NBIM's sector-posture information be combined into a modest but credible overlay strategy? Table~\ref{tab:combined-results} should therefore be read as an overlay table, not as a direct continuation of the single-fund ranking tables. These strategies are explicitly hybrids: PIF mainly controls how much risk is taken, while NBIM mainly controls where the invested sleeve is concentrated.
 
 \begin{table*}[!t]
 \caption{Combined PIF + NBIM Strategy Results}
@@ -446,11 +448,11 @@ S5 N6 Sleeve With PIF Risk Filter & $+133.9\%$ & $-6.4\%$ & $-22.0\%$ & $-29.4\%
 }
 \end{table*}
 
-Three observations stand out.
+Three observations summarize the combined layer.
 \begin{enumerate}[leftmargin=1.4em]
     \item \textbf{S1 is the only positive VT-relative result.} The combination of a PIF risk regime and an NBIM sector overlay can add a small amount of value versus \texttt{VT}, but the edge is modest.
     \item \textbf{Consensus-only confirmation is too restrictive.} S2 spends too much time in cash or fallback exposure, which limits both upside and signal harvest.
-    \item \textbf{PIF helps more as a throttle than as a selection engine.} S4 and S5 are cleaner than S3 because they preserve validated NBIM sleeves and only use PIF to modulate gross exposure. Even so, they still fail to beat \texttt{VT}.
+    \item \textbf{PIF helps more as a throttle than as a stock-or-sector picker.} S4 and S5 are cleaner than S3 because they preserve validated NBIM sleeves and use PIF only to modulate gross exposure. Even so, they still fail to beat \texttt{VT}.
 \end{enumerate}
 
 The combined evidence therefore strengthens, rather than weakens, the conservative interpretation of the project. There is some informational value in the interaction between the two funds, but it appears to be a \emph{risk-and-sector overlay} effect rather than a strong source of standalone alpha.
@@ -494,7 +496,7 @@ S1 Exposure Regime Overlay & VT & $+4.7\%$ & $-8.7\%$ & $-14.3\%$ & $-79.0\%$ \\
 }
 \end{table*}
 
-The interpretation is sharper than the Phase-2 results alone:
+The robustness table is easiest to read if each column is treated as a separate stress test: delayed execution, explicit trading friction, and realistic concentration limits. Under that lens, the interpretation is sharper than the Phase-2 results alone:
 \begin{itemize}[leftmargin=1.4em]
     \item \textbf{P5 remains non-alpha.} The strategy is still useful for understanding PIF as an exposure-throttle signal, but it does not beat \texttt{SPY} under any tested implementation variant.
     \item \textbf{N4 is plausible but cap-sensitive.} Its positive excess return survives delayed execution and one-way costs, but disappears once realistic sector caps are imposed.
@@ -502,7 +504,7 @@ The interpretation is sharper than the Phase-2 results alone:
     \item \textbf{S1 is fragile.} The modest Phase-2 edge vanishes once execution is delayed or even modest costs and exposure constraints are imposed.
 \end{itemize}
 
-This robustness layer matters because it narrows the project's actionable conclusion. The surviving signal is not ``copy SWFs'' in general, nor even ``combine PIF and NBIM.'' It is specifically that a simple, slow-moving NBIM sector-leadership sleeve appears to carry some residual information even after several realistic implementation stresses.
+This robustness layer narrows the project's actionable conclusion substantially. The surviving signal is not ``copy SWFs'' in general, nor even ``combine PIF and NBIM'' in a generic sense. It is specifically that a simple, slow-moving NBIM sector-leadership sleeve appears to carry some residual information even after several realistic implementation stresses.
 
 The subsequent subperiod-stability test reinforces the same hierarchy. P5 is strong only in the early sample and gives back the edge in 2024--2026. S1 is positive in 2019--2021 but negative in the later subperiods. N4 is regime-dependent: strong in 2019--2021, negative in 2022--2023, and only modestly positive thereafter. N6 is the only focus-set strategy that remains positive versus \texttt{VT} in all three subperiods, although its excess return becomes very small in the most recent window. This is not evidence of a large persistent alpha engine, but it is stronger support for N6 than for any other tested strategy in the project.
 
@@ -510,14 +512,14 @@ The subsequent subperiod-stability test reinforces the same hierarchy. P5 is str
 
 Phase 3 then asked whether the remaining conclusions depend too heavily on benchmark choice. This matters especially for two cases: P5, where a U.S. 13F sleeve might look different against growth-heavy benchmarks, and S1, where a mixed cash-and-sector strategy might appear stronger against a global benchmark than against a U.S. benchmark.
 
-The benchmark-robustness results sharpen the interpretation further:
+The benchmark-robustness results ask a slightly different question: are the surviving findings really tied to the chosen benchmark, or do they persist against closely related alternatives?
 \begin{itemize}[leftmargin=1.4em]
     \item \textbf{P5 remains non-alpha under both benchmark choices.} It underperforms \texttt{SPY} by $151.1\%$ and underperforms \texttt{QQQ} by $282.9\%$ on the matched live window.
     \item \textbf{N4 and N6 remain positive under an alternate global benchmark.} On the arithmetic return-gap convention used in the robustness layer, N4 posts $71.2\%$ versus \texttt{VT} and $69.4\%$ versus \texttt{ACWI}. N6 posts $64.4\%$ versus \texttt{VT} and $62.7\%$ versus \texttt{ACWI}.
     \item \textbf{S1 is benchmark-sensitive.} It is slightly positive versus \texttt{VT} at $4.7\%$, but negative versus \texttt{SPY} at $-45.4\%$ and still negative versus a 50/50 rebased \texttt{VT}/\texttt{SPY} blend at $-20.4\%$.
 \end{itemize}
 
-That result is important because it separates ``global-allocation-like'' behavior from true cross-market alpha. S1 appears closest to a modest global-overlay effect, not to a benchmark-agnostic source of excess return.
+This distinction separates ``global-allocation-like'' behavior from true cross-market alpha. S1 appears closest to a modest global-overlay effect, not to a benchmark-agnostic source of excess return.
 
 \subsection{Institutional Benchmarking and Consistency Metrics}
 
@@ -568,7 +570,7 @@ This expanded lens changes the interpretation in a useful way:
     \item \textbf{S1 looks better as a lower-beta overlay than as an alpha engine.} Its arithmetic market return gap versus \texttt{VT} is only modest, but it remains strongly positive versus both \texttt{BIL} and \texttt{ACWV}, with downside capture around 0.74 and upside capture around 0.85. In plain terms, S1 looks more like a controlled participation overlay than like a high-conviction benchmark-beating portfolio.
 \end{itemize}
 
-This benchmark expansion is important because it prevents a false binary conclusion. A strategy can fail as a market-alpha engine yet still be informative as a lower-beta overlay. In this project, however, the evidence remains selective even under that friendlier lens: PIF mirroring is still weak, N4 and N6 are still the best-returning realistic sleeves, and S1 is best understood as a cautious cross-fund overlay rather than as a flagship alpha model.
+This benchmark expansion prevents a false binary conclusion. A strategy can fail as a market-alpha engine yet still be informative as a lower-beta overlay. In this project, however, the evidence remains selective even under that friendlier lens: PIF mirroring is still weak, N4 and N6 are still the best-returning realistic sleeves, and S1 is best understood as a cautious cross-fund overlay rather than as a flagship alpha model.
 
 \subsection{Formal Statistical Inference and Turnover-Adjusted Metrics}
 
@@ -671,7 +673,7 @@ For each focus-set strategy, the analysis partitions the validated benchmark-com
 
 That final quantity is especially important because it sums exactly to the terminal benchmark-relative NAV difference. This makes concentration analysis truthful rather than approximate.
 
-The resulting pattern again supports the same hierarchy:
+The resulting pattern again supports the same hierarchy, but it does so in a way that is easier to trust because it asks whether performance was broad or concentrated:
 \begin{itemize}[leftmargin=1.4em]
     \item \textbf{P5 is highly concentrated and unstable.} It beats \texttt{SPY} in only 39.1\% of rebalance windows. Its top three positive windows account for roughly 78.6\% of total positive contribution, and the single largest positive window alone accounts for more than 41\%. This is not the profile of a broad or repeatable alpha process.
     \item \textbf{N4 remains positive, but the contribution profile is concentrated.} It beats \texttt{VT} in 54.5\% of windows, yet its top three positive windows account for about 82.5\% of total positive contribution. This is consistent with the earlier interpretation that N4 works partly through concentrated winner episodes.
@@ -730,7 +732,7 @@ Taken together, the state layer clarifies the practical meaning of the broader p
 
 \subsection{What the Combined Evidence Says}
 
-The PIF and NBIM panels point to the same high-level conclusion from different directions:
+The paper can now be summarized at a level that should be understandable even without reading every backtest table. The PIF and NBIM panels point to the same high-level conclusion from different directions:
 \begin{itemize}[leftmargin=1.4em]
     \item direct single-name copy trading is weak once lag and partial visibility are respected;
     \item broad mirroring often collapses into benchmark-like exposure rather than differentiated alpha; and
@@ -742,6 +744,19 @@ In PIF, even the most sensible copycat variant fails to beat \texttt{SPY}. In NB
 Phase 3 further tightens that conclusion. Once lag sensitivity, explicit costs, concentration constraints, subperiod stability, and alternate benchmark choices are modeled, the combined edge in S1 no longer looks robust. N4 remains interesting but cap-sensitive and concentration-dependent. N6 is the only strategy in the focus set that stays meaningfully positive through all tested robustness layers, and its attribution profile is cleaner than the alternatives.
 
 For that reason, the final model expression of the project is intentionally simpler than the full strategy library. The best candidate investable sleeve is still N6 itself, while the best higher-level product abstraction is the cross-fund state model. The expanded institutional benchmark layer adds one refinement: S1 is worth keeping as a lower-beta overlay reference even though it is not strong enough to be the flagship alpha sleeve. No new hybrid production strategy was added at the end of the project because the hardening layer weakened the case for more complexity rather than strengthening it.
+
+\subsection{How to Read the Final Results}
+
+For a reader who did not work on the project, the cleanest interpretation is:
+\begin{itemize}[leftmargin=1.4em]
+    \item \textbf{PIF:} useful mainly as a public exposure and posture signal, not as a source of reliable copy-trading alpha;
+    \item \textbf{NBIM:} useful mainly through slow-moving sector posture rather than stock-level imitation;
+    \item \textbf{N6:} the best return-seeking sleeve in the final validated set;
+    \item \textbf{S1:} the best lower-beta overlay concept, but not a strong standalone alpha engine; and
+    \item \textbf{state model:} the clearest monitoring abstraction for understanding what the combined signal system is saying at any point in time.
+\end{itemize}
+
+This summary deliberately compresses a large amount of empirical work into five takeaways because that is the level at which the project is most defensible. The strategy library, robustness work, attribution layer, and event studies matter because they justify these conclusions, not because every intermediate variant deserves equal weight in the final interpretation.
 
 \subsection{What Was Built Beyond the Final Returns}
 
@@ -817,7 +832,9 @@ The highest-confidence conclusion is therefore:
 \textit{Public SWF disclosures are more useful as slow-moving allocation and rotation signals than as literal copy-trading instructions, and even then the most durable evidence in this project narrows to a modest NBIM sector-leadership effect plus a lower-beta cross-fund overlay concept, rather than a broad copy-trading alpha engine.}
 \end{quote}
 
-The practical continuation of this research should prioritize event-level attribution, state-transition analysis, and monitoring tools, rather than ever-larger naive mirroring engines.
+Stated even more simply: the project began as a copy-trading question and ended as a selective allocation question. The strongest surviving evidence does not say ``follow sovereign wealth funds stock by stock.'' It says that some public disclosure streams, especially NBIM's sector posture, may contain slow-moving information about where leadership is concentrated and how aggressively an external allocator should participate.
+
+The practical continuation of this research should therefore prioritize event-level attribution, state-transition analysis, and monitoring tools, rather than ever-larger naive mirroring engines.
 
 \begin{thebibliography}{99}
 
