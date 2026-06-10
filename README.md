@@ -8,9 +8,7 @@ The project centers on two funds with very different disclosure regimes:
 
 Rather than stopping at naive “copy the portfolio” backtests, the repo builds a full research stack: normalized holdings panels, transition engines, lag-aware portfolio simulators, benchmark and robustness layers, attribution analysis, formal inference, and a final IEEE-style research paper.
 
-## Why This Repo Is Interesting
-
-This is not a toy backtest.
+## Research Setting
 
 The core challenge is that sovereign wealth funds do **not** disclose on a uniform basis:
 - `PIF` reveals only a narrow U.S.-listed sleeve through `13F`
@@ -60,8 +58,6 @@ Can an outside investor extract alpha from sovereign wealth fund disclosures by:
 
 ## Main Findings
 
-The project became stronger as it became more skeptical.
-
 ### `PIF`
 - After correcting implementation issues, several `PIF` strategies generate positive **absolute** returns.
 - None of them beat `SPY`.
@@ -106,9 +102,8 @@ schemas/                Shared holdings and sector-taxonomy schemas
 scripts/                End-to-end pipeline, backtest, audit, and reporting code
 ```
 
-## Technical Highlights for Recruiters
+## Technical Scope
 
-This repo demonstrates:
 - event-driven financial data engineering across heterogeneous disclosure regimes
 - realistic backtest design with public-date-aware execution
 - rigorous debugging and audit discipline rather than result-chasing
@@ -119,8 +114,6 @@ This repo demonstrates:
 
 The repo includes generated outputs and the scripts that produced them. Some price layers were built from third-party APIs (`Twelve Data`, `Alpha Vantage`) and some analyses depend on those cached pulls already stored in the repo. The final validated workflow uses the corrected daily adjusted price layers and the audited benchmark / attribution / inference stacks described in the paper.
 
-## Short GitHub Repo Description
-
-If you want a clean GitHub repo description, I recommend:
+## Suggested GitHub Description
 
 **Disclosure-lag-aware sovereign wealth fund research: PIF and NBIM holdings pipelines, realistic backtests, robustness testing, attribution, and an IEEE-style paper on whether public SWF disclosures contain tradable alpha.**
